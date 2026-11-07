@@ -1,26 +1,44 @@
 @import "tailwindcss";
+@config "../../tailwind.config.ts";
+
+@theme {
+  --color-saffron: #d97706;
+  --color-saffron-50: #fffbeb;
+  --color-saffron-100: #fef3c7;
+  --color-saffron-500: #f59e0b;
+  --color-saffron-600: #d97706;
+  --color-saffron-700: #b45309;
+
+  --color-maroon: #4a0d0d;
+  --color-maroon-800: #6b1414;
+  --color-maroon-900: #4a0d0d;
+  --color-maroon-950: #2d0606;
+
+  --color-parchment: #FCF8F2;
+  --color-gold: #D4AF37;
+}
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+  --background: #FCF8F2;
+  --foreground: #2d0606;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background-color: #FCF8F2;
+  color: #2d0606;
+  font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+}
+
+.shimmer-gold {
+  background: linear-gradient(135deg, #3d0a0a 0%, #5e1111 50%, #2b0606 100%);
+}
+
+@keyframes pulse-ring {
+  0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(245, 158, 11, 0.7); }
+  70% { transform: scale(1); box-shadow: 0 0 0 8px rgba(245, 158, 11, 0); }
+  100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(245, 158, 11, 0); }
+}
+
+.live-pulse {
+  animation: pulse-ring 2s infinite;
 }

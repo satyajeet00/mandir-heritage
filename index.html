@@ -1,0 +1,817 @@
+<!DOCTYPE html>
+<html lang="mr" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>श्री प्राचीन मंदिर — इतिहास, स्थापत्य वारसा आणि दर्शन माहिती</title>
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Google Fonts: Cinzel, Plus Jakarta Sans & Tiro Devanagari Marathi -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Tiro+Devanagari+Marathi:ital@0;1&display=swap" rel="stylesheet">
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            saffron: {
+              50: '#fffbeb',
+              100: '#fef3c7',
+              500: '#f59e0b',
+              600: '#d97706',
+              700: '#b45309',
+            },
+            maroon: {
+              800: '#6b1414',
+              900: '#4a0d0d',
+              950: '#2d0606',
+            },
+            parchment: '#FCF8F2',
+            gold: '#D4AF37'
+          },
+          fontFamily: {
+            serif: ['Tiro Devanagari Marathi', 'Cinzel', 'serif'],
+            sans: ['Plus Jakarta Sans', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    body {
+      background-color: #FCF8F2;
+      color: #2d0606;
+    }
+    .shimmer-gold {
+      background: linear-gradient(135deg, #3d0a0a 0%, #5e1111 50%, #2b0606 100%);
+    }
+    @keyframes pulse-ring {
+      0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(245, 158, 11, 0.7); }
+      70% { transform: scale(1); box-shadow: 0 0 0 8px rgba(245, 158, 11, 0); }
+      100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(245, 158, 11, 0); }
+    }
+    .live-pulse {
+      animation: pulse-ring 2s infinite;
+    }
+  </style>
+</head>
+<body class="font-sans antialiased selection:bg-saffron-500 selection:text-white">
+
+  <!-- TOP MODE SWITCHER BAR -->
+  <div class="bg-maroon-950 text-amber-100 border-b border-amber-500/30 sticky top-0 z-50">
+    <div class="max-w-7xl mx-auto px-4 py-2 flex flex-wrap items-center justify-between gap-2 text-xs sm:text-sm">
+      <div class="flex items-center gap-2">
+        <span class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-amber-500/20 text-amber-300 font-semibold border border-amber-400/30">
+          <span class="w-2 h-2 rounded-full bg-amber-400 live-pulse"></span>
+          Heritage & Information Portal
+        </span>
+        <span class="hidden md:inline text-amber-200/80">स्थळ पुराण, हेमाडपंती स्थापत्य, आरती संग्रह व उत्सव</span>
+      </div>
+
+      <!-- View Switcher Tabs -->
+      <div class="flex items-center bg-maroon-900 p-1 rounded-lg border border-amber-500/20">
+        <button onclick="switchMainMode('website')" id="tab-website" class="px-3 py-1 rounded-md font-medium transition-all bg-saffron-600 text-white shadow">
+          1. प्राचीन मंदिर वेबसाईट
+        </button>
+        <button onclick="switchMainMode('blueprint')" id="tab-blueprint" class="px-3 py-1 rounded-md font-medium transition-all text-amber-200 hover:text-white">
+          2. Master Plan
+        </button>
+        <button onclick="switchMainMode('admin')" id="tab-admin" class="px-3 py-1 rounded-md font-medium transition-all text-amber-200 hover:text-white">
+          3. सूचना नियंत्रण (`admin.html`)
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ========================================================================= -->
+  <!-- VIEW 1: ANCIENT MANDIR INFORMATION & HERITAGE PORTAL                      -->
+  <!-- ========================================================================= -->
+  <div id="view-website" class="block">
+
+    <!-- Top Notice Ticker & Panchang Bar -->
+    <div class="bg-gradient-to-r from-saffron-700 via-saffron-600 to-saffron-700 text-white text-xs sm:text-sm py-1.5 px-4 shadow-sm">
+      <div class="max-w-7xl mx-auto flex items-center justify-between gap-4">
+        <div class="flex items-center gap-2 truncate">
+          <span class="bg-maroon-900 text-amber-300 px-2 py-0.5 rounded text-[11px] font-bold uppercase tracking-wider shrink-0">मंदिर सूचना</span>
+          <span id="ticker-text" class="font-medium truncate">
+            🚩 त्रिपुरारी पौर्णिमा दीपोत्सव — सर्व ग्रामस्थ आणि भाविकांचे मंदिरात हार्दिक स्वागत!
+          </span>
+        </div>
+        <!-- Language Switcher + Bell Audio Toggle -->
+        <div class="flex items-center gap-3 shrink-0">
+          <button onclick="playTempleBell()" class="flex items-center gap-1 bg-maroon-900/80 hover:bg-maroon-900 px-2.5 py-0.5 rounded-full text-amber-200 border border-amber-300/30 transition" title="Ring Temple Bell">
+            <i data-lucide="bell-ring" class="w-3.5 h-3.5 text-amber-300"></i>
+            <span class="hidden sm:inline text-xs" id="bell-status">नाद / Bell</span>
+          </button>
+          <div class="flex items-center rounded bg-maroon-900/90 p-0.5 border border-amber-400/30 text-xs">
+            <button onclick="setLanguage('mr')" id="lang-mr" class="px-2 py-0.5 rounded bg-amber-500 text-maroon-950 font-bold">मराठी</button>
+            <button onclick="setLanguage('hi')" id="lang-hi" class="px-2 py-0.5 rounded text-amber-100 hover:text-white">हिंदी</button>
+            <button onclick="setLanguage('en')" id="lang-en" class="px-2 py-0.5 rounded text-amber-100 hover:text-white">EN</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Main Navigation Header -->
+    <header class="bg-parchment/95 backdrop-blur-md border-b border-amber-900/15 sticky top-10 z-40">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 py-3.5 flex items-center justify-between">
+        <div class="flex items-center gap-3">
+          <div class="w-11 h-11 rounded-full shimmer-gold flex items-center justify-center border-2 border-amber-400 shadow-md text-amber-300 font-serif text-xl font-bold">
+            ॐ
+          </div>
+          <div>
+            <p class="text-[11px] uppercase tracking-widest text-saffron-700 font-bold" data-i18n="trustTag">ग्रामदैवत व ऐतिहासिक वारसा • हेमाडपंती स्थापत्य</p>
+            <h1 class="font-serif text-lg sm:text-xl font-bold text-maroon-900 leading-tight" data-i18n="templeName">
+              श्री प्राचीन मंदिर देवस्थान
+            </h1>
+          </div>
+        </div>
+
+        <nav class="hidden lg:flex items-center gap-7 text-sm font-semibold text-maroon-900/80">
+          <a href="#history" class="hover:text-saffron-600 transition" data-i18n="navHeritage">इतिहास व आख्यायिका</a>
+          <a href="#architecture" class="hover:text-saffron-600 transition" data-i18n="navArch">हेमाडपंती स्थापत्य</a>
+          <a href="#darshan" class="hover:text-saffron-600 transition" data-i18n="navDarshan">दर्शन व आरती वेळ</a>
+          <a href="#aarti-sangrah" class="hover:text-saffron-600 transition" data-i18n="navAartiBook">आरती संग्रह</a>
+          <a href="#utsav" class="hover:text-saffron-600 transition" data-i18n="navUtsav">वार्षिक उत्सव</a>
+          <a href="#visit" class="hover:text-saffron-600 transition" data-i18n="navVisit">पत्ता व मार्ग</a>
+        </nav>
+
+        <div class="flex items-center gap-2.5">
+          <button onclick="openAartiModal()" class="bg-maroon-900 hover:bg-maroon-800 text-amber-200 border border-amber-500/40 font-semibold text-xs sm:text-sm px-4 py-2.5 rounded-xl shadow-sm transition flex items-center gap-1.5">
+            <i data-lucide="book-open" class="w-4 h-4 text-amber-400"></i>
+            <span data-i18n="btnAarti">आरती संग्रह वाचा</span>
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <!-- HERO SECTION: Focused on History, Heritage & Sacred Presence -->
+    <section class="relative overflow-hidden shimmer-gold text-white">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 py-12 lg:py-16 relative z-10 grid lg:grid-cols-12 gap-8 items-center">
+        <!-- Left Column: Historical Introduction -->
+        <div class="lg:col-span-7 space-y-6">
+          <div class="inline-flex items-center gap-2.5 bg-maroon-950/80 border border-amber-400/40 rounded-full px-4 py-1.5 text-xs sm:text-sm text-amber-200">
+            <span class="w-2.5 h-2.5 rounded-full bg-emerald-400 live-pulse"></span>
+            <span class="font-semibold text-white" data-i18n="liveStatus">दर्शन वेळ: सकाळी ६:०० ते रात्री ९:००</span>
+            <span class="text-amber-400">•</span>
+            <span data-i18n="nextAarti">सायं आरती: ७:०० वाजता</span>
+          </div>
+
+          <h2 class="font-serif text-3xl sm:text-5xl font-bold leading-tight text-amber-50" data-i18n="heroTitle">
+            शेकडो वर्षांचा ऐतिहासिक वारसा आणि गावाचे जागृत श्रद्धास्थान
+          </h2>
+
+          <p class="text-amber-100/85 text-base sm:text-lg leading-relaxed max-w-2xl" data-i18n="heroSubtitle">
+            आपल्या परिसरातील हे पुरातन मंदिर केवळ धार्मिक केंद्र नसून पूर्वजांच्या स्थापत्यकलेचा, अखंड पाषाण शिल्पांचा आणि पिढ्यानपिढ्या चालत आलेल्या सांस्कृतिक परंपरेचा अनमोल ठेवा आहे.
+          </p>
+
+          <!-- Primary Navigation Buttons -->
+          <div class="flex flex-wrap items-center gap-3.5 pt-2">
+            <a href="#history" class="bg-amber-500 hover:bg-amber-400 text-maroon-950 font-bold px-6 py-3.5 rounded-xl shadow-lg transition flex items-center gap-2 text-sm sm:text-base">
+              <i data-lucide="scroll" class="w-5 h-5"></i>
+              <span data-i18n="ctaExploreHistory">मंदिराचा संपूर्ण इतिहास वाचा</span>
+            </a>
+            <a href="#architecture" class="bg-white/10 hover:bg-white/20 text-amber-100 border border-amber-400/40 font-semibold px-6 py-3.5 rounded-xl transition flex items-center gap-2 text-sm sm:text-base">
+              <i data-lucide="compass" class="w-5 h-5 text-amber-300"></i>
+              <span data-i18n="ctaArchitecture">पाषाण स्थापत्य व शिल्पकला</span>
+            </a>
+          </div>
+
+          <!-- Key Heritage Stats -->
+          <div class="grid grid-cols-3 gap-4 pt-6 border-t border-amber-400/20 max-w-lg">
+            <div>
+              <div class="font-serif text-2xl sm:text-3xl font-bold text-amber-300">१३ वे शतक</div>
+              <div class="text-xs text-amber-200/75">यादवकालीन स्थापत्य रचना</div>
+            </div>
+            <div>
+              <div class="font-serif text-2xl sm:text-3xl font-bold text-amber-300">अखंड पाषाण</div>
+              <div class="text-xs text-amber-200/75">चुन्याशिवाय दगडी बांधकाम</div>
+            </div>
+            <div>
+              <div class="font-serif text-2xl sm:text-3xl font-bold text-amber-300">ग्रामदैवत</div>
+              <div class="text-xs text-amber-200/75">अखंड भक्ती व लोकपरंपरा</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right Column: Deity & Temple Overview Card -->
+        <div class="lg:col-span-5">
+          <div class="bg-maroon-950/90 border-2 border-amber-500/40 rounded-2xl p-5 shadow-2xl relative space-y-4">
+            <div class="flex items-center justify-between">
+              <span class="px-2.5 py-0.5 rounded bg-amber-500/20 text-amber-300 border border-amber-400/30 text-[11px] font-bold uppercase tracking-wider">
+                मुख्य गर्भगृह व गाभारा
+              </span>
+              <span class="text-xs text-amber-300/90 font-medium">प्रवेश पूर्णतः नि:शुल्क</span>
+            </div>
+
+            <!-- Deity Info Box -->
+            <div class="rounded-xl bg-gradient-to-b from-amber-900/40 to-maroon-950 border border-amber-500/30 p-6 text-center space-y-3">
+              <div class="w-20 h-20 mx-auto rounded-full bg-amber-500/20 border-2 border-amber-400 flex items-center justify-center shadow-inner">
+                <span class="font-serif text-4xl text-amber-300">ॐ</span>
+              </div>
+              <h3 class="font-serif text-xl font-bold text-amber-100">स्वयंभू पाषाण मूर्ती आणि प्राचीन गाभारा</h3>
+              <p class="text-xs text-amber-200/80 leading-relaxed">
+                मंदिराचे मुख्य गर्भगृह पूर्वाभिमुख असून सूर्योदयाची पहिली किरणे थेट गाभाऱ्यात प्रवेश करतात. शांत व सात्त्विक वातावरणात प्रत्येक भाविकाला थेट दर्शन घेता येते.
+              </p>
+            </div>
+
+            <div class="grid grid-cols-2 gap-2.5 text-xs">
+              <div class="bg-maroon-900/70 rounded-xl p-3 border border-amber-500/15">
+                <span class="text-amber-300/70 block text-[10px] uppercase">सकाळचे दर्शन</span>
+                <span class="font-semibold text-amber-100">सकाळी ६:०० ते दु. १२:३०</span>
+              </div>
+              <div class="bg-maroon-900/70 rounded-xl p-3 border border-amber-500/15">
+                <span class="text-amber-300/70 block text-[10px] uppercase">सायंकाळचे दर्शन</span>
+                <span class="font-semibold text-amber-100">दुपारी ४:०० ते रात्री ९:००</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================================================================== -->
+    <!-- SECTION 1: DEEP STHALA PURANA & HISTORICAL TIMELINE                   -->
+    <!-- ===================================================================== -->
+    <section id="history" class="py-16 max-w-7xl mx-auto px-4 sm:px-6">
+      <div class="max-w-3xl mx-auto text-center mb-12">
+        <span class="text-xs font-bold uppercase tracking-widest text-saffron-700 bg-saffron-100 px-3 py-1 rounded-full">स्थळ पुराण आणि इतिहास (Sthala Purana)</span>
+        <h2 class="font-serif text-2xl sm:text-4xl font-bold text-maroon-900 mt-3" data-i18n="historyHeading">
+          मंदिराचा प्राचीन इतिहास आणि लोककथा
+        </h2>
+        <p class="text-sm sm:text-base text-maroon-800/80 mt-2 leading-relaxed">
+          शेकडो वर्षांपासून गावाच्या सुख-दुःखाचे साक्षीदार असलेल्या या मंदिराची ऐतिहासिक जडणघडण आणि आख्यायिका.
+        </p>
+      </div>
+
+      <div class="grid lg:grid-cols-12 gap-8 items-start">
+        <!-- Story Column -->
+        <div class="lg:col-span-7 bg-white rounded-2xl p-6 sm:p-8 border border-amber-900/15 shadow-sm space-y-5">
+          <h3 class="font-serif text-xl sm:text-2xl font-bold text-maroon-900 border-b border-amber-900/10 pb-3">
+            प्राचीन आख्यायिका आणि मंदिराची उभारणी
+          </h3>
+          <p class="text-sm sm:text-base text-gray-700 leading-relaxed">
+            स्थानिक ग्रामस्थ आणि जुन्या जाणकारांच्या माहितीनुसार, या मंदिराची मूळ रचना <strong>तेराव्या ते चौदाव्या शतकाच्या (यादव कालखंडाच्या)</strong> आसपास काळ्या पाषाणात (Black Basalt Stone) करण्यात आली. प्राचीन काळी या परिसरात नैसर्गिक पाण्याचे झरे आणि घनदाट वृक्षराई होती.
+          </p>
+          <p class="text-sm sm:text-base text-gray-700 leading-relaxed">
+            येथील मुख्य मूर्ती <strong>स्वयंभू आणि जागृत</strong> मानली जाते. जुन्या काळी पंचक्रोशीतील वाटसरू, वारकरी आणि ग्रामस्थ या मंदिराच्या सभामंडपात विश्रांती घेत असत. मंदिराच्या बाजूला असलेली प्राचीन पाषाणी दीपमाळ आजही त्या काळातील समृद्ध स्थापत्यकलेची साक्ष देते.
+          </p>
+
+          <div class="bg-amber-50/90 border-l-4 border-saffron-600 p-4 rounded-r-xl">
+            <h4 class="font-serif font-bold text-maroon-900 text-sm sm:text-base">गावाचे सांस्कृतिक आणि आध्यात्मिक केंद्र</h4>
+            <p class="text-xs sm:text-sm text-gray-700 mt-1 leading-relaxed">
+              हे मंदिर केवळ दर्शनापुरते मर्यादित नसून गावातील भजन संध्या, हरिपाठ, ग्रंथ पारायण आणि सण-उत्सवांचे मुख्य केंद्र आहे. कोणत्याही व्यावसायिक शुल्काशिवाय सर्व भक्तांना येथे शांततेत दर्शन व ध्यान करता येते.
+            </p>
+          </div>
+        </div>
+
+        <!-- Timeline Column -->
+        <div class="lg:col-span-5 space-y-4">
+          <div class="bg-parchment rounded-2xl p-6 border border-amber-900/20 space-y-5">
+            <h3 class="font-serif text-lg sm:text-xl font-bold text-maroon-900 flex items-center gap-2">
+              <i data-lucide="history" class="w-5 h-5 text-saffron-600"></i>
+              ऐतिहासिक कालखंड (Timeline)
+            </h3>
+
+            <div class="relative pl-6 border-l-2 border-saffron-500 space-y-6">
+              <div class="relative">
+                <span class="absolute -left-[31px] top-1 w-4 h-4 rounded-full bg-saffron-600 border-2 border-white"></span>
+                <span class="text-xs font-bold text-saffron-700 uppercase">१३ वे - १४ वे शतक</span>
+                <h4 class="font-serif font-bold text-maroon-900 text-base">मूळ हेमाडपंती पाषाण बांधकाम</h4>
+                <p class="text-xs text-gray-600 mt-1">चुन्याचा वापर न करता एकमेकांत गुंफलेल्या काळ्या पाषाणातून (Interlocking Stone) मुख्य गाभारा व अर्धमंडपाची निर्मिती.</p>
+              </div>
+
+              <div class="relative">
+                <span class="absolute -left-[31px] top-1 w-4 h-4 rounded-full bg-saffron-600 border-2 border-white"></span>
+                <span class="text-xs font-bold text-saffron-700 uppercase">१८ वे शतक (मराठा कालखंड)</span>
+                <h4 class="font-serif font-bold text-maroon-900 text-base">दीपमाळ व ओवरी उभारणी</h4>
+                <p class="text-xs text-gray-600 mt-1">मंदिरासमोरील पाषाणी दीपमाळ आणि विटा-चुन्यातील रेखीव शिखराचे संवर्धन.</p>
+              </div>
+
+              <div class="relative">
+                <span class="absolute -left-[31px] top-1 w-4 h-4 rounded-full bg-saffron-600 border-2 border-white"></span>
+                <span class="text-xs font-bold text-saffron-700 uppercase">वर्तमान काळ</span>
+                <h4 class="font-serif font-bold text-maroon-900 text-base">ग्रामस्थांकडून अखंड संवर्धन</h4>
+                <p class="text-xs text-gray-600 mt-1">मूळ प्राचीन दगडी रचनेला धक्का न लावता परिसर स्वच्छता, नित्य सेवा व उत्सव अखंड सुरू.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================================================================== -->
+    <!-- SECTION 2: ARCHITECTURAL HIGHLIGHTS                                   -->
+    <!-- ===================================================================== -->
+    <section id="architecture" class="py-16 bg-maroon-950 text-amber-50">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6">
+        <div class="max-w-3xl mb-10">
+          <span class="text-xs uppercase tracking-widest text-amber-400 font-bold">प्राचीन वास्तुकला व शिल्पवैभव</span>
+          <h2 class="font-serif text-3xl sm:text-4xl font-bold text-white mt-2">
+            मंदिराची ६ प्रमुख स्थापत्य वैशिष्ट्ये
+          </h2>
+          <p class="text-amber-100/80 text-sm sm:text-base mt-2">
+            मंदिराला भेट देताना येथील दगडी खांब, प्रवेशद्वार आणि छतावरील खालील वैशिष्ट्ये नक्की पहा:
+          </p>
+        </div>
+
+        <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div class="bg-maroon-900/90 border border-amber-500/25 rounded-2xl p-6 space-y-2.5">
+            <div class="w-10 h-10 rounded-xl bg-amber-500/20 text-amber-300 flex items-center justify-center">
+              <i data-lucide="columns" class="w-5 h-5"></i>
+            </div>
+            <h3 class="font-serif text-xl font-bold text-amber-200">१. नक्षीदार पाषाण स्तंभ</h3>
+            <p class="text-xs sm:text-sm text-amber-100/75 leading-relaxed">
+              सभामंडपात अखंड काळ्या पाषाणातून घडवलेले कोरीव खांब असून त्यावर भौमितिक नक्षी आणि पौराणिक चिन्हे कोरलेली आहेत.
+            </p>
+          </div>
+
+          <div class="bg-maroon-900/90 border border-amber-500/25 rounded-2xl p-6 space-y-2.5">
+            <div class="w-10 h-10 rounded-xl bg-amber-500/20 text-amber-300 flex items-center justify-center">
+              <i data-lucide="door-open" class="w-5 h-5"></i>
+            </div>
+            <h3 class="font-serif text-xl font-bold text-amber-200">२. गणेशपट्टी व द्वारशाखा</h3>
+            <p class="text-xs sm:text-sm text-amber-100/75 leading-relaxed">
+              गर्भगृहाच्या मुख्य दगडी चौकटीवर (ललाटबिंब) मंगलमूर्ती गणेशाची प्रतिमा असून बाजूला नाजूक वेलबुट्टीची कोरीव द्वारशाखा आहे.
+            </p>
+          </div>
+
+          <div class="bg-maroon-900/90 border border-amber-500/25 rounded-2xl p-6 space-y-2.5">
+            <div class="w-10 h-10 rounded-xl bg-amber-500/20 text-amber-300 flex items-center justify-center">
+              <i data-lucide="shield" class="w-5 h-5"></i>
+            </div>
+            <h3 class="font-serif text-xl font-bold text-amber-200">३. कीर्तिमुख आणि उंबरठा</h3>
+            <p class="text-xs sm:text-sm text-amber-100/75 leading-relaxed">
+              गाभाऱ्याच्या उंबरठ्यावर प्राचीन चंद्रशिला व कीर्तिमुख कोरलेले आहे, जे पावित्र्य आणि संरक्षणाचे प्रतीक मानले जाते.
+            </p>
+          </div>
+
+          <div class="bg-maroon-900/90 border border-amber-500/25 rounded-2xl p-6 space-y-2.5">
+            <div class="w-10 h-10 rounded-xl bg-amber-500/20 text-amber-300 flex items-center justify-center">
+              <i data-lucide="sun" class="w-5 h-5"></i>
+            </div>
+            <h3 class="font-serif text-xl font-bold text-amber-200">४. कमळाकृती पाषाण वितान</h3>
+            <p class="text-xs sm:text-sm text-amber-100/75 leading-relaxed">
+              सभामंडपाच्या छताकडे पाहिल्यास एकावर एक रचलेल्या दगडी शिळांचा अष्टकोनी बंध आणि मध्यभागी कोरलेले दगडी कमळ दिसते.
+            </p>
+          </div>
+
+          <div class="bg-maroon-900/90 border border-amber-500/25 rounded-2xl p-6 space-y-2.5">
+            <div class="w-10 h-10 rounded-xl bg-amber-500/20 text-amber-300 flex items-center justify-center">
+              <i data-lucide="flame" class="w-5 h-5"></i>
+            </div>
+            <h3 class="font-serif text-xl font-bold text-amber-200">५. ऐतिहासिक दीपमाळ</h3>
+            <p class="text-xs sm:text-sm text-amber-100/75 leading-relaxed">
+              मंदिराच्या प्रांगणातील पुरातन दीपमाळ त्रिपुरारी पौर्णिमा आणि उत्सवाच्या वेळी शेकडो दिव्यांनी उजळून निघते.
+            </p>
+          </div>
+
+          <div class="bg-maroon-900/90 border border-amber-500/25 rounded-2xl p-6 space-y-2.5">
+            <div class="w-10 h-10 rounded-xl bg-amber-500/20 text-amber-300 flex items-center justify-center">
+              <i data-lucide="thermometer-snowflake" class="w-5 h-5"></i>
+            </div>
+            <h3 class="font-serif text-xl font-bold text-amber-200">६. नैसर्गिक वातानुकूलन</h3>
+            <p class="text-xs sm:text-sm text-amber-100/75 leading-relaxed">
+              जाड काळ्या पाषाणाच्या भिंतींमुळे उन्हाळ्यात मंदिराचा गाभारा नैसर्गिकरीत्या थंड आणि हिवाळ्यात उबदार राहतो.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================================================================== -->
+    <!-- SECTION 3: DAILY DARSHAN & AARTI TIMINGS                              -->
+    <!-- ===================================================================== -->
+    <section id="darshan" class="py-14 max-w-7xl mx-auto px-4 sm:px-6">
+      <div class="text-center max-w-2xl mx-auto mb-10">
+        <span class="text-xs font-bold uppercase tracking-widest text-saffron-700 bg-saffron-100 px-3 py-1 rounded-full">दर्शन व नित्य नियम</span>
+        <h2 class="font-serif text-2xl sm:text-4xl font-bold text-maroon-900 mt-2" data-i18n="scheduleHeading">दैनंदिन दर्शन व आरती वेळापत्रक</h2>
+        <p class="text-sm text-maroon-800/75 mt-2">मंदिरात कोणतेही शुल्क किंवा व्हीआयपी पास नाही. सर्वांसाठी मोफत दर्शन खुले आहे.</p>
+      </div>
+
+      <div class="grid sm:grid-cols-3 gap-6">
+        <div class="bg-white rounded-2xl p-6 border border-amber-900/15 shadow-sm">
+          <div class="flex items-center justify-between mb-3">
+            <span class="text-xs font-bold text-saffron-700 bg-amber-100 px-3 py-1 rounded-full">सकाळी ६:०० वाजता</span>
+            <i data-lucide="sunrise" class="w-5 h-5 text-saffron-600"></i>
+          </div>
+          <h3 class="font-serif text-xl font-bold text-maroon-900">प्रातःकाल पूजा व सकाळची आरती</h3>
+          <p class="text-xs sm:text-sm text-gray-600 mt-2 leading-relaxed">
+            सकाळी मंदिर उघडल्यानंतर गाभारा स्वच्छता, नित्य स्नान-पूजा आणि सकाळची आरती होते. दुपारी १२:३० पर्यंत दर्शन सुरू राहते.
+          </p>
+        </div>
+
+        <div class="bg-gradient-to-b from-amber-50 to-white rounded-2xl p-6 border-2 border-saffron-500 shadow-md">
+          <div class="flex items-center justify-between mb-3">
+            <span class="text-xs font-bold text-white bg-saffron-600 px-3 py-1 rounded-full">सायंकाळी ७:०० वाजता</span>
+            <i data-lucide="flame" class="w-5 h-5 text-saffron-600"></i>
+          </div>
+          <h3 class="font-serif text-xl font-bold text-maroon-900">सायं धूप-दीप आरती व हरिपाठ</h3>
+          <p class="text-xs sm:text-sm text-gray-700 mt-2 leading-relaxed">
+            दररोज संध्याकाळी ७:०० वाजता ग्रामस्थ आणि भक्तांच्या उपस्थितीत सामूहिक आरती, भजन आणि मंत्रपुष्पांजली होते.
+          </p>
+        </div>
+
+        <div class="bg-white rounded-2xl p-6 border border-amber-900/15 shadow-sm">
+          <div class="flex items-center justify-between mb-3">
+            <span class="text-xs font-bold text-saffron-700 bg-amber-100 px-3 py-1 rounded-full">रात्री ९:०० वाजता</span>
+            <i data-lucide="moon" class="w-5 h-5 text-saffron-600"></i>
+          </div>
+          <h3 class="font-serif text-xl font-bold text-maroon-900">रात्री मंदिर बंद करण्याची वेळ</h3>
+          <p class="text-xs sm:text-sm text-gray-600 mt-2 leading-relaxed">
+            रात्री ९:०० वाजता दर्शन पूर्ण होऊन मंदिर बंद केले जाते. (उत्सव व एकादशीच्या दिवशी रात्री १०:३० पर्यंत खुले राहते).
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================================================================== -->
+    <!-- SECTION 4: AARTI SANGRAH MODAL CALLOUT                                -->
+    <!-- ===================================================================== -->
+    <section id="aarti-sangrah" class="py-12 max-w-7xl mx-auto px-4 sm:px-6">
+      <div class="bg-gradient-to-r from-maroon-900 via-maroon-800 to-maroon-950 rounded-3xl p-6 sm:p-10 text-white border border-amber-500/30 shadow-xl grid lg:grid-cols-12 gap-8 items-center">
+        <div class="lg:col-span-8 space-y-3">
+          <span class="text-xs font-bold uppercase tracking-widest text-amber-300">डिजिटल नित्यपाठ</span>
+          <h3 class="font-serif text-2xl sm:text-3xl font-bold text-amber-50">
+            मंदिरातील नित्य आरती संग्रह, अष्टक आणि मंत्रपुष्पांजली
+          </h3>
+          <p class="text-xs sm:text-sm text-amber-100/80 leading-relaxed max-w-2xl">
+            मंदिरात सायंकाळच्या आरतीला आल्यावर किंवा घरी उपासना करताना आपल्या मोबाईलवर स्पष्ट मोठ्या अक्षरात आरती वाचण्यासाठी आम्ही येथे संपूर्ण संग्रह दिला आहे.
+          </p>
+        </div>
+        <div class="lg:col-span-4 flex flex-col sm:flex-row lg:flex-col gap-3">
+          <button onclick="openAartiModal()" class="w-full py-3.5 px-5 rounded-xl bg-amber-400 hover:bg-amber-300 text-maroon-950 font-bold text-sm transition flex items-center justify-center gap-2 shadow-md">
+            <i data-lucide="book-open-check" class="w-5 h-5"></i>
+            संपूर्ण आरती संग्रह उघडा
+          </button>
+          <button onclick="playTempleBell()" class="w-full py-2.5 px-5 rounded-xl bg-white/10 hover:bg-white/20 text-amber-200 border border-amber-400/30 font-semibold text-xs transition flex items-center justify-center gap-2">
+            🔔 मंदिर घंटानाद ऐका
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================================================================== -->
+    <!-- SECTION 5: VILLAGE UTSAVS & VISITOR INFORMATION                       -->
+    <!-- ===================================================================== -->
+    <section id="utsav" class="py-14 bg-amber-50/70 border-t border-amber-900/10">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 grid lg:grid-cols-12 gap-8">
+        <!-- Upcoming Utsav List -->
+        <div class="lg:col-span-7 space-y-4">
+          <div>
+            <span class="text-xs font-bold uppercase tracking-widest text-saffron-700">ग्रामपरंपरा व उत्सव</span>
+            <h3 class="font-serif text-2xl sm:text-3xl font-bold text-maroon-900 mt-1">मंदिरातील प्रमुख वार्षिक उत्सव</h3>
+          </div>
+          <div id="utsav-list-container" class="space-y-3"></div>
+        </div>
+
+        <!-- Visitor Etiquette & Map Link -->
+        <div id="visit" class="lg:col-span-5 bg-white rounded-2xl p-6 border border-amber-900/15 shadow-sm space-y-5">
+          <h3 class="font-serif text-xl font-bold text-maroon-900 flex items-center gap-2">
+            <i data-lucide="map-pin" class="w-5 h-5 text-saffron-600"></i>
+            मंदिर पत्ता व पर्यटक/भाविकांसाठी माहिती
+          </h3>
+          <p class="text-xs sm:text-sm text-gray-700 leading-relaxed">
+            <strong>श्री प्राचीन मंदिर देवस्थान</strong><br>
+            जुने गावठाण, मुख्य मंदिर मार्ग, महाराष्ट्र
+          </p>
+
+          <div class="bg-parchment rounded-xl p-4 border border-amber-900/15 text-xs space-y-2">
+            <div class="font-bold text-maroon-900 text-sm">प्राचीन वारसा जतन करण्यासाठी नम्र विनंती:</div>
+            <p class="text-gray-700">• मंदिराच्या प्राचीन पाषाण खांबांवर किंवा भिंतींवर खडू/नावे लिहू नयेत किंवा खिळे ठोकू नयेत.</p>
+            <p class="text-gray-700">• पुरातन दगडी मूर्ती व शिल्पांवर रासायनिक रंग किंवा तेल लावू नये.</p>
+            <p class="text-gray-700">• मंदिर प्रांगणात प्लास्टिक कचरा टाकू नये; परिसराचे पावित्र्य राखावे.</p>
+          </div>
+
+          <div class="flex gap-2.5 pt-1">
+            <a href="https://maps.google.com" target="_blank" class="flex-1 text-center py-2.5 rounded-xl bg-saffron-600 hover:bg-saffron-700 text-white font-semibold text-xs transition">
+              📍 Google Maps लोकेशन पहा
+            </a>
+            <button onclick="switchMainMode('admin')" class="flex-1 text-center py-2.5 rounded-xl border border-maroon-900/20 hover:bg-gray-50 text-maroon-900 font-semibold text-xs transition">
+              ✏️ उत्सव / सूचना बदला
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <!-- ========================================================================= -->
+  <!-- VIEW 2: MASTER PLAN                                                       -->
+  <!-- ========================================================================= -->
+  <div id="view-blueprint" class="hidden max-w-6xl mx-auto px-4 sm:px-6 py-10 space-y-8">
+    <div class="bg-white rounded-2xl p-6 sm:p-8 border border-amber-900/15 shadow-sm">
+      <span class="text-xs font-bold uppercase tracking-widest text-saffron-700 bg-saffron-100 px-3 py-1 rounded-full">Heritage Plan</span>
+      <h2 class="font-serif text-2xl sm:text-3xl font-bold text-maroon-900 mt-2">
+        Simplified Plan for a Local Heritage & Information Mandir Website
+      </h2>
+      <p class="text-sm text-gray-600 mt-2">
+        Since your local Mandir does <strong>not</strong> need commercial Abhishek/Puja slot booking or payment gateway complexity, your architecture becomes <strong>100% free to host forever with zero maintenance</strong>!
+      </p>
+
+      <div class="grid md:grid-cols-2 gap-6 mt-6">
+        <div class="border border-amber-900/15 rounded-xl p-5 bg-parchment/60">
+          <div class="text-xs font-bold text-saffron-700 uppercase">1. What We Removed</div>
+          <h3 class="font-serif text-lg font-bold text-maroon-900 mt-1">No Payment Gateway or Booking Clutter</h3>
+          <ul class="text-xs text-gray-700 space-y-2 mt-3 list-disc pl-4">
+            <li>Removed online Puja/Abhishek booking forms, Gotra Sankalp carts, and payment gateways.</li>
+            <li>No bank KYC or complex accounting required.</li>
+          </ul>
+        </div>
+
+        <div class="border border-amber-900/15 rounded-xl p-5 bg-parchment/60">
+          <div class="text-xs font-bold text-saffron-700 uppercase">2. What We Expanded</div>
+          <h3 class="font-serif text-lg font-bold text-maroon-900 mt-1">Deep Heritage, Architecture & Aarti Reader</h3>
+          <ul class="text-xs text-gray-700 space-y-2 mt-3 list-disc pl-4">
+            <li><strong>Sthala Purana & Timeline:</strong> Tells the origin story and historical timeline of the village temple.</li>
+            <li><strong>6 Architectural Highlights:</strong> Explains the Hemadpanti pillars, Ganeshpatti, Kirtimukh, and Deepmal.</li>
+            <li><strong>Built-in Aarti Reader:</strong> Devotees can read Aarti lyrics right on their phone during evening Aarti.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ========================================================================= -->
+  <!-- VIEW 3: SIMPLE NOTICE BOARD & UTSAV ADMIN (`admin.html`)                  -->
+  <!-- ========================================================================= -->
+  <div id="view-admin" class="hidden max-w-5xl mx-auto px-4 sm:px-6 py-10 space-y-8">
+    <div class="bg-maroon-900 text-white rounded-2xl p-6 flex flex-wrap items-center justify-between gap-4 shadow-lg">
+      <div>
+        <span class="text-xs uppercase tracking-widest text-amber-300 font-bold">Mandir Information CMS (`admin.html`)</span>
+        <h2 class="font-serif text-2xl font-bold mt-1">मंदिर सूचना फलक व उत्सव नियंत्रण कक्ष</h2>
+      </div>
+      <button onclick="switchMainMode('website')" class="bg-white/10 hover:bg-white/20 text-white text-xs font-semibold px-4 py-2.5 rounded-xl transition">
+        ← मुख्य वेबसाईटवर परत जा
+      </button>
+    </div>
+
+    <div class="grid md:grid-cols-2 gap-6">
+      <div class="bg-white rounded-2xl p-6 border border-amber-900/15 shadow-sm space-y-4">
+        <h3 class="font-serif text-lg font-bold text-maroon-900">१. मुख्य सूचना फलक बदला (Notice Ticker)</h3>
+        <p class="text-xs text-gray-500">गावातील उत्सव, हरिपाठ किंवा महाप्रसादाची सूचना येथे लिहा:</p>
+        <input id="admin-ticker-input" type="text" value="🚩 त्रिपुरारी पौर्णिमा दीपोत्सव — सर्व ग्रामस्थ आणि भाविकांचे मंदिरात हार्दिक स्वागत!" class="w-full rounded-xl border border-gray-300 px-3 py-2.5 text-xs focus:outline-none focus:border-saffron-600" />
+        <button onclick="updateTickerFromAdmin()" class="w-full bg-saffron-600 hover:bg-saffron-700 text-white font-semibold text-xs py-2.5 rounded-xl transition">
+          सूचना वेबसाईटवर प्रकाशित करा
+        </button>
+        <p id="ticker-success-msg" class="text-xs text-emerald-600 font-semibold hidden">✓ सूचना फलक मुख्य वेबसाईटवर यशस्वीरीत्या अपडेट झाला!</p>
+      </div>
+
+      <div class="bg-white rounded-2xl p-6 border border-amber-900/15 shadow-sm space-y-3">
+        <h3 class="font-serif text-lg font-bold text-maroon-900">२. आगामी सण / उत्सव जोडा (Add Utsav)</h3>
+        <div class="space-y-2.5 text-xs">
+          <input id="new-utsav-title" type="text" placeholder="उदा. महाशिवरात्री भजन व महाप्रसाद सोहळा" class="w-full rounded-xl border border-gray-300 px-3 py-2" />
+          <div class="grid grid-cols-2 gap-2">
+            <input id="new-utsav-date" type="text" placeholder="दिनांक: १५ नोव्हेंबर २०२६" class="w-full rounded-xl border border-gray-300 px-3 py-2" />
+            <input id="new-utsav-time" type="text" placeholder="वेळ: सायं. ७:०० वाजता" class="w-full rounded-xl border border-gray-300 px-3 py-2" />
+          </div>
+          <input id="new-utsav-desc" type="text" placeholder="वर्णन: सायंकाळी दीपप्रज्वलन व भजन" class="w-full rounded-xl border border-gray-300 px-3 py-2" />
+          <button onclick="addUtsavFromAdmin()" class="w-full bg-maroon-900 hover:bg-maroon-800 text-amber-200 font-semibold py-2.5 rounded-xl transition">
+            + उत्सव दिनदर्शिकेत जोडा
+          </button>
+          <p id="utsav-success-msg" class="text-xs text-emerald-600 font-semibold hidden">✓ नवीन उत्सव वेबसाईटवर जोडला गेला!</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ========================================================================= -->
+  <!-- MODAL: DIGITAL AARTI SANGRAH & STOTRA READER                              -->
+  <!-- ========================================================================= -->
+  <div id="aarti-modal" class="fixed inset-0 bg-black/60 backdrop-blur-sm z-50 hidden items-center justify-center p-4">
+    <div class="bg-parchment rounded-2xl max-w-lg w-full overflow-hidden shadow-2xl border-2 border-amber-500/40">
+      <div class="shimmer-gold text-white p-5 flex items-center justify-between">
+        <div>
+          <span class="text-[11px] uppercase tracking-widest text-amber-300 font-bold">नित्य उपासना संग्रह</span>
+          <h3 class="font-serif text-xl font-bold text-white mt-0.5">श्री मंदिरातील आरती व मंत्रपुष्पांजली</h3>
+        </div>
+        <button onclick="closeAartiModal()" class="text-amber-200 hover:text-white p-1">
+          <i data-lucide="x" class="w-5 h-5"></i>
+        </button>
+      </div>
+
+      <div class="p-6 space-y-5 max-h-[70vh] overflow-y-auto text-maroon-950">
+        <div class="bg-white rounded-xl p-4 border border-amber-900/15 space-y-2">
+          <span class="text-[11px] font-bold text-saffron-700 uppercase">१. श्री गणपतीची आरती</span>
+          <p class="font-serif text-sm sm:text-base leading-relaxed">
+            सुखकर्ता दुखहर्ता वार्ता विघ्नांची । नुरवी पूर्वी प्रेम कृपा जयाची ॥<br>
+            सर्वांगी सुंदर उटी शेंदुराची । कंठी झळके माळ मुक्ताफळांची ॥ १ ॥<br>
+            जय देव जय देव जय मंगलमूर्ती । दर्शनमात्रे मन कामना पुरती ॥ धृ ॥
+          </p>
+        </div>
+
+        <div class="bg-white rounded-xl p-4 border border-amber-900/15 space-y-2">
+          <span class="text-[11px] font-bold text-saffron-700 uppercase">२. श्री शंकराची आरती</span>
+          <p class="font-serif text-sm sm:text-base leading-relaxed">
+            लवथवती विक्राळा ब्रह्मांडी माळा । वीषे कंठ काळा त्रिनेत्री ज्वाळा ॥<br>
+            लावण्यसुंदर मस्तकी बाळा । तेथुनियां जळ निर्मळ वाहे झुळझुळा ॥ १ ॥<br>
+            जय देव जय देव जय श्रीशंकरा । आरती ओवाळू तुज कर्पूरगौरा ॥ धृ ॥
+          </p>
+        </div>
+
+        <div class="bg-white rounded-xl p-4 border border-amber-900/15 space-y-2">
+          <span class="text-[11px] font-bold text-saffron-700 uppercase">३. वैदिक मंत्रपुष्पांजली</span>
+          <p class="font-serif text-sm sm:text-base leading-relaxed">
+            ॐ यज्ञेन यज्ञमयजन्त देवास्तानि धर्माणि प्रथमान्यासन् ।<br>
+            ते ह नाकं महिमानः सचन्त यत्र पूर्वे साध्याः सन्ति देवाः ॥
+          </p>
+        </div>
+      </div>
+
+      <div class="p-4 bg-white border-t border-amber-900/10 flex justify-end">
+        <button onclick="closeAartiModal()" class="px-5 py-2 rounded-xl bg-maroon-900 text-white font-semibold text-xs">
+          बंद करा
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    lucide.createIcons();
+
+    const state = {
+      utsavs: [
+        {
+          title: "त्रिपुरारी पौर्णिमा दीपोत्सव सोहळा",
+          date: "१५ नोव्हेंबर २०२६",
+          time: "सायं. ६:३० वाजता",
+          desc: "प्राचीन पाषाणी दीपमाळ प्रज्वलन, भजन आणि सामूहिक महाआरती.",
+          tag: "दीपोत्सव परंपरा"
+        },
+        {
+          title: "वार्षिक ग्रामउत्सव आणि हरिपाठ सप्ताह",
+          date: "डिसेंबर २०२६",
+          time: "दररोज सायं. ७:०० वाजता",
+          desc: "गावातील भजनी मंडळाचा हरिपाठ, कीर्तन आणि शेवटच्या दिवशी महाप्रसाद.",
+          tag: "वार्षिक सोहळा"
+        },
+        {
+          title: "महाशिवरात्री / मुख्य वार्षिक यात्रा उत्सव",
+          date: "माघ वद्य चतुर्दशी",
+          time: "पहाटे ५:०० पासून अखंड दर्शन",
+          desc: "पंचक्रोशीतील हजारो भाविकांच्या उपस्थितीत पारंपारिक उत्सव.",
+          tag: "मुख्य यात्रा"
+        }
+      ]
+    };
+
+    const i18n = {
+      mr: {
+        trustTag: "ग्रामदैवत व ऐतिहासिक वारसा • हेमाडपंती स्थापत्य",
+        templeName: "श्री प्राचीन मंदिर देवस्थान",
+        navHeritage: "इतिहास व आख्यायिका",
+        navArch: "हेमाडपंती स्थापत्य",
+        navDarshan: "दर्शन व आरती वेळ",
+        navAartiBook: "आरती संग्रह",
+        navUtsav: "वार्षिक उत्सव",
+        navVisit: "पत्ता व मार्ग",
+        btnAarti: "आरती संग्रह वाचा",
+        liveStatus: "दर्शन वेळ: सकाळी ६:०० ते रात्री ९:००",
+        nextAarti: "सायं आरती: ७:०० वाजता",
+        heroTitle: "शेकडो वर्षांचा ऐतिहासिक वारसा आणि गावाचे जागृत श्रद्धास्थान",
+        heroSubtitle: "आपल्या परिसरातील हे पुरातन मंदिर केवळ धार्मिक केंद्र नसून पूर्वजांच्या स्थापत्यकलेचा, अखंड पाषाण शिल्पांचा आणि पिढ्यानपिढ्या चालत आलेल्या सांस्कृतिक परंपरेचा अनमोल ठेवा आहे.",
+        ctaExploreHistory: "मंदिराचा संपूर्ण इतिहास वाचा",
+        ctaArchitecture: "पाषाण स्थापत्य व शिल्पकला",
+        historyHeading: "मंदिराचा प्राचीन इतिहास आणि लोककथा",
+        scheduleHeading: "दैनंदिन दर्शन व आरती वेळापत्रक"
+      },
+      hi: {
+        trustTag: "ग्रामदैवत एवं ऐतिहासिक धरोहर • हेमाडपंती स्थापत्य",
+        templeName: "श्री प्राचीन मंदिर देवस्थान",
+        navHeritage: "इतिहास एवं कथा",
+        navArch: "हेमाडपंती स्थापत्य",
+        navDarshan: "दर्शन एवं आरती समय",
+        navAartiBook: "आरती संग्रह",
+        navUtsav: "वार्षिक उत्सव",
+        navVisit: "पता एवं मार्ग",
+        btnAarti: "आरती संग्रह पढ़ें",
+        liveStatus: "दर्शन समय: प्रातः ६:०० से रात्रि ९:००",
+        nextAarti: "सायं आरती: ७:०० बजे",
+        heroTitle: "सैकड़ों वर्षों की ऐतिहासिक धरोहर और गाँव का जागृत आस्था केंद्र",
+        heroSubtitle: "हमारे क्षेत्र का यह प्राचीन मंदिर केवल उपासना केंद्र ही नहीं, अपितु पूर्वजों की पाषाण शिल्पकला, हेमाडपंती वास्तुकला और पीढ़ियों से चली आ रही सांस्कृतिक परंपरा की अनमोल धरोहर है।",
+        ctaExploreHistory: "मंदिर का संपूर्ण इतिहास पढ़ें",
+        ctaArchitecture: "पाषाण स्थापत्य एवं शिल्पकला",
+        historyHeading: "मंदिर का प्राचीन इतिहास और लोककथा",
+        scheduleHeading: "दैनिक दर्शन एवं आरती समय-सारणी"
+      },
+      en: {
+        trustTag: "Sacred Village Heritage • Ancient Hemadpanti Architecture",
+        templeName: "Shree Prachin Mandir Devasthan",
+        navHeritage: "History & Legends",
+        navArch: "Stone Architecture",
+        navDarshan: "Darshan & Aarti Timings",
+        navAartiBook: "Aarti Book",
+        navUtsav: "Annual Utsavs",
+        navVisit: "Visitor Guide",
+        btnAarti: "Read Aarti Sangrah",
+        liveStatus: "Open Daily: 6:00 AM – 9:00 PM",
+        nextAarti: "Evening Aarti: 7:00 PM",
+        heroTitle: "Centuries of Sacred Stone Heritage & Living Village Devotion",
+        heroSubtitle: "More than a place of worship, this ancient Mandir stands as a living monument to interlocking basalt stone craftsmanship, oral history, and timeless community traditions.",
+        ctaExploreHistory: "Read Complete Mandir History",
+        ctaArchitecture: "Explore Stone Architecture",
+        historyHeading: "Ancient History & Sthala Purana",
+        scheduleHeading: "Daily Darshan & Aarti Timings"
+      }
+    };
+
+    function setLanguage(lang) {
+      document.querySelectorAll('[data-i18n]').forEach(el => {
+        const key = el.getAttribute('data-i18n');
+        if (i18n[lang][key]) el.textContent = i18n[lang][key];
+      });
+      ['mr', 'hi', 'en'].forEach(l => {
+        const btn = document.getElementById('lang-' + l);
+        btn.className = l === lang
+          ? 'px-2 py-0.5 rounded bg-amber-500 text-maroon-950 font-bold'
+          : 'px-2 py-0.5 rounded text-amber-100 hover:text-white';
+      });
+    }
+
+    function switchMainMode(mode) {
+      ['website', 'blueprint', 'admin'].forEach(m => {
+        document.getElementById('view-' + m).classList.toggle('hidden', m !== mode);
+        const tab = document.getElementById('tab-' + m);
+        tab.className = m === mode
+          ? 'px-3 py-1 rounded-md font-medium transition-all bg-saffron-600 text-white shadow'
+          : 'px-3 py-1 rounded-md font-medium transition-all text-amber-200 hover:text-white';
+      });
+    }
+
+    function playTempleBell() {
+      try {
+        const ctx = new (window.AudioContext || window.webkitAudioContext)();
+        const freqs = [528, 1056, 1584, 2112];
+        freqs.forEach((f, idx) => {
+          const osc = ctx.createOscillator();
+          const gain = ctx.createGain();
+          osc.type = idx === 0 ? 'sine' : 'triangle';
+          osc.frequency.setValueAtTime(f, ctx.currentTime);
+          gain.gain.setValueAtTime(0.25 / (idx + 1), ctx.currentTime);
+          gain.gain.exponentialRampToValueAtTime(0.0001, ctx.currentTime + 3.2);
+          osc.connect(gain);
+          gain.connect(ctx.destination);
+          osc.start();
+          osc.stop(ctx.currentTime + 3.2);
+        });
+        document.getElementById('bell-status').textContent = '🔔 ॐ नाद...';
+        setTimeout(() => { document.getElementById('bell-status').textContent = 'नाद / Bell'; }, 2500);
+      } catch (e) {}
+    }
+
+    function renderUtsavs() {
+      const container = document.getElementById('utsav-list-container');
+      container.innerHTML = state.utsavs.map(u => `
+        <div class="bg-white rounded-xl p-5 border border-amber-900/15 shadow-sm space-y-1.5">
+          <div class="flex items-center justify-between">
+            <span class="text-[10px] font-bold uppercase tracking-wider px-2.5 py-0.5 rounded bg-amber-100 text-saffron-700">${u.tag}</span>
+            <span class="text-xs font-semibold text-maroon-900">📅 ${u.date} • ⏰ ${u.time}</span>
+          </div>
+          <h4 class="font-serif font-bold text-maroon-900 text-lg">${u.title}</h4>
+          <p class="text-xs text-gray-600 leading-relaxed">${u.desc}</p>
+        </div>
+      `).join('');
+    }
+
+    function openAartiModal() {
+      document.getElementById('aarti-modal').classList.remove('hidden');
+      document.getElementById('aarti-modal').classList.add('flex');
+    }
+
+    function closeAartiModal() {
+      document.getElementById('aarti-modal').classList.add('hidden');
+      document.getElementById('aarti-modal').classList.remove('flex');
+    }
+
+    function updateTickerFromAdmin() {
+      const val = document.getElementById('admin-ticker-input').value;
+      document.getElementById('ticker-text').textContent = val;
+      const msg = document.getElementById('ticker-success-msg');
+      msg.classList.remove('hidden');
+      setTimeout(() => msg.classList.add('hidden'), 3000);
+    }
+
+    function addUtsavFromAdmin() {
+      const title = document.getElementById('new-utsav-title').value;
+      const date = document.getElementById('new-utsav-date').value || 'नोव्हेंबर २०२६';
+      const time = document.getElementById('new-utsav-time').value || 'सायं. ७:०० वाजता';
+      const desc = document.getElementById('new-utsav-desc').value || 'सर्व ग्रामस्थ आणि भक्तांना सादर निमंत्रण.';
+      if (!title) return;
+      state.utsavs.unshift({ title, date, time, desc, tag: 'आगामी उत्सव' });
+      renderUtsavs();
+      document.getElementById('new-utsav-title').value = '';
+      document.getElementById('new-utsav-desc').value = '';
+      const msg = document.getElementById('utsav-success-msg');
+      msg.classList.remove('hidden');
+      setTimeout(() => msg.classList.add('hidden'), 3000);
+    }
+
+    renderUtsavs();
+  </script>
+</body>
+</html>
