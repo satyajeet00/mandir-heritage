@@ -5,7 +5,7 @@ import { BellRing, BookOpen, Menu, X } from "lucide-react";
 import mandirContent from "@/data/mandirContent.json";
 import { playTempleBell } from "@/utils/audio";
 
-export type Language = "mr" | "hi" | "en";
+export type Language = "mr" | "en";
 
 interface HeaderProps {
   currentLang: Language;
@@ -21,12 +21,23 @@ export default function Header({
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [bellRinging, setBellRinging] = useState(false);
 
-  const t = mandirContent.translations[currentLang];
-
   const handleBell = () => {
     playTempleBell();
     setBellRinging(true);
     setTimeout(() => setBellRinging(false), 2200);
+  };
+
+  const navLabels = {
+    history: currentLang === "mr" ? "इतिहास व आख्यायिका" : "History & Lore",
+    architecture: currentLang === "mr" ? "हेमाडपंती स्थापत्य" : "Stone Architecture",
+    gallery: currentLang === "mr" ? "दृश्य दर्शन" : "Visual Gallery",
+    darshan: currentLang === "mr" ? "दर्शन व आरती वेळ" : "Aarti Timings",
+    utsavs: currentLang === "mr" ? "वार्षिक उत्सव" : "Annual Utsavs",
+    visit: currentLang === "mr" ? "पत्ता व नियम" : "Visitor Guide",
+    btnAarti: currentLang === "mr" ? "आरती संग्रह वाचा" : "Read Aarti Book",
+    noticeBadge: currentLang === "mr" ? "मंदिर सूचना" : "Notice",
+    bellText: currentLang === "mr" ? "नाद / Bell" : "Temple Bell",
+    bellRingingText: currentLang === "mr" ? "ॐ नाद..." : "Chime...",
   };
 
   return (
@@ -36,10 +47,10 @@ export default function Header({
         <div className="max-w-7xl mx-auto flex flex-wrap items-center justify-between gap-3">
           <div className="flex items-center gap-2 truncate">
             <span className="bg-maroon-900 text-amber-300 px-2 py-0.5 rounded text-[11px] font-bold uppercase tracking-wider shrink-0 shadow-xs">
-              मंदिर सूचना
+              {navLabels.noticeBadge}
             </span>
             <span className="font-medium truncate text-amber-50">
-              {mandirContent.ticker}
+              {mandirContent.ticker[currentLang]}
             </span>
           </div>
 
@@ -47,7 +58,7 @@ export default function Header({
             {/* Temple Bell */}
             <button
               onClick={handleBell}
-              className={`flex items-center gap-1 px-2.5 py-0.5 rounded-full text-xs font-semibold border transition-all ${
+              className={`flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold border transition-all cursor-pointer ${
                 bellRinging
                   ? "bg-amber-400 text-maroon-950 border-amber-300 scale-105 shadow-md"
                   : "bg-maroon-900/80 hover:bg-maroon-900 text-amber-200 border-amber-400/30"
@@ -59,26 +70,33 @@ export default function Header({
                   bellRinging ? "animate-bounce text-maroon-950" : "text-amber-300"
                 }`}
               />
-              <span className="hidden sm:inline">
-                {bellRinging ? "ॐ नाद..." : "नाद / Bell"}
+              <span>
+                {bellRinging ? navLabels.bellRingingText : navLabels.bellText}
               </span>
             </button>
 
-            {/* Language Switcher */}
+            {/* Pure Bilingual Language Switcher (मराठी | English) */}
             <div className="flex items-center rounded-lg bg-maroon-950/90 p-0.5 border border-amber-400/30 text-xs">
-              {(["mr", "hi", "en"] as const).map((lang) => (
-                <button
-                  key={lang}
-                  onClick={() => onSelectLang(lang)}
-                  className={`px-2.5 py-0.5 rounded font-medium transition-all ${
-                    currentLang === lang
-                      ? "bg-amber-500 text-maroon-950 font-bold shadow-xs"
-                      : "text-amber-100 hover:text-white"
-                  }`}
-                >
-                  {lang === "mr" ? "मराठी" : lang === "hi" ? "हिंदी" : "EN"}
-                </button>
-              ))}
+              <button
+                onClick={() => onSelectLang("mr")}
+                className={`px-3 py-0.5 rounded font-medium transition-all cursor-pointer ${
+                  currentLang === "mr"
+                    ? "bg-amber-500 text-maroon-950 font-bold shadow-xs"
+                    : "text-amber-100 hover:text-white"
+                }`}
+              >
+                मराठी
+              </button>
+              <button
+                onClick={() => onSelectLang("en")}
+                className={`px-3 py-0.5 rounded font-medium transition-all cursor-pointer ${
+                  currentLang === "en"
+                    ? "bg-amber-500 text-maroon-950 font-bold shadow-xs"
+                    : "text-amber-100 hover:text-white"
+                }`}
+              >
+                English
+              </button>
             </div>
           </div>
         </div>
@@ -94,30 +112,33 @@ export default function Header({
             </div>
             <div>
               <p className="text-[11px] uppercase tracking-widest text-saffron-700 font-bold">
-                {t.trustTag}
+                {mandirContent.temple.trustTag[currentLang]}
               </p>
               <h1 className="font-serif text-lg sm:text-xl font-bold text-maroon-900 leading-tight">
-                {t.templeName}
+                {mandirContent.temple.name[currentLang]}
               </h1>
             </div>
           </div>
 
           {/* Desktop Navigation Links */}
-          <nav className="hidden lg:flex items-center gap-7 text-sm font-semibold text-maroon-900/85">
+          <nav className="hidden lg:flex items-center gap-6 text-sm font-semibold text-maroon-900/85">
             <a href="#history" className="hover:text-saffron-600 transition">
-              {t.navHeritage}
+              {navLabels.history}
             </a>
             <a href="#architecture" className="hover:text-saffron-600 transition">
-              {t.navArch}
+              {navLabels.architecture}
+            </a>
+            <a href="#gallery" className="hover:text-saffron-600 transition">
+              {navLabels.gallery}
             </a>
             <a href="#darshan" className="hover:text-saffron-600 transition">
-              {t.navDarshan}
+              {navLabels.darshan}
             </a>
             <a href="#utsavs" className="hover:text-saffron-600 transition">
-              {t.navUtsav}
+              {navLabels.utsavs}
             </a>
             <a href="#visit" className="hover:text-saffron-600 transition">
-              {t.navVisit}
+              {navLabels.visit}
             </a>
           </nav>
 
@@ -129,13 +150,13 @@ export default function Header({
                 className="bg-maroon-900 hover:bg-maroon-800 text-amber-200 border border-amber-500/40 font-semibold text-xs sm:text-sm px-4 py-2.5 rounded-xl shadow-xs transition flex items-center gap-1.5 cursor-pointer"
               >
                 <BookOpen className="w-4 h-4 text-amber-400" />
-                <span>{t.btnAarti}</span>
+                <span>{navLabels.btnAarti}</span>
               </button>
             )}
 
             <button
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              className="lg:hidden p-2 rounded-xl text-maroon-900 hover:bg-amber-100/50 transition"
+              className="lg:hidden p-2 rounded-xl text-maroon-900 hover:bg-amber-100/50 transition cursor-pointer"
               aria-label="Toggle navigation menu"
             >
               {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
@@ -151,35 +172,42 @@ export default function Header({
               onClick={() => setMobileMenuOpen(false)}
               className="block py-2 px-3 rounded-lg hover:bg-amber-100/60"
             >
-              {t.navHeritage}
+              {navLabels.history}
             </a>
             <a
               href="#architecture"
               onClick={() => setMobileMenuOpen(false)}
               className="block py-2 px-3 rounded-lg hover:bg-amber-100/60"
             >
-              {t.navArch}
+              {navLabels.architecture}
+            </a>
+            <a
+              href="#gallery"
+              onClick={() => setMobileMenuOpen(false)}
+              className="block py-2 px-3 rounded-lg hover:bg-amber-100/60"
+            >
+              {navLabels.gallery}
             </a>
             <a
               href="#darshan"
               onClick={() => setMobileMenuOpen(false)}
               className="block py-2 px-3 rounded-lg hover:bg-amber-100/60"
             >
-              {t.navDarshan}
+              {navLabels.darshan}
             </a>
             <a
               href="#utsavs"
               onClick={() => setMobileMenuOpen(false)}
               className="block py-2 px-3 rounded-lg hover:bg-amber-100/60"
             >
-              {t.navUtsav}
+              {navLabels.utsavs}
             </a>
             <a
               href="#visit"
               onClick={() => setMobileMenuOpen(false)}
               className="block py-2 px-3 rounded-lg hover:bg-amber-100/60"
             >
-              {t.navVisit}
+              {navLabels.visit}
             </a>
           </div>
         )}

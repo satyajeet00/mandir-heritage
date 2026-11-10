@@ -1,194 +1,630 @@
 {
   "temple": {
-    "name": "श्री प्राचीन मंदिर देवस्थान",
-    "nameEn": "Shree Prachin Mandir Devasthan",
-    "nameHi": "श्री प्राचीन मंदिर देवस्थान",
-    "trustTag": "ग्रामदैवत व ऐतिहासिक वारसा • हेमाडपंती स्थापत्य",
-    "trustTagEn": "Sacred Village Heritage • Ancient Hemadpanti Architecture",
-    "trustTagHi": "ग्रामदैवत एवं ऐतिहासिक धरोहर • हेमाडपंती स्थापत्य",
-    "address": "जुने गावठाण, मुख्य मंदिर मार्ग, महाराष्ट्र",
+    "name": {
+      "mr": "श्री प्राचीन मंदिर देवस्थान",
+      "en": "Shree Prachin Mandir Devasthan"
+    },
+    "trustTag": {
+      "mr": "ग्रामदैवत व ऐतिहासिक वारसा • हेमाडपंती स्थापत्य",
+      "en": "Sacred Village Heritage • Ancient Hemadpanti Architecture"
+    },
+    "address": {
+      "mr": "जुने गावठाण, मुख्य मंदिर मार्ग, महाराष्ट्र",
+      "en": "Old Gaothan, Main Mandir Marg, Maharashtra"
+    },
     "googleMapsUrl": "https://maps.google.com",
-    "entryFeeNotice": "प्रवेश पूर्णतः नि:शुल्क"
+    "entryFeeNotice": {
+      "mr": "प्रवेश पूर्णतः नि:शुल्क",
+      "en": "Entry is Completely Free"
+    }
   },
-  "ticker": "🚩 त्रिपुरारी पौर्णिमा दीपोत्सव — सर्व ग्रामस्थ आणि भाविकांचे मंदिरात हार्दिक स्वागत!",
+  "ticker": {
+    "mr": "🚩 त्रिपुरारी पौर्णिमा दीपोत्सव — सर्व ग्रामस्थ आणि भाविकांचे मंदिरात हार्दिक स्वागत!",
+    "en": "🚩 Tripurari Purnima Deepotsav — Warm welcome to all devotees to the sacred sanctum!"
+  },
   "hero": {
-    "liveStatus": "दर्शन वेळ: सकाळी ६:०० ते रात्री ९:००",
-    "nextAarti": "सायं आरती: ७:०० वाजता",
-    "title": "शेकडो वर्षांचा ऐतिहासिक वारसा आणि गावाचे जागृत श्रद्धास्थान",
-    "subtitle": "आपल्या परिसरातील हे पुरातन मंदिर केवळ धार्मिक केंद्र नसून पूर्वजांच्या स्थापत्यकलेचा, अखंड पाषाण शिल्पांचा आणि पिढ्यानपिढ्या चालत आलेल्या सांस्कृतिक परंपरेचा अनमोल ठेवा आहे.",
-    "ctaHistory": "मंदिराचा संपूर्ण इतिहास वाचा",
-    "ctaArchitecture": "पाषाण स्थापत्य व शिल्पकला",
+    "liveStatus": {
+      "mr": "दर्शन वेळ: सकाळी ६:०० ते रात्री ९:००",
+      "en": "Darshan Hours: 6:00 AM – 9:00 PM"
+    },
+    "nextAarti": {
+      "mr": "सायं आरती: ७:०० वाजता",
+      "en": "Evening Aarti: 7:00 PM"
+    },
+    "title": {
+      "mr": "शेकडो वर्षांचा ऐतिहासिक वारसा आणि शांत पाषाण तीर्थक्षेत्र",
+      "en": "Centuries of Sacred Stone Heritage & Living Basalt Sanctuary"
+    },
+    "subtitle": {
+      "mr": "सह्याद्रीच्या कुशीतील हे पुरातन मंदिर पूर्वजांच्या अप्रतिम स्थापत्यकलेचा, अखंड काळ्या पाषाणातील कोरीव कामाचा आणि पिढ्यानपिढ्या चालत आलेल्या पवित्र परंपरेचा अनमोल ठेवा आहे.",
+      "en": "Nestled in the Sahyadri foothills, this ancient sanctuary stands as an enduring monument to interlocking basalt craftsmanship, sacred oral traditions, and meditative spiritual coolness."
+    },
+    "ctaHistory": {
+      "mr": "मंदिराचा संपूर्ण इतिहास वाचा",
+      "en": "Read Sthala Purana History"
+    },
+    "ctaArchitecture": {
+      "mr": "पाषाण स्थापत्य व शिल्पकला",
+      "en": "Explore Stone Architecture"
+    },
+    "videoSrc": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerBlazes.mp4",
+    "posterSrc": "https://images.unsplash.com/photo-1582510003544-4d00b7f74220?auto=format&fit=crop&w=1920&q=80",
     "stats": [
       {
-        "value": "१३ वे शतक",
-        "label": "यादवकालीन स्थापत्य रचना"
+        "value": {
+          "mr": "१३ वे शतक",
+          "en": "13th Century"
+        },
+        "label": {
+          "mr": "यादवकालीन स्थापत्य रचना",
+          "en": "Yadava-Era Architecture"
+        }
       },
       {
-        "value": "अखंड पाषाण",
-        "label": "चुन्याशिवाय दगडी बांधकाम"
+        "value": {
+          "mr": "अखंड पाषाण",
+          "en": "Dry Basalt"
+        },
+        "label": {
+          "mr": "चुन्याशिवाय दगडी कुसू",
+          "en": "Mortar-Free Interlocking"
+        }
       },
       {
-        "value": "ग्रामदैवत",
-        "label": "अखंड भक्ती व लोकपरंपरा"
+        "value": {
+          "mr": "ग्रामदैवत",
+          "en": "Living Heritage"
+        },
+        "label": {
+          "mr": "अखंड भक्ती व शांतता",
+          "en": "Unbroken Sacred Devotion"
+        }
       }
     ],
     "deityCard": {
-      "badge": "मुख्य गर्भगृह व गाभारा",
-      "entry": "प्रवेश पूर्णतः नि:शुल्क",
-      "title": "स्वयंभू पाषाण मूर्ती आणि प्राचीन गाभारा",
-      "description": "मंदिराचे मुख्य गर्भगृह पूर्वाभिमुख असून सूर्योदयाची पहिली किरणे थेट गाभाऱ्यात प्रवेश करतात. शांत व सात्त्विक वातावरणात प्रत्येक भाविकाला थेट दर्शन घेता येते.",
-      "morningTiming": "सकाळी ६:०० ते दु. १२:३०",
-      "eveningTiming": "दुपारी ४:०० ते रात्री ९:००"
+      "badge": {
+        "mr": "मुख्य गर्भगृह व गाभारा",
+        "en": "Inner Sanctum Sanctorum"
+      },
+      "entry": {
+        "mr": "प्रवेश पूर्णतः नि:शुल्क",
+        "en": "Free Entry for All"
+      },
+      "title": {
+        "mr": "स्वयंभू पाषाण मूर्ती आणि गर्भगृह",
+        "en": "Swayambhu Basalt Deity & Garbhagriha"
+      },
+      "description": {
+        "mr": "मंदिराचे मुख्य गर्भगृह पूर्वाभिमुख असून सूर्योदयाची पहिली सुवर्ण किरणे थेट गाभाऱ्यात प्रवेश करतात. शांत व सात्त्विक वातावरणात प्रत्येक भाविकाला शांततेत दर्शन घेता येते.",
+        "en": "The sacred sanctum faces East, receiving the dawn's golden rays upon the deity. Hand-dressed basalt stone preserves a natural cooling silence even in peak summer."
+      },
+      "morningLabel": {
+        "mr": "सकाळचे दर्शन",
+        "en": "Morning Darshan"
+      },
+      "morningTiming": "06:00 AM – 12:30 PM",
+      "eveningLabel": {
+        "mr": "सायंकाळचे दर्शन",
+        "en": "Evening Darshan"
+      },
+      "eveningTiming": "04:00 PM – 09:00 PM"
     }
   },
   "history": {
-    "badge": "स्थळ पुराण आणि इतिहास (Sthala Purana)",
-    "heading": "मंदिराचा प्राचीन इतिहास आणि लोककथा",
-    "subheading": "शेकडो वर्षांपासून गावाच्या सुख-दुःखाचे साक्षीदार असलेल्या या मंदिराची ऐतिहासिक जडणघडण आणि आख्यायिका.",
-    "storyTitle": "प्राचीन आख्यायिका आणि मंदिराची उभारणी",
-    "paragraphs": [
-      "स्थानिक ग्रामस्थ आणि जुन्या जाणकारांच्या माहितीनुसार, या मंदिराची मूळ रचना तेराव्या ते चौदाव्या शतकाच्या (यादव कालखंडाच्या) आसपास काळ्या पाषाणात (Black Basalt Stone) करण्यात आली. प्राचीन काळी या परिसरात नैसर्गिक पाण्याचे झरे आणि घनदाट वृक्षराई होती.",
-      "येथील मुख्य मूर्ती स्वयंभू आणि जागृत मानली जाते. जुन्या काळी पंचक्रोशीतील वाटसरू, वारकरी आणि ग्रामस्थ या मंदिराच्या सभामंडपात विश्रांती घेत असत. मंदिराच्या बाजूला असलेली प्राचीन पाषाणी दीपमाळ आजही त्या काळातील समृद्ध स्थापत्यकलेची साक्ष देते."
-    ],
+    "badge": {
+      "mr": "स्थळ पुराण आणि इतिहास",
+      "en": "Sthala Purana & History"
+    },
+    "heading": {
+      "mr": "मंदिराचा प्राचीन इतिहास आणि पाषाण वारसा",
+      "en": "Ancient History & Sacred Stone Heritage"
+    },
+    "subheading": {
+      "mr": "शेकडो वर्षांपासून गावाच्या सुख-दुःखाचे साक्षीदार असलेल्या या पाषाण मंदिराची ऐतिहासिक जडणघडण आणि आख्यायिका.",
+      "en": "Centuries of spiritual witness preserved in hand-carved basalt stone, oral chronicles, and timeless village traditions."
+    },
+    "storyTitle": {
+      "mr": "प्राचीन आख्यायिका आणि मंदिराची उभारणी",
+      "en": "Ancient Legends & Founding Lineage"
+    },
+    "paragraphs": {
+      "mr": [
+        "स्थानिक ग्रामस्थ आणि जुन्या शिलालेख नोंदींनुसार, या मंदिराची मूळ रचना तेराव्या ते चौदाव्या शतकाच्या (यादव कालखंडाच्या) आसपास काळ्या पाषाणात (Black Basalt Stone) करण्यात आली. प्राचीन काळी या परिसरात नैसर्गिक पाण्याचे झरे आणि घनदाट वृक्षराई होती.",
+        "येथील मुख्य मूर्ती स्वयंभू मानली जाते. जुन्या काळी पंचक्रोशीतील वाटसरू, वारकरी आणि ग्रामस्थ या मंदिराच्या सभामंडपात विश्रांती घेत असत. मंदिराच्या प्रांगणातील प्राचीन पाषाणी दीपमाळ आजही त्या समृद्ध स्थापत्यकलेची साक्ष देते."
+      ],
+      "en": [
+        "According to epigraphical inscriptions and oral tradition, the temple's foundational structure was constructed during the Yadava era (13th–14th century) from solid Deccan black basalt. In antiquity, the sanctuary was encircled by natural springs and serene groves.",
+        "The presiding deity is revered as Swayambhu (naturally manifested). Historically, travelling Warkari pilgrims and villagers found peaceful refuge within its resonant pillared Sabhamandap. The monolithic stone Deepmala lamp tower standing in the courtyard remains a testament to ancient Maratha and Hemadpanti architectural mastery."
+      ]
+    },
     "cultureCard": {
-      "title": "गावाचे सांस्कृतिक आणि आध्यात्मिक केंद्र",
-      "text": "हे मंदिर केवळ दर्शनापुरते मर्यादित नसून गावातील भजन संध्या, हरिपाठ, ग्रंथ पारायण आणि सण-उत्सवांचे मुख्य केंद्र आहे. कोणत्याही व्यावसायिक शुल्काशिवाय सर्व भक्तांना येथे शांततेत दर्शन व ध्यान करता येते."
+      "title": {
+        "mr": "गावाचे आध्यात्मिक व सांस्कृतिक केंद्र",
+        "en": "Spiritual Center of Contemplation"
+      },
+      "text": {
+        "mr": "हे मंदिर केवळ दर्शनापुरते मर्यादित नसून नित्य काकडा आरती, हरिपाठ, ज्ञानेश्वरी पारायण आणि शांत ध्यानाचे पवित्र केंद्र आहे. कोणत्याही व्यावसायिक शुल्काशिवाय येथे शांततेत दर्शन करता येते.",
+        "en": "The sanctuary serves as an unhurried haven for daily Vedic Kakada aarti, Haripath chanting, and quiet contemplation—open freely to all seekers without commercial barriers."
+      }
     },
     "timeline": [
       {
-        "era": "१३ वे - १४ वे शतक",
-        "title": "मूळ हेमाडपंती पाषाण बांधकाम",
-        "desc": "चुन्याचा वापर न करता एकमेकांत गुंफलेल्या काळ्या पाषाणातून (Interlocking Stone) मुख्य गाभारा व अर्धमंडपाची निर्मिती."
+        "era": {
+          "mr": "१३ वे – १४ वे शतक",
+          "en": "13th – 14th Century"
+        },
+        "title": {
+          "mr": "मूळ हेमाडपंती पाषाण बांधकाम",
+          "en": "Original Hemadpanti Stone Construction"
+        },
+        "desc": {
+          "mr": "चुन्याचा वापर न करता एकमेकांत गुंफलेल्या काळ्या पाषाणातून (Interlocking Basalt) मुख्य गाभारा व अष्टकोनी स्तंभांची निर्मिती.",
+          "en": "Erection of the sanctum and octagonal pillars using mortarless dry-masonry interlocking basalt stones."
+        }
       },
       {
-        "era": "१८ वे शतक (मराठा कालखंड)",
-        "title": "दीपमाळ व ओवरी उभारणी",
-        "desc": "मंदिरासमोरील पाषाणी दीपमाळ आणि विटा-चुन्यातील रेखीव शिखराचे संवर्धन."
+        "era": {
+          "mr": "१८ वे शतक (मराठा काळ)",
+          "en": "18th Century (Maratha Era)"
+        },
+        "title": {
+          "mr": "दीपमाळ व सभामंडप संवर्धन",
+          "en": "Deepmala & Sabhamandap Conservation"
+        },
+        "desc": {
+          "mr": "मंदिरासमोरील भव्य पाषाणी दीपमाळ आणि सभामंडपातील रेखीव कोरीव कामाचे संवर्धन.",
+          "en": "Sculpting of the tiered basalt Deepmala lamp tower and architectural reinforcement of the assembly hall."
+        }
       },
       {
-        "era": "वर्तमान काळ",
-        "title": "ग्रामस्थांकडून अखंड संवर्धन",
-        "desc": "मूळ प्राचीन दगडी रचनेला धक्का न लावता परिसर स्वच्छता, नित्य सेवा व उत्सव अखंड सुरू."
+        "era": {
+          "mr": "वर्तमान काळ",
+          "en": "Contemporary Era"
+        },
+        "title": {
+          "mr": "अखंड संवर्धन व नित्य उपासना",
+          "en": "Heritage Preservation & Living Worship"
+        },
+        "desc": {
+          "mr": "धर्मादाय न्यासाकडून मूळ स्थापत्याचे संरक्षण, डिजिटल दर्शन सुविधा आणि नित्य अन्नदान सेवा.",
+          "en": "Stewardship by the public trust ensuring architectural preservation, clean amenities, and daily Annadan seva."
+        }
       }
     ]
   },
   "architecture": {
-    "badge": "प्राचीन वास्तुकला व शिल्पवैभव",
-    "heading": "मंदिराची ६ प्रमुख स्थापत्य वैशिष्ट्ये",
-    "subheading": "मंदिराला भेट देताना येथील दगडी खांब, प्रवेशद्वार आणि छतावरील खालील वैशिष्ट्ये नक्की पहा:",
+    "badge": {
+      "mr": "हेमाडपंती स्थापत्य शिल्प",
+      "en": "Hemadpanti Basalt Architecture"
+    },
+    "heading": {
+      "mr": "पाषाणातील अचूक भौमितिक रचना व कोरीव काम",
+      "en": "Mortarless Basalt Geometry & Stone Craft"
+    },
+    "subheading": {
+      "mr": "चुन्याचा वापर न करता केवळ गुरुत्वाकर्षण आणि खाच-कुसू पद्धतीने जोडलेले हे दगडी मंदिर स्थापत्यकलेचा अद्भूत चमत्कार आहे.",
+      "en": "Constructed without lime or mortar using gravity and precision interlocking socket joints, the sanctuary remains naturally cool across centuries."
+    },
     "features": [
       {
         "icon": "Columns",
-        "title": "१. नक्षीदार पाषाण स्तंभ",
-        "desc": "सभामंडपात अखंड काळ्या पाषाणातून घडवलेले कोरीव खांब असून त्यावर भौमितिक नक्षी आणि पौराणिक चिन्हे कोरलेली आहेत."
+        "title": {
+          "mr": "अष्टकोनी पाषाणी स्तंभ",
+          "en": "Carved Octagonal Pillars"
+        },
+        "desc": {
+          "mr": "सभामंडपातील अखंड दगडी खांब मंदिराच्या छताचा भार पेलतात, ज्यावर पारंपरिक नक्षीकाम आहे.",
+          "en": "Monolithic stone pillars supporting the corbelled ceiling, carved with traditional geometric and floral motifs."
+        },
+        "tag": {
+          "mr": "सभामंडप",
+          "en": "Sabhamandap"
+        }
       },
       {
         "icon": "DoorOpen",
-        "title": "२. गणेशपट्टी व द्वारशाखा",
-        "desc": "गर्भगृहाच्या मुख्य दगडी चौकटीवर (ललाटबिंब) मंगलमूर्ती गणेशाची प्रतिमा असून बाजूला नाजूक वेलबुट्टीची कोरीव द्वारशाखा आहे."
+        "title": {
+          "mr": "पूर्वाभिमुख गर्भगृह",
+          "en": "East-Facing Sanctum"
+        },
+        "desc": {
+          "mr": "सूर्योदयाची पहिली किरणे थेट मुख्य मूर्तीवर पडतील अशा अचूक खगोलीय दिशेने गाभाऱ्याचे द्वार आहे.",
+          "en": "Astronomically aligned so the morning sun rays directly illuminate the deity within the sanctum."
+        },
+        "tag": {
+          "mr": "सूर्यकिरण दर्शन",
+          "en": "Solar Alignment"
+        }
       },
       {
         "icon": "Shield",
-        "title": "३. कीर्तिमुख आणि उंबरठा",
-        "desc": "गाभाऱ्याच्या उंबरठ्यावर प्राचीन चंद्रशिला व कीर्तिमुख कोरलेले आहे, जे पावित्र्य आणि संरक्षणाचे प्रतीक मानले जाते."
+        "title": {
+          "mr": "खाच-कुसू पद्धतीचे बांधकाम",
+          "en": "Interlocking Dry Masonry"
+        },
+        "desc": {
+          "mr": "दगडाला दगड जोडून सिमेंट किंवा चुन्याशिवाय केलेले बांधकाम शेकडो वर्षांनंतरही अभेद्य उभे आहे.",
+          "en": "Tongue-and-groove jointing allows the structure to absorb seismic tremors while standing resolute."
+        },
+        "tag": {
+          "mr": "हेमाडपंती कुसू",
+          "en": "Hemadpanti Technique"
+        }
+      },
+      {
+        "icon": "Flame",
+        "title": {
+          "mr": "पाषाणी दीपमाळ",
+          "en": "Monolithic Deepmala Tower"
+        },
+        "desc": {
+          "mr": "मंदिराच्या प्रांगणातील उंच दगडी दीपस्तंभ, ज्यावर उत्सवाच्या दिवशी शेकडो दिवे तेवतात.",
+          "en": "Towering basalt lamp pillar in the courtyard with stepped stone brackets for oil lamps on sacred nights."
+        },
+        "tag": {
+          "mr": "दीपस्तंभ",
+          "en": "Lamp Tower"
+        }
       },
       {
         "icon": "Sun",
-        "title": "४. कमळाकृती पाषाण वितान",
-        "desc": "सभामंडपाच्या छताकडे पाहिल्यास एकावर एक रचलेल्या दगडी शिळांचा अष्टकोनी बंध आणि मध्यभागी कोरलेले दगडी कमळ दिसते."
-      },
-      {
-        "icon": "Flame",
-        "title": "५. ऐतिहासिक दीपमाळ",
-        "desc": "मंदिराच्या प्रांगणातील पुरातन दीपमाळ त्रिपुरारी पौर्णिमा आणि उत्सवाच्या वेळी शेकडो दिव्यांनी उजळून निघते."
+        "title": {
+          "mr": "नैसर्गिक ध्वनी प्रतिध्वनी",
+          "en": "Acoustic Resonance"
+        },
+        "desc": {
+          "mr": "सभामंडपाच्या घुमटाकार छतामुळे भजन आणि घंटानादाचा प्रतिध्वनी संपूर्ण आवारात शांतता पसरवतो.",
+          "en": "Vaulted ceiling geometry amplifies Vedic chants and bronze bells into a serene, ambient resonance."
+        },
+        "tag": {
+          "mr": "ध्वनीशास्त्र",
+          "en": "Acoustic Vault"
+        }
       },
       {
         "icon": "ThermometerSnowflake",
-        "title": "६. नैसर्गिक वातानुकूलन",
-        "desc": "जाड काळ्या पाषाणाच्या भिंतींमुळे उन्हाळ्यात मंदिराचा गाभारा नैसर्गिकरीत्या थंड आणि हिवाळ्यात उबदार राहतो."
+        "title": {
+          "mr": "नैसर्गिक वातानुकूलन",
+          "en": "Natural Thermal Comfort"
+        },
+        "desc": {
+          "mr": "जाड दगडी भिंतींमुळे भर उन्हाळ्यातही गर्भगृहात थंड आणि सात्विक वातावरण टिकून राहते.",
+          "en": "Thick basalt stone slabs act as thermal thermal mass, maintaining refreshing coolness through summer afternoons."
+        },
+        "tag": {
+          "mr": "गाभारा थंडावा",
+          "en": "Thermal Mass"
+        }
       }
     ]
   },
+  "gallery": [
+    {
+      "id": "gallery-drone",
+      "category": "drone",
+      "title": {
+        "mr": "सूर्योदयावेळचे मंदिर शिखर विहंगम दृश्य (४K ड्रोन दर्शन)",
+        "en": "Temple Shikhara at Sunrise (4K Aerial Drone Perspective)"
+      },
+      "alt": {
+        "mr": "मंदिराचे शिखर आणि परिसराचे विहंगम दृश्य",
+        "en": "Aerial perspective of ancient temple shikhara at sunrise"
+      },
+      "src": "https://images.unsplash.com/photo-1582510003544-4d00b7f74220?auto=format&fit=crop&w=1400&q=80",
+      "tag": {
+        "mr": "ड्रोन विहंगम दृश्य",
+        "en": "Aerial Drone View"
+      },
+      "videoSrc": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerBlazes.mp4"
+    },
+    {
+      "id": "gallery-pillars",
+      "category": "architecture",
+      "title": {
+        "mr": "प्राचीन हेमाडपंती सभामंडप आणि अष्टकोनी खांब",
+        "en": "Carved Basalt Pillars & Vaulted Sabhamandap"
+      },
+      "alt": {
+        "mr": "काळ्या पाषाणातील कोरीव दगडी खांब",
+        "en": "Ancient carved black basalt pillars"
+      },
+      "src": "https://images.unsplash.com/photo-1609766857041-ed402ea8069a?auto=format&fit=crop&w=1200&q=80",
+      "tag": {
+        "mr": "पाषाण शिल्प",
+        "en": "Basalt Carvings"
+      }
+    },
+    {
+      "id": "gallery-deepmala",
+      "category": "deepmala",
+      "title": {
+        "mr": "संध्यासमयी प्रज्वलित पाषाणी दीपमाळ",
+        "en": "Courtyard Deepmala Lamp Tower at Twilight"
+      },
+      "alt": {
+        "mr": "पाषाणी दीपमाळेवर तेवणारे दिवे",
+        "en": "Traditional oil lamps lit on historic stone tower"
+      },
+      "src": "https://images.unsplash.com/photo-1518638150340-f706e86654de?auto=format&fit=crop&w=1200&q=80",
+      "tag": {
+        "mr": "पाषाण दीपमाळ",
+        "en": "Stone Deepmala"
+      }
+    },
+    {
+      "id": "gallery-sanctum",
+      "category": "sanctum",
+      "title": {
+        "mr": "गर्भगृह प्रवेशद्वार व पितळी समईची शांत ज्योत",
+        "en": "Sanctum Entrance & Serene Brass Oil Lamps"
+      },
+      "alt": {
+        "mr": "शांत गर्भगृह आणि पितळी दिवे",
+        "en": "Quiet inner sanctum entrance and glowing lamps"
+      },
+      "src": "https://images.unsplash.com/photo-1545126178-862cdb469409?auto=format&fit=crop&w=1200&q=80",
+      "tag": {
+        "mr": "पवित्र गर्भगृह",
+        "en": "Inner Sanctum"
+      }
+    }
+  ],
   "darshan": {
-    "badge": "दर्शन व नित्य नियम",
-    "heading": "दैनंदिन दर्शन व आरती वेळापत्रक",
-    "subheading": "मंदिरात कोणतेही शुल्क किंवा व्हीआयपी पास नाही. सर्वांसाठी मोफत दर्शन खुले आहे.",
+    "badge": {
+      "mr": "नित्य उपासना व वेळापत्रक",
+      "en": "Daily Liturgical Schedule"
+    },
+    "heading": {
+      "mr": "दैनंदिन दर्शन व आरती वेळापत्रक",
+      "en": "Daily Sanctum Darshan & Aarti Ledger"
+    },
+    "subheading": {
+      "mr": "भाविकांच्या सोयीसाठी नित्य पूजा, अभिषेक आणि आरतीच्या अधिकृत वेळा.",
+      "en": "Sanctum timings for daily Vedic Kakada aarti, Maha Abhishek, and Evening Dhoop Aarti."
+    },
     "cards": [
       {
-        "time": "सकाळी ६:०० वाजता",
         "icon": "Sunrise",
-        "title": "प्रातःकाल पूजा व सकाळची आरती",
-        "desc": "सकाळी मंदिर उघडल्यानंतर गाभारा स्वच्छता, नित्य स्नान-पूजा आणि सकाळची आरती होते. दुपारी १२:३० पर्यंत दर्शन सुरू राहते.",
+        "title": {
+          "mr": "काकडा आरती व प्रातःस्मरण",
+          "en": "Kakada Aarti & Dawn Prayers"
+        },
+        "time": {
+          "mr": "पहाटे ५:३० वाजता",
+          "en": "05:30 AM Daily"
+        },
+        "description": {
+          "mr": "पहाटे मंदिर द्वार उघडणे, घंटानाद, भूपाळी गायन आणि पहिली मंगल आरती.",
+          "en": "Sanctum doors open with bell chime, traditional Bhupali singing, and the first morning aarti."
+        },
+        "tag": {
+          "mr": "प्रातःकालीन उपासना",
+          "en": "Morning Worship"
+        },
         "highlight": false
       },
       {
-        "time": "सायंकाळी ७:०० वाजता",
         "icon": "Flame",
-        "title": "सायं धूप-दीप आरती व हरिपाठ",
-        "desc": "दररोज संध्याकाळी ७:०० वाजता ग्रामस्थ आणि भक्तांच्या उपस्थितीत सामूहिक आरती, भजन आणि मंत्रपुष्पांजली होते.",
+        "title": {
+          "mr": "दुपारचा महानैवेद्य व मुख्य आरती",
+          "en": "Midday Maha Naivedya & Aarti"
+        },
+        "time": {
+          "mr": "दुपारी १२:०० वाजता",
+          "en": "12:00 PM Daily"
+        },
+        "description": {
+          "mr": "देवाला सात्विक महानैवेद्य अर्पण, दुपारी १२:०० ते १२:२० पडदा व महाआरती.",
+          "en": "Sacred food offering to the deity followed by the midday Maha Aarti and sanctum curtain."
+        },
+        "tag": {
+          "mr": "मुख्य दुपार आरती",
+          "en": "Midday Maha Aarti"
+        },
         "highlight": true
       },
       {
-        "time": "रात्री ९:०० वाजता",
         "icon": "Moon",
-        "title": "रात्री मंदिर बंद करण्याची वेळ",
-        "desc": "रात्री ९:०० वाजता दर्शन पूर्ण होऊन मंदिर बंद केले जाते. (उत्सव व एकादशीच्या दिवशी रात्री १०:३० पर्यंत खुले राहते).",
+        "title": {
+          "mr": "संध्या धूपारती व शेजारती",
+          "en": "Evening Dhoop Aarti & Shejarti"
+        },
+        "time": {
+          "mr": "सायंकाळी ७:०० व रात्री ९:१५",
+          "en": "07:00 PM & 09:15 PM"
+        },
+        "description": {
+          "mr": "सायंकाळी दीप प्रज्वलन, हरिपाठ आणि रात्री ९:१५ वाजता विश्रांती शेजारती.",
+          "en": "Twilight lamp lighting with Haripath chanting, followed by Shejarti resting prayers at 9:15 PM."
+        },
+        "tag": {
+          "mr": "सायंकालीन उपासना",
+          "en": "Evening Worship"
+        },
         "highlight": false
       }
     ]
   },
-  "utsavs": [
-    {
-      "id": 1,
-      "title": "त्रिपुरारी पौर्णिमा दीपोत्सव सोहळा",
-      "date": "१५ नोव्हेंबर २०२६",
-      "time": "सायं. ६:३० वाजता",
-      "desc": "प्राचीन पाषाणी दीपमाळ प्रज्वलन, भजन आणि सामूहिक महाआरती.",
-      "tag": "दीपोत्सव परंपरा"
+  "aartiCallout": {
+    "badge": {
+      "mr": "डिजिटल नित्यपाठ",
+      "en": "Digital Sacred Texts"
     },
-    {
-      "id": 2,
-      "title": "वार्षिक ग्रामउत्सव आणि हरिपाठ सप्ताह",
-      "date": "डिसेंबर २०२६",
-      "time": "दररोज सायं. ७:०० वाजता",
-      "desc": "गावातील भजनी मंडळाचा हरिपाठ, कीर्तन आणि शेवटच्या दिवशी महाप्रसाद.",
-      "tag": "वार्षिक सोहळा"
+    "title": {
+      "mr": "मंदिरातील नित्य आरती संग्रह, अष्टक आणि मंत्रपुष्पांजली",
+      "en": "Complete Aarti Sangrah, Ashtak & Mantrapushpanjali"
     },
-    {
-      "id": 3,
-      "title": "महाशिवरात्री / मुख्य वार्षिक यात्रा उत्सव",
-      "date": "माघ वद्य चतुर्दशी",
-      "time": "पहाटे ५:०० पासून अखंड दर्शन",
-      "desc": "पंचक्रोशीतील हजारो भाविकांच्या उपस्थितीत पारंपारिक उत्सव.",
-      "tag": "मुख्य यात्रा"
+    "description": {
+      "mr": "मंदिरात आरतीच्या वेळी किंवा घरी उपासना करताना आपल्या मोबाईलवर स्पष्ट मोठ्या अक्षरात आरती वाचण्यासाठी आम्ही येथे संपूर्ण संग्रह दिला आहे.",
+      "en": "Read the sacred lyrics with adjustable font sizing and clear Devanagari script directly on your device during worship."
+    },
+    "btnRead": {
+      "mr": "संपूर्ण आरती संग्रह उघडा",
+      "en": "Open Aarti Sangrah Reader"
+    },
+    "btnBell": {
+      "mr": "मंदिर घंटानाद ऐका",
+      "en": "Ring Temple Bell"
     }
-  ],
-  "visitorRules": [
-    "मंदिराच्या प्राचीन पाषाण खांबांवर किंवा भिंतींवर खडू/नावे लिहू नयेत किंवा खिळे ठोकू नयेत.",
-    "पुरातन दगडी मूर्ती व शिल्पांवर रासायनिक रंग किंवा तेल लावू नये.",
-    "मंदिर प्रांगणात प्लास्टिक कचरा टाकू नये; परिसराचे पावित्र्य राखावे."
-  ],
+  },
+  "utsavs": {
+    "badge": {
+      "mr": "ग्रामपरंपरा व उत्सव",
+      "en": "Annual Sacred Celebrations"
+    },
+    "heading": {
+      "mr": "मंदिरातील प्रमुख वार्षिक उत्सव व पर्वकाळ",
+      "en": "Major Annual Festivals & Auspicious Tithis"
+    },
+    "list": [
+      {
+        "id": 1,
+        "tag": {
+          "mr": "वार्षिक सोहळा",
+          "en": "Annual Saptah"
+        },
+        "title": {
+          "mr": "अखंड हरिनाम सप्ताह व ज्ञानेश्वरी पारायण",
+          "en": "Akhand Harinam Saptah & Dnyaneshwari Parayan"
+        },
+        "date": {
+          "mr": "मार्गशीर्ष शुद्ध प्रतिपदा ते सप्तमी",
+          "en": "Margashirsha Shukla Pratipada to Saptami"
+        },
+        "time": {
+          "mr": "अखंड सात दिवस",
+          "en": "7 Days Unbroken"
+        },
+        "desc": {
+          "mr": "७ दिवस अखंड वीणा पहारा, पहाटे काकडा, ज्ञानेश्वरी पारायण, सायं कीर्तन आणि शेवटच्या दिवशी भव्य काल्याचे कीर्तन व महाप्रसाद पंगत.",
+          "en": "Seven days of devotional recitation, dawn prayers, daily evening kirtans, and community Annadan Mahaprasad on the concluding day."
+        }
+      },
+      {
+        "id": 2,
+        "tag": {
+          "mr": "दीपोत्सव",
+          "en": "Festival of Lights"
+        },
+        "title": {
+          "mr": "त्रिपुरी पौर्णिमा दीपोत्सव",
+          "en": "Tripuri Purnima Basalt Deepotsav"
+        },
+        "date": {
+          "mr": "कार्तिक पौर्णिमा",
+          "en": "Kartik Purnima"
+        },
+        "time": {
+          "mr": "सायंकाळी ६:३० ते रात्री १०:००",
+          "en": "06:30 PM to 10:00 PM"
+        },
+        "desc": {
+          "mr": "मंदिराच्या ऐतिहासिक पाषाणी दीपमाळेवर आणि संपूर्ण प्रांगणात शेकडो मातीचे दिवे प्रज्वलित करून भव्य दीपोत्सव साजरा होतो.",
+          "en": "Hundreds of oil wicks illuminate the historic basalt Deepmala lamp tower in an ethereal evening celebration of light."
+        }
+      },
+      {
+        "id": 3,
+        "tag": {
+          "mr": "मासिक पर्वकाळ",
+          "en": "Monthly Vrat"
+        },
+        "title": {
+          "mr": "एकादशी व प्रदोष महापूजा",
+          "en": "Ekadashi & Pradosh Mahapooja"
+        },
+        "date": {
+          "mr": "प्रत्येक शुद्ध व वद्य एकादशी",
+          "en": "Fortnightly Ekadashi & Pradosh"
+        },
+        "time": {
+          "mr": "रात्री ८:०० ते १०:००",
+          "en": "08:00 PM to 10:00 PM"
+        },
+        "desc": {
+          "mr": "विशेष अभिषेक, बिल्वार्चन आणि स्थानिक भजनी मंडळाकडून नामसंकीर्तन भजन सेवा.",
+          "en": "Special Rudrabhishek, Bilva archana, and devotional name-chanting by the local bhajan mandal."
+        }
+      }
+    ]
+  },
+  "visitorGuide": {
+    "title": {
+      "mr": "मंदिर पत्ता व भाविकांसाठी माहिती",
+      "en": "Visitor Pilgrimage Guide & Directions"
+    },
+    "rulesTitle": {
+      "mr": "पवित्र वारसा जतन करण्यासाठी नम्र सूचना:",
+      "en": "Sanctuary Guidelines & Etiquette:"
+    },
+    "rules": {
+      "mr": [
+        "मंदिराचे पावित्र्य जपण्यासाठी पारंपरिक व सात्विक वेशभूषेत दर्शनास यावे.",
+        "पादत्राणे महाद्वाराबाहेरील पादत्राणे कक्षामध्ये काढूनच सभामंडपात प्रवेश करावा.",
+        "मुख्य गर्भगृहात मूर्तीचे छायाचित्रण करण्यास सक्त मनाई आहे.",
+        "मंदिराच्या प्राचीन पाषाणावर किंवा स्तंभांवर कोणतीही अक्षरे गिरवू नयेत.",
+        "मंदिराच्या आवारात शांतता राखावी व मोबाईल सायलेंट ठेवावा."
+      ],
+      "en": [
+        "Please wear modest, traditional clothing in honor of the temple's sanctity.",
+        "Deposit footwear in the entrance stalls outside before washing hands and feet.",
+        "Photography inside the inner sanctum (Garbhagriha) is strictly prohibited.",
+        "Refrain from touching or marking the historic carved basalt stone masonry.",
+        "Please maintain silence and keep mobile devices switched off or on silent mode."
+      ]
+    },
+    "mapsBtn": {
+      "mr": "Google Maps वर मंदिराचे स्थान पहा",
+      "en": "Open Location in Google Maps"
+    }
+  },
+  "footer": {
+    "blessing": {
+      "mr": "|| शुभं भवतु • सर्वमंगल मांगल्ये शिवे सर्वार्थ साधिके ||",
+      "en": "|| Subham Bhavatu • May Peace, Devotion and Well-Being Prevail ||"
+    },
+    "navLinks": {
+      "mr": {
+        "history": "इतिहास व आख्यायिका",
+        "architecture": "हेमाडपंती स्थापत्य",
+        "gallery": "दृश्य दर्शन",
+        "darshan": "दर्शन व आरती",
+        "utsavs": "वार्षिक उत्सव"
+      },
+      "en": {
+        "history": "History & Lore",
+        "architecture": "Stone Architecture",
+        "gallery": "Visual Gallery",
+        "darshan": "Daily Aarti Timings",
+        "utsavs": "Annual Utsavs"
+      }
+    },
+    "copyright": {
+      "mr": "© श्री प्राचीन मंदिर विश्वस्त मंडळ. सर्व हक्क राखीव.",
+      "en": "© Shree Prachin Mandir Devasthan Trust. All Rights Reserved."
+    }
+  },
   "aartis": [
     {
       "id": "ganpati",
       "title": "१. श्री गणपतीची आरती",
       "deity": "श्री गणेश",
       "lyrics": [
-        "सुखकर्ता दुखहर्ता वार्ता विघ्नांची ।",
+        "सुखकर्ता दुखहर्ता वार्ता विघ्नाची ।",
         "नुरवी पूर्वी प्रेम कृपा जयाची ॥",
         "सर्वांगी सुंदर उटी शेंदुराची ।",
         "कंठी झळके माळ मुक्ताफळांची ॥ १ ॥",
         "",
         "जय देव जय देव जय मंगलमूर्ती ।",
-        "दर्शनमात्रे मन कामना पुरती ॥ धृ ॥",
+        "दर्शनमात्रे मनकामना पुरती ॥ धृ ॥",
         "",
         "रत्नखचित फरा तुज गौरीकुमरा ।",
-        "चंदनाची उटी कुमकुम केशरा ॥",
+        "चंदनाची उटी कुमकुमकेशरा ॥",
         "हीरेजडित मुकुट शोभतो बरा ।",
         "रुणझुणती नूपुरे चरणी घागरिया ॥ २ ॥",
         "",
         "जय देव जय देव जय मंगलमूर्ती ।",
-        "दर्शनमात्रे मन कामना पुरती ॥ धृ ॥",
+        "दर्शनमात्रे मनकामना पुरती ॥ धृ ॥",
         "",
         "लंबोदर पीतांबर फणिवरबंधना ।",
         "सरळ सोंड वक्रतुंड त्रिनयना ॥",
@@ -196,7 +632,7 @@
         "संकटी पावावे निर्वाणी रक्षावे सुरवरवंदना ॥ ३ ॥",
         "",
         "जय देव जय देव जय मंगलमूर्ती ।",
-        "दर्शनमात्रे मन कामना पुरती ॥ धृ ॥"
+        "दर्शनमात्रे मनकामना पुरती ॥ धृ ॥"
       ]
     },
     {
@@ -254,64 +690,5 @@
         "पुष्पांजलिर्मया दत्तो गृहाण परमेश्वर ॥"
       ]
     }
-  ],
-  "translations": {
-    "mr": {
-      "trustTag": "ग्रामदैवत व ऐतिहासिक वारसा • हेमाडपंती स्थापत्य",
-      "templeName": "श्री प्राचीन मंदिर देवस्थान",
-      "navHeritage": "इतिहास व आख्यायिका",
-      "navArch": "हेमाडपंती स्थापत्य",
-      "navDarshan": "दर्शन व आरती वेळ",
-      "navAartiBook": "आरती संग्रह",
-      "navUtsav": "वार्षिक उत्सव",
-      "navVisit": "पत्ता व मार्ग",
-      "btnAarti": "आरती संग्रह वाचा",
-      "liveStatus": "दर्शन वेळ: सकाळी ६:०० ते रात्री ९:००",
-      "nextAarti": "सायं आरती: ७:०० वाजता",
-      "heroTitle": "शेकडो वर्षांचा ऐतिहासिक वारसा आणि गावाचे जागृत श्रद्धास्थान",
-      "heroSubtitle": "आपल्या परिसरातील हे पुरातन मंदिर केवळ धार्मिक केंद्र नसून पूर्वजांच्या स्थापत्यकलेचा, अखंड पाषाण शिल्पांचा आणि पिढ्यानपिढ्या चालत आलेल्या सांस्कृतिक परंपरेचा अनमोल ठेवा आहे.",
-      "ctaExploreHistory": "मंदिराचा संपूर्ण इतिहास वाचा",
-      "ctaArchitecture": "पाषाण स्थापत्य व शिल्पकला",
-      "historyHeading": "मंदिराचा प्राचीन इतिहास आणि लोककथा",
-      "scheduleHeading": "दैनंदिन दर्शन व आरती वेळापत्रक"
-    },
-    "hi": {
-      "trustTag": "ग्रामदैवत एवं ऐतिहासिक धरोहर • हेमाडपंती स्थापत्य",
-      "templeName": "श्री प्राचीन मंदिर देवस्थान",
-      "navHeritage": "इतिहास एवं कथा",
-      "navArch": "हेमाडपंती स्थापत्य",
-      "navDarshan": "दर्शन एवं आरती समय",
-      "navAartiBook": "आरती संग्रह",
-      "navUtsav": "वार्षिक उत्सव",
-      "navVisit": "पता एवं मार्ग",
-      "btnAarti": "आरती संग्रह पढ़ें",
-      "liveStatus": "दर्शन समय: प्रातः ६:०० से रात्रि ९:००",
-      "nextAarti": "सायं आरती: ७:०० बजे",
-      "heroTitle": "सैकड़ों वर्षों की ऐतिहासिक धरोहर और गाँव का जागृत आस्था केंद्र",
-      "heroSubtitle": "हमारे क्षेत्र का यह प्राचीन मंदिर केवल उपासना केंद्र ही नहीं, अपितु पूर्वजों की पाषाण शिल्पकला, हेमाडपंती वास्तुकला और पीढ़ियों से चली आ रही सांस्कृतिक परंपरा की अनमोल धरोहर है।",
-      "ctaExploreHistory": "मंदिर का संपूर्ण इतिहास पढ़ें",
-      "ctaArchitecture": "पाषाण स्थापत्य एवं शिल्पकला",
-      "historyHeading": "मंदिर का प्राचीन इतिहास और लोककथा",
-      "scheduleHeading": "दैनिक दर्शन एवं आरती समय-सारणी"
-    },
-    "en": {
-      "trustTag": "Sacred Village Heritage • Ancient Hemadpanti Architecture",
-      "templeName": "Shree Prachin Mandir Devasthan",
-      "navHeritage": "History & Legends",
-      "navArch": "Stone Architecture",
-      "navDarshan": "Darshan & Aarti Timings",
-      "navAartiBook": "Aarti Book",
-      "navUtsav": "Annual Utsavs",
-      "navVisit": "Visitor Guide",
-      "btnAarti": "Read Aarti Sangrah",
-      "liveStatus": "Open Daily: 6:00 AM – 9:00 PM",
-      "nextAarti": "Evening Aarti: 7:00 PM",
-      "heroTitle": "Centuries of Sacred Stone Heritage & Living Village Devotion",
-      "heroSubtitle": "More than a place of worship, this ancient Mandir stands as a living monument to interlocking basalt stone craftsmanship, oral history, and timeless community traditions.",
-      "ctaExploreHistory": "Read Complete Mandir History",
-      "ctaArchitecture": "Explore Stone Architecture",
-      "historyHeading": "Ancient History & Sthala Purana",
-      "scheduleHeading": "Daily Darshan & Aarti Timings"
-    }
-  }
+  ]
 }
