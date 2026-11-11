@@ -2,7 +2,7 @@
 
 import React, { useState, useEffect, useRef } from "react";
 import Image from "next/image";
-import { Maximize2, X, ChevronLeft, ChevronRight } from "lucide-react";
+import { Maximize2, Play, X, ChevronLeft, ChevronRight } from "lucide-react";
 import mandirContent from "@/data/mandirContent.json";
 import { useModal } from "@/utils/useModal";
 import type { Language } from "./Header";
@@ -65,13 +65,17 @@ function withYouTubeApi(cb: () => void) {
   }
 }
 
-/** Muted, looping inline player (YouTube IFrame API forces mute + play, restarts at the end). Loads only once the tile nears the viewport. */
+/**
+ * Click-to-play video tile. Shows only the poster and a play button; the YouTube IFrame API and
+ * player are loaded on tap, so nothing is requested from YouTube (or paid for) before then.
+ */
 function VideoTile({
   videoId,
   fileSrc,
   poster,
   title,
   tag,
+  playLabel,
   openLabel,
   onOpen,
 }: {
@@ -80,32 +84,16 @@ function VideoTile({
   poster: string;
   title: string;
   tag: string;
+  playLabel: string;
   openLabel: string;
   onOpen: () => void;
 }) {
-  const wrapRef = useRef<HTMLDivElement>(null);
   const hostRef = useRef<HTMLDivElement>(null);
-  const [inView, setInView] = useState(false);
-
-  useEffect(() => {
-    const node = wrapRef.current;
-    if (!node) return;
-    const io = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          setInView(true);
-          io.disconnect();
-        }
-      },
-      { rootMargin: "300px" }
-    );
-    io.observe(node);
-    return () => io.disconnect();
-  }, []);
+  const [playing, setPlaying] = useState(false);
 
   useEffect(() => {
     const host = hostRef.current;
-    if (!inView || !host || fileSrc) return;
+    if (!playing || !host || fileSrc) return;
     let cancelled = false;
     let player: YTPlayerLike | undefined;
     const mountEl = document.createElement("div");
@@ -116,19 +104,11 @@ function VideoTile({
       if (cancelled || !YT) return;
       player = new YT.Player(mountEl, {
         videoId,
-        playerVars: {
-          autoplay: 1, mute: 1, loop: 1, playlist: videoId,
-          controls: 1, rel: 0, modestbranding: 1, playsinline: 1,
-        },
+        playerVars: { autoplay: 1, controls: 1, rel: 0, modestbranding: 1, playsinline: 1 },
+        // The tap counts as a user gesture, so playback with sound is allowed.
         events: {
-          onReady: (e) => {
-            e.target.mute();
-            e.target.playVideo();
-          },
-          // YT.PlayerState.ENDED === 0: restart for a seamless loop
-          onStateChange: (e) => {
-            if (e.data === 0) e.target.playVideo();
-          },
+          onReady: (e) => e.target.playVideo(),
+          onStateChange: () => {},
         },
       });
     });
@@ -138,14 +118,10 @@ function VideoTile({
       player?.destroy();
       host.replaceChildren();
     };
-  }, [inView, videoId, fileSrc]);
+  }, [playing, videoId, fileSrc]);
 
   return (
-    <div
-      ref={wrapRef}
-      className="relative w-full aspect-video rounded-2xl overflow-hidden bg-black border border-amber-900/15 shadow-sm"
-    >
-      {/* Poster sits behind the player so there is never a black box while the video loads */}
+    <div className="relative w-full aspect-video rounded-2xl overflow-hidden bg-black border border-amber-900/15 shadow-sm">
       <Image
         src={poster}
         alt=""
@@ -154,25 +130,15 @@ function VideoTile({
         className="object-cover object-[50%_20%]"
         aria-hidden
       />
-      {fileSrc && inView && (
+      {playing && fileSrc && (
         <video
           className="absolute inset-0 w-full h-full object-cover"
           src={fileSrc}
           poster={poster}
           autoPlay
-          muted
-          loop
           playsInline
           controls
           aria-label={title}
-          // React does not render `muted` as an attribute, so browsers may block autoplay:
-          // force it and start playback as soon as the element mounts.
-          ref={(el) => {
-            if (el) {
-              el.muted = true;
-              el.play().catch(() => {});
-            }
-          }}
         />
       )}
       <div
@@ -180,7 +146,19 @@ function VideoTile({
         title={title}
         className="absolute inset-0 [&_iframe]:absolute [&_iframe]:inset-0 [&_iframe]:w-full [&_iframe]:h-full [&_iframe]:border-0"
       />
-      <span className="absolute top-3 left-3 px-3 py-1 rounded-full bg-maroon-950/85 text-amber-300 text-sm font-semibold pointer-events-none">
+      {!playing && (
+        <button
+          type="button"
+          onClick={() => setPlaying(true)}
+          aria-label={`${title} — ${playLabel}`}
+          className="absolute inset-0 flex items-center justify-center group/play cursor-pointer focus-visible:outline-2 focus-visible:outline-offset-[-4px] focus-visible:outline-saffron-600"
+        >
+          <span className="w-16 h-16 rounded-full bg-amber-500 text-maroon-950 flex items-center justify-center shadow-lg group-hover/play:bg-amber-400 transition-colors">
+            <Play className="w-7 h-7 ml-1" fill="currentColor" />
+          </span>
+        </button>
+      )}
+      <span className="absolute top-3 left-3 px-3 py-1 rounded-full bg-maroon-950/85 text-amber-300 text-xs font-semibold pointer-events-none">
         {tag}
       </span>
       <button
@@ -329,6 +307,7 @@ export default function DrishyaGallery({
                     poster={item.src}
                     title={item.title[currentLang]}
                     tag={item.tag[currentLang]}
+                    playLabel={mandirContent.ui.playVideo[currentLang]}
                     openLabel={mandirContent.ui.openLarger[currentLang]}
                     onOpen={() => setActiveItemIndex(idx)}
                   />

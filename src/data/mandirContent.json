@@ -1102,6 +1102,10 @@
     "droneTour4k": {
       "mr": "४K ड्रोन दृश्य पहा",
       "en": "4K Drone Tour"
+    },
+    "playVideo": {
+      "mr": "व्हिडिओ चालवा",
+      "en": "Play video"
     }
   }
 }
