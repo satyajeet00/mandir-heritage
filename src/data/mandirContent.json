@@ -11,7 +11,7 @@
       "navUtsav": "वार्षिक उत्सव",
       "navVisit": "पत्ता व मार्ग",
       "btnAarti": "आरती व हरिपाठ वाचा",
-      "liveStatus": "दर्शन वेळ: सकाळी ६:०० ते रात्री ९:००",
+      "liveStatus": "दर्शन वेळ: सकाळी ५:०० ते रात्री ९:००",
       "nextAarti": "सायं आरती व हरिपाठ: ७:०० वाजता",
       "heroKicker": "सद्गुरु यशवंत बाबांची पावन तपोभूमी",
       "heroTitle": "प्रतिअयोध्या श्री क्षेत्र राममाळ",
@@ -32,7 +32,7 @@
       "navUtsav": "वार्षिक उत्सव",
       "navVisit": "पता एवं मार्ग",
       "btnAarti": "आरती एवं हरिपाठ पढ़ें",
-      "liveStatus": "दर्शन समय: प्रातः ६:०० से रात्रि ९:००",
+      "liveStatus": "दर्शन समय: प्रातः ५:०० से रात्रि ९:००",
       "nextAarti": "सायं आरती: ७:०० बजे",
       "heroKicker": "सद्गुरु यशवंत बाबा की पावन तपोभूमि",
       "heroTitle": "प्रतिअयोध्या श्री क्षेत्र राममाल",
@@ -53,7 +53,7 @@
       "navUtsav": "Annual Utsavs",
       "navVisit": "Visitor Guide",
       "btnAarti": "Read Haripath & Aarti",
-      "liveStatus": "Open Daily: 6:00 AM – 9:00 PM",
+      "liveStatus": "Open Daily: 5:00 AM – 9:00 PM",
       "nextAarti": "Evening Haripath: 7:00 PM",
       "heroKicker": "Sacred Tapobhumi of Sadguru Yashwant Baba",
       "heroTitle": "Pratiayodhya Shri Kshetra Ram-mal",
@@ -95,8 +95,8 @@
   },
   "hero": {
     "liveStatus": {
-      "mr": "दर्शनासाठी दिवसभर खुले",
-      "en": "Open all day for darshan"
+      "mr": "दर्शन दररोज सकाळी ५:०० ते रात्री ९:००",
+      "en": "Darshan open daily 5:00 AM – 9:00 PM"
     },
     "nextAarti": {
       "mr": "सायं आरती व हरिपाठ: ७:०० वाजता",
@@ -173,9 +173,9 @@
         "mr": "अगस्ती बंधू महामती मुनींच्या तपोभूमीत प्रभू श्रीरामांच्या पदस्पर्शाने पावन झालेल्या तरवडाच्या झाडाखालील पादुका आणि सद्गुरु यशवंत बाबांची जागृत समाधी.",
         "en": "Sanctified beneath the ancient Tarwad tree in Sage Mahamati's hermitage, holding the holy footsteps of Lord Rama and the serene Samadhi of Sadguru Yashwant Baba."
       },
-      "openAllDay": {
-        "mr": "दर्शन दिवसभर खुले • पहाटे ५:३० काकडा आरतीपासून",
-        "en": "Darshan open all day • from Kakada aarti at 5:30 AM"
+      "hours": {
+        "mr": "दर्शन सकाळी ५:०० ते रात्री ९:०० • पहाटे ५:३० काकडा आरती",
+        "en": "Open 5:00 AM – 9:00 PM • Kakada aarti at 5:30 AM"
       }
     }
   },

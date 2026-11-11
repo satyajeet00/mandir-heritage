@@ -79,8 +79,8 @@ const jsonLd = {
     dayOfWeek: [
       "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday",
     ],
-    opens: "00:00",
-    closes: "23:59",
+    opens: "05:00",
+    closes: "21:00",
   },
 };
 

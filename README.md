@@ -33,4 +33,4 @@ The repo currently holds **dummy** donation, contact and visit data so the desig
 2. Regenerate the QR: `node scripts/make-qr.mjs`, then scan it with a real UPI app and confirm the payee name.
 3. Set `NEXT_PUBLIC_SITE_URL` to the production domain (used for metadata, sitemap, robots, JSON-LD).
 4. Replace `public/images/drone-shot-pravara.jpg` with a wide landscape aerial photo, then `node scripts/make-og.mjs` to refresh the share image.
-5. Confirm opening hours (JSON-LD currently says open 24h; `hero.liveStatus` says "open all day").
+5. Opening hours are 5:00 AM – 9:00 PM: keep `hero.liveStatus`, `hero.deityCard.hours` and the JSON-LD in `src/app/layout.tsx` in sync if they change.
