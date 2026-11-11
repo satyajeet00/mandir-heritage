@@ -69,7 +69,7 @@ export default function Architecture({
                   )}
                 </div>
                 <div className="space-y-1">
-                  <span className="text-[11px] font-bold uppercase tracking-wider text-amber-400/80 block">
+                  <span className="text-xs font-bold uppercase tracking-wider text-amber-400/80 block">
                     {feature.tag[currentLang]}
                   </span>
                   <h3 className="font-serif text-xl font-bold text-amber-100">

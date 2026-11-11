@@ -1,5 +1,10 @@
 import type { Metadata } from "next";
-import { Cinzel, Plus_Jakarta_Sans } from "next/font/google";
+import {
+  Cinzel,
+  Plus_Jakarta_Sans,
+  Noto_Sans_Devanagari,
+  Noto_Serif_Devanagari,
+} from "next/font/google";
 import "./globals.css";
 
 const cinzel = Cinzel({
@@ -12,6 +17,18 @@ const plusJakarta = Plus_Jakarta_Sans({
   variable: "--font-jakarta",
   subsets: ["latin"],
   weight: ["400", "500", "600", "700"],
+});
+
+const notoSansDeva = Noto_Sans_Devanagari({
+  variable: "--font-noto-sans-deva",
+  subsets: ["devanagari", "latin"],
+  display: "swap",
+});
+
+const notoSerifDeva = Noto_Serif_Devanagari({
+  variable: "--font-noto-serif-deva",
+  subsets: ["devanagari", "latin"],
+  display: "swap",
 });
 
 export const metadata: Metadata = {
@@ -27,15 +44,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="mr" className={`${cinzel.variable} ${plusJakarta.variable} scroll-smooth`}>
-      <head>
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
-        <link
-          href="https://fonts.googleapis.com/css2?family=Tiro+Devanagari+Marathi:ital@0;1&display=swap"
-          rel="stylesheet"
-        />
-      </head>
+    <html lang="mr" className={`${cinzel.variable} ${plusJakarta.variable} ${notoSansDeva.variable} ${notoSerifDeva.variable} scroll-smooth`}>
       <body className="min-h-screen font-sans bg-parchment text-maroon-950 selection:bg-saffron-500 selection:text-white">
         {children}
       </body>

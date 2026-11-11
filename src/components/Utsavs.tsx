@@ -39,7 +39,7 @@ export default function Utsavs({ currentLang = "mr" }: UtsavsProps) {
                 className="bg-white rounded-2xl p-5 sm:p-6 border border-amber-900/15 shadow-sm space-y-2 hover:border-amber-400 transition"
               >
                 <div className="flex flex-wrap items-center justify-between gap-2">
-                  <span className="text-[11px] font-bold uppercase tracking-wider px-2.5 py-0.5 rounded-full bg-amber-100 text-saffron-700">
+                  <span className="text-xs font-bold uppercase tracking-wider px-2.5 py-0.5 rounded-full bg-amber-100 text-saffron-700">
                     {festival.tag[currentLang]}
                   </span>
                   <div className="flex items-center gap-3 text-xs font-semibold text-maroon-900">

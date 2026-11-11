@@ -97,7 +97,7 @@ export default function DengiSeva({ currentLang = "mr" }: DengiSevaProps) {
                   className="bg-white rounded-2xl p-5 sm:p-6 border border-amber-900/15 shadow-sm space-y-2 hover:border-amber-400 transition"
                 >
                   <div className="flex items-center justify-between gap-2">
-                    <span className="text-[11px] font-bold uppercase tracking-wider px-2.5 py-0.5 rounded-full bg-amber-100 text-saffron-700">
+                    <span className="text-xs font-bold uppercase tracking-wider px-2.5 py-0.5 rounded-full bg-amber-100 text-saffron-700">
                       {seva.badge[currentLang]}
                     </span>
                     <a
@@ -174,7 +174,7 @@ export default function DengiSeva({ currentLang = "mr" }: DengiSevaProps) {
             className="lg:col-span-5 bg-white rounded-2xl p-6 sm:p-7 border-2 border-amber-500/30 shadow-lg space-y-6 scroll-mt-24"
           >
             <div className="text-center space-y-1.5 border-b border-amber-900/10 pb-4">
-              <span className="text-[11px] font-bold uppercase tracking-wider text-saffron-700 block">
+              <span className="text-xs font-bold uppercase tracking-wider text-saffron-700 block">
                 {currentLang === "mr" ? "अधिकृत विश्वस्त दानपट्टी" : "Official Trust Ledger"}
               </span>
               <h3 className="font-serif text-2xl font-bold text-maroon-900">
@@ -201,7 +201,7 @@ export default function DengiSeva({ currentLang = "mr" }: DengiSevaProps) {
               </div>
 
               {/* Supported UPI Apps Row */}
-              <div className="flex items-center justify-center gap-2 text-[11px] font-semibold text-maroon-900/80">
+              <div className="flex items-center justify-center gap-2 text-xs font-semibold text-maroon-900/80">
                 <span className="px-2 py-0.5 rounded bg-white border border-amber-200">GPay</span>
                 <span className="px-2 py-0.5 rounded bg-white border border-amber-200">PhonePe</span>
                 <span className="px-2 py-0.5 rounded bg-white border border-amber-200">Paytm</span>
@@ -256,7 +256,7 @@ export default function DengiSeva({ currentLang = "mr" }: DengiSevaProps) {
               {/* Trust Legal Name */}
               <div className="p-2.5 rounded-xl bg-amber-50/60 border border-amber-900/10 flex items-center justify-between gap-2">
                 <div className="min-w-0">
-                  <span className="text-[10px] uppercase font-bold text-gray-500 block">
+                  <span className="text-xs uppercase font-bold text-gray-500 block">
                     {currentLang === "mr" ? "खात्याचे नाव (Account Name)" : "Account Legal Name"}
                   </span>
                   <span className="font-semibold text-maroon-900 truncate block text-xs">
@@ -276,7 +276,7 @@ export default function DengiSeva({ currentLang = "mr" }: DengiSevaProps) {
               {/* Bank Name & Branch */}
               <div className="p-2.5 rounded-xl bg-amber-50/60 border border-amber-900/10 flex items-center justify-between gap-2">
                 <div className="min-w-0">
-                  <span className="text-[10px] uppercase font-bold text-gray-500 block">
+                  <span className="text-xs uppercase font-bold text-gray-500 block">
                     {currentLang === "mr" ? "बँक व शाखा (Bank & Branch)" : "Bank & Branch"}
                   </span>
                   <span className="font-semibold text-maroon-900 truncate block text-xs">
@@ -296,7 +296,7 @@ export default function DengiSeva({ currentLang = "mr" }: DengiSevaProps) {
               {/* Account Number */}
               <div className="p-2.5 rounded-xl bg-amber-50/60 border border-amber-900/10 flex items-center justify-between gap-2">
                 <div className="min-w-0">
-                  <span className="text-[10px] uppercase font-bold text-gray-500 block">
+                  <span className="text-xs uppercase font-bold text-gray-500 block">
                     {currentLang === "mr" ? "खाते क्रमांक (Account Number)" : "Account Number"}
                   </span>
                   <span className="font-mono font-bold text-maroon-900 text-xs tracking-wider">
@@ -316,7 +316,7 @@ export default function DengiSeva({ currentLang = "mr" }: DengiSevaProps) {
               {/* IFSC Code */}
               <div className="p-2.5 rounded-xl bg-amber-50/60 border border-amber-900/10 flex items-center justify-between gap-2">
                 <div className="min-w-0">
-                  <span className="text-[10px] uppercase font-bold text-gray-500 block">
+                  <span className="text-xs uppercase font-bold text-gray-500 block">
                     {currentLang === "mr" ? "IFSC कोड" : "IFSC Code"}
                   </span>
                   <span className="font-mono font-bold text-maroon-900 text-xs tracking-wider">
@@ -334,7 +334,7 @@ export default function DengiSeva({ currentLang = "mr" }: DengiSevaProps) {
               </div>
 
               {/* PTR Number */}
-              <div className="p-2 text-[11px] text-gray-500 italic text-center">
+              <div className="p-2 text-xs text-gray-500 italic text-center">
                 {dengi.bankDetails.ptrNumber[currentLang]}
               </div>
             </div>

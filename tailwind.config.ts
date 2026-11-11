@@ -27,8 +27,8 @@ const config: Config = {
         gold: "#D4AF37",
       },
       fontFamily: {
-        serif: ["var(--font-cinzel)", "Tiro Devanagari Marathi", "Cinzel", "serif"],
-        sans: ["var(--font-jakarta)", "Plus Jakarta Sans", "sans-serif"],
+        serif: ["var(--font-cinzel)", "var(--font-noto-serif-deva)", "serif"],
+        sans: ["var(--font-jakarta)", "var(--font-noto-sans-deva)", "sans-serif"],
       },
     },
   },

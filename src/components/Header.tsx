@@ -65,7 +65,7 @@ export default function Header({
       <div className="bg-gradient-to-r from-saffron-700 via-saffron-600 to-saffron-700 text-white text-xs sm:text-sm py-2 px-4 shadow-xs border-b border-amber-500/20">
         <div className="max-w-7xl mx-auto flex flex-wrap items-center justify-between gap-3">
           <div className="flex items-center gap-2 truncate">
-            <span className="bg-maroon-900 text-amber-300 px-2 py-0.5 rounded text-[11px] font-bold uppercase tracking-wider shrink-0 shadow-xs">
+            <span className="bg-maroon-900 text-amber-300 px-2 py-0.5 rounded text-xs font-bold uppercase tracking-wider shrink-0 shadow-xs">
               {navLabels.noticeBadge}
             </span>
             <span className="font-medium truncate text-amber-50">
@@ -131,11 +131,11 @@ export default function Header({
             </div>
             <div>
               <div className="flex items-center gap-1.5 flex-wrap">
-                <span className="text-[10px] sm:text-[11px] font-bold uppercase tracking-wider text-saffron-700">
+                <span className="text-xs sm:text-xs font-bold uppercase tracking-wider text-saffron-700">
                   {mandirContent.temple.subName[currentLang]}
                 </span>
                 <span className="hidden sm:inline text-amber-500 text-xs">•</span>
-                <span className="hidden sm:inline text-[10px] text-amber-800/80 font-medium">
+                <span className="hidden sm:inline text-xs text-amber-800/80 font-medium">
                   {mandirContent.temple.trustTag[currentLang]}
                 </span>
               </div>

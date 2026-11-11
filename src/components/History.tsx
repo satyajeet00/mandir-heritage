@@ -73,7 +73,7 @@ export default function History({ currentLang }: HistoryProps) {
                   {idx + 1}
                 </div>
                 <div className="space-y-1">
-                  <span className="text-[11px] font-bold uppercase tracking-wider text-saffron-700 block">
+                  <span className="text-xs font-bold uppercase tracking-wider text-saffron-700 block">
                     {item.era[currentLang]}
                   </span>
                   <h4 className="font-serif font-bold text-maroon-950 text-base">

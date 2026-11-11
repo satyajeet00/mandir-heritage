@@ -12,11 +12,12 @@ import Utsavs from "@/components/Utsavs";
 import AartiModal from "@/components/AartiModal";
 import { BookOpenCheck, BellRing } from "lucide-react";
 import { playTempleBell } from "@/utils/audio";
+import { useLanguage } from "@/utils/useLanguage";
 import mandirContent from "@/data/mandirContent.json";
 
 export default function Home() {
   // Pure bilingual state (mr / en)
-  const [currentLang, setCurrentLang] = useState<Language>("mr");
+  const [currentLang, setCurrentLang] = useLanguage();
   const [aartiModalOpen, setAartiModalOpen] = useState(false);
 
   const { aartiCallout, footer, temple } = mandirContent;
@@ -101,7 +102,7 @@ export default function Home() {
               <p className="text-amber-200/75 text-xs font-semibold">
                 {temple.subName[currentLang]} • {temple.trustTag[currentLang]}
               </p>
-              <p className="text-amber-200/50 text-[11px]">
+              <p className="text-amber-200/50 text-xs">
                 {temple.address[currentLang]}
               </p>
             </div>

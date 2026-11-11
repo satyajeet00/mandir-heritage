@@ -1,6 +1,7 @@
 "use client";
 
 import React from "react";
+import Image from "next/image";
 import { Scroll, Compass, Video } from "lucide-react";
 import mandirContent from "@/data/mandirContent.json";
 import type { Language } from "./Header";
@@ -9,52 +10,23 @@ interface HeroProps {
   currentLang: Language;
 }
 
-function getYoutubeId(url?: string): string | null {
-  if (!url) return null;
-  const match = url.match(/^.*(youtu.be\/|v\/|u\/\w\/|embed\/|watch\?v=|&v=)([^#&?]*).*/);
-  return match && match[2].length === 11 ? match[2] : null;
-}
-
 export default function Hero({ currentLang }: HeroProps) {
   const { hero } = mandirContent;
-  const youtubeId = getYoutubeId(hero.videoSrc);
 
   return (
-    <section className="relative overflow-hidden text-white border-b border-amber-900/30 min-h-[75vh] flex items-center bg-maroon-950">
-      {/* 4K Drone Aerial Video Loop with Deep Basalt Radial Overlay */}
+    <section className="relative overflow-hidden text-white border-b border-amber-900/30 min-h-[85svh] flex items-center bg-maroon-950">
+      {/* Drone photo background: full strength, slow pan, light overlay so the river and temple stay visible */}
       <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none">
-        {/* Instant High-Res Drone Photo Base */}
-        <img
+        <Image
           src={hero.posterSrc}
-          alt="Ram-mal Aerial Drone Poster"
-          className="absolute inset-0 w-full h-full object-cover opacity-25"
+          alt={currentLang === "mr" ? "राममाळ आश्रम व प्रवरा नदीचे विहंगम दृश्य" : "Aerial view of Ram-mal Ashram and the Pravara river"}
+          fill
+          priority
+          sizes="100vw"
+          className="object-cover object-[70%_18%] hero-pan"
         />
-
-        {/* Live Looping Video (YouTube or HTML5 Video) */}
-        {youtubeId ? (
-          <div className="absolute inset-0 flex items-center justify-center overflow-hidden">
-            <iframe
-              className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 min-w-full min-h-full w-[178vh] h-[56.25vw] max-w-none opacity-60 pointer-events-none border-0"
-              src={`https://www.youtube.com/embed/${youtubeId}?autoplay=1&mute=1&loop=1&playlist=${youtubeId}&controls=0&showinfo=0&rel=0&iv_load_policy=3&disablekb=1&playsinline=1`}
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-              title="Ram-mal Ashram Aerial Drone Background"
-            />
-          </div>
-        ) : (
-          <video
-            className="w-full h-full object-cover opacity-50"
-            autoPlay
-            muted
-            loop
-            playsInline
-            poster={hero.posterSrc}
-          >
-            <source src={hero.videoSrc} type="video/mp4" />
-          </video>
-        )}
-
-        {/* Radial Basalt Stone Overlay for High Contrast Text Readability */}
-        <div className="absolute inset-0 bg-gradient-to-r from-maroon-950/90 via-maroon-950/70 to-maroon-950/50" />
+        <div className="absolute inset-0 bg-gradient-to-r from-maroon-950/85 via-maroon-950/40 to-transparent" />
+        <div className="absolute inset-x-0 bottom-0 h-1/3 bg-gradient-to-t from-maroon-950/80 to-transparent" />
       </div>
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 py-14 lg:py-20 relative z-10 grid lg:grid-cols-12 gap-10 items-center">
@@ -136,7 +108,7 @@ export default function Hero({ currentLang }: HeroProps) {
         <div className="lg:col-span-5">
           <div className="bg-maroon-950/90 border-2 border-amber-500/40 rounded-2xl p-5 sm:p-6 shadow-2xl relative space-y-4">
             <div className="flex items-center justify-between">
-              <span className="px-3 py-1 rounded-full bg-amber-500/20 text-amber-300 border border-amber-400/30 text-[11px] font-bold uppercase tracking-wider">
+              <span className="px-3 py-1 rounded-full bg-amber-500/20 text-amber-300 border border-amber-400/30 text-xs font-bold uppercase tracking-wider">
                 {hero.deityCard.badge[currentLang]}
               </span>
               <span className="text-xs text-amber-300/90 font-medium">

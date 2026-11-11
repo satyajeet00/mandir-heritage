@@ -54,7 +54,7 @@ export default function AartiModal({
               ॐ
             </div>
             <div>
-              <span className="text-[11px] uppercase tracking-widest text-amber-300 font-bold block">
+              <span className="text-xs uppercase tracking-widest text-amber-300 font-bold block">
                 {currentLang === "mr" ? "नित्य उपासना व आरती संग्रह" : "Sacred Hymns & Haripath"}
               </span>
               <h3 className="font-serif text-lg sm:text-xl font-bold text-white leading-tight">
@@ -109,7 +109,7 @@ export default function AartiModal({
 
           {/* Text Size Controls */}
           <div className="flex items-center gap-1 text-xs text-maroon-900 font-semibold bg-white/70 px-2 py-1 rounded-xl border border-amber-900/10 ml-auto">
-            <span className="text-[11px] text-gray-500 mr-1 hidden sm:inline">
+            <span className="text-xs text-gray-500 mr-1 hidden sm:inline">
               {currentLang === "mr" ? "अक्षर आकार:" : "Text Size:"}
             </span>
             <button
@@ -119,7 +119,7 @@ export default function AartiModal({
             >
               <ZoomOut className="w-3.5 h-3.5" />
             </button>
-            <span className="px-1 text-[11px]">A</span>
+            <span className="px-1 text-xs">A</span>
             <button
               onClick={() => handleZoom("in")}
               className="p-1 rounded hover:bg-amber-100"
@@ -172,7 +172,7 @@ export default function AartiModal({
 
         {/* Modal Footer */}
         <div className="p-3 sm:p-4 bg-white border-t border-amber-900/10 flex items-center justify-between shrink-0 px-5">
-          <span className="text-[11px] text-gray-500">
+          <span className="text-xs text-gray-500">
             {currentLang === "mr"
               ? "🚩 दैनंदिन सायं आरती व हरिपाठ: ७:०० वाजता"
               : "🚩 Daily Evening Aarti & Haripath: 7:00 PM"}
