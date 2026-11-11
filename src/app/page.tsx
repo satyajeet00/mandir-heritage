@@ -39,17 +39,17 @@ export default function Home() {
         {/* Quick access: timings / how to reach / donation / aarti */}
         <QuickAccess currentLang={currentLang} onOpenAarti={() => setAartiModalOpen(true)} />
 
-        {/* 3. History (Bilingual Sthala Purana and Stone Timeline) */}
+        {/* 3. Darshan Schedule (Morning, Midday & Evening Aarti Ledger) */}
+        <DarshanSchedule currentLang={currentLang} />
+
+        {/* 4. History (Bilingual Sthala Purana and Stone Timeline) */}
         <History currentLang={currentLang} />
 
-        {/* 4. Architecture (6 Basalt Interlocking Feature Cards) */}
+        {/* 5. Architecture (6 Basalt Interlocking Feature Cards) */}
         <Architecture currentLang={currentLang} />
 
-        {/* 5. Drishya Gallery (Crowd-Free Visuals, 4K Drone Tour & Accessible Lightbox) */}
+        {/* 6. Drishya Gallery (Crowd-Free Visuals, 4K Drone Tour & Accessible Lightbox) */}
         <DrishyaGallery currentLang={currentLang} />
-
-        {/* 6. Darshan Schedule (Morning, Midday & Evening Aarti Ledger) */}
-        <DarshanSchedule currentLang={currentLang} />
 
         {/* Digital Aarti Callout Banner (Full Bilingual) */}
         <section id="aarti-sangrah" className="scroll-mt-24 py-12 max-w-7xl mx-auto px-4 sm:px-6">
@@ -112,6 +112,9 @@ export default function Home() {
             </div>
 
             <nav className="flex flex-wrap items-center justify-center gap-6 text-sm text-amber-300/80">
+              <a href="#darshan" className="inline-flex items-center min-h-11 hover:text-white transition">
+                {footer.navLinks[currentLang].darshan}
+              </a>
               <a href="#history" className="inline-flex items-center min-h-11 hover:text-white transition">
                 {footer.navLinks[currentLang].history}
               </a>
@@ -121,14 +124,11 @@ export default function Home() {
               <a href="#gallery" className="inline-flex items-center min-h-11 hover:text-white transition">
                 {footer.navLinks[currentLang].gallery}
               </a>
-              <a href="#darshan" className="inline-flex items-center min-h-11 hover:text-white transition">
-                {footer.navLinks[currentLang].darshan}
+              <a href="#dengi" className="inline-flex items-center min-h-11 hover:text-white transition">
+                {mandirContent.ui.donationSeva[currentLang]}
               </a>
               <a href="#utsavs" className="inline-flex items-center min-h-11 hover:text-white transition">
                 {footer.navLinks[currentLang].utsavs}
-              </a>
-              <a href="#dengi" className="inline-flex items-center min-h-11 hover:text-white transition">
-                {mandirContent.ui.donationSeva[currentLang]}
               </a>
             </nav>
           </div>

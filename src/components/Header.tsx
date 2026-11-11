@@ -144,6 +144,13 @@ export default function Header({
           {/* Desktop Navigation Links */}
           <nav className="hidden xl:flex items-center gap-6 text-sm font-semibold text-maroon-900/85">
             <a
+              href="#darshan"
+              aria-current={activeId === "darshan" ? "location" : undefined}
+              className={navLink("darshan")}
+            >
+              {navLabels.darshan}
+            </a>
+            <a
               href="#history"
               aria-current={activeId === "history" ? "location" : undefined}
               className={navLink("history")}
@@ -165,11 +172,11 @@ export default function Header({
               {navLabels.gallery}
             </a>
             <a
-              href="#darshan"
-              aria-current={activeId === "darshan" ? "location" : undefined}
-              className={navLink("darshan")}
+              href="#dengi"
+              aria-current={activeId === "dengi" ? "location" : undefined}
+              className={navLink("dengi")}
             >
-              {navLabels.darshan}
+              {navLabels.dengi}
             </a>
             <a
               href="#utsavs"
@@ -177,13 +184,6 @@ export default function Header({
               className={navLink("utsavs")}
             >
               {navLabels.utsavs}
-            </a>
-            <a
-              href="#dengi"
-              aria-current={activeId === "dengi" ? "location" : undefined}
-              className={navLink("dengi")}
-            >
-              {navLabels.dengi}
             </a>
             <a
               href="#visit"
@@ -222,6 +222,13 @@ export default function Header({
         {mobileMenuOpen && (
           <div className="xl:hidden border-t border-amber-900/10 bg-parchment px-4 py-3 space-y-2 text-sm font-semibold text-maroon-900">
             <a
+              href="#darshan"
+              onClick={() => setMobileMenuOpen(false)}
+              className="block py-2 px-3 rounded-lg hover:bg-amber-100/60"
+            >
+              {navLabels.darshan}
+            </a>
+            <a
               href="#history"
               onClick={() => setMobileMenuOpen(false)}
               className="block py-2 px-3 rounded-lg hover:bg-amber-100/60"
@@ -243,11 +250,11 @@ export default function Header({
               {navLabels.gallery}
             </a>
             <a
-              href="#darshan"
+              href="#dengi"
               onClick={() => setMobileMenuOpen(false)}
-              className="block py-2 px-3 rounded-lg hover:bg-amber-100/60"
+              className="block py-2 px-3 rounded-lg hover:bg-amber-100/60 text-saffron-700 font-bold"
             >
-              {navLabels.darshan}
+              {navLabels.dengi}
             </a>
             <a
               href="#utsavs"
@@ -255,13 +262,6 @@ export default function Header({
               className="block py-2 px-3 rounded-lg hover:bg-amber-100/60"
             >
               {navLabels.utsavs}
-            </a>
-            <a
-              href="#dengi"
-              onClick={() => setMobileMenuOpen(false)}
-              className="block py-2 px-3 rounded-lg hover:bg-amber-100/60 text-saffron-700 font-bold"
-            >
-              {navLabels.dengi}
             </a>
             <a
               href="#visit"
