@@ -6,6 +6,8 @@ import {
   Noto_Serif_Devanagari,
 } from "next/font/google";
 import "./globals.css";
+import { SITE_URL } from "@/data/site";
+import mandirContent from "@/data/mandirContent.json";
 
 const cinzel = Cinzel({
   variable: "--font-cinzel",
@@ -31,11 +33,55 @@ const notoSerifDeva = Noto_Serif_Devanagari({
   display: "swap",
 });
 
+const TITLE =
+  "प्रतिअयोध्या श्री क्षेत्र राममाळ — सद्गुरु यशवंत बाबा तपोभूमी, उंचखडक (बु।।)";
+const DESCRIPTION =
+  "सत्ययुगातील श्रीराम पदस्पर्श, अगस्ती बंधू महामती मुनींचा आश्रम, शापमुक्तीची ऐतिहासिक महाघंटा आणि सद्गुरु यशवंत बाबांची जागृत तपोभूमी — दर्शन व आरती माहिती.";
+
 export const metadata: Metadata = {
-  title:
-    "प्रतिअयोध्या श्री क्षेत्र राममाळ — सद्गुरु यशवंत बाबा तपोभूमी, उंचखडक (बु।।)",
-  description:
-    "सत्ययुगातील श्रीराम पदस्पर्श, अगस्ती बंधू महामती मुनींचा आश्रम, शापमुक्तीची ऐतिहासिक महाघंटा आणि सद्गुरु यशवंत बाबांची जागृत तपोभूमी — दर्शन व आरती माहिती.",
+  metadataBase: new URL(SITE_URL),
+  title: TITLE,
+  description: DESCRIPTION,
+  keywords: [
+    "राममाळ", "Ram-mal", "Unchakhadak", "उंचखडक", "यशवंत बाबा", "Yashwant Baba",
+    "प्रतिअयोध्या", "Pratiayodhya", "श्रीराम पादुका", "Sangamner", "Ahilyanagar temple",
+  ],
+  openGraph: {
+    type: "website",
+    locale: "mr_IN",
+    alternateLocale: ["en_IN"],
+    title: TITLE,
+    description: DESCRIPTION,
+    siteName: "प्रतिअयोध्या श्री क्षेत्र राममाळ",
+  },
+  twitter: { card: "summary_large_image", title: TITLE, description: DESCRIPTION },
+};
+
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@type": "HinduTemple",
+  name: mandirContent.temple.name.en,
+  alternateName: mandirContent.temple.name.mr,
+  description: DESCRIPTION,
+  url: SITE_URL,
+  image: `${SITE_URL}/opengraph-image.jpg`,
+  telephone: mandirContent.temple.phone,
+  address: {
+    "@type": "PostalAddress",
+    streetAddress: "Unchakhadak (Bk.), Pravara river bank",
+    addressRegion: "Maharashtra",
+    addressCountry: "IN",
+  },
+  hasMap: mandirContent.temple.googleMapsUrl,
+  isAccessibleForFree: true,
+  openingHoursSpecification: {
+    "@type": "OpeningHoursSpecification",
+    dayOfWeek: [
+      "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday",
+    ],
+    opens: "00:00",
+    closes: "23:59",
+  },
 };
 
 export default function RootLayout({
@@ -47,6 +93,10 @@ export default function RootLayout({
     <html lang="mr" className={`${cinzel.variable} ${plusJakarta.variable} ${notoSansDeva.variable} ${notoSerifDeva.variable} scroll-smooth`}>
       <body className="min-h-screen font-sans bg-parchment text-maroon-950 selection:bg-saffron-500 selection:text-white">
         {children}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        />
       </body>
     </html>
   );

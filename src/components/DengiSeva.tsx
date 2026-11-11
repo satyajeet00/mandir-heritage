@@ -236,7 +236,7 @@ export default function DengiSeva({ currentLang = "mr" }: DengiSevaProps) {
                 {/* Mobile-Only One-Tap UPI Intent Link */}
                 <a
                   href={`upi://pay?pa=${dengi.qrCode.upiId}&pn=${encodeURIComponent(
-                    dengi.qrCode.payeeName
+                    dengi.qrCode.qrPayeeName
                   )}&cu=INR`}
                   className="sm:hidden w-full py-2.5 px-3 rounded-xl bg-saffron-600 hover:bg-saffron-700 text-white text-xs font-bold text-center flex items-center justify-center gap-1.5 shadow-xs transition"
                 >

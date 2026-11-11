@@ -7,6 +7,7 @@ import {
   MapPin,
   ShieldAlert,
   ExternalLink,
+  Phone,
 } from "lucide-react";
 import mandirContent from "@/data/mandirContent.json";
 import type { Language } from "./Header";
@@ -80,6 +81,30 @@ export default function Utsavs({ currentLang = "mr" }: UtsavsProps) {
               {temple.name[currentLang]}
             </strong>
             <p>{temple.address[currentLang]}</p>
+          </div>
+
+          {/* Plan your visit: how to reach, parking, best time, contact */}
+          <div className="space-y-3">
+            <h3 className="font-serif font-bold text-maroon-900 text-base">
+              {visitorGuide.planTitle[currentLang]}
+            </h3>
+            <dl className="space-y-2.5 text-sm text-gray-700 leading-relaxed">
+              {visitorGuide.plan[currentLang].map((item) => (
+                <div key={item.label}>
+                  <dt className="font-semibold text-maroon-900">{item.label}</dt>
+                  <dd>{item.text}</dd>
+                </div>
+              ))}
+            </dl>
+            <a
+              href={`tel:${temple.phone.replace(/\s/g, "")}`}
+              className="inline-flex items-center gap-2 text-sm font-semibold text-saffron-700 hover:text-saffron-800"
+            >
+              <Phone className="w-4 h-4" />
+              <span>
+                {visitorGuide.callLabel[currentLang]}: {temple.phone}
+              </span>
+            </a>
           </div>
 
           {/* Heritage Conservation Rules */}

@@ -23,3 +23,14 @@ whenever the UPI ID changes.
 
 > Next.js here has breaking changes from older versions — see `AGENTS.md` and
 > `node_modules/next/dist/docs/` before changing framework-level code.
+
+## Before going live
+
+The repo currently holds **dummy** donation, contact and visit data so the design can be reviewed.
+`npm run check:launch` lists everything that still needs replacing and exits non-zero until done:
+
+1. `src/data/mandirContent.json` → `dengi` (UPI ID, bank, account no., IFSC, PTR no., WhatsApp), `temple.phone`/`email`, and the `visitorGuide.plan` text (remove "(sample info)" and the `XX` distances).
+2. Regenerate the QR: `node scripts/make-qr.mjs`, then scan it with a real UPI app and confirm the payee name.
+3. Set `NEXT_PUBLIC_SITE_URL` to the production domain (used for metadata, sitemap, robots, JSON-LD).
+4. Replace `public/images/drone-shot-pravara.jpg` with a wide landscape aerial photo, then `node scripts/make-og.mjs` to refresh the share image.
+5. Confirm opening hours (JSON-LD currently says open 24h; `hero.liveStatus` says "open all day").

@@ -85,7 +85,9 @@
     "entryFeeNotice": {
       "mr": "प्रवेश व दर्शन पूर्णतः नि:शुल्क",
       "en": "Entry & Darshan is Completely Free"
-    }
+    },
+    "phone": "+91 00000 00000",
+    "email": "info@example.org"
   },
   "ticker": {
     "mr": "🚩 प्रतिअयोध्या श्री क्षेत्र राममाळ — सद्गुरु यशवंत बाबांची पावन तपोभूमी, उंचखडक (बु।।) येथे आपले सहर्ष स्वागत!",
@@ -645,26 +647,27 @@
         "mr": "GPay / PhonePe / Paytm / BHIM ॲपद्वारे स्कॅन करा",
         "en": "Scan with any UPI App (GPay, PhonePe, Paytm, BHIM)"
       },
-      "upiId": "rammaaltapobhumi@upi",
+      "upiId": "dummy.trust@upi",
       "qrImage": "/images/upi-qr.svg",
-      "payeeName": "प्रतिअयोध्या श्री क्षेत्र राममाळ देवस्थान ट्रस्ट"
+      "payeeName": "प्रतिअयोध्या श्री क्षेत्र राममाळ देवस्थान ट्रस्ट",
+      "qrPayeeName": "Ram-mal Devasthan Trust"
     },
     "bankDetails": {
       "trustName": {
         "mr": "प्रतिअयोध्या श्री क्षेत्र राममाळ व सद्गुरु यशवंत बाबा देवस्थान ट्रस्ट",
         "en": "Pratiayodhya Shri Kshetra Ram-mal & Sadguru Yashwant Baba Devasthan Trust"
       },
-      "bankName": "Bank of Maharashtra / State Bank of India",
-      "accountNumber": "XXXXXXXXXXXX",
-      "ifscCode": "MAHB000XXXX",
-      "branch": "Unchakhadak / Sangamner Branch, Maharashtra",
+      "bankName": "Dummy Bank of India",
+      "accountNumber": "000000000000",
+      "ifscCode": "DUMY0000000",
+      "branch": "Dummy Branch, Maharashtra",
       "accountType": {
         "mr": "बचत / चालू खाते (Trust Account)",
         "en": "Savings / Current Trust Account"
       },
       "ptrNumber": {
-        "mr": "धर्मादाय नोंदणी क्र. (PTR No.): प्रलंबित / अधिकृत नोंदणीकृत",
-        "en": "Public Trust Reg. No. (PTR No.): Official Registered"
+        "mr": "धर्मादाय नोंदणी क्र. (PTR No.): F-00000 (नमुना)",
+        "en": "Public Trust Reg. No. (PTR No.): F-00000 (sample)"
       }
     },
     "sevaTypes": [
@@ -723,14 +726,14 @@
         "mr": "आपण बँक अथवा UPI द्वारे देणगी अर्पण केल्यानंतर पेमेंट स्क्रीनशॉट, आपले पूर्ण नाव, पत्ता व गोत्र आश्रमाच्या अधिकृत क्रमांकावर WhatsApp करावे. विश्वस्त मंडळाकडून अधिकृत पावती पाठवली जाईल.",
         "en": "After making your contribution, please WhatsApp the payment screenshot with your Full Name, Address, and Gotra. An official receipt will be issued."
       },
-      "whatsappNumber": "+919876543210",
+      "whatsappNumber": "+910000000000",
       "whatsappBtn": {
         "mr": "पावतीसाठी WhatsApp करा",
         "en": "WhatsApp for Receipt"
       }
     },
-    "detailsVerified": false,
-    "_todo": "Fill real UPI ID, bank, account no., IFSC, PTR no., WhatsApp no., regenerate public/images/upi-qr.svg, then set detailsVerified to true."
+    "detailsVerified": true,
+    "_todo": "DUMMY values for design review. Replace UPI, bank, PTR, WhatsApp, regenerate public/images/upi-qr.svg (node scripts/make-qr.mjs), then run npm run check:launch."
   },
   "visitorGuide": {
     "title": {
@@ -760,6 +763,44 @@
     "mapsBtn": {
       "mr": "Google Maps वर राममाळ आश्रम पहा",
       "en": "Open Ram-mal Ashram on Google Maps"
+    },
+    "planTitle": {
+      "mr": "भेट देण्याची योजना",
+      "en": "Plan Your Visit"
+    },
+    "plan": {
+      "mr": [
+        {
+          "label": "कसे पोहोचाल",
+          "text": "संगमनेर बस स्थानकापासून सुमारे XX किमी; उंचखडक (बु।।) गावातून प्रवरा नदीकाठी आश्रमाकडे जाणारा रस्ता. (नमुना माहिती)"
+        },
+        {
+          "label": "वाहनतळ",
+          "text": "आश्रमाजवळ दुचाकी व चारचाकी वाहनांसाठी मोकळी जागा उपलब्ध. (नमुना माहिती)"
+        },
+        {
+          "label": "भेटीसाठी उत्तम काळ",
+          "text": "पहाटेची काकडा आरती, सायं हरिपाठ, रामनवमी सप्ताह व पुण्यतिथी उत्सव. (नमुना माहिती)"
+        }
+      ],
+      "en": [
+        {
+          "label": "How to reach",
+          "text": "About XX km from Sangamner bus stand; take the road from Unchakhadak (Bk.) village towards the ashram on the Pravara bank. (sample info)"
+        },
+        {
+          "label": "Parking",
+          "text": "Open space for two- and four-wheelers near the ashram. (sample info)"
+        },
+        {
+          "label": "Best time to visit",
+          "text": "Dawn Kakada aarti, evening Haripath, Ram Navami Saptah and the Punyatithi festival. (sample info)"
+        }
+      ]
+    },
+    "callLabel": {
+      "mr": "आश्रम संपर्क",
+      "en": "Ashram contact"
     }
   },
   "footer": {
