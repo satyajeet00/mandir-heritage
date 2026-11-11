@@ -79,13 +79,6 @@ export default function DarshanSchedule({
                   {card.description[currentLang]}
                 </p>
               </div>
-
-              <div className="pt-5 mt-5 border-t border-amber-900/10 flex items-center gap-2 text-sm text-maroon-800 font-medium">
-                <span className="w-2 h-2 rounded-full bg-emerald-500" />
-                <span>
-                  {mandirContent.ui.darshanOpenSereneAmbiance[currentLang]}
-                </span>
-              </div>
             </div>
           );
         })}
