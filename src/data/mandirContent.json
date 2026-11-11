@@ -392,7 +392,8 @@
         "mr": "४K ड्रोन दर्शन",
         "en": "4K Aerial Drone"
       },
-      "videoSrc": "https://www.youtube.com/embed/FTKmsTnnB7U?autoplay=1&rel=0&modestbranding=1"
+      "videoSrc": "https://www.youtube.com/embed/FTKmsTnnB7U?autoplay=1&rel=0&modestbranding=1",
+      "videoFile": ""
     },
     {
       "id": "gallery-paduka",

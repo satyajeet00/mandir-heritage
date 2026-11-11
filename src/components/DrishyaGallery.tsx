@@ -1,8 +1,8 @@
 "use client";
 
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import Image from "next/image";
-import { Play, X, ChevronLeft, ChevronRight } from "lucide-react";
+import { Maximize2, X, ChevronLeft, ChevronRight } from "lucide-react";
 import mandirContent from "@/data/mandirContent.json";
 import { useModal } from "@/utils/useModal";
 import type { Language } from "./Header";
@@ -25,6 +25,165 @@ function getYoutubeEmbedUrl(url?: string): string | null {
     return `https://www.youtube.com/embed/${id}?autoplay=1&rel=0&modestbranding=1`;
   }
   return url && url.includes("youtube.com/embed") ? url : null;
+}
+
+interface YTPlayerLike {
+  destroy: () => void;
+  mute: () => void;
+  playVideo: () => void;
+}
+interface YTWindow {
+  YT?: {
+    Player: new (
+      el: HTMLElement,
+      opts: {
+        videoId: string;
+        playerVars: Record<string, string | number>;
+        events: {
+          onReady: (e: { target: YTPlayerLike }) => void;
+          onStateChange: (e: { data: number; target: YTPlayerLike }) => void;
+        };
+      }
+    ) => YTPlayerLike;
+  };
+  onYouTubeIframeAPIReady?: () => void;
+}
+
+/** Loads the YouTube IFrame API once and calls back when it is ready. */
+function withYouTubeApi(cb: () => void) {
+  const w = window as unknown as YTWindow;
+  if (w.YT?.Player) return cb();
+  const prev = w.onYouTubeIframeAPIReady;
+  w.onYouTubeIframeAPIReady = () => {
+    prev?.();
+    cb();
+  };
+  if (!document.querySelector('script[src*="youtube.com/iframe_api"]')) {
+    const tag = document.createElement("script");
+    tag.src = "https://www.youtube.com/iframe_api";
+    document.head.appendChild(tag);
+  }
+}
+
+/** Muted, looping inline player (YouTube IFrame API forces mute + play, restarts at the end). Loads only once the tile nears the viewport. */
+function VideoTile({
+  videoId,
+  fileSrc,
+  poster,
+  title,
+  tag,
+  openLabel,
+  onOpen,
+}: {
+  videoId: string;
+  fileSrc?: string;
+  poster: string;
+  title: string;
+  tag: string;
+  openLabel: string;
+  onOpen: () => void;
+}) {
+  const wrapRef = useRef<HTMLDivElement>(null);
+  const hostRef = useRef<HTMLDivElement>(null);
+  const [inView, setInView] = useState(false);
+
+  useEffect(() => {
+    const node = wrapRef.current;
+    if (!node) return;
+    const io = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setInView(true);
+          io.disconnect();
+        }
+      },
+      { rootMargin: "300px" }
+    );
+    io.observe(node);
+    return () => io.disconnect();
+  }, []);
+
+  useEffect(() => {
+    const host = hostRef.current;
+    if (!inView || !host || fileSrc) return;
+    let cancelled = false;
+    let player: YTPlayerLike | undefined;
+    const mountEl = document.createElement("div");
+    host.appendChild(mountEl);
+
+    withYouTubeApi(() => {
+      const YT = (window as unknown as YTWindow).YT;
+      if (cancelled || !YT) return;
+      player = new YT.Player(mountEl, {
+        videoId,
+        playerVars: {
+          autoplay: 1, mute: 1, loop: 1, playlist: videoId,
+          controls: 1, rel: 0, modestbranding: 1, playsinline: 1,
+        },
+        events: {
+          onReady: (e) => {
+            e.target.mute();
+            e.target.playVideo();
+          },
+          // YT.PlayerState.ENDED === 0: restart for a seamless loop
+          onStateChange: (e) => {
+            if (e.data === 0) e.target.playVideo();
+          },
+        },
+      });
+    });
+
+    return () => {
+      cancelled = true;
+      player?.destroy();
+      host.replaceChildren();
+    };
+  }, [inView, videoId, fileSrc]);
+
+  return (
+    <div
+      ref={wrapRef}
+      className="relative w-full aspect-video rounded-2xl overflow-hidden bg-black border border-amber-900/15 shadow-sm"
+    >
+      {fileSrc && inView && (
+        <video
+          className="absolute inset-0 w-full h-full object-cover"
+          src={fileSrc}
+          poster={poster}
+          autoPlay
+          muted
+          loop
+          playsInline
+          controls
+          aria-label={title}
+          // React does not render `muted` as an attribute, so browsers may block autoplay:
+          // force it and start playback as soon as the element mounts.
+          ref={(el) => {
+            if (el) {
+              el.muted = true;
+              el.play().catch(() => {});
+            }
+          }}
+        />
+      )}
+      <div
+        ref={hostRef}
+        title={title}
+        className="absolute inset-0 [&_iframe]:absolute [&_iframe]:inset-0 [&_iframe]:w-full [&_iframe]:h-full [&_iframe]:border-0"
+      />
+      <span className="absolute top-3 left-3 px-3 py-1 rounded-full bg-maroon-950/85 text-amber-300 text-xs font-semibold pointer-events-none">
+        {tag}
+      </span>
+      <button
+        type="button"
+        onClick={onOpen}
+        aria-label={openLabel}
+        className="absolute top-3 right-3 p-2 rounded-full bg-maroon-950/85 hover:bg-maroon-900 text-amber-300 cursor-pointer"
+      >
+        <Maximize2 className="w-4 h-4" />
+      </button>
+    </div>
+  );
 }
 
 export default function DrishyaGallery({
@@ -152,38 +311,44 @@ export default function DrishyaGallery({
         {/* Uniform photo grid: every tile is a button that opens the lightbox */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
           {filteredItems.map((item, idx) => {
-            const isVideo = Boolean(item.videoSrc);
+            const videoId = item.videoSrc ? getYoutubeId(item.videoSrc) : null;
             return (
-              <figure key={item.id} className="group">
-                <button
-                  type="button"
-                  onClick={() => setActiveItemIndex(idx)}
-                  aria-label={`${item.title[currentLang]} — ${
-                    isVideo
-                      ? currentLang === "mr" ? "व्हिडिओ पहा" : "Watch video"
-                      : currentLang === "mr" ? "मोठे पहा" : "View larger"
-                  }`}
-                  className="relative block w-full aspect-[4/5] rounded-2xl overflow-hidden bg-maroon-950 border border-amber-900/15 shadow-sm group-hover:shadow-md group-hover:border-amber-400 transition-all cursor-pointer focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-saffron-600"
-                >
-                  <Image
-                    src={item.src}
-                    alt={item.alt[currentLang]}
-                    fill
-                    sizes="(min-width: 1024px) 380px, (min-width: 640px) 50vw, 100vw"
-                    className="object-cover object-top group-hover:scale-105 transition-transform duration-500"
+              <figure
+                key={item.id}
+                className={`group ${videoId ? "sm:col-span-2" : ""}`}
+              >
+                {videoId ? (
+                  <VideoTile
+                    videoId={videoId}
+                    fileSrc={item.videoFile || undefined}
+                    poster={item.src}
+                    title={item.title[currentLang]}
+                    tag={item.tag[currentLang]}
+                    openLabel={currentLang === "mr" ? "मोठ्या पडद्यावर पहा" : "Open larger"}
+                    onOpen={() => setActiveItemIndex(idx)}
                   />
-                  <div className="absolute inset-x-0 bottom-0 h-1/3 bg-gradient-to-t from-maroon-950/80 to-transparent" />
-                  <span className="absolute top-3 left-3 px-3 py-1 rounded-full bg-maroon-950/85 text-amber-300 text-xs font-semibold">
-                    {item.tag[currentLang]}
-                  </span>
-                  {isVideo && (
-                    <span className="absolute inset-0 flex items-center justify-center">
-                      <span className="w-16 h-16 rounded-full bg-amber-500 text-maroon-950 flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform">
-                        <Play className="w-7 h-7 ml-1" fill="currentColor" />
-                      </span>
+                ) : (
+                  <button
+                    type="button"
+                    onClick={() => setActiveItemIndex(idx)}
+                    aria-label={`${item.title[currentLang]} — ${
+                      currentLang === "mr" ? "मोठे पहा" : "View larger"
+                    }`}
+                    className="relative block w-full aspect-[4/5] rounded-2xl overflow-hidden bg-maroon-950 border border-amber-900/15 shadow-sm group-hover:shadow-md group-hover:border-amber-400 transition-all cursor-pointer focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-saffron-600"
+                  >
+                    <Image
+                      src={item.src}
+                      alt={item.alt[currentLang]}
+                      fill
+                      sizes="(min-width: 1024px) 380px, (min-width: 640px) 50vw, 100vw"
+                      className="object-cover object-top group-hover:scale-105 transition-transform duration-500"
+                    />
+                    <div className="absolute inset-x-0 bottom-0 h-1/3 bg-gradient-to-t from-maroon-950/80 to-transparent" />
+                    <span className="absolute top-3 left-3 px-3 py-1 rounded-full bg-maroon-950/85 text-amber-300 text-xs font-semibold">
+                      {item.tag[currentLang]}
                     </span>
-                  )}
-                </button>
+                  </button>
+                )}
                 <figcaption className="pt-3 px-1 font-serif font-bold text-base text-maroon-900 leading-snug">
                   {item.title[currentLang]}
                 </figcaption>
