@@ -635,8 +635,8 @@
       "en": "Give for Utsavs, Annadan & Community Seva"
     },
     "subheading": {
-      "mr": "भाविकांनी अर्पण केलेली देणगी थेट प्रतिअयोध्या श्री क्षेत्र राममाळ व सद्गुरु यशवंत बाबा देवस्थान ट्रस्टच्या अधिकृत बँक खात्यात जमा होते. ही देणगी वार्षिक उत्सव, प्रत्येक एकादशीचे अन्नदान, बालसंस्कार केंद्र आणि वृक्षारोपण उपक्रमांसाठी वापरली जाते.",
-      "en": "Contributions go directly into the Trust's registered bank account and are used for the yearly utsavs, annadan on every Ekadashi, the Balsanskar Kendra and tree plantation."
+      "mr": "भाविकांनी अर्पण केलेली देणगी थेट प्रतिअयोध्या श्री क्षेत्र राममाळ व सद्गुरु यशवंत बाबा देवस्थान ट्रस्टच्या अधिकृत बँक खात्यात जमा होते. ही देणगी वार्षिक उत्सव, एकादशीचा फराळ व द्वादशीचे अन्नदान, बालसंस्कार केंद्र आणि वृक्षारोपण उपक्रमांसाठी वापरली जाते.",
+      "en": "Contributions go directly into the Trust's registered bank account and are used for the yearly utsavs, faral on Ekadashi and annadan on Dwadashi, the Balsanskar Kendra and tree plantation."
     },
     "qrCode": {
       "title": {
@@ -689,16 +689,16 @@
       {
         "id": "annadan",
         "badge": {
-          "mr": "प्रत्येक एकादशी",
-          "en": "Every Ekadashi"
+          "mr": "एकादशी • द्वादशी",
+          "en": "Ekadashi • Dwadashi"
         },
         "title": {
-          "mr": "एकादशी अन्नदान निधी",
-          "en": "Ekadashi Annadan Fund"
+          "mr": "एकादशी फराळ व द्वादशी अन्नदान निधी",
+          "en": "Ekadashi Faral & Dwadashi Annadan Fund"
         },
         "desc": {
-          "mr": "प्रत्येक एकादशीला आश्रमात भाविक व वारकऱ्यांसाठी अन्नदान (प्रसाद) आयोजित केले जाते.",
-          "en": "Annadan (prasad) is served at the ashram on every Ekadashi for devotees and warkaris."
+          "mr": "प्रत्येक एकादशीला भाविक व वारकऱ्यांसाठी फराळ आणि प्रत्येक द्वादशीला अन्नदान (प्रसाद) आश्रमात आयोजित केले जाते.",
+          "en": "Faral is served to devotees and warkaris on every Ekadashi, and annadan (prasad) on every Dwadashi, at the ashram."
         }
       },
       {
