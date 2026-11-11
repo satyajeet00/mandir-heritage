@@ -34,3 +34,23 @@ The repo currently holds **dummy** donation, contact and visit data so the desig
 3. Set `NEXT_PUBLIC_SITE_URL` to the production domain (used for metadata, sitemap, robots, JSON-LD).
 4. Replace `public/images/drone-shot-pravara.jpg` with a wide landscape aerial photo, then `node scripts/make-og.mjs` to refresh the share image.
 5. Opening hours are 5:00 AM – 9:00 PM: keep `hero.liveStatus`, `hero.deityCard.hours` and the JSON-LD in `src/app/layout.tsx` in sync if they change.
+
+## When the new photos arrive
+
+- **Bell tile:** the "Sacred Bell" tile and its filter pill are removed until a bell photo exists (the
+  `bell` category type is kept). To bring it back: add this item to `gallery` in `mandirContent.json`
+  (set `src` to the new photo in `public/images/`) and re-add the `{ key: "bell", label: ... }` entry to
+  `categories` in `src/components/DrishyaGallery.tsx`.
+
+```json
+{
+  "id": "gallery-bell",
+  "category": "bell",
+  "title": { "mr": "शापमुक्तीची ऐतिहासिक महाघंटा व आश्रम विहंगम दृश्य", "en": "Historic Great Bell of Redemption & Ashram Vista" },
+  "alt": { "mr": "आश्रमातील ऐतिहासिक महाघंटा व परिसर", "en": "Historic bronze bell and sacred surroundings" },
+  "src": "/images/<bell-photo>.jpg",
+  "tag": { "mr": "ऐतिहासिक महाघंटा", "en": "Sacred Bell" }
+}
+```
+- **Hero photo:** replace `public/images/drone-shot-pravara.jpg` (or change `hero.posterSrc`), then run
+  `node scripts/make-og.mjs` to refresh the share image.

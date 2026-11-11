@@ -375,23 +375,6 @@
         "mr": "तपोभूमी समाधी",
         "en": "Tapobhumi Samadhi"
       }
-    },
-    {
-      "id": "gallery-bell",
-      "category": "bell",
-      "title": {
-        "mr": "शापमुक्तीची ऐतिहासिक महाघंटा व आश्रम विहंगम दृश्य",
-        "en": "Historic Great Bell of Redemption & Ashram Vista"
-      },
-      "alt": {
-        "mr": "आश्रमातील ऐतिहासिक महाघंटा व परिसर",
-        "en": "Historic bronze bell and sacred surroundings"
-      },
-      "src": "/images/drone-shot-pravara.jpg",
-      "tag": {
-        "mr": "ऐतिहासिक महाघंटा",
-        "en": "Sacred Bell"
-      }
     }
   ],
   "darshan": {

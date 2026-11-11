@@ -241,10 +241,6 @@ export default function DrishyaGallery({
       label: { mr: "श्रीराम पादुका", en: "Rama Paduka" },
     },
     {
-      key: "bell",
-      label: { mr: "ऐतिहासिक महाघंटा", en: "Sacred Bell" },
-    },
-    {
       key: "samadhi",
       label: { mr: "तपोभूमी समाधी", en: "Tapobhumi Samadhi" },
     },
