@@ -9,7 +9,7 @@ const config: Config = {
   theme: {
     extend: {
       fontFamily: {
-        serif: ["var(--font-cinzel)", "var(--font-noto-serif-deva)", "serif"],
+        serif: ["var(--font-noto-serif)", "var(--font-noto-serif-deva)", "serif"],
         sans: ["var(--font-jakarta)", "var(--font-noto-sans-deva)", "sans-serif"],
       },
     },

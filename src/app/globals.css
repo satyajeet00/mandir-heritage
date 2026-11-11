@@ -69,3 +69,11 @@ body {
   to   { transform: scale(1.12) translateX(-1.5%); }
 }
 .hero-pan { animation: hero-pan 30s ease-in-out infinite alternate; }
+
+/* English text is wider than Marathi at the same size: keep phone headings to two lines
+   and stop long stat words ("Redemption") clipping in the three-column hero stats. */
+@media (max-width: 639px) {
+  :lang(en) h2.font-serif { font-size: 1.5rem; line-height: 1.25; }
+  :lang(en) .hero-stat-value { font-size: 1.0625rem; }
+  :lang(en) .hero-stats { grid-template-columns: 1.05fr 0.85fr 1.3fr; gap: 0.75rem; }
+}

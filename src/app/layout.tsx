@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import {
-  Cinzel,
+  Noto_Serif,
   Plus_Jakarta_Sans,
   Noto_Sans_Devanagari,
   Noto_Serif_Devanagari,
@@ -9,16 +9,17 @@ import "./globals.css";
 import { SITE_URL } from "@/data/site";
 import mandirContent from "@/data/mandirContent.json";
 
-const cinzel = Cinzel({
-  variable: "--font-cinzel",
+const notoSerif = Noto_Serif({
+  variable: "--font-noto-serif",
   subsets: ["latin"],
-  weight: ["700"],
+  weight: ["600", "700"],
+  display: "swap",
 });
 
 const plusJakarta = Plus_Jakarta_Sans({
   variable: "--font-jakarta",
   subsets: ["latin"],
-  weight: ["400", "500", "600", "700"],
+  weight: ["400", "600"],
 });
 
 const notoSansDeva = Noto_Sans_Devanagari({
@@ -94,7 +95,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="mr" className={`${cinzel.variable} ${plusJakarta.variable} ${notoSansDeva.variable} ${notoSerifDeva.variable} scroll-smooth`}>
+    <html lang="mr" className={`${notoSerif.variable} ${plusJakarta.variable} ${notoSansDeva.variable} ${notoSerifDeva.variable} scroll-smooth`}>
       <body className="min-h-screen font-sans bg-parchment text-maroon-950 selection:bg-saffron-500 selection:text-white">
         {children}
         <script

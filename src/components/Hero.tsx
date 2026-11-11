@@ -80,10 +80,10 @@ export default function Hero({ currentLang }: HeroProps) {
           </div>
 
           {/* Key Heritage Stats (Full Bilingual) */}
-          <div className="grid grid-cols-3 gap-4 pt-6 border-t border-amber-400/20 max-w-lg">
+          <div className="hero-stats grid grid-cols-3 gap-4 pt-6 border-t border-amber-400/20 max-w-lg">
             {hero.stats.map((stat, idx) => (
               <div key={idx} className="space-y-1">
-                <div className="font-serif text-2xl sm:text-3xl font-bold text-amber-300">
+                <div className="hero-stat-value font-serif text-2xl sm:text-3xl font-bold text-amber-300">
                   {stat.value[currentLang]}
                 </div>
                 <div className="text-sm text-amber-200/75 leading-tight">
