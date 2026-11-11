@@ -278,7 +278,7 @@ export default function DrishyaGallery({
             </h2>
             <p className="text-sm sm:text-base text-gray-700 max-w-2xl leading-relaxed">
               {currentLang === "mr"
-                ? "सत्ययुगातील श्रीराम पादुका, अमृतवाहिनी प्रवरा नदी, ऐतिहासिक महाघंटा आणि सद्गुरु यशवंत बाबांची जागृत तपोभूमी."
+                ? "सत्ययुगातील श्रीराम पादुका, अमृतवाहिनी प्रवरा नदी, ऐतिहासिक महाघंटा आणि सद्गुरू यशवंत बाबांची जागृत तपोभूमी."
                 : "Contemplative documentation of Satya Yuga Rama Paduka, holy Pravara river banks, the Great Bell, and Baba's Tapobhumi."}
             </p>
           </div>
