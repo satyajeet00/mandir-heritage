@@ -1,102 +1,175 @@
 {
+  "i18n": {
+    "mr": {
+      "trustTag": "अमृतवाहिनी प्रवरा तीर • श्रीराम पादुका देवस्थान",
+      "templeName": "प्रतिअयोध्या श्री क्षेत्र राममाळ",
+      "subName": "सद्गुरु यशवंत बाबा तपोभूमी",
+      "navHeritage": "स्थळ पुराण व शापमुक्ती",
+      "navArch": "आश्रम वैशिष्ट्ये",
+      "navDarshan": "दर्शन व नित्य नियम",
+      "navAartiBook": "आरती संग्रह",
+      "navUtsav": "वार्षिक उत्सव",
+      "navVisit": "पत्ता व मार्ग",
+      "btnAarti": "आरती व हरिपाठ वाचा",
+      "liveStatus": "दर्शन वेळ: सकाळी ६:०० ते रात्री ९:००",
+      "nextAarti": "सायं आरती व हरिपाठ: ७:०० वाजता",
+      "heroKicker": "सद्गुरु यशवंत बाबांची पावन तपोभूमी",
+      "heroTitle": "प्रतिअयोध्या श्री क्षेत्र राममाळ",
+      "heroSubtitle": "उंचखडक (बु।।) येथील राममाळ ही केवळ वास्तू नसून, सत्ययुगातील प्रभू श्रीरामांच्या पदस्पर्शाने पावन झालेली, साधूच्या शापातून मुक्त झालेली आणि सद्गुरु यशवंत बाबांच्या घोर तपाने उजळून निघालेली एक जागृत प्रतिअयोध्या देवभूमी आहे.",
+      "ctaExploreHistory": "शापमुक्तीचा इतिहास वाचा",
+      "ctaArchitecture": "आश्रमातील ६ पवित्र स्थाने",
+      "historyHeading": "राममाळ: शाप ते शापमुक्तीचा थरारक इतिहास",
+      "scheduleHeading": "दैनंदिन दर्शन, ज्ञानेश्वरी वाचन व हरिपाठ"
+    },
+    "hi": {
+      "trustTag": "अमृतवाहिनी प्रवरा तट • श्रीराम पादुका देवस्थान",
+      "templeName": "प्रतिअयोध्या श्री क्षेत्र राममाल",
+      "subName": "सद्गुरु यशवंत बाबा तपोभूमि",
+      "navHeritage": "स्थल पुराण एवं शापमुक्ति",
+      "navArch": "आश्रम की विशेषताएँ",
+      "navDarshan": "दर्शन एवं नित्य नियम",
+      "navAartiBook": "आरती संग्रह",
+      "navUtsav": "वार्षिक उत्सव",
+      "navVisit": "पता एवं मार्ग",
+      "btnAarti": "आरती एवं हरिपाठ पढ़ें",
+      "liveStatus": "दर्शन समय: प्रातः ६:०० से रात्रि ९:००",
+      "nextAarti": "सायं आरती: ७:०० बजे",
+      "heroKicker": "सद्गुरु यशवंत बाबा की पावन तपोभूमि",
+      "heroTitle": "प्रतिअयोध्या श्री क्षेत्र राममाल",
+      "heroSubtitle": "उंचखडक (बु।।) स्थित राममाल केवल एक आश्रम नहीं, बल्कि श्रीराम के पावन प्रवास, एक साधु के शाप से मुक्ति, और सद्गुरु यशवंत बाबा की कठोर तपस्या का जीवंत साक्ष्य है।",
+      "ctaExploreHistory": "शापमुक्ति का इतिहास पढ़ें",
+      "ctaArchitecture": "आश्रम के ६ पवित्र स्थल",
+      "historyHeading": "राममाल: शाप से शापमुक्ति का इतिहास",
+      "scheduleHeading": "दैनिक दर्शन, ज्ञानेश्वरी एवं हरिपाठ"
+    },
+    "en": {
+      "trustTag": "Banks of Pravara • Sacred Rama Paduka Devasthan",
+      "templeName": "Pratiayodhya Shri Kshetra Ram-mal",
+      "subName": "Sadguru Yashwant Baba Tapobhumi",
+      "navHeritage": "Legends & Curse Redemption",
+      "navArch": "Sacred Highlights",
+      "navDarshan": "Darshan & Haripath",
+      "navAartiBook": "Hymns & Aarti",
+      "navUtsav": "Annual Utsavs",
+      "navVisit": "Visitor Guide",
+      "btnAarti": "Read Haripath & Aarti",
+      "liveStatus": "Open Daily: 6:00 AM – 9:00 PM",
+      "nextAarti": "Evening Haripath: 7:00 PM",
+      "heroKicker": "Sacred Tapobhumi of Sadguru Yashwant Baba",
+      "heroTitle": "Pratiayodhya Shri Kshetra Ram-mal",
+      "heroSubtitle": "Located in Unchakhadak, Ram-mal is a sacred landscape that holds the holy footprints of Lord Rama in exile, a chilling tale of an ascetic's curse, and the supreme redemption brought by the penance of Sadguru Yashwant Baba.",
+      "ctaExploreHistory": "Read the Tale of the Curse",
+      "ctaArchitecture": "Explore the 6 Sacred Spots",
+      "historyHeading": "Ram-mal: The Legend of the Curse and Redemption",
+      "scheduleHeading": "Daily Darshan & Dnyaneshwari Haripath"
+    }
+  },
   "temple": {
     "name": {
-      "mr": "श्री प्राचीन मंदिर देवस्थान",
-      "en": "Shree Prachin Mandir Devasthan"
+      "mr": "प्रतिअयोध्या श्री क्षेत्र राममाळ",
+      "en": "Pratiayodhya Shri Kshetra Ram-mal"
+    },
+    "subName": {
+      "mr": "सद्गुरु यशवंत बाबा तपोभूमी",
+      "en": "Sadguru Yashwant Baba Tapobhumi"
     },
     "trustTag": {
-      "mr": "ग्रामदैवत व ऐतिहासिक वारसा • हेमाडपंती स्थापत्य",
-      "en": "Sacred Village Heritage • Ancient Hemadpanti Architecture"
+      "mr": "अमृतवाहिनी प्रवरा तीर • श्रीराम पादुका देवस्थान",
+      "en": "Banks of Pravara • Sacred Rama Paduka Devasthan"
     },
     "address": {
-      "mr": "जुने गावठाण, मुख्य मंदिर मार्ग, महाराष्ट्र",
-      "en": "Old Gaothan, Main Mandir Marg, Maharashtra"
+      "mr": "उंचखडक (बु।।), प्रवरा नदीकाठ, ता. संगमनेर / अकोले परिसर, महाराष्ट्र",
+      "en": "Unchakhadak (Bk.), Banks of Pravara River, Maharashtra"
     },
-    "googleMapsUrl": "https://maps.google.com",
+    "googleMapsUrl": "https://maps.google.com/?q=Unchakhadak+Ram+Mal+Ashram",
     "entryFeeNotice": {
-      "mr": "प्रवेश पूर्णतः नि:शुल्क",
-      "en": "Entry is Completely Free"
+      "mr": "प्रवेश व दर्शन पूर्णतः नि:शुल्क",
+      "en": "Entry & Darshan is Completely Free"
     }
   },
   "ticker": {
-    "mr": "🚩 त्रिपुरारी पौर्णिमा दीपोत्सव — सर्व ग्रामस्थ आणि भाविकांचे मंदिरात हार्दिक स्वागत!",
-    "en": "🚩 Tripurari Purnima Deepotsav — Warm welcome to all devotees to the sacred sanctum!"
+    "mr": "🚩 प्रतिअयोध्या श्री क्षेत्र राममाळ — सद्गुरु यशवंत बाबांची पावन तपोभूमी, उंचखडक (बु।।) येथे आपले सहर्ष स्वागत!",
+    "en": "🚩 Pratiayodhya Shri Kshetra Ram-mal — Sacred Tapobhumi of Sadguru Yashwant Baba, Unchakhadak!"
   },
   "hero": {
     "liveStatus": {
       "mr": "दर्शन वेळ: सकाळी ६:०० ते रात्री ९:००",
-      "en": "Darshan Hours: 6:00 AM – 9:00 PM"
+      "en": "Open Daily: 6:00 AM – 9:00 PM"
     },
     "nextAarti": {
-      "mr": "सायं आरती: ७:०० वाजता",
-      "en": "Evening Aarti: 7:00 PM"
+      "mr": "सायं आरती व हरिपाठ: ७:०० वाजता",
+      "en": "Evening Haripath: 7:00 PM"
+    },
+    "kicker": {
+      "mr": "सद्गुरु यशवंत बाबांची पावन तपोभूमी",
+      "en": "Sacred Tapobhumi of Sadguru Yashwant Baba"
     },
     "title": {
-      "mr": "शेकडो वर्षांचा ऐतिहासिक वारसा आणि शांत पाषाण तीर्थक्षेत्र",
-      "en": "Centuries of Sacred Stone Heritage & Living Basalt Sanctuary"
+      "mr": "प्रतिअयोध्या श्री क्षेत्र राममाळ",
+      "en": "Pratiayodhya Shri Kshetra Ram-mal"
     },
     "subtitle": {
-      "mr": "सह्याद्रीच्या कुशीतील हे पुरातन मंदिर पूर्वजांच्या अप्रतिम स्थापत्यकलेचा, अखंड काळ्या पाषाणातील कोरीव कामाचा आणि पिढ्यानपिढ्या चालत आलेल्या पवित्र परंपरेचा अनमोल ठेवा आहे.",
-      "en": "Nestled in the Sahyadri foothills, this ancient sanctuary stands as an enduring monument to interlocking basalt craftsmanship, sacred oral traditions, and meditative spiritual coolness."
+      "mr": "उंचखडक (बु।।) येथील राममाळ ही केवळ वास्तू नसून, सत्ययुगातील प्रभू श्रीरामांच्या पदस्पर्शाने पावन झालेली, साधूच्या शापातून मुक्त झालेली आणि सद्गुरु यशवंत बाबांच्या घोर तपाने उजळून निघालेली एक जागृत प्रतिअयोध्या देवभूमी आहे.",
+      "en": "Located in Unchakhadak, Ram-mal is a sacred landscape that holds the holy footprints of Lord Rama in exile, a chilling tale of an ascetic's curse, and the supreme redemption brought by the penance of Sadguru Yashwant Baba."
     },
     "ctaHistory": {
-      "mr": "मंदिराचा संपूर्ण इतिहास वाचा",
-      "en": "Read Sthala Purana History"
+      "mr": "शापमुक्तीचा इतिहास वाचा",
+      "en": "Read the Tale of the Curse"
     },
     "ctaArchitecture": {
-      "mr": "पाषाण स्थापत्य व शिल्पकला",
-      "en": "Explore Stone Architecture"
+      "mr": "आश्रमातील ६ पवित्र स्थाने",
+      "en": "Explore the 6 Sacred Spots"
     },
-    "videoSrc": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerBlazes.mp4",
-    "posterSrc": "https://images.unsplash.com/photo-1582510003544-4d00b7f74220?auto=format&fit=crop&w=1920&q=80",
+    "videoSrc": "https://www.youtube.com/embed/FTKmsTnnB7U",
+    "posterSrc": "/images/drone-shot-pravara.jpg",
     "stats": [
       {
         "value": {
-          "mr": "१३ वे शतक",
-          "en": "13th Century"
+          "mr": "सत्ययुग",
+          "en": "Satya Yuga"
         },
         "label": {
-          "mr": "यादवकालीन स्थापत्य रचना",
-          "en": "Yadava-Era Architecture"
+          "mr": "श्रीराम पदस्पर्श व पादुका",
+          "en": "Lord Rama's Sacred Paduka"
         }
       },
       {
         "value": {
-          "mr": "अखंड पाषाण",
-          "en": "Dry Basalt"
+          "mr": "६ महिने",
+          "en": "6 Months"
         },
         "label": {
-          "mr": "चुन्याशिवाय दगडी कुसू",
-          "en": "Mortar-Free Interlocking"
+          "mr": "कालभैरव गुहेत घोर तप",
+          "en": "Cave Penance of Baba"
         }
       },
       {
         "value": {
-          "mr": "ग्रामदैवत",
-          "en": "Living Heritage"
+          "mr": "शापमुक्ती",
+          "en": "Redemption"
         },
         "label": {
-          "mr": "अखंड भक्ती व शांतता",
-          "en": "Unbroken Sacred Devotion"
+          "mr": "सद्गुरु बाबांचे पावन कार्य",
+          "en": "Freed from Sage's Curse"
         }
       }
     ],
     "deityCard": {
       "badge": {
-        "mr": "मुख्य गर्भगृह व गाभारा",
-        "en": "Inner Sanctum Sanctorum"
+        "mr": "पवित्र श्रीराम पादुका व समाधी",
+        "en": "Sacred Rama Paduka & Samadhi"
       },
       "entry": {
         "mr": "प्रवेश पूर्णतः नि:शुल्क",
         "en": "Free Entry for All"
       },
       "title": {
-        "mr": "स्वयंभू पाषाण मूर्ती आणि गर्भगृह",
-        "en": "Swayambhu Basalt Deity & Garbhagriha"
+        "mr": "श्रीराम पादुका आणि सद्गुरु यशवंत बाबा समाधी",
+        "en": "Shree Rama Paduka & Sadguru Samadhi"
       },
       "description": {
-        "mr": "मंदिराचे मुख्य गर्भगृह पूर्वाभिमुख असून सूर्योदयाची पहिली सुवर्ण किरणे थेट गाभाऱ्यात प्रवेश करतात. शांत व सात्त्विक वातावरणात प्रत्येक भाविकाला शांततेत दर्शन घेता येते.",
-        "en": "The sacred sanctum faces East, receiving the dawn's golden rays upon the deity. Hand-dressed basalt stone preserves a natural cooling silence even in peak summer."
+        "mr": "अगस्ती बंधू महामती मुनींच्या तपोभूमीत प्रभू श्रीरामांच्या पदस्पर्शाने पावन झालेल्या तरवडाच्या झाडाखालील पादुका आणि सद्गुरु यशवंत बाबांची जागृत समाधी.",
+        "en": "Sanctified beneath the ancient Tarwad tree in Sage Mahamati's hermitage, holding the holy footsteps of Lord Rama and the serene Samadhi of Sadguru Yashwant Baba."
       },
       "morningLabel": {
         "mr": "सकाळचे दर्शन",
@@ -104,196 +177,204 @@
       },
       "morningTiming": "06:00 AM – 12:30 PM",
       "eveningLabel": {
-        "mr": "सायंकाळचे दर्शन",
-        "en": "Evening Darshan"
+        "mr": "सायंकाळचे दर्शन व हरिपाठ",
+        "en": "Evening Darshan & Haripath"
       },
       "eveningTiming": "04:00 PM – 09:00 PM"
     }
   },
   "history": {
     "badge": {
-      "mr": "स्थळ पुराण आणि इतिहास",
-      "en": "Sthala Purana & History"
+      "mr": "स्थळ पुराण व शापमुक्ती",
+      "en": "Sthala Purana & Curse Redemption"
     },
     "heading": {
-      "mr": "मंदिराचा प्राचीन इतिहास आणि पाषाण वारसा",
-      "en": "Ancient History & Sacred Stone Heritage"
+      "mr": "राममाळ: शाप ते शापमुक्तीचा थरारक इतिहास",
+      "en": "Ram-mal: The Legend of the Curse and Redemption"
     },
     "subheading": {
-      "mr": "शेकडो वर्षांपासून गावाच्या सुख-दुःखाचे साक्षीदार असलेल्या या पाषाण मंदिराची ऐतिहासिक जडणघडण आणि आख्यायिका.",
-      "en": "Centuries of spiritual witness preserved in hand-carved basalt stone, oral chronicles, and timeless village traditions."
+      "mr": "अगस्ती ऋषींचे बंधू महामती मुनींचा आश्रम, निष्पाप साधूचा शाप आणि सद्गुरु यशवंत बाबांच्या घोर तपश्चर्येने झालेली अखंड मुक्ती.",
+      "en": "The hermitage of Sage Mahamati, the chilling tragedy of an innocent Gosavi Sadhu's curse, and the supreme redemption brought by Sadguru Yashwant Baba."
     },
     "storyTitle": {
-      "mr": "प्राचीन आख्यायिका आणि मंदिराची उभारणी",
-      "en": "Ancient Legends & Founding Lineage"
+      "mr": "सत्ययुगातील श्रीराम चरण ते सद्गुरु यशवंत बाबांची तपोभूमी",
+      "en": "From Lord Rama's Sacred Step to Yashwant Baba's Tapobhumi"
     },
     "paragraphs": {
       "mr": [
-        "स्थानिक ग्रामस्थ आणि जुन्या शिलालेख नोंदींनुसार, या मंदिराची मूळ रचना तेराव्या ते चौदाव्या शतकाच्या (यादव कालखंडाच्या) आसपास काळ्या पाषाणात (Black Basalt Stone) करण्यात आली. प्राचीन काळी या परिसरात नैसर्गिक पाण्याचे झरे आणि घनदाट वृक्षराई होती.",
-        "येथील मुख्य मूर्ती स्वयंभू मानली जाते. जुन्या काळी पंचक्रोशीतील वाटसरू, वारकरी आणि ग्रामस्थ या मंदिराच्या सभामंडपात विश्रांती घेत असत. मंदिराच्या प्रांगणातील प्राचीन पाषाणी दीपमाळ आजही त्या समृद्ध स्थापत्यकलेची साक्ष देते."
+        "उंचखडक (बु।।) येथील राममाळ ही भूमी सत्ययुगापासून अत्यंत पावन मानली जाते. अगस्ती ऋषींचे बंधू महामती मुनींचा येथे आश्रम होता आणि प्रभू श्रीराम वनवासात असताना येथे वास्तव्यास आले होते. येथील तरवडाच्या झाडाखाली प्रभूंच्या पादुका जमिनीखाली सुरक्षित व गुप्त होत्या. म्हणूनच या पावन भूमीस 'प्रतिअयोध्या' असे संबोधले जाते.",
+        "मध्ययुगीन काळात प्रवरेच्या पात्रात राहणाऱ्या एका निष्पाप गोसावी साधूवर चोरीचा खोटा आळ घेऊन गावकऱ्यांनी त्याची क्रूर हत्या केली. प्राण सोडताना त्या सिद्ध साधूने गावाला 'रंडक्यांचे उंचखडक' असा भयंकर शाप दिला, ज्यामुळे गावात रोगराई व वंशवृद्धी खुंटली.",
+        "विसाव्या शतकात सद्गुरु यशवंत बाबांनी कालभैरव गुहेत विंचू-सापांच्या सान्निध्यात ६ महिने घोर तपश्चर्या केली. दृष्टांतातून गुप्त पादुका शोधून काढल्या, महाघंटा बसवली आणि उंचखडक गावाला त्या भयंकर शापातून कायमचे मुक्त करून पावन केले."
       ],
       "en": [
-        "According to epigraphical inscriptions and oral tradition, the temple's foundational structure was constructed during the Yadava era (13th–14th century) from solid Deccan black basalt. In antiquity, the sanctuary was encircled by natural springs and serene groves.",
-        "The presiding deity is revered as Swayambhu (naturally manifested). Historically, travelling Warkari pilgrims and villagers found peaceful refuge within its resonant pillared Sabhamandap. The monolithic stone Deepmala lamp tower standing in the courtyard remains a testament to ancient Maratha and Hemadpanti architectural mastery."
+        "Ram-mal in Unchakhadak holds an illustrious spiritual heritage dating back to the Satya Yuga. Sage Mahamati (brother of Maharishi Agastya) maintained his serene hermitage here, where Lord Rama took shelter during exile, sanctifying the soil beneath a sacred Tarwad tree. Hence, this sanctified pilgrimage is revered as 'Pratiayodhya'.",
+        "In the medieval era, an innocent Gosavi Sadhu meditating on an islet in the Pravara river was wrongfully accused of theft and slain by suspicious villagers. With his dying breath, the ascetic laid a devastating curse upon the hamlet: 'Randkyanche Unchakhadak', casting decades of suffering.",
+        "In the 20th century, Sadguru Yashwant Baba retreated to the serpent-ridden Kalbhairav Cave, undergoing six months of intense austerity. Through divine communion, he unearthed Lord Rama's Paduka, installed the consecrated Great Bell, and broke the ancient curse forever."
       ]
     },
     "cultureCard": {
       "title": {
-        "mr": "गावाचे आध्यात्मिक व सांस्कृतिक केंद्र",
-        "en": "Spiritual Center of Contemplation"
+        "mr": "शापमुक्ती व आध्यात्मिक चैतन्य केंद्र",
+        "en": "Sanctuary of Redemption & Unbroken Devotion"
       },
       "text": {
-        "mr": "हे मंदिर केवळ दर्शनापुरते मर्यादित नसून नित्य काकडा आरती, हरिपाठ, ज्ञानेश्वरी पारायण आणि शांत ध्यानाचे पवित्र केंद्र आहे. कोणत्याही व्यावसायिक शुल्काशिवाय येथे शांततेत दर्शन करता येते.",
-        "en": "The sanctuary serves as an unhurried haven for daily Vedic Kakada aarti, Haripath chanting, and quiet contemplation—open freely to all seekers without commercial barriers."
+        "mr": "आज प्रतिअयोध्या श्री क्षेत्र राममाळ हे केवळ दर्शनस्थळ नसून नित्य ज्ञानेश्वरी पारायण, अखंड हरिपाठ आणि सद्गुरु यशवंत बाबांच्या कृपेने भाविकांच्या मनोकामना पूर्ण करणारे जागृत तीर्थक्षेत्र आहे.",
+        "en": "Today, Pratiayodhya Shri Kshetra Ram-mal stands as a living sanctuary of daily Dnyaneshwari readings, communal Haripath singing, and spiritual peace, warmly welcoming all devotees."
       }
     },
     "timeline": [
       {
         "era": {
-          "mr": "१३ वे – १४ वे शतक",
-          "en": "13th – 14th Century"
+          "mr": "सत्ययुग",
+          "en": "Satya Yuga"
         },
         "title": {
-          "mr": "मूळ हेमाडपंती पाषाण बांधकाम",
-          "en": "Original Hemadpanti Stone Construction"
+          "mr": "महामती मुनींचा आश्रम व श्रीराम चरण",
+          "en": "Sage Mahamati's Hermitage & Rama's Presence"
         },
         "desc": {
-          "mr": "चुन्याचा वापर न करता एकमेकांत गुंफलेल्या काळ्या पाषाणातून (Interlocking Basalt) मुख्य गाभारा व अष्टकोनी स्तंभांची निर्मिती.",
-          "en": "Erection of the sanctum and octagonal pillars using mortarless dry-masonry interlocking basalt stones."
+          "mr": "अगस्ती ऋषींचे बंधू महामती मुनींचा येथे आश्रम होता. प्रभू श्रीरामांनी येथे वास्तव्य केले व त्यांच्या पादुका येथील तरवडाच्या झाडाखाली जमिनीत सुरक्षित होत्या.",
+          "en": "Sage Agastya's brother Sage Mahamati established his ashram here. Lord Rama stayed here during exile, leaving sacred footprints preserved beneath the roots of the Tarwad tree."
         }
       },
       {
         "era": {
-          "mr": "१८ वे शतक (मराठा काळ)",
-          "en": "18th Century (Maratha Era)"
+          "mr": "मध्ययुगीन काळ",
+          "en": "Medieval Era"
         },
         "title": {
-          "mr": "दीपमाळ व सभामंडप संवर्धन",
-          "en": "Deepmala & Sabhamandap Conservation"
+          "mr": "गोसावी साधूचा शाप आणि हत्या",
+          "en": "Slaying of the Gosavi Sadhu & The Curse"
         },
         "desc": {
-          "mr": "मंदिरासमोरील भव्य पाषाणी दीपमाळ आणि सभामंडपातील रेखीव कोरीव कामाचे संवर्धन.",
-          "en": "Sculpting of the tiered basalt Deepmala lamp tower and architectural reinforcement of the assembly hall."
+          "mr": "प्रवरेच्या बेटात राहणाऱ्या एका निष्पाप गोसावी साधूवर खोटा आळ घेऊन गावकऱ्यांनी त्याची हत्या केली. मरताना त्याने गावाला 'रंडक्यांचे उंचखडक' असा भयंकर शाप दिला.",
+          "en": "An innocent ascetic residing on an islet in the Pravara river was wrongfully accused and slain. With his dying breath, he uttered a terrible curse upon the village: 'Randkyanche Unchakhadak'."
         }
       },
       {
         "era": {
-          "mr": "वर्तमान काळ",
-          "en": "Contemporary Era"
+          "mr": "विसावे शतक (१९४७ पर्यंत)",
+          "en": "20th Century (Up to 1947)"
         },
         "title": {
-          "mr": "अखंड संवर्धन व नित्य उपासना",
-          "en": "Heritage Preservation & Living Worship"
+          "mr": "सद्गुरु यशवंत बाबांकडून शापमुक्ती",
+          "en": "Supreme Curse Redemption by Yashwant Baba"
         },
         "desc": {
-          "mr": "धर्मादाय न्यासाकडून मूळ स्थापत्याचे संरक्षण, डिजिटल दर्शन सुविधा आणि नित्य अन्नदान सेवा.",
-          "en": "Stewardship by the public trust ensuring architectural preservation, clean amenities, and daily Annadan seva."
+          "mr": "कालभैरव गुहेत तपश्चर्या करून यशवंत बाबांनी श्रीरामाच्या पादुका शोधून काढल्या, महाघंटा बसवली आणि उंचखडक गावाला त्या भयंकर शापातून कायमचे मुक्त केले.",
+          "en": "After intense tapasya in the Bhairav Cave, Yashwant Baba unearthed Lord Rama's Paduka, consecrated the Great Bell, and liberated Unchakhadak village from the curse forever."
         }
       }
     ]
   },
   "architecture": {
     "badge": {
-      "mr": "हेमाडपंती स्थापत्य शिल्प",
-      "en": "Hemadpanti Basalt Architecture"
+      "mr": "आश्रम वैशिष्ट्ये",
+      "en": "Sacred Highlights"
     },
     "heading": {
-      "mr": "पाषाणातील अचूक भौमितिक रचना व कोरीव काम",
-      "en": "Mortarless Basalt Geometry & Stone Craft"
+      "mr": "आश्रमातील ६ पवित्र स्थाने व वैशिष्ट्ये",
+      "en": "The 6 Sacred Spots of Ram-mal Tapobhumi"
     },
     "subheading": {
-      "mr": "चुन्याचा वापर न करता केवळ गुरुत्वाकर्षण आणि खाच-कुसू पद्धतीने जोडलेले हे दगडी मंदिर स्थापत्यकलेचा अद्भूत चमत्कार आहे.",
-      "en": "Constructed without lime or mortar using gravity and precision interlocking socket joints, the sanctuary remains naturally cool across centuries."
+      "mr": "सत्ययुगातील श्रीराम पादुकांपासून ते कालभैरव गुहा, महाघंटा आणि सद्गुरु यशवंत बाबांच्या समाधीपर्यंतचे दिव्य दर्शन.",
+      "en": "From the Satya Yuga Rama Paduka to the Bhairav Cave, Bell of Redemption, and the serene Samadhi of Sadguru Yashwant Baba."
     },
     "features": [
       {
-        "icon": "Columns",
+        "icon": "Sparkles",
+        "numeral": "०१",
+        "tag": {
+          "mr": "[RAMA PADUKA]",
+          "en": "[RAMA PADUKA]"
+        },
         "title": {
-          "mr": "अष्टकोनी पाषाणी स्तंभ",
-          "en": "Carved Octagonal Pillars"
+          "mr": "श्रीराम पादुका",
+          "en": "Shree Rama Paduka"
         },
         "desc": {
-          "mr": "सभामंडपातील अखंड दगडी खांब मंदिराच्या छताचा भार पेलतात, ज्यावर पारंपरिक नक्षीकाम आहे.",
-          "en": "Monolithic stone pillars supporting the corbelled ceiling, carved with traditional geometric and floral motifs."
-        },
-        "tag": {
-          "mr": "सभामंडप",
-          "en": "Sabhamandap"
-        }
-      },
-      {
-        "icon": "DoorOpen",
-        "title": {
-          "mr": "पूर्वाभिमुख गर्भगृह",
-          "en": "East-Facing Sanctum"
-        },
-        "desc": {
-          "mr": "सूर्योदयाची पहिली किरणे थेट मुख्य मूर्तीवर पडतील अशा अचूक खगोलीय दिशेने गाभाऱ्याचे द्वार आहे.",
-          "en": "Astronomically aligned so the morning sun rays directly illuminate the deity within the sanctum."
-        },
-        "tag": {
-          "mr": "सूर्यकिरण दर्शन",
-          "en": "Solar Alignment"
-        }
-      },
-      {
-        "icon": "Shield",
-        "title": {
-          "mr": "खाच-कुसू पद्धतीचे बांधकाम",
-          "en": "Interlocking Dry Masonry"
-        },
-        "desc": {
-          "mr": "दगडाला दगड जोडून सिमेंट किंवा चुन्याशिवाय केलेले बांधकाम शेकडो वर्षांनंतरही अभेद्य उभे आहे.",
-          "en": "Tongue-and-groove jointing allows the structure to absorb seismic tremors while standing resolute."
-        },
-        "tag": {
-          "mr": "हेमाडपंती कुसू",
-          "en": "Hemadpanti Technique"
-        }
-      },
-      {
-        "icon": "Flame",
-        "title": {
-          "mr": "पाषाणी दीपमाळ",
-          "en": "Monolithic Deepmala Tower"
-        },
-        "desc": {
-          "mr": "मंदिराच्या प्रांगणातील उंच दगडी दीपस्तंभ, ज्यावर उत्सवाच्या दिवशी शेकडो दिवे तेवतात.",
-          "en": "Towering basalt lamp pillar in the courtyard with stepped stone brackets for oil lamps on sacred nights."
-        },
-        "tag": {
-          "mr": "दीपस्तंभ",
-          "en": "Lamp Tower"
+          "mr": "सत्ययुगातील प्रभू रामचंद्रांच्या पदस्पर्शाने पावन झालेल्या आणि बाबांना तरवडाच्या झाडाखाली दृष्टांतातून गवसलेल्या पवित्र पादुका.",
+          "en": "The sacred footprints of Lord Rama sanctified since Satya Yuga, discovered by Yashwant Baba under the divine Tarwad tree through a mystic vision."
         }
       },
       {
         "icon": "Sun",
+        "numeral": "०२",
+        "tag": {
+          "mr": "[SACRED RIVER]",
+          "en": "[SACRED RIVER]"
+        },
         "title": {
-          "mr": "नैसर्गिक ध्वनी प्रतिध्वनी",
-          "en": "Acoustic Resonance"
+          "mr": "अमृतवाहिनी प्रवरा नदी",
+          "en": "Amritvahini Pravara River"
         },
         "desc": {
-          "mr": "सभामंडपाच्या घुमटाकार छतामुळे भजन आणि घंटानादाचा प्रतिध्वनी संपूर्ण आवारात शांतता पसरवतो.",
-          "en": "Vaulted ceiling geometry amplifies Vedic chants and bronze bells into a serene, ambient resonance."
-        },
-        "tag": {
-          "mr": "ध्वनीशास्त्र",
-          "en": "Acoustic Vault"
+          "mr": "अगस्तींच्या तपोतेजाने पावन झालेली प्रवरा नदी, जिच्या पाण्याने बाबांनी रामनवमीच्या सप्ताहात तुपाची कमतरता भरून काढली होती.",
+          "en": "The holy Pravara river, sanctified by Sage Agastya's ascetic radiance, whose water Yashwant Baba miraculously turned into ghee during Ram Navami saptah."
         }
       },
       {
-        "icon": "ThermometerSnowflake",
+        "icon": "Columns",
+        "numeral": "०३",
+        "tag": {
+          "mr": "[BHAIRAV CAVE]",
+          "en": "[BHAIRAV CAVE]"
+        },
         "title": {
-          "mr": "नैसर्गिक वातानुकूलन",
-          "en": "Natural Thermal Comfort"
+          "mr": "श्री कालभैरव गुहा",
+          "en": "Shree Kalbhairav Cave"
         },
         "desc": {
-          "mr": "जाड दगडी भिंतींमुळे भर उन्हाळ्यातही गर्भगृहात थंड आणि सात्विक वातावरण टिकून राहते.",
-          "en": "Thick basalt stone slabs act as thermal thermal mass, maintaining refreshing coolness through summer afternoons."
-        },
+          "mr": "गावाच्या पश्चिमेकडील घनदाट अरण्यातील तीच ऐतिहासिक गुहा, जिथे विंचू-सापांच्या सान्निध्यात सद्गुरु यशवंत बाबांनी ६ महिने घोर तपश्चर्या केली.",
+          "en": "The secluded cavern in the dense western forest where Sadguru Yashwant Baba performed deep penance for six months surrounded by scorpions and serpents."
+        }
+      },
+      {
+        "icon": "Flame",
+        "numeral": "०४",
         "tag": {
-          "mr": "गाभारा थंडावा",
-          "en": "Thermal Mass"
+          "mr": "[BELL OF REDEMPTION]",
+          "en": "[BELL OF REDEMPTION]"
+        },
+        "title": {
+          "mr": "ऐतिहासिक महाघंटा",
+          "en": "Historic Bell of Redemption"
+        },
+        "desc": {
+          "mr": "सद्गुरु बाबांनी आश्रमात बसवलेली तीच पवित्र घंटा, जिचा नाद जिथपर्यंत जातो तिथपर्यंत अनिष्ट प्रवृत्तींचा व शापाचा नाश होतो अशी श्रद्धा आहे.",
+          "en": "The monumental bell consecrated by Baba in the ashram, believed to dispel all evil energies and dissolve remnants of the ancient curse wherever its chime resonates."
+        }
+      },
+      {
+        "icon": "Shield",
+        "numeral": "०५",
+        "tag": {
+          "mr": "[SADHU SAMADHI]",
+          "en": "[SADHU SAMADHI]"
+        },
+        "title": {
+          "mr": "शिरविरहित साधूची समाधी",
+          "en": "Martyred Sadhu's Samadhi"
+        },
+        "desc": {
+          "mr": "हत्या झाल्यानंतर ज्या बाभळीच्या झाडाजवळ साधूचे शिरविरहित धड थांबले, तिथे असलेले प्राचीन मंदिर जिथे गुढीपाडव्याला 'विराची यात्रा' भरते.",
+          "en": "The ancient shrine where the headless torso of the martyred ascetic came to rest near a babul tree, commemorated annually during the Veer Yatra on Gudi Padwa."
+        }
+      },
+      {
+        "icon": "DoorOpen",
+        "numeral": "०६",
+        "tag": {
+          "mr": "[TAPOBHUMI]",
+          "en": "[TAPOBHUMI]"
+        },
+        "title": {
+          "mr": "सद्गुरु यशवंत बाबांची समाधी",
+          "en": "Sadguru Yashwant Baba Samadhi"
+        },
+        "desc": {
+          "mr": "१६ जून १९४७ (ज्येष्ठ वद्य द्वादशी) रोजी विठ्ठलनामाचा गजर करत बाबांनी जिथे देह ठेवला, ती जागृत आणि शांत तपोभूमी.",
+          "en": "The serene Tapobhumi where Sadguru Yashwant Baba took Mahasamadhi while chanting Lord Vitthal's divine name on June 16, 1947 (Jyeshtha Vadya Dwadashi)."
         }
       }
     ]
@@ -303,84 +384,84 @@
       "id": "gallery-drone",
       "category": "drone",
       "title": {
-        "mr": "सूर्योदयावेळचे मंदिर शिखर विहंगम दृश्य (४K ड्रोन दर्शन)",
-        "en": "Temple Shikhara at Sunrise (4K Aerial Drone Perspective)"
+        "mr": "प्रतिअयोध्या राममाळ व प्रवरा नदी विहंगम दृश्य (४K ड्रोन दर्शन)",
+        "en": "Pratiayodhya Ram-mal & Pravara River (4K Aerial Drone Perspective)"
       },
       "alt": {
-        "mr": "मंदिराचे शिखर आणि परिसराचे विहंगम दृश्य",
-        "en": "Aerial perspective of ancient temple shikhara at sunrise"
+        "mr": "प्रतिअयोध्या राममाळ आणि प्रवरा नदीचे विहंगम दृश्य",
+        "en": "Aerial perspective of Pratiayodhya Ram-mal and Pravara river"
       },
-      "src": "https://images.unsplash.com/photo-1582510003544-4d00b7f74220?auto=format&fit=crop&w=1400&q=80",
+      "src": "/images/drone-shot-pravara.jpg",
       "tag": {
-        "mr": "ड्रोन विहंगम दृश्य",
-        "en": "Aerial Drone View"
+        "mr": "४K ड्रोन दर्शन",
+        "en": "4K Aerial Drone"
       },
-      "videoSrc": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerBlazes.mp4"
+      "videoSrc": "https://www.youtube.com/embed/FTKmsTnnB7U?autoplay=1&rel=0&modestbranding=1"
     },
     {
-      "id": "gallery-pillars",
+      "id": "gallery-paduka",
       "category": "architecture",
       "title": {
-        "mr": "प्राचीन हेमाडपंती सभामंडप आणि अष्टकोनी खांब",
-        "en": "Carved Basalt Pillars & Vaulted Sabhamandap"
+        "mr": "पवित्र श्रीराम पादुका मंदिर व आश्रम परिसर",
+        "en": "Sacred Rama Paduka Sanctum & Ashram Area"
       },
       "alt": {
-        "mr": "काळ्या पाषाणातील कोरीव दगडी खांब",
-        "en": "Ancient carved black basalt pillars"
+        "mr": "श्रीराम पादुका आणि पवित्र गर्भगृह",
+        "en": "Sanctum housing the holy Rama Paduka"
       },
-      "src": "https://images.unsplash.com/photo-1609766857041-ed402ea8069a?auto=format&fit=crop&w=1200&q=80",
+      "src": "/images/ashram-temple.jpg",
       "tag": {
-        "mr": "पाषाण शिल्प",
-        "en": "Basalt Carvings"
+        "mr": "श्रीराम पादुका",
+        "en": "Rama Paduka"
       }
     },
     {
-      "id": "gallery-deepmala",
-      "category": "deepmala",
-      "title": {
-        "mr": "संध्यासमयी प्रज्वलित पाषाणी दीपमाळ",
-        "en": "Courtyard Deepmala Lamp Tower at Twilight"
-      },
-      "alt": {
-        "mr": "पाषाणी दीपमाळेवर तेवणारे दिवे",
-        "en": "Traditional oil lamps lit on historic stone tower"
-      },
-      "src": "https://images.unsplash.com/photo-1518638150340-f706e86654de?auto=format&fit=crop&w=1200&q=80",
-      "tag": {
-        "mr": "पाषाण दीपमाळ",
-        "en": "Stone Deepmala"
-      }
-    },
-    {
-      "id": "gallery-sanctum",
+      "id": "gallery-samadhi",
       "category": "sanctum",
       "title": {
-        "mr": "गर्भगृह प्रवेशद्वार व पितळी समईची शांत ज्योत",
-        "en": "Sanctum Entrance & Serene Brass Oil Lamps"
+        "mr": "सद्गुरु यशवंत बाबा तपोभूमी समाधी मंदिर",
+        "en": "Sadguru Yashwant Baba Tapobhumi Samadhi"
       },
       "alt": {
-        "mr": "शांत गर्भगृह आणि पितळी दिवे",
-        "en": "Quiet inner sanctum entrance and glowing lamps"
+        "mr": "सद्गुरु यशवंत बाबांची समाधी",
+        "en": "Samadhi of Sadguru Yashwant Baba"
       },
-      "src": "https://images.unsplash.com/photo-1545126178-862cdb469409?auto=format&fit=crop&w=1200&q=80",
+      "src": "/images/ashram-samadhi.jpg",
       "tag": {
-        "mr": "पवित्र गर्भगृह",
-        "en": "Inner Sanctum"
+        "mr": "तपोभूमी समाधी",
+        "en": "Tapobhumi Samadhi"
+      }
+    },
+    {
+      "id": "gallery-bell",
+      "category": "deepmala",
+      "title": {
+        "mr": "शापमुक्तीची ऐतिहासिक महाघंटा व आश्रम विहंगम दृश्य",
+        "en": "Historic Great Bell of Redemption & Ashram Vista"
+      },
+      "alt": {
+        "mr": "आश्रमातील ऐतिहासिक महाघंटा व परिसर",
+        "en": "Historic bronze bell and sacred surroundings"
+      },
+      "src": "/images/drone-shot-pravara.jpg",
+      "tag": {
+        "mr": "ऐतिहासिक महाघंटा",
+        "en": "Sacred Bell"
       }
     }
   ],
   "darshan": {
     "badge": {
-      "mr": "नित्य उपासना व वेळापत्रक",
-      "en": "Daily Liturgical Schedule"
+      "mr": "दर्शन व नित्य नियम",
+      "en": "Darshan & Haripath"
     },
     "heading": {
-      "mr": "दैनंदिन दर्शन व आरती वेळापत्रक",
-      "en": "Daily Sanctum Darshan & Aarti Ledger"
+      "mr": "दैनंदिन दर्शन, ज्ञानेश्वरी वाचन व हरिपाठ",
+      "en": "Daily Darshan & Dnyaneshwari Haripath"
     },
     "subheading": {
-      "mr": "भाविकांच्या सोयीसाठी नित्य पूजा, अभिषेक आणि आरतीच्या अधिकृत वेळा.",
-      "en": "Sanctum timings for daily Vedic Kakada aarti, Maha Abhishek, and Evening Dhoop Aarti."
+      "mr": "आश्रमातील काकडा आरती, नित्य ज्ञानेश्वरी वाचन आणि सायं हरिपाठाचे अधिकृत वेळापत्रक.",
+      "en": "Sanctum timings for daily Kakada aarti, Dnyaneshwari reading, and evening Haripath."
     },
     "cards": [
       {
@@ -394,52 +475,52 @@
           "en": "05:30 AM Daily"
         },
         "description": {
-          "mr": "पहाटे मंदिर द्वार उघडणे, घंटानाद, भूपाळी गायन आणि पहिली मंगल आरती.",
-          "en": "Sanctum doors open with bell chime, traditional Bhupali singing, and the first morning aarti."
+          "mr": "पहाटे आश्रम द्वार उघडणे, घंटानाद, भूपाळी गायन आणि पहिली मंगल आरती.",
+          "en": "Sanctum doors open at dawn with bell chime, Bhupali singing, and the first morning aarti."
         },
         "tag": {
           "mr": "प्रातःकालीन उपासना",
-          "en": "Morning Worship"
+          "en": "Dawn Worship"
         },
         "highlight": false
       },
       {
         "icon": "Flame",
         "title": {
-          "mr": "दुपारचा महानैवेद्य व मुख्य आरती",
-          "en": "Midday Maha Naivedya & Aarti"
+          "mr": "दुपारचा महानैवेद्य व ज्ञानेश्वरी वाचन",
+          "en": "Midday Naivedya & Dnyaneshwari Recitation"
         },
         "time": {
           "mr": "दुपारी १२:०० वाजता",
           "en": "12:00 PM Daily"
         },
         "description": {
-          "mr": "देवाला सात्विक महानैवेद्य अर्पण, दुपारी १२:०० ते १२:२० पडदा व महाआरती.",
-          "en": "Sacred food offering to the deity followed by the midday Maha Aarti and sanctum curtain."
+          "mr": "श्रीरामांना व सद्गुरु बाबांना सात्विक महानैवेद्य अर्पण व नित्य ज्ञानेश्वरी अध्याय वाचन.",
+          "en": "Sacred food offering to Lord Rama and Sadguru Baba followed by daily Dnyaneshwari chapter recitation."
         },
         "tag": {
-          "mr": "मुख्य दुपार आरती",
-          "en": "Midday Maha Aarti"
+          "mr": "दुपार नैवेद्य व पारायण",
+          "en": "Midday Seva"
         },
         "highlight": true
       },
       {
         "icon": "Moon",
         "title": {
-          "mr": "संध्या धूपारती व शेजारती",
-          "en": "Evening Dhoop Aarti & Shejarti"
+          "mr": "सायं आरती, हरिपाठ व शेजारती",
+          "en": "Evening Aarti, Haripath & Shejarti"
         },
         "time": {
-          "mr": "सायंकाळी ७:०० व रात्री ९:१५",
-          "en": "07:00 PM & 09:15 PM"
+          "mr": "सायंकाळी ७:०० व रात्री ९:००",
+          "en": "07:00 PM & 09:00 PM"
         },
         "description": {
-          "mr": "सायंकाळी दीप प्रज्वलन, हरिपाठ आणि रात्री ९:१५ वाजता विश्रांती शेजारती.",
-          "en": "Twilight lamp lighting with Haripath chanting, followed by Shejarti resting prayers at 9:15 PM."
+          "mr": "प्रवरा तीरावर सांध्यसमयी अखंड हरिपाठ गायन, ऐतिहासिक घंटानाद आणि रात्री ९:०० वाजता शेजारती.",
+          "en": "Communal singing of Sant Dnyaneshwar's Haripath at twilight on Pravara banks, followed by 9:00 PM Shejarti."
         },
         "tag": {
-          "mr": "सायंकालीन उपासना",
-          "en": "Evening Worship"
+          "mr": "सायं हरिपाठ व शेजारती",
+          "en": "Evening Haripath"
         },
         "highlight": false
       }
@@ -447,161 +528,268 @@
   },
   "aartiCallout": {
     "badge": {
-      "mr": "डिजिटल नित्यपाठ",
-      "en": "Digital Sacred Texts"
+      "mr": "आरती संग्रह व हरिपाठ",
+      "en": "Sacred Hymns & Haripath"
     },
     "title": {
-      "mr": "मंदिरातील नित्य आरती संग्रह, अष्टक आणि मंत्रपुष्पांजली",
-      "en": "Complete Aarti Sangrah, Ashtak & Mantrapushpanjali"
+      "mr": "श्रीराम व सद्गुरु यशवंत बाबा आरती संग्रह व हरिपाठ",
+      "en": "Shree Rama & Sadguru Yashwant Baba Aarti & Haripath"
     },
     "description": {
-      "mr": "मंदिरात आरतीच्या वेळी किंवा घरी उपासना करताना आपल्या मोबाईलवर स्पष्ट मोठ्या अक्षरात आरती वाचण्यासाठी आम्ही येथे संपूर्ण संग्रह दिला आहे.",
-      "en": "Read the sacred lyrics with adjustable font sizing and clear Devanagari script directly on your device during worship."
+      "mr": "आश्रमातील नित्य आरती, हरिपाठ आणि मंत्रपुष्पांजली आपल्या मोबाईलवर स्पष्ट मोठ्या अक्षरात वाचण्यासाठी उघडा.",
+      "en": "Read the authentic temple aartis, Haripath abhangas, and Mantrapushpanjali with clear typography directly on your device."
     },
     "btnRead": {
-      "mr": "संपूर्ण आरती संग्रह उघडा",
-      "en": "Open Aarti Sangrah Reader"
+      "mr": "आरती व हरिपाठ वाचा",
+      "en": "Read Haripath & Aarti"
     },
     "btnBell": {
-      "mr": "मंदिर घंटानाद ऐका",
-      "en": "Ring Temple Bell"
+      "mr": "महाघंटेचा नाद ऐका",
+      "en": "Ring Sacred Bell"
     }
   },
   "utsavs": {
     "badge": {
-      "mr": "ग्रामपरंपरा व उत्सव",
-      "en": "Annual Sacred Celebrations"
+      "mr": "वार्षिक उत्सव",
+      "en": "Annual Utsavs"
     },
     "heading": {
-      "mr": "मंदिरातील प्रमुख वार्षिक उत्सव व पर्वकाळ",
-      "en": "Major Annual Festivals & Auspicious Tithis"
+      "mr": "राममाळ आश्रमातील प्रमुख वार्षिक उत्सव व सोहळे",
+      "en": "Major Annual Festivals & Commemorations"
     },
     "list": [
       {
         "id": 1,
         "tag": {
-          "mr": "वार्षिक सोहळा",
-          "en": "Annual Saptah"
+          "mr": "मुख्य उत्सव",
+          "en": "Grand Festival"
         },
         "title": {
-          "mr": "अखंड हरिनाम सप्ताह व ज्ञानेश्वरी पारायण",
-          "en": "Akhand Harinam Saptah & Dnyaneshwari Parayan"
+          "mr": "श्री रामनवमी सप्ताह व अन्नदान",
+          "en": "Shree Ram Navami Saptah & Annadan"
         },
         "date": {
-          "mr": "मार्गशीर्ष शुद्ध प्रतिपदा ते सप्तमी",
-          "en": "Margashirsha Shukla Pratipada to Saptami"
+          "mr": "चैत्र शुद्ध नवमी",
+          "en": "Chaitra Shukla Navami"
         },
         "time": {
-          "mr": "अखंड सात दिवस",
-          "en": "7 Days Unbroken"
+          "mr": "सकाळपासून",
+          "en": "From Morning Onwards"
         },
         "desc": {
-          "mr": "७ दिवस अखंड वीणा पहारा, पहाटे काकडा, ज्ञानेश्वरी पारायण, सायं कीर्तन आणि शेवटच्या दिवशी भव्य काल्याचे कीर्तन व महाप्रसाद पंगत.",
-          "en": "Seven days of devotional recitation, dawn prayers, daily evening kirtans, and community Annadan Mahaprasad on the concluding day."
+          "mr": "सद्गुरु बाबांच्या परंपरेनुसार राममाळावर मोठा हरिनाम सप्ताह आणि परिसरातील आदिवासी व भाविकांसाठी लाडू व प्रसादाचे वाटप.",
+          "en": "Grand unbroken Harinam Saptah in the revered lineage of Sadguru Baba, featuring massive distribution of sacred laddu mahaprasad and meals to local and tribal pilgrims."
         }
       },
       {
         "id": 2,
         "tag": {
-          "mr": "दीपोत्सव",
-          "en": "Festival of Lights"
+          "mr": "ग्राम परंपरा",
+          "en": "Village Heritage"
         },
         "title": {
-          "mr": "त्रिपुरी पौर्णिमा दीपोत्सव",
-          "en": "Tripuri Purnima Basalt Deepotsav"
+          "mr": "गुढीपाडवा - विराची यात्रा",
+          "en": "Gudi Padwa - Veer Yatra"
         },
         "date": {
-          "mr": "कार्तिक पौर्णिमा",
-          "en": "Kartik Purnima"
+          "mr": "चैत्र शुद्ध द्वितीया (पाडव्याचा दुसरा दिवस)",
+          "en": "Chaitra Shukla Dwitiya (Day after Padwa)"
         },
         "time": {
-          "mr": "सायंकाळी ६:३० ते रात्री १०:००",
-          "en": "06:30 PM to 10:00 PM"
+          "mr": "सकाळी",
+          "en": "Morning"
         },
         "desc": {
-          "mr": "मंदिराच्या ऐतिहासिक पाषाणी दीपमाळेवर आणि संपूर्ण प्रांगणात शेकडो मातीचे दिवे प्रज्वलित करून भव्य दीपोत्सव साजरा होतो.",
-          "en": "Hundreds of oil wicks illuminate the historic basalt Deepmala lamp tower in an ethereal evening celebration of light."
+          "mr": "प्रवरेकाठी असलेल्या शिरविरहित साधू महाराजांच्या मंदिरात पुरणपोळीचा नैवेद्य दाखवून साजरी होणारी ऐतिहासिक यात्रा.",
+          "en": "Historic commemorative pilgrimage along the Pravara banks honoring the martyred ascetic with traditional Puran Poli naivedya offerings."
         }
       },
       {
         "id": 3,
         "tag": {
-          "mr": "मासिक पर्वकाळ",
-          "en": "Monthly Vrat"
+          "mr": "पुण्यतिथी सोहळा",
+          "en": "Mahasamadhi Observance"
         },
         "title": {
-          "mr": "एकादशी व प्रदोष महापूजा",
-          "en": "Ekadashi & Pradosh Mahapooja"
+          "mr": "सद्गुरु यशवंत बाबा पुण्यतिथी",
+          "en": "Sadguru Yashwant Baba Punyatithi"
         },
         "date": {
-          "mr": "प्रत्येक शुद्ध व वद्य एकादशी",
-          "en": "Fortnightly Ekadashi & Pradosh"
+          "mr": "ज्येष्ठ वद्य द्वादशी",
+          "en": "Jyeshtha Vadya Dwadashi"
         },
         "time": {
-          "mr": "रात्री ८:०० ते १०:००",
-          "en": "08:00 PM to 10:00 PM"
+          "mr": "पहाटेपासून",
+          "en": "From Dawn"
         },
         "desc": {
-          "mr": "विशेष अभिषेक, बिल्वार्चन आणि स्थानिक भजनी मंडळाकडून नामसंकीर्तन भजन सेवा.",
-          "en": "Special Rudrabhishek, Bilva archana, and devotional name-chanting by the local bhajan mandal."
+          "mr": "ज्या दिवशी बाबांनी पांडुरंगाच्या चरणी देह ठेवला, त्या दिवशी आश्रमात ज्ञानेश्वरी पारायण, भजन आणि महाप्रसादाचे आयोजन.",
+          "en": "The sacred anniversary of Baba's departure to Lord Panduranga's feet, observed with continuous Dnyaneshwari parayan, devotional kirtans, and community feast."
         }
       }
     ]
   },
+  "dengi": {
+    "badge": {
+      "mr": "देणगी व सेवा समर्पण",
+      "en": "Official Trust Danpatti & Seva"
+    },
+    "heading": {
+      "mr": "आश्रम सेवा, अन्नदान व देणगी बँक तपशील",
+      "en": "Ashram Seva, Annadan & Digital Giving"
+    },
+    "subheading": {
+      "mr": "भाविकांनी अर्पण केलेली देणगी थेट प्रतिअयोध्या श्री क्षेत्र राममाळ व सद्गुरु यशवंत बाबा देवस्थान ट्रस्टच्या अधिकृत बँक खात्यात जमा होते.",
+      "en": "Devotee contributions are deposited directly into the registered Trust bank account for unbroken Annadan, daily pooja, and sacred conservation."
+    },
+    "qrCode": {
+      "title": {
+        "mr": "अधिकृत UPI QR कोड",
+        "en": "Official UPI QR Code"
+      },
+      "subtitle": {
+        "mr": "GPay / PhonePe / Paytm / BHIM ॲपद्वारे स्कॅन करा",
+        "en": "Scan with any UPI App (GPay, PhonePe, Paytm, BHIM)"
+      },
+      "upiId": "rammaaltapobhumi@upi",
+      "qrImage": "/images/upi-qr.svg",
+      "payeeName": "प्रतिअयोध्या श्री क्षेत्र राममाळ देवस्थान ट्रस्ट"
+    },
+    "bankDetails": {
+      "trustName": {
+        "mr": "प्रतिअयोध्या श्री क्षेत्र राममाळ व सद्गुरु यशवंत बाबा देवस्थान ट्रस्ट",
+        "en": "Pratiayodhya Shri Kshetra Ram-mal & Sadguru Yashwant Baba Devasthan Trust"
+      },
+      "bankName": "Bank of Maharashtra / State Bank of India",
+      "accountNumber": "XXXXXXXXXXXX",
+      "ifscCode": "MAHB000XXXX",
+      "branch": "Unchakhadak / Sangamner Branch, Maharashtra",
+      "accountType": {
+        "mr": "बचत / चालू खाते (Trust Account)",
+        "en": "Savings / Current Trust Account"
+      },
+      "ptrNumber": {
+        "mr": "धर्मादाय नोंदणी क्र. (PTR No.): प्रलंबित / अधिकृत नोंदणीकृत",
+        "en": "Public Trust Reg. No. (PTR No.): Official Registered"
+      }
+    },
+    "sevaTypes": [
+      {
+        "id": "annadan",
+        "badge": {
+          "mr": "अखंड सेवा",
+          "en": "Daily Seva"
+        },
+        "title": {
+          "mr": "नित्य अन्नदान व महाप्रसाद निधी",
+          "en": "Daily Annadan & Mahaprasad Fund"
+        },
+        "desc": {
+          "mr": "आश्रमात येणाऱ्या भाविक, वारकरी व गरजू भाविकांसाठी नित्य प्रसाद व अन्नदान व्यवस्था.",
+          "en": "Support daily sacred meals and prasad distribution for visiting pilgrims, warkaris, and devotees."
+        }
+      },
+      {
+        "id": "pooja",
+        "badge": {
+          "mr": "नित्य पूजा",
+          "en": "Pooja Seva"
+        },
+        "title": {
+          "mr": "श्रीराम पादुका अभिषेक व समाधी पूजा",
+          "en": "Rama Paduka Abhishek & Samadhi Worship"
+        },
+        "desc": {
+          "mr": "सत्ययुगातील श्रीराम पादुका व सद्गुरु यशवंत बाबा समाधीची नित्य पूजा, नैवेद्य, धूपदीप व उत्सव सेवा.",
+          "en": "Support daily Vedic rituals, sacred bath, flowers, naivedya, and deepam offerings at the sanctum."
+        }
+      },
+      {
+        "id": "jirnoddhar",
+        "badge": {
+          "mr": "तपोभूमी संवर्धन",
+          "en": "Conservation"
+        },
+        "title": {
+          "mr": "ऐतिहासिक वास्तू संवर्धन व आश्रम विकास निधी",
+          "en": "Heritage Preservation & Ashram Development"
+        },
+        "desc": {
+          "mr": "ऐतिहासिक महाघंटा, कालभैरव गुहा, प्रवरा नदी घाट परिसर आणि आश्रम परिसराचे संवर्धन व स्वच्छता कार्य.",
+          "en": "Structural upkeep of the historic Bell of Redemption, Kalbhairav Cave, and Pravara river ghats."
+        }
+      }
+    ],
+    "receiptNote": {
+      "title": {
+        "mr": "अधिकृत देणगी पावती कशी मिळवावी?",
+        "en": "How to get an Official Trust Receipt?"
+      },
+      "text": {
+        "mr": "आपण बँक अथवा UPI द्वारे देणगी अर्पण केल्यानंतर पेमेंट स्क्रीनशॉट, आपले पूर्ण नाव, पत्ता व गोत्र आश्रमाच्या अधिकृत क्रमांकावर WhatsApp करावे. विश्वस्त मंडळाकडून अधिकृत पावती पाठवली जाईल.",
+        "en": "After making your contribution, please WhatsApp the payment screenshot with your Full Name, Address, and Gotra. An official receipt will be issued."
+      },
+      "whatsappNumber": "+919876543210",
+      "whatsappBtn": {
+        "mr": "पावतीसाठी WhatsApp करा",
+        "en": "WhatsApp for Receipt"
+      }
+    }
+  },
   "visitorGuide": {
     "title": {
-      "mr": "मंदिर पत्ता व भाविकांसाठी माहिती",
-      "en": "Visitor Pilgrimage Guide & Directions"
+      "mr": "पत्ता व भाविकांसाठी मार्गदर्शिका",
+      "en": "Visitor Guide & Directions"
     },
     "rulesTitle": {
-      "mr": "पवित्र वारसा जतन करण्यासाठी नम्र सूचना:",
-      "en": "Sanctuary Guidelines & Etiquette:"
+      "mr": "पवित्र आश्रम शिस्त व जतन करण्यासाठी सूचना:",
+      "en": "Ashram Sanctity & Etiquette Guidelines:"
     },
     "rules": {
       "mr": [
-        "मंदिराचे पावित्र्य जपण्यासाठी पारंपरिक व सात्विक वेशभूषेत दर्शनास यावे.",
-        "पादत्राणे महाद्वाराबाहेरील पादत्राणे कक्षामध्ये काढूनच सभामंडपात प्रवेश करावा.",
-        "मुख्य गर्भगृहात मूर्तीचे छायाचित्रण करण्यास सक्त मनाई आहे.",
-        "मंदिराच्या प्राचीन पाषाणावर किंवा स्तंभांवर कोणतीही अक्षरे गिरवू नयेत.",
-        "मंदिराच्या आवारात शांतता राखावी व मोबाईल सायलेंट ठेवावा."
+        "आश्रमाचे पावित्र्य व शांतता टिकवण्यासाठी सात्विक व पारंपरिक वेशभूषेत दर्शनास यावे.",
+        "श्रीराम पादुका कक्ष व समाधी मंदिरात प्रवेश करण्यापूर्वी पादत्राणे बाहेरील स्टँडवर ठेवावीत.",
+        "सद्गुरु यशवंत बाबांच्या समाधीजवळ आणि पादुका जवळ शांततेत ध्यानधारणा करावी.",
+        "प्रवरा नदीपात्रात कपडे धुणे अथवा कचरा टाकणे सक्त वर्ज्य आहे.",
+        "परिसरात शांतता राखावी व मोबाईल फोन सायलेंट ठेवावा."
       ],
       "en": [
-        "Please wear modest, traditional clothing in honor of the temple's sanctity.",
-        "Deposit footwear in the entrance stalls outside before washing hands and feet.",
-        "Photography inside the inner sanctum (Garbhagriha) is strictly prohibited.",
-        "Refrain from touching or marking the historic carved basalt stone masonry.",
-        "Please maintain silence and keep mobile devices switched off or on silent mode."
+        "Please wear modest, traditional attire in honor of the ashram's sacred tapobhumi.",
+        "Leave footwear at the designated entrance stands before entering the Rama Paduka sanctum.",
+        "Maintain meditative silence in proximity to Sadguru Yashwant Baba's Samadhi.",
+        "Help preserve the cleanliness of the holy Pravara river banks; do not litter.",
+        "Keep mobile phones on silent mode throughout the ashram premises."
       ]
     },
     "mapsBtn": {
-      "mr": "Google Maps वर मंदिराचे स्थान पहा",
-      "en": "Open Location in Google Maps"
+      "mr": "Google Maps वर राममाळ आश्रम पहा",
+      "en": "Open Ram-mal Ashram on Google Maps"
     }
   },
   "footer": {
     "blessing": {
-      "mr": "|| शुभं भवतु • सर्वमंगल मांगल्ये शिवे सर्वार्थ साधिके ||",
-      "en": "|| Subham Bhavatu • May Peace, Devotion and Well-Being Prevail ||"
+      "mr": "|| श्रीराम समर्थ • सद्गुरु यशवंत बाबा प्रसन्न ||",
+      "en": "|| Shree Rama Samartha • Sadguru Yashwant Baba Prasanna ||"
     },
     "navLinks": {
       "mr": {
-        "history": "इतिहास व आख्यायिका",
-        "architecture": "हेमाडपंती स्थापत्य",
+        "history": "स्थळ पुराण व शापमुक्ती",
+        "architecture": "आश्रम वैशिष्ट्ये",
         "gallery": "दृश्य दर्शन",
-        "darshan": "दर्शन व आरती",
+        "darshan": "दर्शन व नित्य नियम",
         "utsavs": "वार्षिक उत्सव"
       },
       "en": {
-        "history": "History & Lore",
-        "architecture": "Stone Architecture",
+        "history": "Legends & Curse Redemption",
+        "architecture": "Sacred Highlights",
         "gallery": "Visual Gallery",
-        "darshan": "Daily Aarti Timings",
+        "darshan": "Darshan & Haripath",
         "utsavs": "Annual Utsavs"
       }
     },
     "copyright": {
-      "mr": "© श्री प्राचीन मंदिर विश्वस्त मंडळ. सर्व हक्क राखीव.",
-      "en": "© Shree Prachin Mandir Devasthan Trust. All Rights Reserved."
+      "mr": "© प्रतिअयोध्या श्री क्षेत्र राममाळ व सद्गुरु यशवंत बाबा देवस्थान ट्रस्ट, उंचखडक (बु।।). सर्व हक्क राखीव.",
+      "en": "© Pratiayodhya Shri Kshetra Ram-mal & Sadguru Yashwant Baba Devasthan Trust, Unchakhadak (Bk.). All Rights Reserved."
     }
   },
   "aartis": [
@@ -636,38 +824,85 @@
       ]
     },
     {
-      "id": "shankar",
-      "title": "२. श्री शंकराची आरती",
-      "deity": "श्री शंकर",
+      "id": "shriram",
+      "title": "२. श्रीरामाची आरती",
+      "deity": "प्रभू श्रीराम",
       "lyrics": [
-        "लवथवती विक्राळा ब्रह्मांडी माळा ।",
-        "वीषे कंठ काळा त्रिनेत्री ज्वाळा ॥",
-        "लावण्यसुंदर मस्तकी बाळा ।",
-        "तेथुनियां जळ निर्मळ वाहे झुळझुळा ॥ १ ॥",
+        "जय देव जय देव जय श्रीरघुनाथा ।",
+        "आरती ओवाळू सुरवर वंदिता ॥ धृ ॥",
         "",
-        "जय देव जय देव जय श्रीशंकरा ।",
-        "आरती ओवाळू तुज कर्पूरगौरा ॥ धृ ॥",
+        "रघुवीर समर्थ कृपाळू सुखदाता ।",
+        "दशरथ नंदन जानकीकांता ॥",
+        "लक्ष्मण भरत शत्रुघ्न समवेता ।",
+        "हनुमंत पुढे उभा कर जोडुनि नम्रता ॥ १ ॥",
         "",
-        "कर्पूरगौरा भोळा नयनी विशाळा ।",
-        "अर्धांगी पार्वती सुमनमाळा ॥",
-        "विभूतीचे उधळण शितिकंठ नीळा ।",
-        "ऐसा हा देव भोळा सदाशिव डोळा ॥ २ ॥",
+        "जय देव जय देव जय श्रीरघुनाथा ।",
+        "आरती ओवाळू सुरवर वंदिता ॥ धृ ॥",
         "",
-        "जय देव जय देव जय श्रीशंकरा ।",
-        "आरती ओवाळू तुज कर्पूरगौरा ॥ धृ ॥",
+        "रत्नखचित मुकुट कुंडल शोभत कानी ।",
+        "चापबाण हस्ती राजीव नयनी ॥",
+        "पीतांबर परिधान शोभे सुवर्णी ।",
+        "तुलसी हार गळा कौस्तुभ मणी ॥ २ ॥",
         "",
-        "व्याघ्रांबर फणिधरधर सुंदर मदनारी ।",
-        "पंचानन मनमोहन मुनिवर सुखकारी ॥",
-        "शतकोटीचे बीज वाचे उच्चारी ।",
-        "रघुकुलतिलक रामदासा भवभय हारी ॥ ३ ॥",
+        "जय देव जय देव जय श्रीरघुनाथा ।",
+        "आरती ओवाळू सुरवर वंदिता ॥ धृ ॥",
         "",
-        "जय देव जय देव जय श्रीशंकरा ।",
-        "आरती ओवाळू तुज कर्पूरगौरा ॥ धृ ॥"
+        "रामदास वंदितो चरणी माथा ।",
+        "भवभय नाशोनी द्यावी विश्रांती आता ॥ ३ ॥",
+        "",
+        "जय देव जय देव जय श्रीरघुनाथा ।",
+        "आरती ओवाळू सुरवर वंदिता ॥ धृ ॥"
+      ]
+    },
+    {
+      "id": "yashwant-baba",
+      "title": "३. सद्गुरु यशवंत बाबा आरती",
+      "deity": "सद्गुरु यशवंत बाबा",
+      "lyrics": [
+        "जय देव जय देव जय यशवंत राया ।",
+        "आरती ओवाळू तव चरणी काया ॥ धृ ॥",
+        "",
+        "अमृतवाहिनी प्रवरा पावन केली ।",
+        "कालभैरव गुहेत तपश्चर्या फळा आली ॥",
+        "श्रीराम पादुका शोधुनी दाविली ।",
+        "उंचखडकाची शापमुक्ती केली ॥ १ ॥",
+        "",
+        "जय देव जय देव जय यशवंत राया ।",
+        "आरती ओवाळू तव चरणी काया ॥ धृ ॥",
+        "",
+        "घोर अरणी तप आचरिले भारी ।",
+        "नाद महाघंटेचा दुमदुमतो अंबरी ॥",
+        "भक्तांच्या संकटी धावोनी ये झडकरी ।",
+        "विठ्ठल नामाचा गजर मुखांतरी ॥ २ ॥",
+        "",
+        "जय देव जय देव जय यशवंत राया ।",
+        "आरती ओवाळू तव चरणी काया ॥ धृ ॥"
+      ]
+    },
+    {
+      "id": "haripath",
+      "title": "४. श्री ज्ञानेश्वर महाराज हरिपाठ (अभंग १)",
+      "deity": "हरिपाठ",
+      "lyrics": [
+        "देवाचिये द्वारीं उभा क्षणभरी ।",
+        "तेणें मुक्ती चारी साधिलीया ॥ १ ॥",
+        "",
+        "हरि मुखें म्हणा हरि मुखें म्हणा ।",
+        "पुण्याची गणना कोण करी ॥ धृ ॥",
+        "",
+        "असोनि संसारीं जिव्हे वाचे हरि ।",
+        "सद्गुरु सारिखा पाठीराखा तरी ॥ २ ॥",
+        "",
+        "ज्ञानदेवा पाठ नारायण नाम ।",
+        "पाप पुण्य सम वाचे उच्चारितां ॥ ३ ॥",
+        "",
+        "हरि मुखें म्हणा हरि मुखें म्हणा ।",
+        "पुण्याची गणना कोण करी ॥ धृ ॥"
       ]
     },
     {
       "id": "mantrapushpanjali",
-      "title": "३. वैदिक मंत्रपुष्पांजली",
+      "title": "५. वैदिक मंत्रपुष्पांजली",
       "deity": "मंत्रपुष्पांजली",
       "lyrics": [
         "ॐ यज्ञेन यज्ञमयजन्त देवास्तानि धर्माणि प्रथमान्यासन् ।",

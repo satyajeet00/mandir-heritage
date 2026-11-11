@@ -28,16 +28,35 @@ export default function Header({
   };
 
   const navLabels = {
-    history: currentLang === "mr" ? "इतिहास व आख्यायिका" : "History & Lore",
-    architecture: currentLang === "mr" ? "हेमाडपंती स्थापत्य" : "Stone Architecture",
+    history:
+      currentLang === "mr"
+        ? mandirContent.i18n.mr.navHeritage
+        : mandirContent.i18n.en.navHeritage,
+    architecture:
+      currentLang === "mr"
+        ? mandirContent.i18n.mr.navArch
+        : mandirContent.i18n.en.navArch,
     gallery: currentLang === "mr" ? "दृश्य दर्शन" : "Visual Gallery",
-    darshan: currentLang === "mr" ? "दर्शन व आरती वेळ" : "Aarti Timings",
-    utsavs: currentLang === "mr" ? "वार्षिक उत्सव" : "Annual Utsavs",
-    visit: currentLang === "mr" ? "पत्ता व नियम" : "Visitor Guide",
-    btnAarti: currentLang === "mr" ? "आरती संग्रह वाचा" : "Read Aarti Book",
-    noticeBadge: currentLang === "mr" ? "मंदिर सूचना" : "Notice",
-    bellText: currentLang === "mr" ? "नाद / Bell" : "Temple Bell",
-    bellRingingText: currentLang === "mr" ? "ॐ नाद..." : "Chime...",
+    darshan:
+      currentLang === "mr"
+        ? mandirContent.i18n.mr.navDarshan
+        : mandirContent.i18n.en.navDarshan,
+    utsavs:
+      currentLang === "mr"
+        ? mandirContent.i18n.mr.navUtsav
+        : mandirContent.i18n.en.navUtsav,
+    visit:
+      currentLang === "mr"
+        ? mandirContent.i18n.mr.navVisit
+        : mandirContent.i18n.en.navVisit,
+    dengi: currentLang === "mr" ? "देणगी व अन्नदान" : "Donation & Seva",
+    btnAarti:
+      currentLang === "mr"
+        ? mandirContent.i18n.mr.btnAarti
+        : mandirContent.i18n.en.btnAarti,
+    noticeBadge: currentLang === "mr" ? "तपोभूमी सूचना" : "Notice",
+    bellText: currentLang === "mr" ? "महाघंटा" : "Sacred Bell",
+    bellRingingText: currentLang === "mr" ? "ॐ घंटानाद..." : "Chime...",
   };
 
   return (
@@ -111,9 +130,15 @@ export default function Header({
               ॐ
             </div>
             <div>
-              <p className="text-[11px] uppercase tracking-widest text-saffron-700 font-bold">
-                {mandirContent.temple.trustTag[currentLang]}
-              </p>
+              <div className="flex items-center gap-1.5 flex-wrap">
+                <span className="text-[10px] sm:text-[11px] font-bold uppercase tracking-wider text-saffron-700">
+                  {mandirContent.temple.subName[currentLang]}
+                </span>
+                <span className="hidden sm:inline text-amber-500 text-xs">•</span>
+                <span className="hidden sm:inline text-[10px] text-amber-800/80 font-medium">
+                  {mandirContent.temple.trustTag[currentLang]}
+                </span>
+              </div>
               <h1 className="font-serif text-lg sm:text-xl font-bold text-maroon-900 leading-tight">
                 {mandirContent.temple.name[currentLang]}
               </h1>
@@ -136,6 +161,9 @@ export default function Header({
             </a>
             <a href="#utsavs" className="hover:text-saffron-600 transition">
               {navLabels.utsavs}
+            </a>
+            <a href="#dengi" className="hover:text-saffron-600 transition">
+              {navLabels.dengi}
             </a>
             <a href="#visit" className="hover:text-saffron-600 transition">
               {navLabels.visit}
@@ -201,6 +229,13 @@ export default function Header({
               className="block py-2 px-3 rounded-lg hover:bg-amber-100/60"
             >
               {navLabels.utsavs}
+            </a>
+            <a
+              href="#dengi"
+              onClick={() => setMobileMenuOpen(false)}
+              className="block py-2 px-3 rounded-lg hover:bg-amber-100/60 text-saffron-700 font-bold"
+            >
+              {navLabels.dengi}
             </a>
             <a
               href="#visit"

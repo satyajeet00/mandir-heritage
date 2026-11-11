@@ -7,6 +7,7 @@ import {
   Shield,
   Sun,
   Flame,
+  Sparkles,
   ThermometerSnowflake,
   LucideIcon,
 } from "lucide-react";
@@ -19,6 +20,7 @@ const iconMap: Record<string, LucideIcon> = {
   Shield,
   Sun,
   Flame,
+  Sparkles,
   ThermometerSnowflake,
 };
 
@@ -56,8 +58,15 @@ export default function Architecture({
                 key={idx}
                 className="bg-maroon-900/90 border border-amber-500/25 rounded-2xl p-6 sm:p-7 space-y-3 hover:border-amber-400/50 hover:bg-maroon-900 transition-all duration-200 group shadow-lg"
               >
-                <div className="w-12 h-12 rounded-xl bg-amber-500/20 text-amber-300 flex items-center justify-center border border-amber-400/30 group-hover:scale-110 group-hover:bg-amber-500/30 transition-transform">
-                  <Icon className="w-6 h-6" />
+                <div className="flex items-center justify-between">
+                  <div className="w-12 h-12 rounded-xl bg-amber-500/20 text-amber-300 flex items-center justify-center border border-amber-400/30 group-hover:scale-110 group-hover:bg-amber-500/30 transition-transform">
+                    <Icon className="w-6 h-6" />
+                  </div>
+                  {feature.numeral && (
+                    <span className="font-serif text-amber-400 font-bold text-lg opacity-80 tracking-wider">
+                      {feature.numeral}
+                    </span>
+                  )}
                 </div>
                 <div className="space-y-1">
                   <span className="text-[11px] font-bold uppercase tracking-wider text-amber-400/80 block">

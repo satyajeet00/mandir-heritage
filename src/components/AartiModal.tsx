@@ -4,13 +4,19 @@ import React, { useState } from "react";
 import { X, BellRing, BookOpen, Volume2, ZoomIn, ZoomOut } from "lucide-react";
 import mandirContent from "@/data/mandirContent.json";
 import { playTempleBell } from "@/utils/audio";
+import type { Language } from "./Header";
 
 interface AartiModalProps {
   isOpen: boolean;
   onClose: () => void;
+  currentLang?: Language;
 }
 
-export default function AartiModal({ isOpen, onClose }: AartiModalProps) {
+export default function AartiModal({
+  isOpen,
+  onClose,
+  currentLang = "mr",
+}: AartiModalProps) {
   const { aartis } = mandirContent;
   const [activeTab, setActiveTab] = useState<string>(aartis[0]?.id || "ganpati");
   const [fontSizeClass, setFontSizeClass] = useState<"text-sm" | "text-base" | "text-lg">("text-base");
@@ -49,10 +55,10 @@ export default function AartiModal({ isOpen, onClose }: AartiModalProps) {
             </div>
             <div>
               <span className="text-[11px] uppercase tracking-widest text-amber-300 font-bold block">
-                नित्य उपासना व आरती संग्रह
+                {currentLang === "mr" ? "नित्य उपासना व आरती संग्रह" : "Sacred Hymns & Haripath"}
               </span>
               <h3 className="font-serif text-lg sm:text-xl font-bold text-white leading-tight">
-                श्री मंदिरातील आरती व मंत्रपुष्पांजली
+                {currentLang === "mr" ? "राममाळ आश्रम आरती व हरिपाठ संग्रह" : "Ram-mal Aarti & Haripath Reader"}
               </h3>
             </div>
           </div>
@@ -64,10 +70,12 @@ export default function AartiModal({ isOpen, onClose }: AartiModalProps) {
               className={`p-2 rounded-xl text-amber-200 hover:text-white transition flex items-center gap-1.5 border border-amber-400/30 text-xs font-semibold ${
                 bellRinging ? "bg-amber-400 text-maroon-950 scale-105" : "bg-maroon-900/80 hover:bg-maroon-900"
               }`}
-              title="घंटानाद वाजवा"
+              title={currentLang === "mr" ? "घंटानाद वाजवा" : "Ring Bell"}
             >
               <BellRing className={`w-4 h-4 ${bellRinging ? "animate-bounce text-maroon-950" : "text-amber-300"}`} />
-              <span className="hidden sm:inline">घंटानाद</span>
+              <span className="hidden sm:inline">
+                {currentLang === "mr" ? "घंटानाद" : "Chime"}
+              </span>
             </button>
 
             <button
@@ -101,11 +109,13 @@ export default function AartiModal({ isOpen, onClose }: AartiModalProps) {
 
           {/* Text Size Controls */}
           <div className="flex items-center gap-1 text-xs text-maroon-900 font-semibold bg-white/70 px-2 py-1 rounded-xl border border-amber-900/10 ml-auto">
-            <span className="text-[11px] text-gray-500 mr-1 hidden sm:inline">अक्षर आकार:</span>
+            <span className="text-[11px] text-gray-500 mr-1 hidden sm:inline">
+              {currentLang === "mr" ? "अक्षर आकार:" : "Text Size:"}
+            </span>
             <button
               onClick={() => handleZoom("out")}
               className="p-1 rounded hover:bg-amber-100"
-              title="लहान करा"
+              title={currentLang === "mr" ? "लहान करा" : "Smaller"}
             >
               <ZoomOut className="w-3.5 h-3.5" />
             </button>
@@ -113,7 +123,7 @@ export default function AartiModal({ isOpen, onClose }: AartiModalProps) {
             <button
               onClick={() => handleZoom("in")}
               className="p-1 rounded hover:bg-amber-100"
-              title="मोठे करा"
+              title={currentLang === "mr" ? "मोठे करा" : "Larger"}
             >
               <ZoomIn className="w-3.5 h-3.5" />
             </button>
@@ -163,13 +173,15 @@ export default function AartiModal({ isOpen, onClose }: AartiModalProps) {
         {/* Modal Footer */}
         <div className="p-3 sm:p-4 bg-white border-t border-amber-900/10 flex items-center justify-between shrink-0 px-5">
           <span className="text-[11px] text-gray-500">
-            🚩 दैनंदिन सायं आरती: सायंकाळी ७:०० वाजता
+            {currentLang === "mr"
+              ? "🚩 दैनंदिन सायं आरती व हरिपाठ: ७:०० वाजता"
+              : "🚩 Daily Evening Aarti & Haripath: 7:00 PM"}
           </span>
           <button
             onClick={onClose}
-            className="px-5 py-2 rounded-xl bg-maroon-900 hover:bg-maroon-800 text-amber-200 font-semibold text-xs transition"
+            className="px-5 py-2 rounded-xl bg-maroon-900 hover:bg-maroon-800 text-amber-200 font-semibold text-xs transition cursor-pointer"
           >
-            बंद करा (Close)
+            {currentLang === "mr" ? "बंद करा" : "Close"}
           </button>
         </div>
       </div>

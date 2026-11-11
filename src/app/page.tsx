@@ -7,6 +7,7 @@ import History from "@/components/History";
 import Architecture from "@/components/Architecture";
 import DrishyaGallery from "@/components/DrishyaGallery";
 import DarshanSchedule from "@/components/DarshanSchedule";
+import DengiSeva from "@/components/DengiSeva";
 import Utsavs from "@/components/Utsavs";
 import AartiModal from "@/components/AartiModal";
 import { BookOpenCheck, BellRing } from "lucide-react";
@@ -78,7 +79,10 @@ export default function Home() {
           </div>
         </section>
 
-        {/* 7. Utsavs & Visitor Etiquette Guide (Full Bilingual) */}
+        {/* 7. Dengi & Seva (UPI QR Code, Official Trust Bank Ledger & WhatsApp Receipt Assistance) */}
+        <DengiSeva currentLang={currentLang} />
+
+        {/* 8. Utsavs & Visitor Etiquette Guide (Full Bilingual) */}
         <Utsavs currentLang={currentLang} />
       </main>
 
@@ -94,8 +98,11 @@ export default function Home() {
                 <span>ॐ</span>
                 <span>{temple.name[currentLang]}</span>
               </div>
-              <p className="text-amber-200/60 text-xs">
-                {temple.trustTag[currentLang]} • {temple.address[currentLang]}
+              <p className="text-amber-200/75 text-xs font-semibold">
+                {temple.subName[currentLang]} • {temple.trustTag[currentLang]}
+              </p>
+              <p className="text-amber-200/50 text-[11px]">
+                {temple.address[currentLang]}
               </p>
             </div>
 
@@ -115,6 +122,9 @@ export default function Home() {
               <a href="#utsavs" className="hover:text-white transition">
                 {footer.navLinks[currentLang].utsavs}
               </a>
+              <a href="#dengi" className="hover:text-white transition">
+                {currentLang === "mr" ? "देणगी व अन्नदान" : "Donation & Seva"}
+              </a>
             </nav>
           </div>
 
@@ -122,8 +132,8 @@ export default function Home() {
             <p>{footer.copyright[currentLang]}</p>
             <p>
               {currentLang === "mr"
-                ? "हेमाडपंती पाषाण वारसा • शांत दर्शन व शून्य गर्दी ट्रॅकिंग"
-                : "Hemadpanti Basalt Heritage • Serene Darshan & Crowd-Free Atmosphere"}
+                ? "प्रतिअयोध्या श्री क्षेत्र राममाळ • सद्गुरु यशवंत बाबा तपोभूमी • शांत दर्शन"
+                : "Pratiayodhya Shri Kshetra Ram-mal • Sadguru Yashwant Baba Tapobhumi"}
             </p>
           </div>
         </div>
@@ -133,6 +143,7 @@ export default function Home() {
       <AartiModal
         isOpen={aartiModalOpen}
         onClose={() => setAartiModalOpen(false)}
+        currentLang={currentLang}
       />
     </div>
   );

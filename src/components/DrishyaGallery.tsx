@@ -11,6 +11,20 @@ interface DrishyaGalleryProps {
   currentLang?: Language;
 }
 
+function getYoutubeId(url?: string): string | null {
+  if (!url) return null;
+  const match = url.match(/^.*(youtu.be\/|v\/|u\/\w\/|embed\/|watch\?v=|&v=)([^#&?]*).*/);
+  return match && match[2].length === 11 ? match[2] : null;
+}
+
+function getYoutubeEmbedUrl(url?: string): string | null {
+  const id = getYoutubeId(url);
+  if (id) {
+    return `https://www.youtube.com/embed/${id}?autoplay=1&rel=0&modestbranding=1`;
+  }
+  return url && url.includes("youtube.com/embed") ? url : null;
+}
+
 export default function DrishyaGallery({
   currentLang = "mr",
 }: DrishyaGalleryProps) {
@@ -74,23 +88,23 @@ export default function DrishyaGallery({
   const categories: { key: CategoryFilter; label: { mr: string; en: string } }[] = [
     {
       key: "all",
-      label: { mr: "सर्व दृश्ये (All)", en: "All Views" },
+      label: { mr: "सर्व दृश्ये", en: "All Views" },
     },
     {
       key: "drone",
-      label: { mr: "४K ड्रोन दृश्य (Aerial Drone)", en: "4K Aerial Drone" },
+      label: { mr: "४K ड्रोन दर्शन", en: "4K Aerial Drone" },
     },
     {
       key: "architecture",
-      label: { mr: "पाषाण शिल्प (Basalt Carvings)", en: "Basalt Carvings" },
+      label: { mr: "श्रीराम पादुका", en: "Rama Paduka" },
     },
     {
       key: "deepmala",
-      label: { mr: "दीपमाळ (Stone Lamp Tower)", en: "Stone Deepmala" },
+      label: { mr: "ऐतिहासिक महाघंटा", en: "Sacred Bell" },
     },
     {
       key: "sanctum",
-      label: { mr: "शांत गर्भगृह (Inner Sanctum)", en: "Inner Sanctum" },
+      label: { mr: "तपोभूमी समाधी", en: "Tapobhumi Samadhi" },
     },
   ];
 
@@ -101,17 +115,17 @@ export default function DrishyaGallery({
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-6">
           <div className="space-y-2">
             <span className="text-xs font-bold uppercase tracking-widest text-saffron-700 bg-saffron-100 px-3.5 py-1 rounded-full border border-saffron-500/20">
-              {currentLang === "mr" ? "दृश्य दर्शन व पाषाण वैभव" : "Sacred Visual Archive"}
+              {currentLang === "mr" ? "दृश्य दर्शन व तपोभूमी" : "Sacred Visual Archive"}
             </span>
             <h2 className="font-serif text-3xl sm:text-4xl font-bold text-maroon-900 mt-2">
               {currentLang === "mr"
-                ? "मंदिराचे दृश्य दर्शन व ४K ड्रोन सफर"
-                : "Drishya Darshan: Stone & Aerial Journey"}
+                ? "राममाळ आश्रम व प्रवरा तीर ४K दर्शन"
+                : "Ram-mal Ashram: Sacred Aerial & Sanctum Tour"}
             </h2>
             <p className="text-sm sm:text-base text-gray-700 max-w-2xl leading-relaxed">
               {currentLang === "mr"
-                ? "शांत गर्भगृह, अखंड पाषाणातील कोरीव खांब आणि प्रांगणातील दीपमाळेची विहंगम दृश्ये."
-                : "Contemplative visual documentation of monolithic spires, serene oil lamps, and Yadava-era masonry."}
+                ? "सत्ययुगातील श्रीराम पादुका, अमृतवाहिनी प्रवरा नदी, ऐतिहासिक महाघंटा आणि सद्गुरु यशवंत बाबांची जागृत तपोभूमी."
+                : "Contemplative documentation of Satya Yuga Rama Paduka, holy Pravara river banks, the Great Bell, and Baba's Tapobhumi."}
             </p>
           </div>
 
@@ -145,39 +159,68 @@ export default function DrishyaGallery({
           {filteredItems.map((item, idx) => {
             const isFeatured = idx === 0 || idx === 3;
             const colSpan = isFeatured ? "md:col-span-7" : "md:col-span-5";
+            const youtubeId = item.videoSrc ? getYoutubeId(item.videoSrc) : null;
 
             return (
               <figure
                 key={item.id}
-                onClick={() => setActiveItemIndex(idx)}
-                className={`${colSpan} rounded-2xl bg-white p-3 border border-amber-900/15 shadow-sm hover:shadow-md hover:border-amber-400 transition-all cursor-pointer group`}
+                className={`${colSpan} rounded-2xl bg-white p-3 border border-amber-900/15 shadow-sm hover:shadow-md hover:border-amber-400 transition-all group`}
               >
-                <div className="aspect-[16/10] w-full rounded-xl overflow-hidden bg-maroon-950 relative">
-                  <img
-                    src={item.src}
-                    alt={item.alt[currentLang]}
-                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
-                  />
-                  <div className="absolute top-3 left-3 flex items-center gap-2">
-                    <span className="px-2.5 py-1 rounded-full bg-maroon-950/85 text-amber-300 text-xs font-semibold backdrop-blur-xs">
-                      {item.tag[currentLang]}
-                    </span>
-                    {item.videoSrc && (
+                {youtubeId ? (
+                  <div className="aspect-[16/10] w-full rounded-xl overflow-hidden bg-black relative shadow-inner">
+                    <iframe
+                      src={`https://www.youtube.com/embed/${youtubeId}?autoplay=1&mute=1&loop=1&playlist=${youtubeId}&controls=1&rel=0&modestbranding=1&playsinline=1`}
+                      title={item.title[currentLang]}
+                      className="w-full h-full border-0"
+                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                      allowFullScreen
+                    />
+                    <div className="absolute top-3 left-3 flex items-center gap-2 pointer-events-none">
+                      <span className="px-2.5 py-1 rounded-full bg-maroon-950/90 text-amber-300 text-xs font-semibold backdrop-blur-xs border border-amber-400/30">
+                        {item.tag[currentLang]}
+                      </span>
                       <span className="px-2.5 py-1 rounded-full bg-amber-500 text-maroon-950 text-xs font-bold flex items-center gap-1 shadow-sm">
                         <Video className="w-3 h-3" />
-                        <span>४K Drone</span>
+                        <span>४K Drone Live</span>
                       </span>
-                    )}
+                    </div>
                   </div>
-                </div>
+                ) : (
+                  <div
+                    onClick={() => setActiveItemIndex(idx)}
+                    className="aspect-[16/10] w-full rounded-xl overflow-hidden bg-maroon-950 relative cursor-pointer"
+                  >
+                    <img
+                      src={item.src}
+                      alt={item.alt[currentLang]}
+                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                    />
+                    <div className="absolute top-3 left-3 flex items-center gap-2">
+                      <span className="px-2.5 py-1 rounded-full bg-maroon-950/85 text-amber-300 text-xs font-semibold backdrop-blur-xs">
+                        {item.tag[currentLang]}
+                      </span>
+                    </div>
+                  </div>
+                )}
 
                 <figcaption className="pt-3 px-1 flex items-center justify-between text-xs text-maroon-900">
                   <span className="font-serif font-bold text-sm truncate pr-2">
                     {item.title[currentLang]}
                   </span>
-                  <span className="text-gray-500 shrink-0">
-                    {currentLang === "mr" ? "मोठे पहा" : "Preview"}
-                  </span>
+                  {youtubeId ? (
+                    <span className="text-saffron-700 font-bold shrink-0 flex items-center gap-1">
+                      <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
+                      <span>{currentLang === "mr" ? "४K चालू आहे" : "4K Playing"}</span>
+                    </span>
+                  ) : (
+                    <button
+                      type="button"
+                      onClick={() => setActiveItemIndex(idx)}
+                      className="text-gray-500 hover:text-maroon-900 shrink-0 font-medium cursor-pointer"
+                    >
+                      {currentLang === "mr" ? "मोठे पहा" : "Preview"}
+                    </button>
+                  )}
                 </figcaption>
               </figure>
             );
@@ -218,18 +261,28 @@ export default function DrishyaGallery({
               </button>
             </div>
 
-            {/* Media Container: HTML5 Video for Drone Tour or High-Res Image */}
+            {/* Media Container: HTML5 Video for Drone Tour, YouTube Embed, or High-Res Image */}
             <div className="aspect-[16/10] w-full rounded-xl overflow-hidden bg-black relative flex items-center justify-center">
               {activeItem.videoSrc ? (
-                <video
-                  src={activeItem.videoSrc}
-                  controls
-                  autoPlay
-                  playsInline
-                  className="w-full h-full object-contain"
-                >
-                  Your browser does not support HTML5 video.
-                </video>
+                getYoutubeEmbedUrl(activeItem.videoSrc) ? (
+                  <iframe
+                    src={getYoutubeEmbedUrl(activeItem.videoSrc)!}
+                    title={activeItem.title[currentLang]}
+                    className="w-full h-full border-0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowFullScreen
+                  />
+                ) : (
+                  <video
+                    src={activeItem.videoSrc}
+                    controls
+                    autoPlay
+                    playsInline
+                    className="w-full h-full object-contain"
+                  >
+                    Your browser does not support HTML5 video.
+                  </video>
+                )
               ) : (
                 <img
                   src={activeItem.src}
