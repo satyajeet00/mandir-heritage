@@ -226,7 +226,10 @@
     "features": [
       {
         "icon": "Sparkles",
-        "numeral": "०१",
+        "numeral": {
+          "mr": "०१",
+          "en": "01"
+        },
         "tag": {
           "mr": "[RAMA PADUKA]",
           "en": "[RAMA PADUKA]"
@@ -242,7 +245,10 @@
       },
       {
         "icon": "Sun",
-        "numeral": "०२",
+        "numeral": {
+          "mr": "०२",
+          "en": "02"
+        },
         "tag": {
           "mr": "[SACRED RIVER]",
           "en": "[SACRED RIVER]"
@@ -258,7 +264,10 @@
       },
       {
         "icon": "Columns",
-        "numeral": "०३",
+        "numeral": {
+          "mr": "०३",
+          "en": "03"
+        },
         "tag": {
           "mr": "[BHAIRAV CAVE]",
           "en": "[BHAIRAV CAVE]"
@@ -274,7 +283,10 @@
       },
       {
         "icon": "Flame",
-        "numeral": "०४",
+        "numeral": {
+          "mr": "०४",
+          "en": "04"
+        },
         "tag": {
           "mr": "[BELL OF REDEMPTION]",
           "en": "[BELL OF REDEMPTION]"
@@ -290,7 +302,10 @@
       },
       {
         "icon": "Shield",
-        "numeral": "०५",
+        "numeral": {
+          "mr": "०५",
+          "en": "05"
+        },
         "tag": {
           "mr": "[SADHU SAMADHI]",
           "en": "[SADHU SAMADHI]"
@@ -306,7 +321,10 @@
       },
       {
         "icon": "DoorOpen",
-        "numeral": "०६",
+        "numeral": {
+          "mr": "०६",
+          "en": "06"
+        },
         "tag": {
           "mr": "[TAPOBHUMI]",
           "en": "[TAPOBHUMI]"

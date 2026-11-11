@@ -36,7 +36,7 @@ export default function Architecture({
               {feature.numeral && (
                 <div className="space-y-3">
                   <span className="block font-serif text-5xl font-bold leading-none text-amber-300">
-                    {feature.numeral}
+                    {feature.numeral[currentLang]}
                   </span>
                   <div className="h-px bg-amber-400/40" />
                 </div>
