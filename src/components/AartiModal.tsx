@@ -4,6 +4,7 @@ import React, { useState } from "react";
 import { X, BellRing, BookOpen, Volume2, ZoomIn, ZoomOut } from "lucide-react";
 import mandirContent from "@/data/mandirContent.json";
 import { playTempleBell } from "@/utils/audio";
+import { useModal } from "@/utils/useModal";
 import type { Language } from "./Header";
 
 interface AartiModalProps {
@@ -21,6 +22,8 @@ export default function AartiModal({
   const [activeTab, setActiveTab] = useState<string>(aartis[0]?.id || "ganpati");
   const [fontSizeClass, setFontSizeClass] = useState<"text-sm" | "text-base" | "text-lg">("text-base");
   const [bellRinging, setBellRinging] = useState(false);
+
+  const dialogRef = useModal<HTMLDivElement>(isOpen, onClose);
 
   if (!isOpen) return null;
 
@@ -42,11 +45,15 @@ export default function AartiModal({
 
   return (
     <div
+      ref={dialogRef}
       role="dialog"
       aria-modal="true"
+      aria-label={currentLang === "mr" ? "आरती व हरिपाठ संग्रह" : "Aarti & Haripath Reader"}
+      tabIndex={-1}
+      onClick={onClose}
       className="fixed inset-0 bg-black/65 backdrop-blur-sm z-50 flex items-center justify-center p-3 sm:p-5 animate-in fade-in duration-200"
     >
-      <div className="bg-parchment rounded-3xl max-w-2xl w-full overflow-hidden shadow-2xl border-2 border-amber-500/40 flex flex-col max-h-[90vh]">
+      <div onClick={(e) => e.stopPropagation()} className="bg-parchment rounded-3xl max-w-2xl w-full overflow-hidden shadow-2xl border-2 border-amber-500/40 flex flex-col max-h-[90vh]">
         {/* Modal Header */}
         <div className="shimmer-gold text-white p-4 sm:p-5 flex items-center justify-between border-b border-amber-500/30 shrink-0">
           <div className="flex items-center gap-3">
@@ -81,7 +88,7 @@ export default function AartiModal({
             <button
               onClick={onClose}
               className="text-amber-200 hover:text-white p-2 rounded-xl hover:bg-white/10 transition"
-              aria-label="Close modal"
+              aria-label={currentLang === "mr" ? "बंद करा" : "Close"}
             >
               <X className="w-5 h-5" />
             </button>

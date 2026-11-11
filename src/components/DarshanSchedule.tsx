@@ -4,6 +4,7 @@ import React from "react";
 import { Sunrise, Flame, Moon, LucideIcon } from "lucide-react";
 import mandirContent from "@/data/mandirContent.json";
 import type { Language } from "./Header";
+import SectionHeader from "./SectionHeader";
 
 const iconMap: Record<string, LucideIcon> = {
   Sunrise,
@@ -22,18 +23,12 @@ export default function DarshanSchedule({
 
   return (
     <section id="darshan" className="py-16 max-w-7xl mx-auto px-4 sm:px-6">
-      {/* Section Header */}
-      <div className="text-center max-w-2xl mx-auto mb-12">
-        <span className="text-xs font-bold uppercase tracking-widest text-saffron-700 bg-saffron-100 px-3.5 py-1 rounded-full border border-saffron-500/20">
-          {darshan.badge[currentLang]}
-        </span>
-        <h2 className="font-serif text-2xl sm:text-4xl font-bold text-maroon-900 mt-3">
-          {darshan.heading[currentLang]}
-        </h2>
-        <p className="text-sm sm:text-base text-maroon-800/80 mt-2.5">
-          {darshan.subheading[currentLang]}
-        </p>
-      </div>
+      <SectionHeader
+        badge={darshan.badge[currentLang]}
+        title={darshan.heading[currentLang]}
+        subtitle={darshan.subheading[currentLang]}
+        className="mb-12"
+      />
 
       {/* 3 Timing Cards */}
       <div className="grid sm:grid-cols-3 gap-6 items-stretch">

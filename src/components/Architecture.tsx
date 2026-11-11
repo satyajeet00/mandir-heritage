@@ -13,6 +13,7 @@ import {
 } from "lucide-react";
 import mandirContent from "@/data/mandirContent.json";
 import type { Language } from "./Header";
+import SectionHeader from "./SectionHeader";
 
 const iconMap: Record<string, LucideIcon> = {
   Columns,
@@ -36,18 +37,14 @@ export default function Architecture({
   return (
     <section id="architecture" className="py-16 bg-maroon-950 text-amber-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6">
-        {/* Section Header */}
-        <div className="max-w-3xl mb-12">
-          <span className="text-xs uppercase tracking-widest text-amber-400 font-bold bg-amber-500/15 border border-amber-400/25 px-3 py-1 rounded-full">
-            {architecture.badge[currentLang]}
-          </span>
-          <h2 className="font-serif text-3xl sm:text-4xl font-bold text-white mt-3.5">
-            {architecture.heading[currentLang]}
-          </h2>
-          <p className="text-amber-100/80 text-sm sm:text-base mt-2.5 max-w-2xl leading-relaxed">
-            {architecture.subheading[currentLang]}
-          </p>
-        </div>
+        <SectionHeader
+          align="left"
+          tone="dark"
+          badge={architecture.badge[currentLang]}
+          title={architecture.heading[currentLang]}
+          subtitle={architecture.subheading[currentLang]}
+          className="mb-12"
+        />
 
         {/* 6 Features Grid */}
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">

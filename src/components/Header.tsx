@@ -62,9 +62,9 @@ export default function Header({
   return (
     <>
       {/* Top Notice Ticker & Quick Controls */}
-      <div className="bg-gradient-to-r from-saffron-700 via-saffron-600 to-saffron-700 text-white text-xs sm:text-sm py-2 px-4 shadow-xs border-b border-amber-500/20">
-        <div className="max-w-7xl mx-auto flex flex-wrap items-center justify-between gap-3">
-          <div className="flex items-center gap-2 truncate">
+      <div className="bg-gradient-to-r from-saffron-700 via-saffron-600 to-saffron-700 text-white text-xs sm:text-sm py-1.5 px-4 shadow-xs border-b border-amber-500/20">
+        <div className="max-w-7xl mx-auto flex items-center justify-between gap-3">
+          <div className="hidden sm:flex items-center gap-2 truncate">
             <span className="bg-maroon-900 text-amber-300 px-2 py-0.5 rounded text-xs font-bold uppercase tracking-wider shrink-0 shadow-xs">
               {navLabels.noticeBadge}
             </span>
@@ -77,7 +77,7 @@ export default function Header({
             {/* Temple Bell */}
             <button
               onClick={handleBell}
-              className={`flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold border transition-all cursor-pointer ${
+              className={`flex items-center gap-1.5 px-3 py-2 rounded-full text-xs font-semibold border transition-all cursor-pointer ${
                 bellRinging
                   ? "bg-amber-400 text-maroon-950 border-amber-300 scale-105 shadow-md"
                   : "bg-maroon-900/80 hover:bg-maroon-900 text-amber-200 border-amber-400/30"
@@ -98,7 +98,7 @@ export default function Header({
             <div className="flex items-center rounded-lg bg-maroon-950/90 p-0.5 border border-amber-400/30 text-xs">
               <button
                 onClick={() => onSelectLang("mr")}
-                className={`px-3 py-0.5 rounded font-medium transition-all cursor-pointer ${
+                className={`px-3.5 py-1.5 rounded font-medium transition-all cursor-pointer ${
                   currentLang === "mr"
                     ? "bg-amber-500 text-maroon-950 font-bold shadow-xs"
                     : "text-amber-100 hover:text-white"
@@ -108,7 +108,7 @@ export default function Header({
               </button>
               <button
                 onClick={() => onSelectLang("en")}
-                className={`px-3 py-0.5 rounded font-medium transition-all cursor-pointer ${
+                className={`px-3.5 py-1.5 rounded font-medium transition-all cursor-pointer ${
                   currentLang === "en"
                     ? "bg-amber-500 text-maroon-950 font-bold shadow-xs"
                     : "text-amber-100 hover:text-white"
@@ -125,12 +125,12 @@ export default function Header({
       <header className="bg-parchment/95 backdrop-blur-md border-b border-amber-900/15 sticky top-0 z-40 transition-colors">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 py-3.5 flex items-center justify-between">
           {/* Logo / Deity Badge & Temple Title */}
-          <div className="flex items-center gap-3">
+          <div className="flex items-center gap-3 min-w-0">
             <div className="w-11 h-11 rounded-full shimmer-gold flex items-center justify-center border-2 border-amber-400 shadow-md text-amber-300 font-serif text-xl font-bold shrink-0">
               ॐ
             </div>
-            <div>
-              <div className="flex items-center gap-1.5 flex-wrap">
+            <div className="min-w-0">
+              <div className="hidden sm:flex items-center gap-1.5 flex-wrap">
                 <span className="text-xs sm:text-xs font-bold uppercase tracking-wider text-saffron-700">
                   {mandirContent.temple.subName[currentLang]}
                 </span>
@@ -139,14 +139,14 @@ export default function Header({
                   {mandirContent.temple.trustTag[currentLang]}
                 </span>
               </div>
-              <h1 className="font-serif text-lg sm:text-xl font-bold text-maroon-900 leading-tight">
+              <p className="font-serif text-base sm:text-xl font-bold text-maroon-900 leading-tight">
                 {mandirContent.temple.name[currentLang]}
-              </h1>
+              </p>
             </div>
           </div>
 
           {/* Desktop Navigation Links */}
-          <nav className="hidden lg:flex items-center gap-6 text-sm font-semibold text-maroon-900/85">
+          <nav className="hidden xl:flex items-center gap-6 text-sm font-semibold text-maroon-900/85">
             <a href="#history" className="hover:text-saffron-600 transition">
               {navLabels.history}
             </a>
@@ -175,17 +175,19 @@ export default function Header({
             {onOpenAarti && (
               <button
                 onClick={onOpenAarti}
-                className="bg-maroon-900 hover:bg-maroon-800 text-amber-200 border border-amber-500/40 font-semibold text-xs sm:text-sm px-4 py-2.5 rounded-xl shadow-xs transition flex items-center gap-1.5 cursor-pointer"
+                aria-label={navLabels.btnAarti}
+                className="bg-maroon-900 hover:bg-maroon-800 text-amber-200 border border-amber-500/40 font-semibold text-sm px-3 sm:px-4 py-2.5 rounded-xl shadow-xs transition flex items-center gap-1.5 cursor-pointer"
               >
-                <BookOpen className="w-4 h-4 text-amber-400" />
-                <span>{navLabels.btnAarti}</span>
+                <BookOpen className="w-5 h-5 sm:w-4 sm:h-4 text-amber-400" />
+                <span className="hidden sm:inline">{navLabels.btnAarti}</span>
               </button>
             )}
 
             <button
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              className="lg:hidden p-2 rounded-xl text-maroon-900 hover:bg-amber-100/50 transition cursor-pointer"
+              className="xl:hidden p-2.5 rounded-xl text-maroon-900 hover:bg-amber-100/50 transition cursor-pointer"
               aria-label="Toggle navigation menu"
+              aria-expanded={mobileMenuOpen}
             >
               {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
             </button>
@@ -194,7 +196,7 @@ export default function Header({
 
         {/* Mobile Navigation Dropdown */}
         {mobileMenuOpen && (
-          <div className="lg:hidden border-t border-amber-900/10 bg-parchment px-4 py-3 space-y-2 text-sm font-semibold text-maroon-900">
+          <div className="xl:hidden border-t border-amber-900/10 bg-parchment px-4 py-3 space-y-2 text-sm font-semibold text-maroon-900">
             <a
               href="#history"
               onClick={() => setMobileMenuOpen(false)}

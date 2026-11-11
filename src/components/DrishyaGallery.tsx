@@ -3,6 +3,7 @@
 import React, { useState, useEffect } from "react";
 import { Video, X, ChevronLeft, ChevronRight } from "lucide-react";
 import mandirContent from "@/data/mandirContent.json";
+import { useModal } from "@/utils/useModal";
 import type { Language } from "./Header";
 
 type CategoryFilter = "all" | "drone" | "architecture" | "deepmala" | "sanctum";
@@ -41,6 +42,10 @@ export default function DrishyaGallery({
   const activeItem =
     activeItemIndex !== null ? filteredItems[activeItemIndex] || null : null;
 
+  const lightboxRef = useModal<HTMLDivElement>(activeItemIndex !== null, () =>
+    setActiveItemIndex(null)
+  );
+
   const itemCount = filteredItems.length;
   const isLightboxOpen = activeItemIndex !== null;
 
@@ -59,9 +64,7 @@ export default function DrishyaGallery({
     if (!isLightboxOpen) return;
 
     const handleKeyDown = (e: KeyboardEvent) => {
-      if (e.key === "Escape") {
-        setActiveItemIndex(null);
-      } else if (e.key === "ArrowLeft") {
+      if (e.key === "ArrowLeft") {
         setActiveItemIndex((prev) =>
           prev === null ? null : prev === 0 ? itemCount - 1 : prev - 1
         );
@@ -222,9 +225,11 @@ export default function DrishyaGallery({
       {/* Accessible Client-Side Lightbox Modal */}
       {activeItem && (
         <div
+          ref={lightboxRef}
           role="dialog"
           aria-modal="true"
           aria-labelledby="lightboxTitle"
+          tabIndex={-1}
           className="fixed inset-0 z-50 bg-black/85 backdrop-blur-sm flex items-center justify-center p-4"
           onClick={handleCloseLightbox}
         >

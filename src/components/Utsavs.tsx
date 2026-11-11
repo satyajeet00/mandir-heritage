@@ -27,9 +27,9 @@ export default function Utsavs({ currentLang = "mr" }: UtsavsProps) {
             <span className="text-xs font-bold uppercase tracking-widest text-saffron-700 bg-saffron-100 px-3.5 py-1 rounded-full border border-saffron-500/20">
               {utsavs.badge[currentLang]}
             </span>
-            <h3 className="font-serif text-2xl sm:text-3xl font-bold text-maroon-900 mt-2.5">
+            <h2 className="font-serif text-2xl sm:text-3xl font-bold text-maroon-900 mt-2.5">
               {utsavs.heading[currentLang]}
-            </h3>
+            </h2>
           </div>
 
           <div className="space-y-4 pt-1">
