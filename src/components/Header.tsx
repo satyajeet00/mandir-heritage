@@ -124,7 +124,9 @@ export default function Header({
               <button
                 onClick={() => onSelectLang("mr")}
                 className={`min-h-11 px-3.5 py-2 rounded font-medium transition-all cursor-pointer ${
-                  mandirContent.ui.textAmber100Hover[currentLang]
+                  currentLang === "mr"
+                    ? "bg-amber-500 text-maroon-950 font-bold shadow-xs"
+                    : "text-amber-100 hover:text-white"
                 }`}
               >
                 मराठी
