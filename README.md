@@ -1,36 +1,25 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Pratiayodhya Shri Kshetra Ram-mal — Temple Website
 
-## Getting Started
+Bilingual (मराठी / English) single-page site for Sadguru Yashwant Baba Tapobhumi, Unchakhadak.
+Built with Next.js 16, React 19 and Tailwind CSS 4.
 
-First, run the development server:
+## Run
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+npm install
+npm run dev     # http://localhost:3000
+npm run build   # production build
+npm run lint
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Editing content
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+All text lives in `src/data/mandirContent.json`, with every string as `{ "mr": "...", "en": "..." }`.
+Sections map to top-level keys: `temple`, `hero`, `history`, `architecture`, `gallery`,
+`darshan`, `utsavs`, `dengi` (UPI, bank, WhatsApp), `visitorGuide`, `footer`, `aartis`.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+Images are in `public/images/`. The UPI QR (`public/images/upi-qr.svg`) must be regenerated
+whenever the UPI ID changes.
 
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+> Next.js here has breaking changes from older versions — see `AGENTS.md` and
+> `node_modules/next/dist/docs/` before changing framework-level code.

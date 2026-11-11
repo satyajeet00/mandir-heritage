@@ -81,7 +81,7 @@
       "mr": "उंचखडक (बु।।), प्रवरा नदीकाठ, ता. संगमनेर / अकोले परिसर, महाराष्ट्र",
       "en": "Unchakhadak (Bk.), Banks of Pravara River, Maharashtra"
     },
-    "googleMapsUrl": "https://maps.google.com/?q=Unchakhadak+Ram+Mal+Ashram",
+    "googleMapsUrl": "https://maps.app.goo.gl/dksk67wu1SCefdpN8",
     "entryFeeNotice": {
       "mr": "प्रवेश व दर्शन पूर्णतः नि:शुल्क",
       "en": "Entry & Darshan is Completely Free"
@@ -93,8 +93,8 @@
   },
   "hero": {
     "liveStatus": {
-      "mr": "दर्शन वेळ: सकाळी ६:०० ते रात्री ९:००",
-      "en": "Open Daily: 6:00 AM – 9:00 PM"
+      "mr": "दर्शनासाठी दिवसभर खुले",
+      "en": "Open all day for darshan"
     },
     "nextAarti": {
       "mr": "सायं आरती व हरिपाठ: ७:०० वाजता",
@@ -171,16 +171,10 @@
         "mr": "अगस्ती बंधू महामती मुनींच्या तपोभूमीत प्रभू श्रीरामांच्या पदस्पर्शाने पावन झालेल्या तरवडाच्या झाडाखालील पादुका आणि सद्गुरु यशवंत बाबांची जागृत समाधी.",
         "en": "Sanctified beneath the ancient Tarwad tree in Sage Mahamati's hermitage, holding the holy footsteps of Lord Rama and the serene Samadhi of Sadguru Yashwant Baba."
       },
-      "morningLabel": {
-        "mr": "सकाळचे दर्शन",
-        "en": "Morning Darshan"
-      },
-      "morningTiming": "06:00 AM – 12:30 PM",
-      "eveningLabel": {
-        "mr": "सायंकाळचे दर्शन व हरिपाठ",
-        "en": "Evening Darshan & Haripath"
-      },
-      "eveningTiming": "04:00 PM – 09:00 PM"
+      "openAllDay": {
+        "mr": "दर्शन दिवसभर खुले • पहाटे ५:३० काकडा आरतीपासून",
+        "en": "Darshan open all day • from Kakada aarti at 5:30 AM"
+      }
     }
   },
   "history": {
@@ -734,7 +728,9 @@
         "mr": "पावतीसाठी WhatsApp करा",
         "en": "WhatsApp for Receipt"
       }
-    }
+    },
+    "detailsVerified": false,
+    "_todo": "Fill real UPI ID, bank, account no., IFSC, PTR no., WhatsApp no., regenerate public/images/upi-qr.svg, then set detailsVerified to true."
   },
   "visitorGuide": {
     "title": {

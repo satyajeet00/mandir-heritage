@@ -157,24 +157,10 @@ export default function Hero({ currentLang }: HeroProps) {
               </p>
             </div>
 
-            {/* Timing Snapshot (Full Bilingual) */}
-            <div className="grid grid-cols-2 gap-2.5 text-xs">
-              <div className="bg-maroon-900/70 rounded-xl p-3 border border-amber-500/15">
-                <span className="text-amber-300/70 block text-[10px] uppercase font-bold tracking-wider">
-                  {hero.deityCard.morningLabel[currentLang]}
-                </span>
-                <span className="font-semibold text-amber-100">
-                  {hero.deityCard.morningTiming}
-                </span>
-              </div>
-              <div className="bg-maroon-900/70 rounded-xl p-3 border border-amber-500/15">
-                <span className="text-amber-300/70 block text-[10px] uppercase font-bold tracking-wider">
-                  {hero.deityCard.eveningLabel[currentLang]}
-                </span>
-                <span className="font-semibold text-amber-100">
-                  {hero.deityCard.eveningTiming}
-                </span>
-              </div>
+            {/* Open-all-day note (single source: hero.deityCard.openAllDay) */}
+            <div className="bg-maroon-900/70 rounded-xl p-3.5 border border-amber-500/15 flex items-center gap-2.5 text-sm text-amber-100 font-semibold">
+              <span className="w-2.5 h-2.5 rounded-full bg-emerald-400 shrink-0" />
+              <span>{hero.deityCard.openAllDay[currentLang]}</span>
             </div>
           </div>
         </div>

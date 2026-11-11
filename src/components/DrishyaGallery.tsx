@@ -1,7 +1,7 @@
 "use client";
 
-import React, { useState, useEffect, useCallback } from "react";
-import { Video, Image as ImageIcon, X, ChevronLeft, ChevronRight } from "lucide-react";
+import React, { useState, useEffect } from "react";
+import { Video, X, ChevronLeft, ChevronRight } from "lucide-react";
 import mandirContent from "@/data/mandirContent.json";
 import type { Language } from "./Header";
 
@@ -41,49 +41,40 @@ export default function DrishyaGallery({
   const activeItem =
     activeItemIndex !== null ? filteredItems[activeItemIndex] || null : null;
 
-  const handleCloseLightbox = useCallback(() => {
-    setActiveItemIndex(null);
-  }, []);
+  const itemCount = filteredItems.length;
+  const isLightboxOpen = activeItemIndex !== null;
 
-  const handlePrev = useCallback(() => {
-    if (activeItemIndex === null) return;
+  const handleCloseLightbox = () => setActiveItemIndex(null);
+  const handlePrev = () =>
     setActiveItemIndex((prev) =>
-      prev !== null
-        ? prev === 0
-          ? filteredItems.length - 1
-          : prev - 1
-        : null
+      prev === null ? null : prev === 0 ? itemCount - 1 : prev - 1
     );
-  }, [activeItemIndex, filteredItems.length]);
-
-  const handleNext = useCallback(() => {
-    if (activeItemIndex === null) return;
+  const handleNext = () =>
     setActiveItemIndex((prev) =>
-      prev !== null
-        ? prev === filteredItems.length - 1
-          ? 0
-          : prev + 1
-        : null
+      prev === null ? null : prev === itemCount - 1 ? 0 : prev + 1
     );
-  }, [activeItemIndex, filteredItems.length]);
 
-  // Keyboard navigation
+  // Keyboard navigation (Esc closes, arrows step through items)
   useEffect(() => {
-    if (activeItemIndex === null) return;
+    if (!isLightboxOpen) return;
 
     const handleKeyDown = (e: KeyboardEvent) => {
       if (e.key === "Escape") {
-        handleCloseLightbox();
+        setActiveItemIndex(null);
       } else if (e.key === "ArrowLeft") {
-        handlePrev();
+        setActiveItemIndex((prev) =>
+          prev === null ? null : prev === 0 ? itemCount - 1 : prev - 1
+        );
       } else if (e.key === "ArrowRight") {
-        handleNext();
+        setActiveItemIndex((prev) =>
+          prev === null ? null : prev === itemCount - 1 ? 0 : prev + 1
+        );
       }
     };
 
     window.addEventListener("keydown", handleKeyDown);
     return () => window.removeEventListener("keydown", handleKeyDown);
-  }, [activeItemIndex, handleCloseLightbox, handlePrev, handleNext]);
+  }, [isLightboxOpen, itemCount]);
 
   const categories: { key: CategoryFilter; label: { mr: string; en: string } }[] = [
     {

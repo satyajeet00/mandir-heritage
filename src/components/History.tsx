@@ -1,7 +1,7 @@
 "use client";
 
 import React from "react";
-import { History as HistoryIcon, Sparkles, Clock } from "lucide-react";
+import { Sparkles, Clock } from "lucide-react";
 import mandirContent from "@/data/mandirContent.json";
 import type { Language } from "./Header";
 

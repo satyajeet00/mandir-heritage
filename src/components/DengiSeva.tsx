@@ -2,11 +2,9 @@
 
 import React, { useState } from "react";
 import {
-  QrCode,
   Copy,
   Check,
   Building2,
-  HeartHandshake,
   MessageCircle,
   ExternalLink,
   ShieldCheck,
@@ -22,6 +20,8 @@ interface DengiSevaProps {
 
 export default function DengiSeva({ currentLang = "mr" }: DengiSevaProps) {
   const { dengi } = mandirContent;
+  // TODO: set dengi.detailsVerified=true in mandirContent.json once real bank/UPI/WhatsApp data is in
+  const verified = dengi.detailsVerified;
   const [copiedKey, setCopiedKey] = useState<string | null>(null);
 
   const handleCopy = (text: string, key: string) => {
@@ -46,6 +46,9 @@ export default function DengiSeva({ currentLang = "mr" }: DengiSevaProps) {
       setCopiedKey(null);
     }
   };
+
+  // wa.me expects digits only (country code included, no "+")
+  const whatsappDigits = dengi.receiptNote.whatsappNumber.replace(/\D/g, "");
 
   const whatsappText = encodeURIComponent(
     currentLang === "mr"
@@ -117,6 +120,8 @@ export default function DengiSeva({ currentLang = "mr" }: DengiSevaProps) {
               ))}
             </div>
 
+            {verified && (
+              <>
             {/* Official WhatsApp Receipt Box */}
             <div className="bg-emerald-50/90 rounded-2xl p-5 sm:p-6 border border-emerald-600/30 space-y-3">
               <div className="flex items-center gap-2 text-emerald-900 font-serif font-bold text-base">
@@ -130,7 +135,7 @@ export default function DengiSeva({ currentLang = "mr" }: DengiSevaProps) {
 
               <div className="pt-1">
                 <a
-                  href={`https://wa.me/919876543210?text=${whatsappText}`}
+                  href={`https://wa.me/${whatsappDigits}?text=${whatsappText}`}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white text-xs font-bold transition shadow-xs cursor-pointer"
@@ -141,8 +146,28 @@ export default function DengiSeva({ currentLang = "mr" }: DengiSevaProps) {
                 </a>
               </div>
             </div>
+              </>
+            )}
           </div>
 
+          {!verified && (
+            <div className="lg:col-span-5 bg-white rounded-2xl p-6 sm:p-7 border-2 border-amber-500/30 shadow-lg text-center space-y-3">
+              <span className="text-sm font-bold text-saffron-700 block">
+                {currentLang === "mr" ? "अधिकृत विश्वस्त दानपट्टी" : "Official Trust Ledger"}
+              </span>
+              <h3 className="font-serif text-xl font-bold text-maroon-900">
+                {currentLang === "mr" ? "देणगी तपशील लवकरच उपलब्ध" : "Donation details coming soon"}
+              </h3>
+              <p className="text-sm text-gray-700 leading-relaxed">
+                {currentLang === "mr"
+                  ? "अधिकृत UPI व बँक खात्याचे तपशील लवकरच येथे प्रसिद्ध केले जातील. तोपर्यंत कृपया आश्रमात प्रत्यक्ष संपर्क साधावा."
+                  : "Official UPI and bank account details will be published here shortly. Until then, please contact the ashram directly."}
+              </p>
+            </div>
+          )}
+
+          {verified && (
+          <>
           {/* Right Column: High-Trust Danpatti Box (QR Code & Bank Ledger) */}
           <div
             id="dengi-box"
@@ -314,6 +339,8 @@ export default function DengiSeva({ currentLang = "mr" }: DengiSevaProps) {
               </div>
             </div>
           </div>
+          </>
+          )}
         </div>
       </div>
     </section>
