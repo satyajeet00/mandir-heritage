@@ -133,7 +133,7 @@ export default function Home() {
             <p>{footer.copyright[currentLang]}</p>
             <p>
               {currentLang === "mr"
-                ? "प्रतिअयोध्या श्री क्षेत्र राममाळ • सद्गुरू यशवंत बाबा तपोभूमी • शांत दर्शन"
+                ? "प्रतिअयोध्या श्री क्षेत्र राममाळ • सद्‌गुरू यशवंत बाबा तपोभूमी • शांत दर्शन"
                 : "Pratiayodhya Shri Kshetra Ram-mal • Sadguru Yashwant Baba Tapobhumi"}
             </p>
           </div>
