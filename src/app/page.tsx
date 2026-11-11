@@ -124,7 +124,7 @@ export default function Home() {
                 {footer.navLinks[currentLang].utsavs}
               </a>
               <a href="#dengi" className="hover:text-white transition">
-                {currentLang === "mr" ? "देणगी व अन्नदान" : "Donation & Seva"}
+                {currentLang === "mr" ? "देणगी व सेवा" : "Donation & Seva"}
               </a>
             </nav>
           </div>

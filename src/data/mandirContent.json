@@ -631,12 +631,12 @@
       "en": "Official Trust Danpatti & Seva"
     },
     "heading": {
-      "mr": "आश्रम सेवा, अन्नदान व देणगी बँक तपशील",
-      "en": "Ashram Seva, Annadan & Digital Giving"
+      "mr": "उत्सव, अन्नदान व सामाजिक उपक्रमांसाठी देणगी",
+      "en": "Give for Utsavs, Annadan & Community Seva"
     },
     "subheading": {
-      "mr": "भाविकांनी अर्पण केलेली देणगी थेट प्रतिअयोध्या श्री क्षेत्र राममाळ व सद्गुरु यशवंत बाबा देवस्थान ट्रस्टच्या अधिकृत बँक खात्यात जमा होते.",
-      "en": "Devotee contributions are deposited directly into the registered Trust bank account for unbroken Annadan, daily pooja, and sacred conservation."
+      "mr": "भाविकांनी अर्पण केलेली देणगी थेट प्रतिअयोध्या श्री क्षेत्र राममाळ व सद्गुरु यशवंत बाबा देवस्थान ट्रस्टच्या अधिकृत बँक खात्यात जमा होते. ही देणगी वार्षिक उत्सव, प्रत्येक एकादशीचे अन्नदान, बालसंस्कार केंद्र आणि वृक्षारोपण उपक्रमांसाठी वापरली जाते.",
+      "en": "Contributions go directly into the Trust's registered bank account and are used for the yearly utsavs, annadan on every Ekadashi, the Balsanskar Kendra and tree plantation."
     },
     "qrCode": {
       "title": {
@@ -672,48 +672,63 @@
     },
     "sevaTypes": [
       {
+        "id": "utsav",
+        "badge": {
+          "mr": "वार्षिक उत्सव",
+          "en": "Yearly Utsavs"
+        },
+        "title": {
+          "mr": "वार्षिक उत्सव निधी",
+          "en": "Yearly Utsav Fund"
+        },
+        "desc": {
+          "mr": "रामनवमी सप्ताह, गुढीपाडवा यात्रा व सद्गुरु यशवंत बाबा पुण्यतिथी यांसारख्या वार्षिक उत्सवांच्या आयोजनासाठी.",
+          "en": "For organising the yearly utsavs such as Ram Navami Saptah, the Gudi Padwa Yatra and Sadguru Yashwant Baba's Punyatithi."
+        }
+      },
+      {
         "id": "annadan",
         "badge": {
-          "mr": "अखंड सेवा",
-          "en": "Daily Seva"
+          "mr": "प्रत्येक एकादशी",
+          "en": "Every Ekadashi"
         },
         "title": {
-          "mr": "नित्य अन्नदान व महाप्रसाद निधी",
-          "en": "Daily Annadan & Mahaprasad Fund"
+          "mr": "एकादशी अन्नदान निधी",
+          "en": "Ekadashi Annadan Fund"
         },
         "desc": {
-          "mr": "आश्रमात येणाऱ्या भाविक, वारकरी व गरजू भाविकांसाठी नित्य प्रसाद व अन्नदान व्यवस्था.",
-          "en": "Support daily sacred meals and prasad distribution for visiting pilgrims, warkaris, and devotees."
+          "mr": "प्रत्येक एकादशीला आश्रमात भाविक व वारकऱ्यांसाठी अन्नदान (प्रसाद) आयोजित केले जाते.",
+          "en": "Annadan (prasad) is served at the ashram on every Ekadashi for devotees and warkaris."
         }
       },
       {
-        "id": "pooja",
+        "id": "balsanskar",
         "badge": {
-          "mr": "नित्य पूजा",
-          "en": "Pooja Seva"
+          "mr": "बालसंस्कार",
+          "en": "Children's Values"
         },
         "title": {
-          "mr": "श्रीराम पादुका अभिषेक व समाधी पूजा",
-          "en": "Rama Paduka Abhishek & Samadhi Worship"
+          "mr": "बालसंस्कार केंद्र",
+          "en": "Balsanskar Kendra"
         },
         "desc": {
-          "mr": "सत्ययुगातील श्रीराम पादुका व सद्गुरु यशवंत बाबा समाधीची नित्य पूजा, नैवेद्य, धूपदीप व उत्सव सेवा.",
-          "en": "Support daily Vedic rituals, sacred bath, flowers, naivedya, and deepam offerings at the sanctum."
+          "mr": "मुलांवर संस्कार व आध्यात्मिक मूल्ये रुजवणाऱ्या बालसंस्कार केंद्राच्या उपक्रमांसाठी सहाय्य.",
+          "en": "Support for the Balsanskar Kendra, which nurtures values and spiritual learning in children."
         }
       },
       {
-        "id": "jirnoddhar",
+        "id": "trees",
         "badge": {
-          "mr": "तपोभूमी संवर्धन",
-          "en": "Conservation"
+          "mr": "पर्यावरण",
+          "en": "Environment"
         },
         "title": {
-          "mr": "ऐतिहासिक वास्तू संवर्धन व आश्रम विकास निधी",
-          "en": "Heritage Preservation & Ashram Development"
+          "mr": "वृक्षारोपण उपक्रम",
+          "en": "Tree Plantation Drive"
         },
         "desc": {
-          "mr": "ऐतिहासिक महाघंटा, कालभैरव गुहा, प्रवरा नदी घाट परिसर आणि आश्रम परिसराचे संवर्धन व स्वच्छता कार्य.",
-          "en": "Structural upkeep of the historic Bell of Redemption, Kalbhairav Cave, and Pravara river ghats."
+          "mr": "आश्रम परिसर व आसपासच्या भागात वृक्षारोपण व त्यांच्या संगोपनासाठी.",
+          "en": "For planting and caring for trees in and around the ashram."
         }
       }
     ],

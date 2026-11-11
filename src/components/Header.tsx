@@ -49,7 +49,7 @@ export default function Header({
       currentLang === "mr"
         ? mandirContent.i18n.mr.navVisit
         : mandirContent.i18n.en.navVisit,
-    dengi: currentLang === "mr" ? "देणगी व अन्नदान" : "Donation & Seva",
+    dengi: currentLang === "mr" ? "देणगी व सेवा" : "Donation & Seva",
     btnAarti:
       currentLang === "mr"
         ? mandirContent.i18n.mr.btnAarti
