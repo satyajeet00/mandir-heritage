@@ -20,7 +20,7 @@ export default function Utsavs({ currentLang = "mr" }: UtsavsProps) {
   const { utsavs, visitorGuide, temple } = mandirContent;
 
   return (
-    <section id="utsavs" className="py-16 bg-amber-50/70 border-t border-amber-900/10">
+    <section id="utsavs" className="scroll-mt-24 py-16 bg-amber-50/70 border-t border-amber-900/10">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 grid lg:grid-cols-12 gap-8 items-start">
         {/* Left Column: Upcoming Festivals (Utsavs List) */}
         <div className="lg:col-span-7 space-y-4">
@@ -43,7 +43,7 @@ export default function Utsavs({ currentLang = "mr" }: UtsavsProps) {
                   <span className="text-xs font-bold uppercase tracking-wider px-2.5 py-0.5 rounded-full bg-amber-100 text-saffron-700">
                     {festival.tag[currentLang]}
                   </span>
-                  <div className="flex items-center gap-3 text-xs font-semibold text-maroon-900">
+                  <div className="flex items-center gap-3 text-sm font-semibold text-maroon-900">
                     <span className="flex items-center gap-1 text-gray-700">
                       <Calendar className="w-3.5 h-3.5 text-saffron-600" />
                       <span>{festival.date[currentLang]}</span>
@@ -58,7 +58,7 @@ export default function Utsavs({ currentLang = "mr" }: UtsavsProps) {
                 <h4 className="font-serif font-bold text-maroon-900 text-lg sm:text-xl">
                   {festival.title[currentLang]}
                 </h4>
-                <p className="text-xs sm:text-sm text-gray-600 leading-relaxed">
+                <p className="text-base text-gray-600 leading-relaxed">
                   {festival.desc[currentLang]}
                 </p>
               </div>
@@ -69,14 +69,14 @@ export default function Utsavs({ currentLang = "mr" }: UtsavsProps) {
         {/* Right Column: Visitor Etiquette & Location */}
         <div
           id="visit"
-          className="lg:col-span-5 bg-white rounded-2xl p-6 sm:p-7 border border-amber-900/15 shadow-sm space-y-5"
+          className="scroll-mt-24 lg:col-span-5 bg-white rounded-2xl p-6 sm:p-7 border border-amber-900/15 shadow-sm space-y-5"
         >
           <h3 className="font-serif text-xl font-bold text-maroon-900 flex items-center gap-2 border-b border-amber-900/10 pb-3">
             <MapPin className="w-5 h-5 text-saffron-600" />
             <span>{visitorGuide.title[currentLang]}</span>
           </h3>
 
-          <div className="text-xs sm:text-sm text-gray-700 leading-relaxed space-y-1">
+          <div className="text-base text-gray-700 leading-relaxed space-y-1">
             <strong className="text-maroon-950 font-serif text-base block mb-0.5">
               {temple.name[currentLang]}
             </strong>
@@ -88,7 +88,7 @@ export default function Utsavs({ currentLang = "mr" }: UtsavsProps) {
             <h3 className="font-serif font-bold text-maroon-900 text-base">
               {visitorGuide.planTitle[currentLang]}
             </h3>
-            <dl className="space-y-2.5 text-sm text-gray-700 leading-relaxed">
+            <dl className="space-y-2.5 text-base text-gray-700 leading-relaxed">
               {visitorGuide.plan[currentLang].map((item) => (
                 <div key={item.label}>
                   <dt className="font-semibold text-maroon-900">{item.label}</dt>
@@ -98,7 +98,7 @@ export default function Utsavs({ currentLang = "mr" }: UtsavsProps) {
             </dl>
             <a
               href={`tel:${temple.phone.replace(/\s/g, "")}`}
-              className="inline-flex items-center gap-2 text-sm font-semibold text-saffron-700 hover:text-saffron-800"
+              className="inline-flex items-center gap-2 min-h-11 text-sm font-semibold text-saffron-700 hover:text-saffron-800"
             >
               <Phone className="w-4 h-4" />
               <span>
@@ -108,7 +108,7 @@ export default function Utsavs({ currentLang = "mr" }: UtsavsProps) {
           </div>
 
           {/* Heritage Conservation Rules */}
-          <div className="bg-parchment rounded-xl p-4 sm:p-5 border border-amber-900/15 text-xs space-y-2.5">
+          <div className="bg-parchment rounded-xl p-4 sm:p-5 border border-amber-900/15 text-sm space-y-2.5">
             <div className="font-bold text-maroon-900 text-sm flex items-center gap-1.5">
               <ShieldAlert className="w-4 h-4 text-saffron-600" />
               <span>{visitorGuide.rulesTitle[currentLang]}</span>
@@ -128,7 +128,7 @@ export default function Utsavs({ currentLang = "mr" }: UtsavsProps) {
               href={temple.googleMapsUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="w-full text-center py-3 rounded-xl bg-saffron-600 hover:bg-saffron-700 text-white font-semibold text-xs sm:text-sm transition flex items-center justify-center gap-2 shadow-xs cursor-pointer"
+              className="w-full text-center py-3 rounded-xl bg-saffron-700 hover:bg-saffron-800 text-white font-semibold text-sm transition flex items-center justify-center gap-2 shadow-xs cursor-pointer"
             >
               <MapPin className="w-4 h-4" />
               <span>{visitorGuide.mapsBtn[currentLang]}</span>

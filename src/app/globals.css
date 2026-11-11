@@ -8,6 +8,7 @@
   --color-saffron-500: #f59e0b;
   --color-saffron-600: #d97706;
   --color-saffron-700: #b45309;
+  --color-saffron-800: #92400e;
 
   --color-maroon: #4a0d0d;
   --color-maroon-800: #6b1414;
@@ -30,6 +31,10 @@ body {
   font-size: 1.0625rem;
   line-height: 1.7;
 }
+
+/* Larger screens: scale rem-based type and spacing up a little so sections feel less sparse */
+@media (min-width: 1280px) { html { font-size: 106.25%; } }
+@media (min-width: 1536px) { html { font-size: 112.5%; } }
 
 /* Latin-only letterspacing looks odd on Devanagari; only apply it in English */
 :lang(mr) .uppercase { text-transform: none; }

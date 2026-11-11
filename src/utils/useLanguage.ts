@@ -35,6 +35,16 @@ export function useLanguage(): [Language, (lang: Language) => void] {
     } catch {
       /* ignore */
     }
+    // A ?lang= override in the URL wins in read(), so keep it in step with the toggle.
+    try {
+      const url = new URL(window.location.href);
+      if (url.searchParams.has("lang")) {
+        url.searchParams.set("lang", next);
+        window.history.replaceState(null, "", url);
+      }
+    } catch {
+      /* ignore */
+    }
     window.dispatchEvent(new Event(EVENT));
   }, []);
 

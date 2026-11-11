@@ -145,6 +145,15 @@ function VideoTile({
       ref={wrapRef}
       className="relative w-full aspect-video rounded-2xl overflow-hidden bg-black border border-amber-900/15 shadow-sm"
     >
+      {/* Poster sits behind the player so there is never a black box while the video loads */}
+      <Image
+        src={poster}
+        alt=""
+        fill
+        sizes="(min-width: 1024px) 780px, 100vw"
+        className="object-cover object-[50%_20%]"
+        aria-hidden
+      />
       {fileSrc && inView && (
         <video
           className="absolute inset-0 w-full h-full object-cover"
@@ -171,14 +180,14 @@ function VideoTile({
         title={title}
         className="absolute inset-0 [&_iframe]:absolute [&_iframe]:inset-0 [&_iframe]:w-full [&_iframe]:h-full [&_iframe]:border-0"
       />
-      <span className="absolute top-3 left-3 px-3 py-1 rounded-full bg-maroon-950/85 text-amber-300 text-xs font-semibold pointer-events-none">
+      <span className="absolute top-3 left-3 px-3 py-1 rounded-full bg-maroon-950/85 text-amber-300 text-sm font-semibold pointer-events-none">
         {tag}
       </span>
       <button
         type="button"
         onClick={onOpen}
         aria-label={openLabel}
-        className="absolute top-3 right-3 p-2 rounded-full bg-maroon-950/85 hover:bg-maroon-900 text-amber-300 cursor-pointer"
+        className="absolute top-2 right-2 p-3 rounded-full bg-maroon-950/85 hover:bg-maroon-900 text-amber-300 cursor-pointer"
       >
         <Maximize2 className="w-4 h-4" />
       </button>
@@ -263,23 +272,19 @@ export default function DrishyaGallery({
   ];
 
   return (
-    <section id="gallery" className="py-16 bg-parchment/60 border-t border-amber-900/15">
+    <section id="gallery" className="scroll-mt-24 py-16 bg-parchment/60 border-t border-amber-900/15">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 space-y-10">
         {/* Section Header & Category Filters */}
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-6">
           <div className="space-y-2">
             <span className="text-xs font-bold uppercase tracking-widest text-saffron-700 bg-saffron-100 px-3.5 py-1 rounded-full border border-saffron-500/20">
-              {currentLang === "mr" ? "दृश्य दर्शन व तपोभूमी" : "Sacred Visual Archive"}
+              {mandirContent.ui.sacredVisualArchive[currentLang]}
             </span>
             <h2 className="font-serif text-3xl sm:text-4xl font-bold text-maroon-900 mt-2">
-              {currentLang === "mr"
-                ? "राममाळ आश्रम व प्रवरा तीर ४K दर्शन"
-                : "Ram-mal Ashram: Sacred Aerial & Sanctum Tour"}
+              {mandirContent.ui.ramMalAshramSacred[currentLang]}
             </h2>
-            <p className="text-sm sm:text-base text-gray-700 max-w-2xl leading-relaxed">
-              {currentLang === "mr"
-                ? "सत्ययुगातील श्रीराम पादुका, अमृतवाहिनी प्रवरा नदी, ऐतिहासिक महाघंटा आणि सद्‌गुरू यशवंत बाबांची जागृत तपोभूमी."
-                : "Contemplative documentation of Satya Yuga Rama Paduka, holy Pravara river banks, the Great Bell, and Baba's Tapobhumi."}
+            <p className="text-base sm:text-base text-gray-700 max-w-2xl leading-relaxed">
+              {mandirContent.ui.contemplativeDocumentationOfSatya[currentLang]}
             </p>
           </div>
 
@@ -295,7 +300,7 @@ export default function DrishyaGallery({
                     setSelectedCategory(cat.key);
                     setActiveItemIndex(null);
                   }}
-                  className={`px-3.5 py-1.5 rounded-full text-xs font-semibold transition cursor-pointer ${
+                  className={`px-4 py-2.5 rounded-full text-sm font-semibold transition cursor-pointer ${
                     isActive
                       ? "bg-maroon-900 text-amber-300 shadow-xs"
                       : "bg-white text-maroon-900 border border-amber-900/15 hover:border-amber-400"
@@ -324,7 +329,7 @@ export default function DrishyaGallery({
                     poster={item.src}
                     title={item.title[currentLang]}
                     tag={item.tag[currentLang]}
-                    openLabel={currentLang === "mr" ? "मोठ्या पडद्यावर पहा" : "Open larger"}
+                    openLabel={mandirContent.ui.openLarger[currentLang]}
                     onOpen={() => setActiveItemIndex(idx)}
                   />
                 ) : (
@@ -332,7 +337,7 @@ export default function DrishyaGallery({
                     type="button"
                     onClick={() => setActiveItemIndex(idx)}
                     aria-label={`${item.title[currentLang]} — ${
-                      currentLang === "mr" ? "मोठे पहा" : "View larger"
+                      mandirContent.ui.viewLarger[currentLang]
                     }`}
                     className="relative block w-full aspect-[4/5] rounded-2xl overflow-hidden bg-maroon-950 border border-amber-900/15 shadow-sm group-hover:shadow-md group-hover:border-amber-400 transition-all cursor-pointer focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-saffron-600"
                   >
@@ -341,10 +346,10 @@ export default function DrishyaGallery({
                       alt={item.alt[currentLang]}
                       fill
                       sizes="(min-width: 1024px) 380px, (min-width: 640px) 50vw, 100vw"
-                      className="object-cover object-top group-hover:scale-105 transition-transform duration-500"
+                      className="object-cover object-top group-hover:scale-[1.02] transition-transform duration-500"
                     />
                     <div className="absolute inset-x-0 bottom-0 h-1/3 bg-gradient-to-t from-maroon-950/80 to-transparent" />
-                    <span className="absolute top-3 left-3 px-3 py-1 rounded-full bg-maroon-950/85 text-amber-300 text-xs font-semibold">
+                    <span className="absolute top-3 left-3 px-3 py-1 rounded-full bg-maroon-950/85 text-amber-300 text-sm font-semibold">
                       {item.tag[currentLang]}
                     </span>
                   </button>
@@ -416,18 +421,20 @@ export default function DrishyaGallery({
                   </video>
                 )
               ) : (
-                <img
+                <Image
                   src={activeItem.src}
                   alt={activeItem.alt[currentLang]}
-                  className="w-full h-full object-contain"
+                  fill
+                  sizes="(min-width: 896px) 896px, 100vw"
+                  className="object-contain"
                 />
               )}
             </div>
 
             {/* Modal Footer Controls */}
-            <div className="flex items-center justify-between text-xs pt-1 text-amber-200/80">
+            <div className="flex items-center justify-between text-sm pt-1 text-amber-200/80">
               <span className="hidden sm:inline">
-                {currentLang === "mr" ? "कीबोर्ड: बाण (← / →) व Esc वापरा" : "Use Arrow keys (← / →) and Esc"}
+                {mandirContent.ui.useArrowKeysAnd[currentLang]}
               </span>
 
               <div className="flex items-center gap-2 ml-auto">
@@ -437,14 +444,14 @@ export default function DrishyaGallery({
                   className="px-3.5 py-1.5 rounded-lg bg-white/10 hover:bg-white/20 text-amber-100 font-semibold transition flex items-center gap-1 cursor-pointer"
                 >
                   <ChevronLeft className="w-4 h-4" />
-                  <span>{currentLang === "mr" ? "मागील" : "Prev"}</span>
+                  <span>{mandirContent.ui.prev[currentLang]}</span>
                 </button>
                 <button
                   type="button"
                   onClick={handleNext}
                   className="px-3.5 py-1.5 rounded-lg bg-white/10 hover:bg-white/20 text-amber-100 font-semibold transition flex items-center gap-1 cursor-pointer"
                 >
-                  <span>{currentLang === "mr" ? "पुढील" : "Next"}</span>
+                  <span>{mandirContent.ui.next[currentLang]}</span>
                   <ChevronRight className="w-4 h-4" />
                 </button>
               </div>

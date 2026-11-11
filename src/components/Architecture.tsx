@@ -35,7 +35,7 @@ export default function Architecture({
   const { architecture } = mandirContent;
 
   return (
-    <section id="architecture" className="py-16 bg-maroon-950 text-amber-50">
+    <section id="architecture" className="scroll-mt-24 py-16 bg-maroon-950 text-amber-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6">
         <SectionHeader
           align="left"
@@ -56,7 +56,7 @@ export default function Architecture({
                 className="bg-maroon-900/90 border border-amber-500/25 rounded-2xl p-6 sm:p-7 space-y-3 hover:border-amber-400/50 hover:bg-maroon-900 transition-all duration-200 group shadow-lg"
               >
                 <div className="flex items-center justify-between">
-                  <div className="w-12 h-12 rounded-xl bg-amber-500/20 text-amber-300 flex items-center justify-center border border-amber-400/30 group-hover:scale-110 group-hover:bg-amber-500/30 transition-transform">
+                  <div className="w-12 h-12 rounded-xl bg-amber-500/20 text-amber-300 flex items-center justify-center border border-amber-400/30 group-hover:bg-amber-500/30 transition-colors">
                     <Icon className="w-6 h-6" />
                   </div>
                   {feature.numeral && (
@@ -73,7 +73,7 @@ export default function Architecture({
                     {feature.title[currentLang]}
                   </h3>
                 </div>
-                <p className="text-xs sm:text-sm text-amber-200/80 leading-relaxed">
+                <p className="text-base text-amber-200/80 leading-relaxed">
                   {feature.desc[currentLang]}
                 </p>
               </div>

@@ -1,67 +1,20 @@
 {
   "i18n": {
     "mr": {
-      "trustTag": "अमृतवाहिनी प्रवरा तीर • श्रीराम पादुका देवस्थान",
-      "templeName": "प्रतिअयोध्या श्री क्षेत्र राममाळ",
-      "subName": "सद्‌गुरू यशवंत बाबा तपोभूमी",
       "navHeritage": "स्थळ पुराण व शापमुक्ती",
       "navArch": "आश्रम वैशिष्ट्ये",
       "navDarshan": "दर्शन व नित्य नियम",
-      "navAartiBook": "आरती संग्रह",
       "navUtsav": "वार्षिक उत्सव",
       "navVisit": "पत्ता व मार्ग",
-      "btnAarti": "आरती व हरिपाठ वाचा",
-      "liveStatus": "दर्शन वेळ: सकाळी ५:०० ते रात्री ९:००",
-      "nextAarti": "सायं आरती व हरिपाठ: ७:०० वाजता",
-      "heroKicker": "सद्‌गुरू यशवंत बाबांची पावन तपोभूमी",
-      "heroTitle": "प्रतिअयोध्या श्री क्षेत्र राममाळ",
-      "heroSubtitle": "उंचखडक (बु।।) येथील राममाळ ही केवळ वास्तू नसून, सत्ययुगातील प्रभू श्रीरामांच्या पदस्पर्शाने पावन झालेली, साधूच्या शापातून मुक्त झालेली आणि सद्‌गुरू यशवंत बाबांच्या घोर तपाने उजळून निघालेली एक जागृत प्रतिअयोध्या देवभूमी आहे.",
-      "ctaExploreHistory": "शापमुक्तीचा इतिहास वाचा",
-      "ctaArchitecture": "आश्रमातील ६ पवित्र स्थाने",
-      "historyHeading": "राममाळ: शाप ते शापमुक्तीचा थरारक इतिहास",
-      "scheduleHeading": "दैनंदिन दर्शन, ज्ञानेश्वरी वाचन व हरिपाठ"
-    },
-    "hi": {
-      "trustTag": "अमृतवाहिनी प्रवरा तट • श्रीराम पादुका देवस्थान",
-      "templeName": "प्रतिअयोध्या श्री क्षेत्र राममाल",
-      "subName": "सद्गुरु यशवंत बाबा तपोभूमि",
-      "navHeritage": "स्थल पुराण एवं शापमुक्ति",
-      "navArch": "आश्रम की विशेषताएँ",
-      "navDarshan": "दर्शन एवं नित्य नियम",
-      "navAartiBook": "आरती संग्रह",
-      "navUtsav": "वार्षिक उत्सव",
-      "navVisit": "पता एवं मार्ग",
-      "btnAarti": "आरती एवं हरिपाठ पढ़ें",
-      "liveStatus": "दर्शन समय: प्रातः ५:०० से रात्रि ९:००",
-      "nextAarti": "सायं आरती: ७:०० बजे",
-      "heroKicker": "सद्गुरु यशवंत बाबा की पावन तपोभूमि",
-      "heroTitle": "प्रतिअयोध्या श्री क्षेत्र राममाल",
-      "heroSubtitle": "उंचखडक (बु।।) स्थित राममाल केवल एक आश्रम नहीं, बल्कि श्रीराम के पावन प्रवास, एक साधु के शाप से मुक्ति, और सद्गुरु यशवंत बाबा की कठोर तपस्या का जीवंत साक्ष्य है।",
-      "ctaExploreHistory": "शापमुक्ति का इतिहास पढ़ें",
-      "ctaArchitecture": "आश्रम के ६ पवित्र स्थल",
-      "historyHeading": "राममाल: शाप से शापमुक्ति का इतिहास",
-      "scheduleHeading": "दैनिक दर्शन, ज्ञानेश्वरी एवं हरिपाठ"
+      "btnAarti": "आरती व हरिपाठ वाचा"
     },
     "en": {
-      "trustTag": "Banks of Pravara • Sacred Rama Paduka Devasthan",
-      "templeName": "Pratiayodhya Shri Kshetra Ram-mal",
-      "subName": "Sadguru Yashwant Baba Tapobhumi",
       "navHeritage": "Legends & Curse Redemption",
       "navArch": "Sacred Highlights",
       "navDarshan": "Darshan & Haripath",
-      "navAartiBook": "Hymns & Aarti",
       "navUtsav": "Annual Utsavs",
       "navVisit": "Visitor Guide",
-      "btnAarti": "Read Haripath & Aarti",
-      "liveStatus": "Open Daily: 5:00 AM – 9:00 PM",
-      "nextAarti": "Evening Haripath: 7:00 PM",
-      "heroKicker": "Sacred Tapobhumi of Sadguru Yashwant Baba",
-      "heroTitle": "Pratiayodhya Shri Kshetra Ram-mal",
-      "heroSubtitle": "Located in Unchakhadak, Ram-mal is a sacred landscape that holds the holy footprints of Lord Rama in exile, a chilling tale of an ascetic's curse, and the supreme redemption brought by the penance of Sadguru Yashwant Baba.",
-      "ctaExploreHistory": "Read the Tale of the Curse",
-      "ctaArchitecture": "Explore the 6 Sacred Spots",
-      "historyHeading": "Ram-mal: The Legend of the Curse and Redemption",
-      "scheduleHeading": "Daily Darshan & Dnyaneshwari Haripath"
+      "btnAarti": "Read Haripath & Aarti"
     }
   },
   "temple": {
@@ -82,12 +35,7 @@
       "en": "Unchakhadak (Bk.), Banks of Pravara River, Maharashtra"
     },
     "googleMapsUrl": "https://maps.app.goo.gl/dksk67wu1SCefdpN8",
-    "entryFeeNotice": {
-      "mr": "प्रवेश व दर्शन पूर्णतः नि:शुल्क",
-      "en": "Entry & Darshan is Completely Free"
-    },
-    "phone": "+91 00000 00000",
-    "email": "info@example.org"
+    "phone": "+91 00000 00000"
   },
   "ticker": {
     "mr": "🚩 प्रतिअयोध्या श्री क्षेत्र राममाळ — सद्‌गुरू यशवंत बाबांची पावन तपोभूमी, उंचखडक (बु।।) येथे आपले सहर्ष स्वागत!",
@@ -122,7 +70,6 @@
       "mr": "आश्रमातील ६ पवित्र स्थाने",
       "en": "Explore the 6 Sacred Spots"
     },
-    "videoSrc": "https://www.youtube.com/embed/FTKmsTnnB7U",
     "posterSrc": "/images/drone-shot-pravara.jpg",
     "stats": [
       {
@@ -662,10 +609,6 @@
       "accountNumber": "000000000000",
       "ifscCode": "DUMY0000000",
       "branch": "Dummy Branch, Maharashtra",
-      "accountType": {
-        "mr": "बचत / चालू खाते (Trust Account)",
-        "en": "Savings / Current Trust Account"
-      },
       "ptrNumber": {
         "mr": "धर्मादाय नोंदणी क्र. (PTR No.): F-00000 (नमुना)",
         "en": "Public Trust Reg. No. (PTR No.): F-00000 (sample)"
@@ -978,5 +921,187 @@
         "पुष्पांजलिर्मया दत्तो गृहाण परमेश्वर ॥"
       ]
     }
-  ]
+  ],
+  "ui": {
+    "donationSeva": {
+      "mr": "देणगी व सेवा",
+      "en": "Donation & Seva"
+    },
+    "pratiayodhyaShriKshetraRam": {
+      "mr": "प्रतिअयोध्या श्री क्षेत्र राममाळ • सद्‌गुरू यशवंत बाबा तपोभूमी • शांत दर्शन",
+      "en": "Pratiayodhya Shri Kshetra Ram-mal • Sadguru Yashwant Baba Tapobhumi"
+    },
+    "aartiHaripathReader": {
+      "mr": "आरती व हरिपाठ संग्रह",
+      "en": "Aarti & Haripath Reader"
+    },
+    "sacredHymnsHaripath": {
+      "mr": "नित्य उपासना व आरती संग्रह",
+      "en": "Sacred Hymns & Haripath"
+    },
+    "ramMalAartiHaripath": {
+      "mr": "राममाळ आश्रम आरती व हरिपाठ संग्रह",
+      "en": "Ram-mal Aarti & Haripath Reader"
+    },
+    "ringBell": {
+      "mr": "घंटानाद वाजवा",
+      "en": "Ring Bell"
+    },
+    "chime": {
+      "mr": "घंटानाद",
+      "en": "Chime"
+    },
+    "close": {
+      "mr": "बंद करा",
+      "en": "Close"
+    },
+    "textSize": {
+      "mr": "अक्षर आकार:",
+      "en": "Text Size:"
+    },
+    "smaller": {
+      "mr": "लहान करा",
+      "en": "Smaller"
+    },
+    "larger": {
+      "mr": "मोठे करा",
+      "en": "Larger"
+    },
+    "dailyEveningAartiHaripath": {
+      "mr": "🚩 दैनंदिन सायं आरती व हरिपाठ: ७:०० वाजता",
+      "en": "🚩 Daily Evening Aarti & Haripath: 7:00 PM"
+    },
+    "darshanOpenSereneAmbiance": {
+      "mr": "दर्शन सुरू आहे • शांत दर्शन",
+      "en": "Darshan Open • Serene Ambiance"
+    },
+    "shreeRamaSamarthaI": {
+      "mr": "|| श्रीराम समर्थ || मी प्रतिअयोध्या श्री क्षेत्र राममाळ देवस्थानसाठी देणगी अर्पण केली आहे. देणगी पावतीसाठी पेमेंट स्क्रीनशॉट, नाव व गोत्र सोबत जोडले आहे.",
+      "en": "|| Shree Rama Samartha || I have offered a contribution to Pratiayodhya Shri Kshetra Ram-mal Devasthan. Please find the payment screenshot and details attached for official receipt."
+    },
+    "registeredTrustAccount": {
+      "mr": "अधिकृत विश्वस्त खाते",
+      "en": "Registered Trust Account"
+    },
+    "sacredSevaCategories": {
+      "mr": "प्रमुख सेवा संकल्प",
+      "en": "Sacred Seva Categories"
+    },
+    "offerSeva": {
+      "mr": "सेवा समर्पण",
+      "en": "Offer Seva"
+    },
+    "officialTrustLedger": {
+      "mr": "अधिकृत विश्वस्त दानपट्टी",
+      "en": "Official Trust Ledger"
+    },
+    "donationDetailsComingSoon": {
+      "mr": "देणगी तपशील लवकरच उपलब्ध",
+      "en": "Donation details coming soon"
+    },
+    "officialUpiAndBank": {
+      "mr": "अधिकृत UPI व बँक खात्याचे तपशील लवकरच येथे प्रसिद्ध केले जातील. तोपर्यंत कृपया आश्रमात प्रत्यक्ष संपर्क साधावा.",
+      "en": "Official UPI and bank account details will be published here shortly. Until then, please contact the ashram directly."
+    },
+    "upiIdCopied": {
+      "mr": "UPI आयडी कॉपी झाले!",
+      "en": "UPI ID Copied!"
+    },
+    "copyUpiId": {
+      "mr": "UPI आयडी कॉपी करा",
+      "en": "Copy UPI ID"
+    },
+    "payViaMobileUpi": {
+      "mr": "मोबाइल UPI ॲपद्वारे देणगी द्या",
+      "en": "Pay via Mobile UPI App"
+    },
+    "bankAccountLedger": {
+      "mr": "बँक खाते तपशील (NEFT / RTGS / IMPS)",
+      "en": "Bank Account Ledger"
+    },
+    "accountLegalName": {
+      "mr": "खात्याचे नाव (Account Name)",
+      "en": "Account Legal Name"
+    },
+    "bankBranch": {
+      "mr": "बँक व शाखा (Bank & Branch)",
+      "en": "Bank & Branch"
+    },
+    "accountNumber": {
+      "mr": "खाते क्रमांक (Account Number)",
+      "en": "Account Number"
+    },
+    "ifscCode": {
+      "mr": "IFSC कोड",
+      "en": "IFSC Code"
+    },
+    "sacredVisualArchive": {
+      "mr": "दृश्य दर्शन व तपोभूमी",
+      "en": "Sacred Visual Archive"
+    },
+    "ramMalAshramSacred": {
+      "mr": "राममाळ आश्रम व प्रवरा तीर ४K दर्शन",
+      "en": "Ram-mal Ashram: Sacred Aerial & Sanctum Tour"
+    },
+    "contemplativeDocumentationOfSatya": {
+      "mr": "सत्ययुगातील श्रीराम पादुका, अमृतवाहिनी प्रवरा नदी, ऐतिहासिक महाघंटा आणि सद्‌गुरू यशवंत बाबांची जागृत तपोभूमी.",
+      "en": "Contemplative documentation of Satya Yuga Rama Paduka, holy Pravara river banks, the Great Bell, and Baba's Tapobhumi."
+    },
+    "openLarger": {
+      "mr": "मोठ्या पडद्यावर पहा",
+      "en": "Open larger"
+    },
+    "viewLarger": {
+      "mr": "मोठे पहा",
+      "en": "View larger"
+    },
+    "useArrowKeysAnd": {
+      "mr": "कीबोर्ड: बाण (← / →) व Esc वापरा",
+      "en": "Use Arrow keys (← / →) and Esc"
+    },
+    "prev": {
+      "mr": "मागील",
+      "en": "Prev"
+    },
+    "next": {
+      "mr": "पुढील",
+      "en": "Next"
+    },
+    "visualGallery": {
+      "mr": "दृश्य दर्शन",
+      "en": "Visual Gallery"
+    },
+    "notice": {
+      "mr": "तपोभूमी सूचना",
+      "en": "Notice"
+    },
+    "sacredBell": {
+      "mr": "महाघंटा",
+      "en": "Sacred Bell"
+    },
+    "chime2": {
+      "mr": "ॐ घंटानाद...",
+      "en": "Chime..."
+    },
+    "textAmber100Hover": {
+      "mr": "bg-amber-500 text-maroon-950 font-bold shadow-xs",
+      "en": "text-amber-100 hover:text-white"
+    },
+    "aerialViewOfRam": {
+      "mr": "राममाळ आश्रम व प्रवरा नदीचे विहंगम दृश्य",
+      "en": "Aerial view of Ram-mal Ashram and the Pravara river"
+    },
+    "chronologicalMilestones": {
+      "mr": "ऐतिहासिक कालखंड",
+      "en": "Chronological Milestones"
+    },
+    "quickLinks": {
+      "mr": "जलद दुवे",
+      "en": "Quick links"
+    },
+    "droneTour4k": {
+      "mr": "४K ड्रोन दृश्य पहा",
+      "en": "4K Drone Tour"
+    }
+  }
 }

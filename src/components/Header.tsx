@@ -1,11 +1,12 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { BellRing, BookOpen, Menu, X } from "lucide-react";
 import mandirContent from "@/data/mandirContent.json";
 import { playTempleBell } from "@/utils/audio";
 
-export type Language = "mr" | "en";
+import type { Language } from "@/utils/useLanguage";
+export type { Language };
 
 interface HeaderProps {
   currentLang: Language;
@@ -20,6 +21,30 @@ export default function Header({
 }: HeaderProps) {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [bellRinging, setBellRinging] = useState(false);
+  const [activeId, setActiveId] = useState("");
+
+  // Highlight the nav link of the section currently under the header
+  useEffect(() => {
+    const ids = ["history", "architecture", "gallery", "darshan", "dengi", "utsavs"];
+    const els = ids
+      .map((id) => document.getElementById(id))
+      .filter((el): el is HTMLElement => el !== null);
+    const io = new IntersectionObserver(
+      (entries) => {
+        for (const e of entries) if (e.isIntersecting) setActiveId(e.target.id);
+      },
+      { rootMargin: "-30% 0px -60% 0px" }
+    );
+    els.forEach((el) => io.observe(el));
+    return () => io.disconnect();
+  }, []);
+
+  const navLink = (id: string) =>
+    `py-1 border-b-2 transition ${
+      activeId === id
+        ? "text-saffron-700 border-saffron-600"
+        : "border-transparent hover:text-saffron-600"
+    }`;
 
   const handleBell = () => {
     playTempleBell();
@@ -36,7 +61,7 @@ export default function Header({
       currentLang === "mr"
         ? mandirContent.i18n.mr.navArch
         : mandirContent.i18n.en.navArch,
-    gallery: currentLang === "mr" ? "दृश्य दर्शन" : "Visual Gallery",
+    gallery: mandirContent.ui.visualGallery[currentLang],
     darshan:
       currentLang === "mr"
         ? mandirContent.i18n.mr.navDarshan
@@ -49,20 +74,20 @@ export default function Header({
       currentLang === "mr"
         ? mandirContent.i18n.mr.navVisit
         : mandirContent.i18n.en.navVisit,
-    dengi: currentLang === "mr" ? "देणगी व सेवा" : "Donation & Seva",
+    dengi: mandirContent.ui.donationSeva[currentLang],
     btnAarti:
       currentLang === "mr"
         ? mandirContent.i18n.mr.btnAarti
         : mandirContent.i18n.en.btnAarti,
-    noticeBadge: currentLang === "mr" ? "तपोभूमी सूचना" : "Notice",
-    bellText: currentLang === "mr" ? "महाघंटा" : "Sacred Bell",
-    bellRingingText: currentLang === "mr" ? "ॐ घंटानाद..." : "Chime...",
+    noticeBadge: mandirContent.ui.notice[currentLang],
+    bellText: mandirContent.ui.sacredBell[currentLang],
+    bellRingingText: mandirContent.ui.chime2[currentLang],
   };
 
   return (
     <>
       {/* Top Notice Ticker & Quick Controls */}
-      <div className="bg-gradient-to-r from-saffron-700 via-saffron-600 to-saffron-700 text-white text-xs sm:text-sm py-1.5 px-4 shadow-xs border-b border-amber-500/20">
+      <div className="bg-gradient-to-r from-saffron-800 via-saffron-700 to-saffron-800 text-white text-sm py-1.5 px-4 shadow-xs border-b border-amber-500/20">
         <div className="max-w-7xl mx-auto flex items-center justify-between gap-3">
           <div className="hidden sm:flex items-center gap-2 truncate">
             <span className="bg-maroon-900 text-amber-300 px-2 py-0.5 rounded text-xs font-bold uppercase tracking-wider shrink-0 shadow-xs">
@@ -77,7 +102,7 @@ export default function Header({
             {/* Temple Bell */}
             <button
               onClick={handleBell}
-              className={`flex items-center gap-1.5 px-3 py-2 rounded-full text-xs font-semibold border transition-all cursor-pointer ${
+              className={`flex items-center gap-1.5 px-3 py-2.5 rounded-full text-sm font-semibold border transition-all cursor-pointer ${
                 bellRinging
                   ? "bg-amber-400 text-maroon-950 border-amber-300 scale-105 shadow-md"
                   : "bg-maroon-900/80 hover:bg-maroon-900 text-amber-200 border-amber-400/30"
@@ -95,20 +120,18 @@ export default function Header({
             </button>
 
             {/* Pure Bilingual Language Switcher (मराठी | English) */}
-            <div className="flex items-center rounded-lg bg-maroon-950/90 p-0.5 border border-amber-400/30 text-xs">
+            <div className="flex items-center rounded-lg bg-maroon-950/90 p-0.5 border border-amber-400/30 text-sm">
               <button
                 onClick={() => onSelectLang("mr")}
-                className={`px-3.5 py-1.5 rounded font-medium transition-all cursor-pointer ${
-                  currentLang === "mr"
-                    ? "bg-amber-500 text-maroon-950 font-bold shadow-xs"
-                    : "text-amber-100 hover:text-white"
+                className={`min-h-11 px-3.5 py-2 rounded font-medium transition-all cursor-pointer ${
+                  mandirContent.ui.textAmber100Hover[currentLang]
                 }`}
               >
                 मराठी
               </button>
               <button
                 onClick={() => onSelectLang("en")}
-                className={`px-3.5 py-1.5 rounded font-medium transition-all cursor-pointer ${
+                className={`min-h-11 px-3.5 py-2 rounded font-medium transition-all cursor-pointer ${
                   currentLang === "en"
                     ? "bg-amber-500 text-maroon-950 font-bold shadow-xs"
                     : "text-amber-100 hover:text-white"
@@ -134,8 +157,8 @@ export default function Header({
                 <span className="text-xs sm:text-xs font-bold uppercase tracking-wider text-saffron-700">
                   {mandirContent.temple.subName[currentLang]}
                 </span>
-                <span className="hidden sm:inline text-amber-500 text-xs">•</span>
-                <span className="hidden sm:inline text-xs text-amber-800/80 font-medium">
+                <span className="hidden sm:inline text-amber-500 text-sm">•</span>
+                <span className="hidden sm:inline text-sm text-amber-800/80 font-medium">
                   {mandirContent.temple.trustTag[currentLang]}
                 </span>
               </div>
@@ -147,25 +170,53 @@ export default function Header({
 
           {/* Desktop Navigation Links */}
           <nav className="hidden xl:flex items-center gap-6 text-sm font-semibold text-maroon-900/85">
-            <a href="#history" className="hover:text-saffron-600 transition">
+            <a
+              href="#history"
+              aria-current={activeId === "history" ? "location" : undefined}
+              className={navLink("history")}
+            >
               {navLabels.history}
             </a>
-            <a href="#architecture" className="hover:text-saffron-600 transition">
+            <a
+              href="#architecture"
+              aria-current={activeId === "architecture" ? "location" : undefined}
+              className={navLink("architecture")}
+            >
               {navLabels.architecture}
             </a>
-            <a href="#gallery" className="hover:text-saffron-600 transition">
+            <a
+              href="#gallery"
+              aria-current={activeId === "gallery" ? "location" : undefined}
+              className={navLink("gallery")}
+            >
               {navLabels.gallery}
             </a>
-            <a href="#darshan" className="hover:text-saffron-600 transition">
+            <a
+              href="#darshan"
+              aria-current={activeId === "darshan" ? "location" : undefined}
+              className={navLink("darshan")}
+            >
               {navLabels.darshan}
             </a>
-            <a href="#utsavs" className="hover:text-saffron-600 transition">
+            <a
+              href="#utsavs"
+              aria-current={activeId === "utsavs" ? "location" : undefined}
+              className={navLink("utsavs")}
+            >
               {navLabels.utsavs}
             </a>
-            <a href="#dengi" className="hover:text-saffron-600 transition">
+            <a
+              href="#dengi"
+              aria-current={activeId === "dengi" ? "location" : undefined}
+              className={navLink("dengi")}
+            >
               {navLabels.dengi}
             </a>
-            <a href="#visit" className="hover:text-saffron-600 transition">
+            <a
+              href="#visit"
+              aria-current={activeId === "visit" ? "location" : undefined}
+              className={navLink("visit")}
+            >
               {navLabels.visit}
             </a>
           </nav>

@@ -22,7 +22,7 @@ export default function DarshanSchedule({
   const { darshan } = mandirContent;
 
   return (
-    <section id="darshan" className="py-16 max-w-7xl mx-auto px-4 sm:px-6">
+    <section id="darshan" className="scroll-mt-24 py-16 max-w-7xl mx-auto px-4 sm:px-6">
       <SectionHeader
         badge={darshan.badge[currentLang]}
         title={darshan.heading[currentLang]}
@@ -48,9 +48,9 @@ export default function DarshanSchedule({
               <div>
                 <div className="flex items-center justify-between mb-4">
                   <span
-                    className={`text-xs font-bold px-3 py-1 rounded-full ${
+                    className={`text-sm font-bold px-3 py-1 rounded-full ${
                       isHighlight
-                        ? "bg-saffron-600 text-white shadow-xs"
+                        ? "bg-saffron-700 text-white shadow-xs"
                         : "bg-amber-100 text-saffron-700"
                     }`}
                   >
@@ -75,17 +75,15 @@ export default function DarshanSchedule({
                   {card.time[currentLang]}
                 </p>
 
-                <p className="text-xs sm:text-sm text-gray-600 mt-3 leading-relaxed">
+                <p className="text-base text-gray-600 mt-3 leading-relaxed">
                   {card.description[currentLang]}
                 </p>
               </div>
 
-              <div className="pt-5 mt-5 border-t border-amber-900/10 flex items-center gap-2 text-xs text-maroon-800 font-medium">
+              <div className="pt-5 mt-5 border-t border-amber-900/10 flex items-center gap-2 text-sm text-maroon-800 font-medium">
                 <span className="w-2 h-2 rounded-full bg-emerald-500" />
                 <span>
-                  {currentLang === "mr"
-                    ? "दर्शन सुरू आहे • शांत दर्शन"
-                    : "Darshan Open • Serene Ambiance"}
+                  {mandirContent.ui.darshanOpenSereneAmbiance[currentLang]}
                 </span>
               </div>
             </div>

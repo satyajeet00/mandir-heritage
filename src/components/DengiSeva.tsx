@@ -11,6 +11,7 @@ import {
   Sparkles,
   Smartphone,
 } from "lucide-react";
+import Image from "next/image";
 import mandirContent from "@/data/mandirContent.json";
 import type { Language } from "./Header";
 
@@ -24,25 +25,30 @@ export default function DengiSeva({ currentLang = "mr" }: DengiSevaProps) {
   const verified = dengi.detailsVerified;
   const [copiedKey, setCopiedKey] = useState<string | null>(null);
 
-  const handleCopy = (text: string, key: string) => {
+  // Fallback for non-secure contexts / older browsers where the Clipboard API is unavailable
+  const legacyCopy = (text: string) => {
+    const textArea = document.createElement("textarea");
+    textArea.value = text;
+    textArea.style.position = "fixed";
+    textArea.style.left = "-999999px";
+    document.body.appendChild(textArea);
+    textArea.focus();
+    textArea.select();
+    const ok = document.execCommand("copy");
+    document.body.removeChild(textArea);
+    if (!ok) throw new Error("copy failed");
+  };
+
+  const handleCopy = async (text: string, key: string) => {
     try {
       if (navigator.clipboard && window.isSecureContext) {
-        navigator.clipboard.writeText(text);
+        await navigator.clipboard.writeText(text); // wait, so "Copied" is only shown on success
       } else {
-        const textArea = document.createElement("textarea");
-        textArea.value = text;
-        textArea.style.position = "fixed";
-        textArea.style.left = "-999999px";
-        document.body.appendChild(textArea);
-        textArea.focus();
-        textArea.select();
-        document.execCommand("copy");
-        document.body.removeChild(textArea);
+        legacyCopy(text);
       }
       setCopiedKey(key);
       setTimeout(() => setCopiedKey(null), 3000);
     } catch {
-      // Fallback
       setCopiedKey(null);
     }
   };
@@ -51,13 +57,11 @@ export default function DengiSeva({ currentLang = "mr" }: DengiSevaProps) {
   const whatsappDigits = dengi.receiptNote.whatsappNumber.replace(/\D/g, "");
 
   const whatsappText = encodeURIComponent(
-    currentLang === "mr"
-      ? "|| श्रीराम समर्थ || मी प्रतिअयोध्या श्री क्षेत्र राममाळ देवस्थानसाठी देणगी अर्पण केली आहे. देणगी पावतीसाठी पेमेंट स्क्रीनशॉट, नाव व गोत्र सोबत जोडले आहे."
-      : "|| Shree Rama Samartha || I have offered a contribution to Pratiayodhya Shri Kshetra Ram-mal Devasthan. Please find the payment screenshot and details attached for official receipt."
+    mandirContent.ui.shreeRamaSamarthaI[currentLang]
   );
 
   return (
-    <section id="dengi" className="py-16 bg-amber-50/60 border-t border-amber-900/10">
+    <section id="dengi" className="scroll-mt-24 py-16 bg-amber-50/60 border-t border-amber-900/10">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 space-y-12">
         {/* Section Header */}
         <div className="max-w-3xl space-y-3">
@@ -65,10 +69,10 @@ export default function DengiSeva({ currentLang = "mr" }: DengiSevaProps) {
             <span className="text-xs font-bold uppercase tracking-widest text-saffron-700 bg-saffron-100 px-3.5 py-1 rounded-full border border-saffron-500/20">
               {dengi.badge[currentLang]}
             </span>
-            <span className="text-amber-600 text-xs">•</span>
-            <span className="text-xs font-semibold text-maroon-800 flex items-center gap-1">
+            <span className="text-amber-600 text-sm">•</span>
+            <span className="text-sm font-semibold text-maroon-800 flex items-center gap-1">
               <ShieldCheck className="w-3.5 h-3.5 text-emerald-600" />
-              <span>{currentLang === "mr" ? "अधिकृत विश्वस्त खाते" : "Registered Trust Account"}</span>
+              <span>{mandirContent.ui.registeredTrustAccount[currentLang]}</span>
             </span>
           </div>
 
@@ -76,7 +80,7 @@ export default function DengiSeva({ currentLang = "mr" }: DengiSevaProps) {
             {dengi.heading[currentLang]}
           </h2>
 
-          <p className="text-sm sm:text-base text-gray-700 leading-relaxed">
+          <p className="text-base sm:text-base text-gray-700 leading-relaxed">
             {dengi.subheading[currentLang]}
           </p>
         </div>
@@ -87,7 +91,7 @@ export default function DengiSeva({ currentLang = "mr" }: DengiSevaProps) {
           <div className="lg:col-span-7 space-y-5">
             <h3 className="font-serif text-xl font-bold text-maroon-950 flex items-center gap-2 border-b border-amber-900/10 pb-3">
               <Sparkles className="w-5 h-5 text-saffron-600" />
-              <span>{currentLang === "mr" ? "प्रमुख सेवा संकल्प" : "Sacred Seva Categories"}</span>
+              <span>{mandirContent.ui.sacredSevaCategories[currentLang]}</span>
             </h3>
 
             <div className="space-y-4">
@@ -102,9 +106,9 @@ export default function DengiSeva({ currentLang = "mr" }: DengiSevaProps) {
                     </span>
                     <a
                       href="#dengi-box"
-                      className="text-xs text-saffron-700 hover:text-saffron-800 font-semibold flex items-center gap-1 cursor-pointer"
+                      className="text-sm text-saffron-700 hover:text-saffron-800 font-semibold flex items-center gap-1 min-h-11 cursor-pointer"
                     >
-                      <span>{currentLang === "mr" ? "सेवा समर्पण" : "Offer Seva"}</span>
+                      <span>{mandirContent.ui.offerSeva[currentLang]}</span>
                       <span>→</span>
                     </a>
                   </div>
@@ -113,7 +117,7 @@ export default function DengiSeva({ currentLang = "mr" }: DengiSevaProps) {
                     {seva.title[currentLang]}
                   </h4>
 
-                  <p className="text-xs sm:text-sm text-gray-600 leading-relaxed">
+                  <p className="text-base text-gray-600 leading-relaxed">
                     {seva.desc[currentLang]}
                   </p>
                 </div>
@@ -129,7 +133,7 @@ export default function DengiSeva({ currentLang = "mr" }: DengiSevaProps) {
                 <h4>{dengi.receiptNote.title[currentLang]}</h4>
               </div>
 
-              <p className="text-xs sm:text-sm text-emerald-950/85 leading-relaxed">
+              <p className="text-base text-emerald-950/85 leading-relaxed">
                 {dengi.receiptNote.text[currentLang]}
               </p>
 
@@ -138,7 +142,7 @@ export default function DengiSeva({ currentLang = "mr" }: DengiSevaProps) {
                   href={`https://wa.me/${whatsappDigits}?text=${whatsappText}`}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white text-xs font-bold transition shadow-xs cursor-pointer"
+                  className="inline-flex items-center gap-2 min-h-11 px-4 py-2.5 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white text-sm font-bold transition shadow-xs cursor-pointer"
                 >
                   <MessageCircle className="w-4 h-4" />
                   <span>{dengi.receiptNote.whatsappBtn[currentLang]}</span>
@@ -153,15 +157,13 @@ export default function DengiSeva({ currentLang = "mr" }: DengiSevaProps) {
           {!verified && (
             <div className="lg:col-span-5 bg-white rounded-2xl p-6 sm:p-7 border-2 border-amber-500/30 shadow-lg text-center space-y-3">
               <span className="text-sm font-bold text-saffron-700 block">
-                {currentLang === "mr" ? "अधिकृत विश्वस्त दानपट्टी" : "Official Trust Ledger"}
+                {mandirContent.ui.officialTrustLedger[currentLang]}
               </span>
               <h3 className="font-serif text-xl font-bold text-maroon-900">
-                {currentLang === "mr" ? "देणगी तपशील लवकरच उपलब्ध" : "Donation details coming soon"}
+                {mandirContent.ui.donationDetailsComingSoon[currentLang]}
               </h3>
-              <p className="text-sm text-gray-700 leading-relaxed">
-                {currentLang === "mr"
-                  ? "अधिकृत UPI व बँक खात्याचे तपशील लवकरच येथे प्रसिद्ध केले जातील. तोपर्यंत कृपया आश्रमात प्रत्यक्ष संपर्क साधावा."
-                  : "Official UPI and bank account details will be published here shortly. Until then, please contact the ashram directly."}
+              <p className="text-base text-gray-700 leading-relaxed">
+                {mandirContent.ui.officialUpiAndBank[currentLang]}
               </p>
             </div>
           )}
@@ -175,12 +177,12 @@ export default function DengiSeva({ currentLang = "mr" }: DengiSevaProps) {
           >
             <div className="text-center space-y-1.5 border-b border-amber-900/10 pb-4">
               <span className="text-xs font-bold uppercase tracking-wider text-saffron-700 block">
-                {currentLang === "mr" ? "अधिकृत विश्वस्त दानपट्टी" : "Official Trust Ledger"}
+                {mandirContent.ui.officialTrustLedger[currentLang]}
               </span>
               <h3 className="font-serif text-2xl font-bold text-maroon-900">
                 {dengi.qrCode.title[currentLang]}
               </h3>
-              <p className="text-xs text-gray-500">
+              <p className="text-sm text-gray-600">
                 {dengi.qrCode.subtitle[currentLang]}
               </p>
             </div>
@@ -188,20 +190,24 @@ export default function DengiSeva({ currentLang = "mr" }: DengiSevaProps) {
             {/* Brass-Bordered UPI QR Code Frame */}
             <div className="p-5 rounded-2xl bg-amber-50/70 border border-amber-300 flex flex-col items-center text-center space-y-3.5">
               <div className="w-48 h-48 rounded-xl bg-white p-3 border-2 border-dashed border-amber-400 flex items-center justify-center shadow-inner relative">
-                <img
-                  src={dengi.qrCode.qrImage}
-                  alt="UPI QR Code"
-                  className="w-full h-full object-contain"
-                />
+                <div className="relative w-full h-full">
+                  <Image
+                    src={dengi.qrCode.qrImage}
+                    alt="UPI QR Code"
+                    fill
+                    unoptimized
+                    className="object-contain"
+                  />
+                </div>
                 <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
-                  <div className="w-9 h-9 rounded-full bg-maroon-950 border-2 border-amber-300 flex items-center justify-center text-amber-300 font-serif font-bold text-xs shadow-md">
+                  <div className="w-9 h-9 rounded-full bg-maroon-950 border-2 border-amber-300 flex items-center justify-center text-amber-300 font-serif font-bold text-sm shadow-md">
                     ॐ
                   </div>
                 </div>
               </div>
 
               {/* Supported UPI Apps Row */}
-              <div className="flex items-center justify-center gap-2 text-xs font-semibold text-maroon-900/80">
+              <div className="flex items-center justify-center gap-2 text-sm font-semibold text-maroon-900/80">
                 <span className="px-2 py-0.5 rounded bg-white border border-amber-200">GPay</span>
                 <span className="px-2 py-0.5 rounded bg-white border border-amber-200">PhonePe</span>
                 <span className="px-2 py-0.5 rounded bg-white border border-amber-200">Paytm</span>
@@ -213,7 +219,7 @@ export default function DengiSeva({ currentLang = "mr" }: DengiSevaProps) {
                 <button
                   type="button"
                   onClick={() => handleCopy(dengi.qrCode.upiId, "upiId")}
-                  className={`w-full py-2.5 px-3 rounded-xl border text-xs font-semibold transition flex items-center justify-center gap-2 cursor-pointer ${
+                  className={`w-full py-2.5 px-3 rounded-xl border text-sm font-semibold transition flex items-center justify-center gap-2 cursor-pointer ${
                     copiedKey === "upiId"
                       ? "bg-emerald-600 text-white border-emerald-600 shadow-xs"
                       : "bg-white text-maroon-900 border-amber-400/50 hover:bg-amber-100/50"
@@ -222,13 +228,13 @@ export default function DengiSeva({ currentLang = "mr" }: DengiSevaProps) {
                   {copiedKey === "upiId" ? (
                     <>
                       <Check className="w-4 h-4 text-white" />
-                      <span>{currentLang === "mr" ? "UPI आयडी कॉपी झाले!" : "UPI ID Copied!"}</span>
+                      <span>{mandirContent.ui.upiIdCopied[currentLang]}</span>
                     </>
                   ) : (
                     <>
                       <Copy className="w-4 h-4 text-saffron-600" />
-                      <span>{currentLang === "mr" ? "UPI आयडी कॉपी करा" : "Copy UPI ID"}</span>
-                      <span className="font-mono text-gray-500">({dengi.qrCode.upiId})</span>
+                      <span>{mandirContent.ui.copyUpiId[currentLang]}</span>
+                      <span className="font-mono text-gray-600">({dengi.qrCode.upiId})</span>
                     </>
                   )}
                 </button>
@@ -238,35 +244,35 @@ export default function DengiSeva({ currentLang = "mr" }: DengiSevaProps) {
                   href={`upi://pay?pa=${dengi.qrCode.upiId}&pn=${encodeURIComponent(
                     dengi.qrCode.qrPayeeName
                   )}&cu=INR`}
-                  className="sm:hidden w-full py-2.5 px-3 rounded-xl bg-saffron-600 hover:bg-saffron-700 text-white text-xs font-bold text-center flex items-center justify-center gap-1.5 shadow-xs transition"
+                  className="sm:hidden w-full py-2.5 px-3 rounded-xl bg-saffron-700 hover:bg-saffron-800 text-white text-sm font-bold text-center flex items-center justify-center gap-1.5 shadow-xs transition"
                 >
                   <Smartphone className="w-4 h-4" />
-                  <span>{currentLang === "mr" ? "मोबाइल UPI ॲपद्वारे देणगी द्या" : "Pay via Mobile UPI App"}</span>
+                  <span>{mandirContent.ui.payViaMobileUpi[currentLang]}</span>
                 </a>
               </div>
             </div>
 
             {/* Official Bank Account Details Ledger with Copy Buttons */}
-            <div className="space-y-2.5 text-xs">
+            <div className="space-y-2.5 text-sm">
               <div className="flex items-center gap-1.5 text-maroon-950 font-bold text-sm border-b border-amber-900/10 pb-2">
                 <Building2 className="w-4 h-4 text-saffron-600" />
-                <span>{currentLang === "mr" ? "बँक खाते तपशील (NEFT / RTGS / IMPS)" : "Bank Account Ledger"}</span>
+                <span>{mandirContent.ui.bankAccountLedger[currentLang]}</span>
               </div>
 
               {/* Trust Legal Name */}
               <div className="p-2.5 rounded-xl bg-amber-50/60 border border-amber-900/10 flex items-center justify-between gap-2">
                 <div className="min-w-0">
-                  <span className="text-xs uppercase font-bold text-gray-500 block">
-                    {currentLang === "mr" ? "खात्याचे नाव (Account Name)" : "Account Legal Name"}
+                  <span className="text-xs uppercase font-bold text-gray-600 block">
+                    {mandirContent.ui.accountLegalName[currentLang]}
                   </span>
-                  <span className="font-semibold text-maroon-900 truncate block text-xs">
+                  <span className="font-semibold text-maroon-900 truncate block text-sm">
                     {dengi.bankDetails.trustName[currentLang]}
                   </span>
                 </div>
                 <button
                   type="button"
                   onClick={() => handleCopy(dengi.bankDetails.trustName[currentLang], "trustName")}
-                  className="p-1.5 rounded-lg hover:bg-amber-100 text-maroon-800 transition shrink-0 cursor-pointer"
+                  className="min-w-11 min-h-11 inline-flex items-center justify-center rounded-lg hover:bg-amber-100 text-maroon-800 transition shrink-0 cursor-pointer"
                   title="Copy"
                 >
                   {copiedKey === "trustName" ? <Check className="w-3.5 h-3.5 text-emerald-600" /> : <Copy className="w-3.5 h-3.5 text-saffron-600" />}
@@ -276,17 +282,17 @@ export default function DengiSeva({ currentLang = "mr" }: DengiSevaProps) {
               {/* Bank Name & Branch */}
               <div className="p-2.5 rounded-xl bg-amber-50/60 border border-amber-900/10 flex items-center justify-between gap-2">
                 <div className="min-w-0">
-                  <span className="text-xs uppercase font-bold text-gray-500 block">
-                    {currentLang === "mr" ? "बँक व शाखा (Bank & Branch)" : "Bank & Branch"}
+                  <span className="text-xs uppercase font-bold text-gray-600 block">
+                    {mandirContent.ui.bankBranch[currentLang]}
                   </span>
-                  <span className="font-semibold text-maroon-900 truncate block text-xs">
+                  <span className="font-semibold text-maroon-900 truncate block text-sm">
                     {dengi.bankDetails.bankName} • {dengi.bankDetails.branch}
                   </span>
                 </div>
                 <button
                   type="button"
                   onClick={() => handleCopy(`${dengi.bankDetails.bankName}, ${dengi.bankDetails.branch}`, "bankName")}
-                  className="p-1.5 rounded-lg hover:bg-amber-100 text-maroon-800 transition shrink-0 cursor-pointer"
+                  className="min-w-11 min-h-11 inline-flex items-center justify-center rounded-lg hover:bg-amber-100 text-maroon-800 transition shrink-0 cursor-pointer"
                   title="Copy"
                 >
                   {copiedKey === "bankName" ? <Check className="w-3.5 h-3.5 text-emerald-600" /> : <Copy className="w-3.5 h-3.5 text-saffron-600" />}
@@ -296,8 +302,8 @@ export default function DengiSeva({ currentLang = "mr" }: DengiSevaProps) {
               {/* Account Number */}
               <div className="p-2.5 rounded-xl bg-amber-50/60 border border-amber-900/10 flex items-center justify-between gap-2">
                 <div className="min-w-0">
-                  <span className="text-xs uppercase font-bold text-gray-500 block">
-                    {currentLang === "mr" ? "खाते क्रमांक (Account Number)" : "Account Number"}
+                  <span className="text-xs uppercase font-bold text-gray-600 block">
+                    {mandirContent.ui.accountNumber[currentLang]}
                   </span>
                   <span className="font-mono font-bold text-maroon-900 text-xs tracking-wider">
                     {dengi.bankDetails.accountNumber}
@@ -306,7 +312,7 @@ export default function DengiSeva({ currentLang = "mr" }: DengiSevaProps) {
                 <button
                   type="button"
                   onClick={() => handleCopy(dengi.bankDetails.accountNumber, "accNum")}
-                  className="p-1.5 rounded-lg hover:bg-amber-100 text-maroon-800 transition shrink-0 cursor-pointer"
+                  className="min-w-11 min-h-11 inline-flex items-center justify-center rounded-lg hover:bg-amber-100 text-maroon-800 transition shrink-0 cursor-pointer"
                   title="Copy"
                 >
                   {copiedKey === "accNum" ? <Check className="w-3.5 h-3.5 text-emerald-600" /> : <Copy className="w-3.5 h-3.5 text-saffron-600" />}
@@ -316,8 +322,8 @@ export default function DengiSeva({ currentLang = "mr" }: DengiSevaProps) {
               {/* IFSC Code */}
               <div className="p-2.5 rounded-xl bg-amber-50/60 border border-amber-900/10 flex items-center justify-between gap-2">
                 <div className="min-w-0">
-                  <span className="text-xs uppercase font-bold text-gray-500 block">
-                    {currentLang === "mr" ? "IFSC कोड" : "IFSC Code"}
+                  <span className="text-xs uppercase font-bold text-gray-600 block">
+                    {mandirContent.ui.ifscCode[currentLang]}
                   </span>
                   <span className="font-mono font-bold text-maroon-900 text-xs tracking-wider">
                     {dengi.bankDetails.ifscCode}
@@ -326,7 +332,7 @@ export default function DengiSeva({ currentLang = "mr" }: DengiSevaProps) {
                 <button
                   type="button"
                   onClick={() => handleCopy(dengi.bankDetails.ifscCode, "ifsc")}
-                  className="p-1.5 rounded-lg hover:bg-amber-100 text-maroon-800 transition shrink-0 cursor-pointer"
+                  className="min-w-11 min-h-11 inline-flex items-center justify-center rounded-lg hover:bg-amber-100 text-maroon-800 transition shrink-0 cursor-pointer"
                   title="Copy"
                 >
                   {copiedKey === "ifsc" ? <Check className="w-3.5 h-3.5 text-emerald-600" /> : <Copy className="w-3.5 h-3.5 text-saffron-600" />}
@@ -334,7 +340,7 @@ export default function DengiSeva({ currentLang = "mr" }: DengiSevaProps) {
               </div>
 
               {/* PTR Number */}
-              <div className="p-2 text-xs text-gray-500 italic text-center">
+              <div className="p-2 text-sm text-gray-600 italic text-center">
                 {dengi.bankDetails.ptrNumber[currentLang]}
               </div>
             </div>

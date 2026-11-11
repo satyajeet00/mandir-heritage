@@ -12,7 +12,7 @@ import mandirContent from "@/data/mandirContent.json";
 const cinzel = Cinzel({
   variable: "--font-cinzel",
   subsets: ["latin"],
-  weight: ["600", "700", "800"],
+  weight: ["700"],
 });
 
 const plusJakarta = Plus_Jakarta_Sans({
@@ -40,6 +40,7 @@ const DESCRIPTION =
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
+  alternates: { canonical: "/" },
   title: TITLE,
   description: DESCRIPTION,
   keywords: [
@@ -65,7 +66,10 @@ const jsonLd = {
   description: DESCRIPTION,
   url: SITE_URL,
   image: `${SITE_URL}/opengraph-image.jpg`,
-  telephone: mandirContent.temple.phone,
+  // omit while the phone is still the all-zero dummy number
+  ...(/[1-9]/.test(mandirContent.temple.phone.replace(/^\+91/, ""))
+    ? { telephone: mandirContent.temple.phone }
+    : {}),
   address: {
     "@type": "PostalAddress",
     streetAddress: "Unchakhadak (Bk.), Pravara river bank",

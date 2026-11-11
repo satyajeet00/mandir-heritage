@@ -12,6 +12,7 @@ interface HeroProps {
 
 export default function Hero({ currentLang }: HeroProps) {
   const { hero } = mandirContent;
+  const paduka = mandirContent.gallery.find((g) => g.id === "gallery-paduka")!;
 
   return (
     <section className="relative overflow-hidden text-white border-b border-amber-900/30 min-h-[85svh] flex items-center bg-maroon-950">
@@ -19,9 +20,10 @@ export default function Hero({ currentLang }: HeroProps) {
       <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none">
         <Image
           src={hero.posterSrc}
-          alt={currentLang === "mr" ? "राममाळ आश्रम व प्रवरा नदीचे विहंगम दृश्य" : "Aerial view of Ram-mal Ashram and the Pravara river"}
+          alt={mandirContent.ui.aerialViewOfRam[currentLang]}
           fill
-          priority
+          loading="eager"
+          fetchPriority="high"
           sizes="100vw"
           className="object-cover object-[70%_18%] hero-pan"
         />
@@ -34,7 +36,7 @@ export default function Hero({ currentLang }: HeroProps) {
         <div className="lg:col-span-7 space-y-6">
           {/* Status pill & Drone indicator */}
           <div className="flex flex-wrap items-center gap-2.5">
-            <div className="inline-flex items-center gap-2.5 bg-maroon-900/80 border border-amber-400/40 rounded-full px-4 py-1.5 text-xs sm:text-sm text-amber-200 shadow-xs">
+            <div className="inline-flex items-center gap-2.5 bg-maroon-900/80 border border-amber-400/40 rounded-full px-4 py-1.5 text-sm text-amber-200 shadow-xs">
               <span className="w-2.5 h-2.5 rounded-full bg-emerald-400 live-pulse shrink-0" />
               <span className="font-semibold text-white">
                 {hero.liveStatus[currentLang]}
@@ -47,11 +49,11 @@ export default function Hero({ currentLang }: HeroProps) {
 
             <a
               href="#gallery"
-              className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-amber-500/20 hover:bg-amber-500/30 border border-amber-400/40 text-amber-200 text-xs font-semibold transition"
+              className="inline-flex items-center gap-1.5 min-h-11 px-4 py-2 rounded-full bg-amber-500/20 hover:bg-amber-500/30 border border-amber-400/40 text-amber-200 text-sm font-semibold transition"
             >
               <Video className="w-3.5 h-3.5 text-amber-300" />
               <span>
-                {currentLang === "mr" ? "४K ड्रोन दृश्य पहा" : "4K Drone Tour"}
+                {mandirContent.ui.droneTour4k[currentLang]}
               </span>
             </a>
           </div>
@@ -96,7 +98,7 @@ export default function Hero({ currentLang }: HeroProps) {
                 <div className="font-serif text-2xl sm:text-3xl font-bold text-amber-300">
                   {stat.value[currentLang]}
                 </div>
-                <div className="text-xs text-amber-200/75 leading-tight">
+                <div className="text-sm text-amber-200/75 leading-tight">
                   {stat.label[currentLang]}
                 </div>
               </div>
@@ -107,24 +109,31 @@ export default function Hero({ currentLang }: HeroProps) {
         {/* Right Column: Deity & Darshan Times Card (Full Bilingual) */}
         <div className="lg:col-span-5">
           <div className="bg-maroon-950/90 border-2 border-amber-500/40 rounded-2xl p-5 sm:p-6 shadow-2xl relative space-y-4">
-            <div className="flex items-center justify-between">
+            <div className="flex flex-wrap items-center justify-between gap-x-3 gap-y-2">
               <span className="px-3 py-1 rounded-full bg-amber-500/20 text-amber-300 border border-amber-400/30 text-xs font-bold uppercase tracking-wider">
                 {hero.deityCard.badge[currentLang]}
               </span>
-              <span className="text-xs text-amber-300/90 font-medium">
+              <span className="text-sm text-amber-300/90 font-medium">
                 {hero.deityCard.entry[currentLang]}
               </span>
             </div>
 
             {/* Deity Info Box */}
             <div className="rounded-xl bg-gradient-to-b from-amber-900/40 to-maroon-950 border border-amber-500/30 p-6 text-center space-y-3">
-              <div className="w-20 h-20 mx-auto rounded-full bg-amber-500/20 border-2 border-amber-400 flex items-center justify-center shadow-inner text-amber-300 font-serif text-4xl">
-                ॐ
+              <div className="relative aspect-[4/3] w-full rounded-xl overflow-hidden border-2 border-amber-400/60 shadow-inner">
+                <Image
+                  src={paduka.src}
+                  alt={paduka.alt[currentLang]}
+                  fill
+                  sizes="(min-width: 1024px) 40vw, 90vw"
+                  loading="eager"
+                  className="object-cover"
+                />
               </div>
               <h3 className="font-serif text-xl font-bold text-amber-100">
                 {hero.deityCard.title[currentLang]}
               </h3>
-              <p className="text-xs text-amber-200/80 leading-relaxed max-w-sm mx-auto">
+              <p className="text-base text-amber-200/80 leading-relaxed max-w-sm mx-auto">
                 {hero.deityCard.description[currentLang]}
               </p>
             </div>

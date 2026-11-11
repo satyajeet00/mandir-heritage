@@ -1,3 +1,7 @@
+// One shared AudioContext: browsers cap concurrent contexts, so creating one per ring
+// eventually silences the bell.
+let sharedCtx: AudioContext | null = null;
+
 export function playTempleBell(): void {
   if (typeof window === "undefined") return;
 
@@ -9,7 +13,9 @@ export function playTempleBell(): void {
 
     if (!AudioContextClass) return;
 
-    const ctx = new AudioContextClass();
+    sharedCtx ??= new AudioContextClass();
+    const ctx = sharedCtx;
+    if (ctx.state === "suspended") void ctx.resume();
     // Harmonics for a resonant temple bronze bell
     const freqs = [528, 1056, 1584, 2112];
 

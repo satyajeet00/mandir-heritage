@@ -14,7 +14,7 @@ export default function History({ currentLang }: HistoryProps) {
   const { history } = mandirContent;
 
   return (
-    <section id="history" className="py-16 max-w-7xl mx-auto px-4 sm:px-6">
+    <section id="history" className="scroll-mt-24 py-16 max-w-7xl mx-auto px-4 sm:px-6">
       <SectionHeader
         badge={history.badge[currentLang]}
         title={history.heading[currentLang]}
@@ -35,7 +35,7 @@ export default function History({ currentLang }: HistoryProps) {
           {history.paragraphs[currentLang].map((para, idx) => (
             <p
               key={idx}
-              className="text-sm sm:text-base text-gray-700 leading-relaxed"
+              className="text-base sm:text-base text-gray-700 leading-relaxed"
             >
               {para}
             </p>
@@ -46,7 +46,7 @@ export default function History({ currentLang }: HistoryProps) {
             <h4 className="font-serif font-bold text-maroon-900 text-sm sm:text-base">
               {history.cultureCard.title[currentLang]}
             </h4>
-            <p className="text-xs sm:text-sm text-gray-700 leading-relaxed">
+            <p className="text-base text-gray-700 leading-relaxed">
               {history.cultureCard.text[currentLang]}
             </p>
           </div>
@@ -57,14 +57,14 @@ export default function History({ currentLang }: HistoryProps) {
           <div className="flex items-center gap-2 border-b border-amber-900/10 pb-3">
             <Clock className="w-5 h-5 text-saffron-600" />
             <h3 className="font-serif text-xl sm:text-2xl font-bold text-maroon-900">
-              {currentLang === "mr" ? "ऐतिहासिक कालखंड" : "Chronological Milestones"}
+              {mandirContent.ui.chronologicalMilestones[currentLang]}
             </h3>
           </div>
 
           <div className="space-y-6 relative before:absolute before:inset-0 before:left-3.5 before:w-0.5 before:bg-amber-200">
             {history.timeline.map((item, idx) => (
               <div key={idx} className="relative flex items-start gap-4">
-                <div className="w-7 h-7 rounded-full bg-saffron-600 text-white flex items-center justify-center font-bold text-xs shrink-0 shadow-xs z-10">
+                <div className="w-7 h-7 rounded-full bg-saffron-700 text-white flex items-center justify-center font-bold text-sm shrink-0 shadow-xs z-10">
                   {idx + 1}
                 </div>
                 <div className="space-y-1">
@@ -74,7 +74,7 @@ export default function History({ currentLang }: HistoryProps) {
                   <h4 className="font-serif font-bold text-maroon-950 text-base">
                     {item.title[currentLang]}
                   </h4>
-                  <p className="text-xs text-gray-600 leading-relaxed">
+                  <p className="text-base text-gray-600 leading-relaxed">
                     {item.desc[currentLang]}
                   </p>
                 </div>

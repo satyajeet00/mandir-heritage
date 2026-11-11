@@ -48,7 +48,7 @@ export default function AartiModal({
       ref={dialogRef}
       role="dialog"
       aria-modal="true"
-      aria-label={currentLang === "mr" ? "आरती व हरिपाठ संग्रह" : "Aarti & Haripath Reader"}
+      aria-label={mandirContent.ui.aartiHaripathReader[currentLang]}
       tabIndex={-1}
       onClick={onClose}
       className="fixed inset-0 bg-black/65 backdrop-blur-sm z-50 flex items-center justify-center p-3 sm:p-5 animate-in fade-in duration-200"
@@ -62,10 +62,10 @@ export default function AartiModal({
             </div>
             <div>
               <span className="text-xs uppercase tracking-widest text-amber-300 font-bold block">
-                {currentLang === "mr" ? "नित्य उपासना व आरती संग्रह" : "Sacred Hymns & Haripath"}
+                {mandirContent.ui.sacredHymnsHaripath[currentLang]}
               </span>
               <h3 className="font-serif text-lg sm:text-xl font-bold text-white leading-tight">
-                {currentLang === "mr" ? "राममाळ आश्रम आरती व हरिपाठ संग्रह" : "Ram-mal Aarti & Haripath Reader"}
+                {mandirContent.ui.ramMalAartiHaripath[currentLang]}
               </h3>
             </div>
           </div>
@@ -74,21 +74,21 @@ export default function AartiModal({
             {/* Bell trigger */}
             <button
               onClick={handleBellRing}
-              className={`p-2 rounded-xl text-amber-200 hover:text-white transition flex items-center gap-1.5 border border-amber-400/30 text-xs font-semibold ${
+              className={`p-2 rounded-xl text-amber-200 hover:text-white transition flex items-center gap-1.5 border border-amber-400/30 text-sm font-semibold ${
                 bellRinging ? "bg-amber-400 text-maroon-950 scale-105" : "bg-maroon-900/80 hover:bg-maroon-900"
               }`}
-              title={currentLang === "mr" ? "घंटानाद वाजवा" : "Ring Bell"}
+              title={mandirContent.ui.ringBell[currentLang]}
             >
               <BellRing className={`w-4 h-4 ${bellRinging ? "animate-bounce text-maroon-950" : "text-amber-300"}`} />
               <span className="hidden sm:inline">
-                {currentLang === "mr" ? "घंटानाद" : "Chime"}
+                {mandirContent.ui.chime[currentLang]}
               </span>
             </button>
 
             <button
               onClick={onClose}
               className="text-amber-200 hover:text-white p-2 rounded-xl hover:bg-white/10 transition"
-              aria-label={currentLang === "mr" ? "बंद करा" : "Close"}
+              aria-label={mandirContent.ui.close[currentLang]}
             >
               <X className="w-5 h-5" />
             </button>
@@ -103,9 +103,9 @@ export default function AartiModal({
               <button
                 key={aarti.id}
                 onClick={() => setActiveTab(aarti.id)}
-                className={`px-3 py-1.5 rounded-lg text-xs font-bold transition-all ${
+                className={`px-3 py-1.5 rounded-lg text-sm font-bold transition-all ${
                   activeTab === aarti.id
-                    ? "bg-saffron-600 text-white shadow-xs"
+                    ? "bg-saffron-700 text-white shadow-xs"
                     : "text-maroon-900 hover:bg-amber-100"
                 }`}
               >
@@ -115,22 +115,22 @@ export default function AartiModal({
           </div>
 
           {/* Text Size Controls */}
-          <div className="flex items-center gap-1 text-xs text-maroon-900 font-semibold bg-white/70 px-2 py-1 rounded-xl border border-amber-900/10 ml-auto">
-            <span className="text-xs text-gray-500 mr-1 hidden sm:inline">
-              {currentLang === "mr" ? "अक्षर आकार:" : "Text Size:"}
+          <div className="flex items-center gap-1 text-sm text-maroon-900 font-semibold bg-white/70 px-2 py-1 rounded-xl border border-amber-900/10 ml-auto">
+            <span className="text-sm text-gray-600 mr-1 hidden sm:inline">
+              {mandirContent.ui.textSize[currentLang]}
             </span>
             <button
               onClick={() => handleZoom("out")}
               className="p-1 rounded hover:bg-amber-100"
-              title={currentLang === "mr" ? "लहान करा" : "Smaller"}
+              title={mandirContent.ui.smaller[currentLang]}
             >
               <ZoomOut className="w-3.5 h-3.5" />
             </button>
-            <span className="px-1 text-xs">A</span>
+            <span className="px-1 text-sm">A</span>
             <button
               onClick={() => handleZoom("in")}
               className="p-1 rounded hover:bg-amber-100"
-              title={currentLang === "mr" ? "मोठे करा" : "Larger"}
+              title={mandirContent.ui.larger[currentLang]}
             >
               <ZoomIn className="w-3.5 h-3.5" />
             </button>
@@ -149,7 +149,7 @@ export default function AartiModal({
               </div>
               <button
                 onClick={handleBellRing}
-                className="text-xs text-saffron-700 hover:text-saffron-800 flex items-center gap-1 font-semibold"
+                className="text-sm text-saffron-700 hover:text-saffron-800 flex items-center gap-1 font-semibold"
               >
                 <Volume2 className="w-3.5 h-3.5" />
                 <span>नाद</span>
@@ -179,16 +179,14 @@ export default function AartiModal({
 
         {/* Modal Footer */}
         <div className="p-3 sm:p-4 bg-white border-t border-amber-900/10 flex items-center justify-between shrink-0 px-5">
-          <span className="text-xs text-gray-500">
-            {currentLang === "mr"
-              ? "🚩 दैनंदिन सायं आरती व हरिपाठ: ७:०० वाजता"
-              : "🚩 Daily Evening Aarti & Haripath: 7:00 PM"}
+          <span className="text-sm text-gray-600">
+            {mandirContent.ui.dailyEveningAartiHaripath[currentLang]}
           </span>
           <button
             onClick={onClose}
-            className="px-5 py-2 rounded-xl bg-maroon-900 hover:bg-maroon-800 text-amber-200 font-semibold text-xs transition cursor-pointer"
+            className="px-5 py-2 rounded-xl bg-maroon-900 hover:bg-maroon-800 text-amber-200 font-semibold text-sm transition cursor-pointer"
           >
-            {currentLang === "mr" ? "बंद करा" : "Close"}
+            {mandirContent.ui.close[currentLang]}
           </button>
         </div>
       </div>

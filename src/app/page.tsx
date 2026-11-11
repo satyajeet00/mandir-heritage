@@ -1,8 +1,9 @@
 "use client";
 
 import React, { useState } from "react";
-import Header, { Language } from "@/components/Header";
+import Header from "@/components/Header";
 import Hero from "@/components/Hero";
+import QuickAccess from "@/components/QuickAccess";
 import History from "@/components/History";
 import Architecture from "@/components/Architecture";
 import DrishyaGallery from "@/components/DrishyaGallery";
@@ -35,6 +36,9 @@ export default function Home() {
         {/* 2. Hero (4K Drone Video Background, Status & Heritage Stats) */}
         <Hero currentLang={currentLang} />
 
+        {/* Quick access: timings / how to reach / donation / aarti */}
+        <QuickAccess currentLang={currentLang} onOpenAarti={() => setAartiModalOpen(true)} />
+
         {/* 3. History (Bilingual Sthala Purana and Stone Timeline) */}
         <History currentLang={currentLang} />
 
@@ -48,7 +52,7 @@ export default function Home() {
         <DarshanSchedule currentLang={currentLang} />
 
         {/* Digital Aarti Callout Banner (Full Bilingual) */}
-        <section id="aarti-sangrah" className="py-12 max-w-7xl mx-auto px-4 sm:px-6">
+        <section id="aarti-sangrah" className="scroll-mt-24 py-12 max-w-7xl mx-auto px-4 sm:px-6">
           <div className="bg-gradient-to-r from-maroon-900 via-maroon-800 to-maroon-950 rounded-3xl p-6 sm:p-10 text-white border border-amber-500/30 shadow-xl grid lg:grid-cols-12 gap-8 items-center">
             <div className="lg:col-span-8 space-y-3">
               <span className="text-xs font-bold uppercase tracking-widest text-amber-300">
@@ -57,7 +61,7 @@ export default function Home() {
               <h3 className="font-serif text-2xl sm:text-3xl font-bold text-amber-50">
                 {aartiCallout.title[currentLang]}
               </h3>
-              <p className="text-xs sm:text-sm text-amber-100/80 leading-relaxed max-w-2xl">
+              <p className="text-base text-amber-100/80 leading-relaxed max-w-2xl">
                 {aartiCallout.description[currentLang]}
               </p>
             </div>
@@ -71,7 +75,7 @@ export default function Home() {
               </button>
               <button
                 onClick={() => playTempleBell()}
-                className="w-full py-2.5 px-5 rounded-xl bg-white/10 hover:bg-white/20 text-amber-200 border border-amber-400/30 font-semibold text-xs transition flex items-center justify-center gap-2 cursor-pointer"
+                className="w-full py-2.5 px-5 rounded-xl bg-white/10 hover:bg-white/20 text-amber-200 border border-amber-400/30 font-semibold text-sm transition flex items-center justify-center gap-2 cursor-pointer"
               >
                 <BellRing className="w-4 h-4 text-amber-300" />
                 <span>{aartiCallout.btnBell[currentLang]}</span>
@@ -99,42 +103,40 @@ export default function Home() {
                 <span>ॐ</span>
                 <span>{temple.name[currentLang]}</span>
               </div>
-              <p className="text-amber-200/75 text-xs font-semibold">
+              <p className="text-amber-200/75 text-sm font-semibold">
                 {temple.subName[currentLang]} • {temple.trustTag[currentLang]}
               </p>
-              <p className="text-amber-200/50 text-xs">
+              <p className="text-amber-200/75 text-sm">
                 {temple.address[currentLang]}
               </p>
             </div>
 
-            <nav className="flex flex-wrap items-center justify-center gap-6 text-xs text-amber-300/80">
-              <a href="#history" className="hover:text-white transition">
+            <nav className="flex flex-wrap items-center justify-center gap-6 text-sm text-amber-300/80">
+              <a href="#history" className="inline-flex items-center min-h-11 hover:text-white transition">
                 {footer.navLinks[currentLang].history}
               </a>
-              <a href="#architecture" className="hover:text-white transition">
+              <a href="#architecture" className="inline-flex items-center min-h-11 hover:text-white transition">
                 {footer.navLinks[currentLang].architecture}
               </a>
-              <a href="#gallery" className="hover:text-white transition">
+              <a href="#gallery" className="inline-flex items-center min-h-11 hover:text-white transition">
                 {footer.navLinks[currentLang].gallery}
               </a>
-              <a href="#darshan" className="hover:text-white transition">
+              <a href="#darshan" className="inline-flex items-center min-h-11 hover:text-white transition">
                 {footer.navLinks[currentLang].darshan}
               </a>
-              <a href="#utsavs" className="hover:text-white transition">
+              <a href="#utsavs" className="inline-flex items-center min-h-11 hover:text-white transition">
                 {footer.navLinks[currentLang].utsavs}
               </a>
-              <a href="#dengi" className="hover:text-white transition">
-                {currentLang === "mr" ? "देणगी व सेवा" : "Donation & Seva"}
+              <a href="#dengi" className="inline-flex items-center min-h-11 hover:text-white transition">
+                {mandirContent.ui.donationSeva[currentLang]}
               </a>
             </nav>
           </div>
 
-          <div className="pt-6 border-t border-amber-900/40 flex flex-wrap items-center justify-between gap-4 text-xs text-amber-200/50">
+          <div className="pt-6 border-t border-amber-900/40 flex flex-wrap items-center justify-between gap-4 text-sm text-amber-200/75">
             <p>{footer.copyright[currentLang]}</p>
             <p>
-              {currentLang === "mr"
-                ? "प्रतिअयोध्या श्री क्षेत्र राममाळ • सद्‌गुरू यशवंत बाबा तपोभूमी • शांत दर्शन"
-                : "Pratiayodhya Shri Kshetra Ram-mal • Sadguru Yashwant Baba Tapobhumi"}
+              {mandirContent.ui.pratiayodhyaShriKshetraRam[currentLang]}
             </p>
           </div>
         </div>
