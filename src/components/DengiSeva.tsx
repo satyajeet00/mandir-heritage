@@ -14,6 +14,7 @@ import {
 import Image from "next/image";
 import mandirContent from "@/data/mandirContent.json";
 import type { Language } from "./Header";
+import Badge from "./Badge";
 
 interface DengiSevaProps {
   currentLang?: Language;
@@ -66,9 +67,9 @@ export default function DengiSeva({ currentLang = "mr" }: DengiSevaProps) {
         {/* Section Header */}
         <div className="max-w-3xl space-y-3">
           <div className="inline-flex items-center gap-2">
-            <span className="text-xs font-bold uppercase tracking-widest text-saffron-700 bg-saffron-100 px-3.5 py-1 rounded-full border border-saffron-500/20">
+            <Badge tone="light">
               {dengi.badge[currentLang]}
-            </span>
+            </Badge>
             <span className="text-amber-600 text-sm">•</span>
             <span className="text-sm font-semibold text-maroon-800 flex items-center gap-1">
               <ShieldCheck className="w-3.5 h-3.5 text-emerald-600" />
@@ -101,9 +102,9 @@ export default function DengiSeva({ currentLang = "mr" }: DengiSevaProps) {
                   className="bg-white rounded-2xl p-5 sm:p-6 border border-amber-900/15 shadow-sm space-y-2 hover:border-amber-400 transition"
                 >
                   <div className="flex items-center justify-between gap-2">
-                    <span className="text-xs font-bold uppercase tracking-wider px-2.5 py-0.5 rounded-full bg-amber-100 text-saffron-700">
+                    <Badge tone="light">
                       {seva.badge[currentLang]}
-                    </span>
+                    </Badge>
                     <a
                       href="#dengi-box"
                       className="text-sm text-saffron-700 hover:text-saffron-800 font-semibold flex items-center gap-1 min-h-11 cursor-pointer"

@@ -1,4 +1,5 @@
 import React from "react";
+import Badge from "./Badge";
 
 interface SectionHeaderProps {
   badge: string;
@@ -23,15 +24,7 @@ export default function SectionHeader({
     <div
       className={`max-w-3xl ${align === "center" ? "mx-auto text-center" : ""} ${className}`}
     >
-      <span
-        className={`text-xs font-bold uppercase tracking-widest px-3.5 py-1 rounded-full border ${
-          dark
-            ? "text-amber-400 bg-amber-500/15 border-amber-400/25"
-            : "text-saffron-700 bg-saffron-100 border-saffron-500/20"
-        }`}
-      >
-        {badge}
-      </span>
+      <Badge tone={dark ? "dark" : "light"}>{badge}</Badge>
       <h2
         className={`font-serif text-3xl sm:text-4xl font-bold mt-3.5 ${
           dark ? "text-white" : "text-maroon-900"

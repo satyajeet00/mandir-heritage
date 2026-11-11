@@ -5,6 +5,7 @@ import { Sunrise, Flame, Moon, LucideIcon } from "lucide-react";
 import mandirContent from "@/data/mandirContent.json";
 import type { Language } from "./Header";
 import SectionHeader from "./SectionHeader";
+import Badge from "./Badge";
 
 const iconMap: Record<string, LucideIcon> = {
   Sunrise,
@@ -47,15 +48,9 @@ export default function DarshanSchedule({
             >
               <div>
                 <div className="flex items-center justify-between mb-4">
-                  <span
-                    className={`text-sm font-bold px-3 py-1 rounded-full ${
-                      isHighlight
-                        ? "bg-saffron-700 text-white shadow-xs"
-                        : "bg-amber-100 text-saffron-700"
-                    }`}
-                  >
+                  <Badge tone={isHighlight ? "solid" : "light"}>
                     {card.tag[currentLang]}
-                  </span>
+                  </Badge>
                   <div
                     className={`w-10 h-10 rounded-xl flex items-center justify-center ${
                       isHighlight

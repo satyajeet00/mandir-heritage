@@ -11,6 +11,7 @@ import {
 } from "lucide-react";
 import mandirContent from "@/data/mandirContent.json";
 import type { Language } from "./Header";
+import Badge from "./Badge";
 
 interface UtsavsProps {
   currentLang?: Language;
@@ -25,9 +26,9 @@ export default function Utsavs({ currentLang = "mr" }: UtsavsProps) {
         {/* Left Column: Upcoming Festivals (Utsavs List) */}
         <div className="lg:col-span-7 space-y-4">
           <div>
-            <span className="text-xs font-bold uppercase tracking-widest text-saffron-700 bg-saffron-100 px-3.5 py-1 rounded-full border border-saffron-500/20">
+            <Badge tone="light">
               {utsavs.badge[currentLang]}
-            </span>
+            </Badge>
             <h2 className="font-serif text-2xl sm:text-3xl font-bold text-maroon-900 mt-2.5">
               {utsavs.heading[currentLang]}
             </h2>
@@ -40,9 +41,9 @@ export default function Utsavs({ currentLang = "mr" }: UtsavsProps) {
                 className="bg-white rounded-2xl p-5 sm:p-6 border border-amber-900/15 shadow-sm space-y-2 hover:border-amber-400 transition"
               >
                 <div className="flex flex-wrap items-center justify-between gap-2">
-                  <span className="text-xs font-bold uppercase tracking-wider px-2.5 py-0.5 rounded-full bg-amber-100 text-saffron-700">
+                  <Badge tone="light">
                     {festival.tag[currentLang]}
-                  </span>
+                  </Badge>
                   <div className="flex items-center gap-3 text-sm font-semibold text-maroon-900">
                     <span className="flex items-center gap-1 text-gray-700">
                       <Calendar className="w-3.5 h-3.5 text-saffron-600" />

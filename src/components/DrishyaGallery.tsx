@@ -6,6 +6,7 @@ import { Maximize2, Play, X, ChevronLeft, ChevronRight } from "lucide-react";
 import mandirContent from "@/data/mandirContent.json";
 import { useModal } from "@/utils/useModal";
 import type { Language } from "./Header";
+import Badge from "./Badge";
 
 type CategoryFilter = "all" | "drone" | "paduka" | "bell" | "samadhi";
 
@@ -255,9 +256,9 @@ export default function DrishyaGallery({
         {/* Section Header & Category Filters */}
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-6">
           <div className="space-y-2">
-            <span className="text-xs font-bold uppercase tracking-widest text-saffron-700 bg-saffron-100 px-3.5 py-1 rounded-full border border-saffron-500/20">
+            <Badge tone="light">
               {mandirContent.ui.sacredVisualArchive[currentLang]}
-            </span>
+            </Badge>
             <h2 className="font-serif text-3xl sm:text-4xl font-bold text-maroon-900 mt-2">
               {mandirContent.ui.ramMalAshramSacred[currentLang]}
             </h2>

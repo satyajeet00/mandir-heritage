@@ -5,6 +5,7 @@ import Image from "next/image";
 import { Scroll, Compass } from "lucide-react";
 import mandirContent from "@/data/mandirContent.json";
 import type { Language } from "./Header";
+import Badge from "./Badge";
 
 interface HeroProps {
   currentLang: Language;
@@ -49,9 +50,9 @@ export default function Hero({ currentLang }: HeroProps) {
 
           {/* Main Title with Two-Tier Branding */}
           <div className="space-y-2">
-            <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-amber-500/15 border border-amber-400/30 text-amber-300 text-xs sm:text-sm font-semibold tracking-wide">
+            <Badge tone="dark" caps={false}>
               <span>{hero.kicker[currentLang]}</span>
-            </div>
+            </Badge>
             <h1 className="font-serif text-3xl sm:text-5xl lg:text-6xl font-bold leading-tight text-amber-50">
               {hero.title[currentLang]}
             </h1>
@@ -98,9 +99,9 @@ export default function Hero({ currentLang }: HeroProps) {
         <div className="lg:col-span-5">
           <div className="bg-maroon-950/90 border-2 border-amber-500/40 rounded-2xl p-5 sm:p-6 shadow-2xl relative space-y-4">
             <div className="flex flex-wrap items-center justify-between gap-x-3 gap-y-2">
-              <span className="px-3 py-1 rounded-full bg-amber-500/20 text-amber-300 border border-amber-400/30 text-xs font-bold uppercase tracking-wider">
+              <Badge tone="dark">
                 {hero.deityCard.badge[currentLang]}
-              </span>
+              </Badge>
               <span className="text-sm text-amber-300/90 font-medium">
                 {hero.deityCard.entry[currentLang]}
               </span>
