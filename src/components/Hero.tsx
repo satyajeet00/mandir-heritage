@@ -2,7 +2,7 @@
 
 import React from "react";
 import Image from "next/image";
-import { Scroll, Compass, Video } from "lucide-react";
+import { Scroll, Compass } from "lucide-react";
 import mandirContent from "@/data/mandirContent.json";
 import type { Language } from "./Header";
 
@@ -34,10 +34,9 @@ export default function Hero({ currentLang }: HeroProps) {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 py-14 lg:py-20 relative z-10 grid lg:grid-cols-12 gap-10 items-center">
         {/* Left Column: Historical Introduction & Sacred Presence */}
         <div className="lg:col-span-7 space-y-6">
-          {/* Status pill & Drone indicator */}
+          {/* Status pill: timings • next aarti */}
           <div className="flex flex-wrap items-center gap-2.5">
             <div className="inline-flex items-center gap-2.5 bg-maroon-900/80 border border-amber-400/40 rounded-full px-4 py-1.5 text-sm text-amber-200 shadow-xs">
-              <span className="w-2.5 h-2.5 rounded-full bg-emerald-400 live-pulse shrink-0" />
               <span className="font-semibold text-white">
                 {hero.liveStatus[currentLang]}
               </span>
@@ -46,22 +45,11 @@ export default function Hero({ currentLang }: HeroProps) {
                 {hero.nextAarti[currentLang]}
               </span>
             </div>
-
-            <a
-              href="#gallery"
-              className="inline-flex items-center gap-1.5 min-h-11 px-4 py-2 rounded-full bg-amber-500/20 hover:bg-amber-500/30 border border-amber-400/40 text-amber-200 text-sm font-semibold transition"
-            >
-              <Video className="w-3.5 h-3.5 text-amber-300" />
-              <span>
-                {mandirContent.ui.droneTour4k[currentLang]}
-              </span>
-            </a>
           </div>
 
           {/* Main Title with Two-Tier Branding */}
           <div className="space-y-2">
             <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-amber-500/15 border border-amber-400/30 text-amber-300 text-xs sm:text-sm font-semibold tracking-wide">
-              <span>🚩</span>
               <span>{hero.kicker[currentLang]}</span>
             </div>
             <h1 className="font-serif text-3xl sm:text-5xl lg:text-6xl font-bold leading-tight text-amber-50">
@@ -140,7 +128,6 @@ export default function Hero({ currentLang }: HeroProps) {
 
             {/* Opening hours note (single source: hero.deityCard.hours) */}
             <div className="bg-maroon-900/70 rounded-xl p-3.5 border border-amber-500/15 flex items-center gap-2.5 text-sm text-amber-100 font-semibold">
-              <span className="w-2.5 h-2.5 rounded-full bg-emerald-400 shrink-0" />
               <span>{hero.deityCard.hours[currentLang]}</span>
             </div>
           </div>

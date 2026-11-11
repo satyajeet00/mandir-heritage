@@ -1,9 +1,8 @@
 "use client";
 
 import React, { useState, useEffect } from "react";
-import { BellRing, BookOpen, Menu, X } from "lucide-react";
+import { BookOpen, Menu, X } from "lucide-react";
 import mandirContent from "@/data/mandirContent.json";
-import { playTempleBell } from "@/utils/audio";
 
 import type { Language } from "@/utils/useLanguage";
 export type { Language };
@@ -20,7 +19,6 @@ export default function Header({
   onOpenAarti,
 }: HeaderProps) {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  const [bellRinging, setBellRinging] = useState(false);
   const [activeId, setActiveId] = useState("");
 
   // Highlight the nav link of the section currently under the header
@@ -45,12 +43,6 @@ export default function Header({
         ? "text-saffron-700 border-saffron-600"
         : "border-transparent hover:text-saffron-600"
     }`;
-
-  const handleBell = () => {
-    playTempleBell();
-    setBellRinging(true);
-    setTimeout(() => setBellRinging(false), 2200);
-  };
 
   const navLabels = {
     history:
@@ -80,8 +72,6 @@ export default function Header({
         ? mandirContent.i18n.mr.btnAarti
         : mandirContent.i18n.en.btnAarti,
     noticeBadge: mandirContent.ui.notice[currentLang],
-    bellText: mandirContent.ui.sacredBell[currentLang],
-    bellRingingText: mandirContent.ui.chime2[currentLang],
   };
 
   return (
@@ -94,31 +84,12 @@ export default function Header({
               {navLabels.noticeBadge}
             </span>
             <span className="font-medium truncate text-amber-50">
-              {mandirContent.ticker[currentLang]}
+              {/* emoji is decorative; strip it at render time, JSON stays as authored */}
+              {mandirContent.ticker[currentLang].replace(/^🚩\s*/u, "")}
             </span>
           </div>
 
           <div className="flex items-center gap-3 shrink-0 ml-auto">
-            {/* Temple Bell */}
-            <button
-              onClick={handleBell}
-              className={`flex items-center gap-1.5 px-3 py-2.5 rounded-full text-sm font-semibold border transition-all cursor-pointer ${
-                bellRinging
-                  ? "bg-amber-400 text-maroon-950 border-amber-300 scale-105 shadow-md"
-                  : "bg-maroon-900/80 hover:bg-maroon-900 text-amber-200 border-amber-400/30"
-              }`}
-              title="Ring Temple Bell"
-            >
-              <BellRing
-                className={`w-3.5 h-3.5 ${
-                  bellRinging ? "animate-bounce text-maroon-950" : "text-amber-300"
-                }`}
-              />
-              <span>
-                {bellRinging ? navLabels.bellRingingText : navLabels.bellText}
-              </span>
-            </button>
-
             {/* Pure Bilingual Language Switcher (मराठी | English) */}
             <div className="flex items-center rounded-lg bg-maroon-950/90 p-0.5 border border-amber-400/30 text-sm">
               <button
