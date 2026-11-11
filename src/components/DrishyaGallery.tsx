@@ -1,12 +1,13 @@
 "use client";
 
 import React, { useState, useEffect } from "react";
-import { Video, X, ChevronLeft, ChevronRight } from "lucide-react";
+import Image from "next/image";
+import { Play, X, ChevronLeft, ChevronRight } from "lucide-react";
 import mandirContent from "@/data/mandirContent.json";
 import { useModal } from "@/utils/useModal";
 import type { Language } from "./Header";
 
-type CategoryFilter = "all" | "drone" | "architecture" | "deepmala" | "sanctum";
+type CategoryFilter = "all" | "drone" | "paduka" | "bell" | "samadhi";
 
 interface DrishyaGalleryProps {
   currentLang?: Language;
@@ -89,15 +90,15 @@ export default function DrishyaGallery({
       label: { mr: "४K ड्रोन दर्शन", en: "4K Aerial Drone" },
     },
     {
-      key: "architecture",
+      key: "paduka",
       label: { mr: "श्रीराम पादुका", en: "Rama Paduka" },
     },
     {
-      key: "deepmala",
+      key: "bell",
       label: { mr: "ऐतिहासिक महाघंटा", en: "Sacred Bell" },
     },
     {
-      key: "sanctum",
+      key: "samadhi",
       label: { mr: "तपोभूमी समाधी", en: "Tapobhumi Samadhi" },
     },
   ];
@@ -148,73 +149,43 @@ export default function DrishyaGallery({
           </div>
         </div>
 
-        {/* Bento Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-12 gap-6">
+        {/* Uniform photo grid: every tile is a button that opens the lightbox */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
           {filteredItems.map((item, idx) => {
-            const isFeatured = idx === 0 || idx === 3;
-            const colSpan = isFeatured ? "md:col-span-7" : "md:col-span-5";
-            const youtubeId = item.videoSrc ? getYoutubeId(item.videoSrc) : null;
-
+            const isVideo = Boolean(item.videoSrc);
             return (
-              <figure
-                key={item.id}
-                className={`${colSpan} rounded-2xl bg-white p-3 border border-amber-900/15 shadow-sm hover:shadow-md hover:border-amber-400 transition-all group`}
-              >
-                {youtubeId ? (
-                  <div className="aspect-[16/10] w-full rounded-xl overflow-hidden bg-black relative shadow-inner">
-                    <iframe
-                      src={`https://www.youtube.com/embed/${youtubeId}?autoplay=1&mute=1&loop=1&playlist=${youtubeId}&controls=1&rel=0&modestbranding=1&playsinline=1`}
-                      title={item.title[currentLang]}
-                      className="w-full h-full border-0"
-                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                      allowFullScreen
-                    />
-                    <div className="absolute top-3 left-3 flex items-center gap-2 pointer-events-none">
-                      <span className="px-2.5 py-1 rounded-full bg-maroon-950/90 text-amber-300 text-xs font-semibold backdrop-blur-xs border border-amber-400/30">
-                        {item.tag[currentLang]}
-                      </span>
-                      <span className="px-2.5 py-1 rounded-full bg-amber-500 text-maroon-950 text-xs font-bold flex items-center gap-1 shadow-sm">
-                        <Video className="w-3 h-3" />
-                        <span>४K Drone Live</span>
-                      </span>
-                    </div>
-                  </div>
-                ) : (
-                  <div
-                    onClick={() => setActiveItemIndex(idx)}
-                    className="aspect-[16/10] w-full rounded-xl overflow-hidden bg-maroon-950 relative cursor-pointer"
-                  >
-                    <img
-                      src={item.src}
-                      alt={item.alt[currentLang]}
-                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
-                    />
-                    <div className="absolute top-3 left-3 flex items-center gap-2">
-                      <span className="px-2.5 py-1 rounded-full bg-maroon-950/85 text-amber-300 text-xs font-semibold backdrop-blur-xs">
-                        {item.tag[currentLang]}
-                      </span>
-                    </div>
-                  </div>
-                )}
-
-                <figcaption className="pt-3 px-1 flex items-center justify-between text-xs text-maroon-900">
-                  <span className="font-serif font-bold text-sm truncate pr-2">
-                    {item.title[currentLang]}
+              <figure key={item.id} className="group">
+                <button
+                  type="button"
+                  onClick={() => setActiveItemIndex(idx)}
+                  aria-label={`${item.title[currentLang]} — ${
+                    isVideo
+                      ? currentLang === "mr" ? "व्हिडिओ पहा" : "Watch video"
+                      : currentLang === "mr" ? "मोठे पहा" : "View larger"
+                  }`}
+                  className="relative block w-full aspect-[4/5] rounded-2xl overflow-hidden bg-maroon-950 border border-amber-900/15 shadow-sm group-hover:shadow-md group-hover:border-amber-400 transition-all cursor-pointer focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-saffron-600"
+                >
+                  <Image
+                    src={item.src}
+                    alt={item.alt[currentLang]}
+                    fill
+                    sizes="(min-width: 1024px) 380px, (min-width: 640px) 50vw, 100vw"
+                    className="object-cover object-top group-hover:scale-105 transition-transform duration-500"
+                  />
+                  <div className="absolute inset-x-0 bottom-0 h-1/3 bg-gradient-to-t from-maroon-950/80 to-transparent" />
+                  <span className="absolute top-3 left-3 px-3 py-1 rounded-full bg-maroon-950/85 text-amber-300 text-xs font-semibold">
+                    {item.tag[currentLang]}
                   </span>
-                  {youtubeId ? (
-                    <span className="text-saffron-700 font-bold shrink-0 flex items-center gap-1">
-                      <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
-                      <span>{currentLang === "mr" ? "४K चालू आहे" : "4K Playing"}</span>
+                  {isVideo && (
+                    <span className="absolute inset-0 flex items-center justify-center">
+                      <span className="w-16 h-16 rounded-full bg-amber-500 text-maroon-950 flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform">
+                        <Play className="w-7 h-7 ml-1" fill="currentColor" />
+                      </span>
                     </span>
-                  ) : (
-                    <button
-                      type="button"
-                      onClick={() => setActiveItemIndex(idx)}
-                      className="text-gray-500 hover:text-maroon-900 shrink-0 font-medium cursor-pointer"
-                    >
-                      {currentLang === "mr" ? "मोठे पहा" : "Preview"}
-                    </button>
                   )}
+                </button>
+                <figcaption className="pt-3 px-1 font-serif font-bold text-base text-maroon-900 leading-snug">
+                  {item.title[currentLang]}
                 </figcaption>
               </figure>
             );
@@ -283,7 +254,7 @@ export default function DrishyaGallery({
                 <img
                   src={activeItem.src}
                   alt={activeItem.alt[currentLang]}
-                  className="w-full h-full object-cover"
+                  className="w-full h-full object-contain"
                 />
               )}
             </div>

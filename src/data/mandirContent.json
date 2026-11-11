@@ -394,7 +394,7 @@
     },
     {
       "id": "gallery-paduka",
-      "category": "architecture",
+      "category": "paduka",
       "title": {
         "mr": "पवित्र श्रीराम पादुका मंदिर व आश्रम परिसर",
         "en": "Sacred Rama Paduka Sanctum & Ashram Area"
@@ -411,7 +411,7 @@
     },
     {
       "id": "gallery-samadhi",
-      "category": "sanctum",
+      "category": "samadhi",
       "title": {
         "mr": "सद्गुरु यशवंत बाबा तपोभूमी समाधी मंदिर",
         "en": "Sadguru Yashwant Baba Tapobhumi Samadhi"
@@ -428,7 +428,7 @@
     },
     {
       "id": "gallery-bell",
-      "category": "deepmala",
+      "category": "bell",
       "title": {
         "mr": "शापमुक्तीची ऐतिहासिक महाघंटा व आश्रम विहंगम दृश्य",
         "en": "Historic Great Bell of Redemption & Ashram Vista"
