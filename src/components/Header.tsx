@@ -77,13 +77,13 @@ export default function Header({
   return (
     <>
       {/* Top Notice Ticker & Quick Controls */}
-      <div className="bg-gradient-to-r from-saffron-800 via-saffron-700 to-saffron-800 text-white text-sm py-1.5 px-4 shadow-xs border-b border-amber-500/20">
-        <div className="max-w-7xl mx-auto flex items-center justify-between gap-3">
-          <div className="hidden sm:flex items-center gap-2 truncate">
-            <span className="bg-maroon-900 text-amber-300 px-2 py-0.5 rounded text-xs font-bold uppercase tracking-wider shrink-0 shadow-xs">
+      <div className="bg-gradient-to-r from-saffron-800 via-saffron-700 to-saffron-800 text-white text-sm py-2 sm:py-1.5 px-4 shadow-xs border-b border-amber-500/20">
+        <div className="max-w-7xl mx-auto flex flex-col gap-1.5 sm:flex-row sm:items-center sm:justify-between sm:gap-3">
+          <div className="flex items-start sm:items-center gap-2 sm:truncate">
+            <span className="bg-maroon-900 text-amber-300 px-2 py-0.5 rounded text-xs font-bold uppercase tracking-wider shrink-0 shadow-xs mt-0.5 sm:mt-0">
               {navLabels.noticeBadge}
             </span>
-            <span className="font-medium truncate text-amber-50">
+            <span className="font-medium sm:truncate text-amber-50 leading-snug">
               {/* emoji is decorative; strip it at render time, JSON stays as authored */}
               {mandirContent.ticker[currentLang].replace(/^🚩\s*/u, "")}
             </span>
