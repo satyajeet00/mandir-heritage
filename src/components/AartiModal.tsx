@@ -7,6 +7,21 @@ import { playTempleBell } from "@/utils/audio";
 import { useModal } from "@/utils/useModal";
 import type { Language } from "./Header";
 
+const SIZES = ["text-sm", "text-base", "text-lg", "text-xl"] as const;
+type SizeClass = (typeof SIZES)[number];
+const DEFAULT_SIZE: SizeClass = "text-lg"; // larger by default for elderly readers
+const SIZE_KEY = "aartiTextSize";
+
+function readSavedSize(): SizeClass {
+  if (typeof window === "undefined") return DEFAULT_SIZE;
+  try {
+    const saved = window.localStorage.getItem(SIZE_KEY);
+    return SIZES.find((x) => x === saved) ?? DEFAULT_SIZE;
+  } catch {
+    return DEFAULT_SIZE;
+  }
+}
+
 interface AartiModalProps {
   isOpen: boolean;
   onClose: () => void;
@@ -20,7 +35,7 @@ export default function AartiModal({
 }: AartiModalProps) {
   const { aartis } = mandirContent;
   const [activeTab, setActiveTab] = useState<string>(aartis[0]?.id || "ganpati");
-  const [fontSizeClass, setFontSizeClass] = useState<"text-sm" | "text-base" | "text-lg">("text-base");
+  const [fontSizeClass, setFontSizeClass] = useState<SizeClass>(readSavedSize);
   const [bellRinging, setBellRinging] = useState(false);
 
   const dialogRef = useModal<HTMLDivElement>(isOpen, onClose);
@@ -35,11 +50,15 @@ export default function AartiModal({
     setTimeout(() => setBellRinging(false), 2000);
   };
 
+  const sizeIndex = SIZES.indexOf(fontSizeClass);
+
   const handleZoom = (direction: "in" | "out") => {
-    if (direction === "in") {
-      setFontSizeClass((prev) => (prev === "text-sm" ? "text-base" : "text-lg"));
-    } else {
-      setFontSizeClass((prev) => (prev === "text-lg" ? "text-base" : "text-sm"));
+    const next = SIZES[Math.min(SIZES.length - 1, Math.max(0, sizeIndex + (direction === "in" ? 1 : -1)))];
+    setFontSizeClass(next);
+    try {
+      window.localStorage.setItem(SIZE_KEY, next);
+    } catch {
+      /* storage unavailable: size just isn't remembered */
     }
   };
 
@@ -51,9 +70,9 @@ export default function AartiModal({
       aria-label={mandirContent.ui.aartiHaripathReader[currentLang]}
       tabIndex={-1}
       onClick={onClose}
-      className="fixed inset-0 bg-black/65 backdrop-blur-sm z-50 flex items-center justify-center p-3 sm:p-5 animate-in fade-in duration-200"
+      className="fixed inset-0 bg-black/65 backdrop-blur-sm z-50 flex items-stretch sm:items-center justify-center p-0 sm:p-5 animate-in fade-in duration-200"
     >
-      <div onClick={(e) => e.stopPropagation()} className="bg-parchment rounded-3xl max-w-2xl w-full overflow-hidden shadow-2xl border-2 border-amber-500/40 flex flex-col max-h-[90vh]">
+      <div onClick={(e) => e.stopPropagation()} className="bg-parchment rounded-none sm:rounded-3xl sm:max-w-2xl w-full h-dvh sm:h-auto overflow-hidden shadow-2xl border-0 sm:border-2 border-amber-500/40 flex flex-col sm:max-h-[90vh]">
         {/* Modal Header */}
         <div className="shimmer-gold text-white p-4 sm:p-5 flex items-center justify-between border-b border-amber-500/30 shrink-0">
           <div className="flex items-center gap-3">
@@ -61,7 +80,7 @@ export default function AartiModal({
               ॐ
             </div>
             <div>
-              <span className="text-xs uppercase tracking-widest text-amber-300 font-bold block">
+              <span className="hidden sm:block text-xs uppercase tracking-widest text-amber-300 font-bold">
                 {mandirContent.ui.sacredHymnsHaripath[currentLang]}
               </span>
               <h3 className="font-serif text-lg sm:text-xl font-bold text-white leading-tight">
@@ -87,7 +106,7 @@ export default function AartiModal({
 
             <button
               onClick={onClose}
-              className="text-amber-200 hover:text-white p-2 rounded-xl hover:bg-white/10 transition"
+              className="text-amber-200 hover:text-white min-w-11 min-h-11 inline-flex items-center justify-center rounded-xl hover:bg-white/10 transition"
               aria-label={mandirContent.ui.close[currentLang]}
             >
               <X className="w-5 h-5" />
@@ -96,14 +115,14 @@ export default function AartiModal({
         </div>
 
         {/* Tab Switcher & Font Controls */}
-        <div className="bg-amber-100/70 border-b border-amber-900/10 p-3 sm:px-5 flex flex-wrap items-center justify-between gap-3 shrink-0">
+        <div className="bg-amber-100/70 border-b border-amber-900/10 p-2 sm:p-3 sm:px-5 flex flex-wrap items-center justify-between gap-2 sm:gap-3 shrink-0">
           {/* Aarti Selection Tabs */}
-          <div className="flex items-center gap-1.5 bg-white/70 p-1 rounded-xl border border-amber-900/10">
+          <div className="flex flex-wrap items-center gap-1.5 bg-white/70 p-1 rounded-xl border border-amber-900/10 w-full sm:w-auto">
             {aartis.map((aarti) => (
               <button
                 key={aarti.id}
                 onClick={() => setActiveTab(aarti.id)}
-                className={`px-3 py-1.5 rounded-lg text-sm font-bold transition-all ${
+                className={`min-h-11 px-3 py-1.5 rounded-lg text-sm font-bold transition-all ${
                   activeTab === aarti.id
                     ? "bg-saffron-700 text-white shadow-xs"
                     : "text-maroon-900 hover:bg-amber-100"
@@ -121,25 +140,27 @@ export default function AartiModal({
             </span>
             <button
               onClick={() => handleZoom("out")}
-              className="p-1 rounded hover:bg-amber-100"
+              disabled={sizeIndex === 0}
+              className="min-w-11 min-h-11 inline-flex items-center justify-center rounded hover:bg-amber-100 disabled:opacity-40 disabled:hover:bg-transparent"
               title={mandirContent.ui.smaller[currentLang]}
             >
-              <ZoomOut className="w-3.5 h-3.5" />
+              <ZoomOut className="w-5 h-5" />
             </button>
             <span className="px-1 text-sm">A</span>
             <button
               onClick={() => handleZoom("in")}
-              className="p-1 rounded hover:bg-amber-100"
+              disabled={sizeIndex === SIZES.length - 1}
+              className="min-w-11 min-h-11 inline-flex items-center justify-center rounded hover:bg-amber-100 disabled:opacity-40 disabled:hover:bg-transparent"
               title={mandirContent.ui.larger[currentLang]}
             >
-              <ZoomIn className="w-3.5 h-3.5" />
+              <ZoomIn className="w-5 h-5" />
             </button>
           </div>
         </div>
 
         {/* Lyrics Content Container */}
-        <div className="p-5 sm:p-7 overflow-y-auto space-y-4 text-maroon-950 flex-1">
-          <div className="bg-white rounded-2xl p-5 sm:p-7 border border-amber-900/15 shadow-sm space-y-4">
+        <div className="p-3 sm:p-7 overflow-y-auto space-y-4 text-maroon-950 flex-1">
+          <div className="bg-white rounded-2xl p-4 sm:p-7 border border-amber-900/15 shadow-sm space-y-4">
             <div className="flex items-center justify-between border-b border-amber-900/10 pb-3">
               <div className="flex items-center gap-2">
                 <BookOpen className="w-5 h-5 text-saffron-600" />
@@ -149,7 +170,7 @@ export default function AartiModal({
               </div>
               <button
                 onClick={handleBellRing}
-                className="text-sm text-saffron-700 hover:text-saffron-800 flex items-center gap-1 font-semibold"
+                className="text-sm text-saffron-700 hover:text-saffron-800 flex items-center gap-1 min-h-11 px-2 font-semibold"
               >
                 <Volume2 className="w-3.5 h-3.5" />
                 <span>नाद</span>
