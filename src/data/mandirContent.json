@@ -1103,6 +1103,18 @@
     "playVideo": {
       "mr": "व्हिडिओ चालवा",
       "en": "Play video"
+    },
+    "readMore": {
+      "mr": "पुढे वाचा",
+      "en": "Read more"
+    },
+    "showLess": {
+      "mr": "कमी दाखवा",
+      "en": "Show less"
+    },
+    "seeAllSpots": {
+      "mr": "सर्व ६ स्थाने पहा",
+      "en": "See all 6"
     }
   }
 }

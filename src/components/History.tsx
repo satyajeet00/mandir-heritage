@@ -1,6 +1,6 @@
 "use client";
 
-import React from "react";
+import React, { useState } from "react";
 import { Sparkles, Clock } from "lucide-react";
 import mandirContent from "@/data/mandirContent.json";
 import type { Language } from "./Header";
@@ -12,6 +12,9 @@ interface HistoryProps {
 
 export default function History({ currentLang }: HistoryProps) {
   const { history } = mandirContent;
+  // Phones show the first paragraph only; the rest stays in the DOM (hidden with CSS) for search engines
+  const [expanded, setExpanded] = useState(false);
+  const restHidden = expanded ? "" : "hidden sm:block";
 
   return (
     <section id="history" className="scroll-mt-24 py-16 max-w-7xl mx-auto px-4 sm:px-6">
@@ -24,7 +27,7 @@ export default function History({ currentLang }: HistoryProps) {
 
       <div className="grid lg:grid-cols-12 gap-8 items-start">
         {/* Story Column: Sthala Purana */}
-        <div className="lg:col-span-7 bg-white rounded-2xl p-6 sm:p-8 border border-amber-900/15 shadow-sm space-y-5">
+        <div id="history-story" className="lg:col-span-7 bg-white rounded-2xl p-6 sm:p-8 border border-amber-900/15 shadow-sm space-y-5">
           <div className="flex items-center gap-2 border-b border-amber-900/10 pb-3">
             <Sparkles className="w-5 h-5 text-saffron-600" />
             <h3 className="font-serif text-xl sm:text-2xl font-bold text-maroon-900">
@@ -35,14 +38,14 @@ export default function History({ currentLang }: HistoryProps) {
           {history.paragraphs[currentLang].map((para, idx) => (
             <p
               key={idx}
-              className="text-base sm:text-base text-gray-700 leading-relaxed"
+              className={`text-base sm:text-base text-gray-700 leading-relaxed ${idx > 0 ? restHidden : ""}`}
             >
               {para}
             </p>
           ))}
 
           {/* Cultural Significance Highlight Card */}
-          <div className="bg-amber-50/90 border-l-4 border-saffron-600 p-4 sm:p-5 rounded-r-xl space-y-1.5 shadow-xs">
+          <div className={`bg-amber-50/90 border-l-4 border-saffron-600 p-4 sm:p-5 rounded-r-xl space-y-1.5 shadow-xs ${restHidden}`}>
             <h4 className="font-serif font-bold text-maroon-900 text-sm sm:text-base">
               {history.cultureCard.title[currentLang]}
             </h4>
@@ -50,6 +53,19 @@ export default function History({ currentLang }: HistoryProps) {
               {history.cultureCard.text[currentLang]}
             </p>
           </div>
+
+          <button
+            type="button"
+            aria-expanded={expanded}
+            aria-controls="history-story"
+            onClick={() => {
+              if (expanded) document.getElementById("history")?.scrollIntoView();
+              setExpanded(!expanded);
+            }}
+            className="sm:hidden w-full min-h-11 px-4 py-2.5 rounded-xl border-2 border-saffron-700 text-saffron-700 font-semibold text-base cursor-pointer hover:bg-saffron-100 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-saffron-700 transition"
+          >
+            {expanded ? mandirContent.ui.showLess[currentLang] : mandirContent.ui.readMore[currentLang]}
+          </button>
         </div>
 
         {/* Timeline Column */}
