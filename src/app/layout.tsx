@@ -22,15 +22,20 @@ const plusJakarta = Plus_Jakarta_Sans({
   weight: ["400", "600"],
 });
 
+// Body font: Devanagari only. Latin glyphs always come first from Plus Jakarta / Noto Serif in the
+// font stacks, so the Latin subset of the Devanagari fonts was a preloaded but never-used download.
 const notoSansDeva = Noto_Sans_Devanagari({
   variable: "--font-noto-sans-deva",
-  subsets: ["devanagari", "latin"],
+  subsets: ["devanagari"],
   display: "swap",
 });
 
+// Heading font: not preloaded, so on slow connections the body font gets the first bytes and the
+// headings swap in right after (display: swap keeps them readable in the fallback meanwhile).
 const notoSerifDeva = Noto_Serif_Devanagari({
   variable: "--font-noto-serif-deva",
-  subsets: ["devanagari", "latin"],
+  subsets: ["devanagari"],
+  preload: false,
   display: "swap",
 });
 
